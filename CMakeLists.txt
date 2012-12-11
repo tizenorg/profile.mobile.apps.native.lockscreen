@@ -43,7 +43,6 @@ pkg_check_modules(pkgs REQUIRED
 	utilX
 	ail
 	notification
-	mdm
 	security-server
 )
 
