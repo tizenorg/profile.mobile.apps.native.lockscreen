@@ -19,7 +19,6 @@
 #include <vconf-keys.h>
 #include <dlog.h>
 #include <app_service.h>
-
 #include <unicode/udat.h>
 #include <unicode/udatpg.h>
 
