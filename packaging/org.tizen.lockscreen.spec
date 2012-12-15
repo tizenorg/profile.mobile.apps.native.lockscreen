@@ -14,6 +14,7 @@ BuildRequires: pkgconfig(utilX)
 BuildRequires: pkgconfig(ail)
 BuildRequires: pkgconfig(notification)
 BuildRequires: pkgconfig(security-server)
+BuildRequires: pkgconfig(ui-gadget-1)
 
 BuildRequires: cmake
 BuildRequires: gettext

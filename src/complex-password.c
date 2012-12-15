@@ -41,6 +41,11 @@ static void __complex_password_keypad_process(void *data, Evas_Object *obj, cons
 
 	LOCK_SCREEN_TRACE_DBG("source = %s", source);
 
+	if (strcmp("SOS", source) == 0) {
+		launch_emgcall(ad);
+		return;
+	}
+
 	if (strcasecmp("function1", source) == 0 || strcasecmp("function2", source) == 0) {
 		return ;
 	}

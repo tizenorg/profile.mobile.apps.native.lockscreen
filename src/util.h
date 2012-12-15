@@ -26,6 +26,7 @@ Evas_Object *_make_top_layout(struct appdata *ad);
 Evas_Object *_get_bg_image(Evas_Object *parent);
 void lockscreen_info_show(struct appdata *ad);
 void lockscreen_info_hide(struct appdata *ad);
+void launch_emgcall(struct appdata *ad);
 
 int _app_create(struct appdata *ad);
 int _app_reset(struct appdata *ad);

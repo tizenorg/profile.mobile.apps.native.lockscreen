@@ -77,6 +77,8 @@ struct appdata {
 	Ecore_Timer *password_timer;
 	int block_seconds;
 	Eina_Bool is_disabled;
+
+	struct ui_gadget *emgc_ug;
 };
 
 #endif
