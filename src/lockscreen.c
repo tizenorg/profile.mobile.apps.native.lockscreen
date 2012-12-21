@@ -18,9 +18,12 @@
 #include <app.h>
 #include <vconf.h>
 #include <Ecore_X.h>
+#include <system_info.h>
 
 #include "lockscreen.h"
 #include "util.h"
+
+#define QP_EMUL_STR      "Emulator"
 
 static void win_del(void *data, Evas_Object * obj, void *event)
 {
@@ -57,6 +60,23 @@ static void resize_cb(void *data, Evas *e, Evas_Object *obj, void *event_info)
 	Evas_Coord h;
 
 	evas_object_geometry_get(obj, NULL, NULL, &w, &h);
+}
+
+static int _check_emul()
+{
+	int is_emul = 0;
+	char *info = NULL;
+
+	if (system_info_get_value_string(SYSTEM_INFO_KEY_MODEL, &info) == 0) {
+		if (info == NULL) return 0;
+		if (!strncmp(QP_EMUL_STR, info, strlen(info))) {
+			is_emul = 1;
+		}
+	}
+
+	if (info != NULL) free(info);
+
+	return is_emul;
 }
 
 static bool app_create(void *data)
@@ -163,7 +183,9 @@ int main(int argc, char *argv[])
 
 	memset(&ad, 0x0, sizeof(struct appdata));
 
-	setenv("ELM_ENGINE", "gl", 1);
+	if(!_check_emul()) {
+		setenv("ELM_ENGINE", "gl", 1);
+	}
 
 	return app_efl_main(&argc, &argv, &event_callback, &ad);
 }

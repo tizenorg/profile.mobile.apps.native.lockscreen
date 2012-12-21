@@ -45,6 +45,7 @@ pkg_check_modules(pkgs REQUIRED
 	notification
 	security-server
 	ui-gadget-1
+	capi-system-info
 )
 
 FOREACH(flag ${pkgs_CFLAGS})
