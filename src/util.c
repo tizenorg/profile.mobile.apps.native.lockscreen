@@ -20,6 +20,7 @@
 #include <vconf.h>
 #include <vconf-keys.h>
 #include <ail.h>
+#include <ui-gadget.h>
 
 #include "util.h"
 #include "info.h"
@@ -299,6 +300,11 @@ int _app_reset(struct appdata *ad)
 	if (ad == NULL)
 		return -1;
 
+	if (ad->emgc_ug) {
+		ug_destroy(ad->emgc_ug);
+		ad->emgc_ug = NULL;
+	}
+
 	static int initted = 0;
 	if(initted == 0) {
 		ecore_idler_add(_init_widget_cb, ad);
@@ -329,4 +335,86 @@ int _app_terminate(struct appdata *ad)
 	elm_exit();
 
 	return 0;
+}
+
+static void __layout_cb(ui_gadget_h ug, enum ug_mode mode, void *priv)
+{
+	struct appdata *ad;
+	Evas_Object *base;
+
+	if (!ug || !priv)
+		return;
+
+	ad = priv;
+	base = ug_get_layout(ug);
+	if (!base)
+		return;
+
+	switch(mode) {
+	case UG_MODE_FULLVIEW:
+		LOCK_SCREEN_TRACE_DBG("[%s:%d]", __func__, __LINE__);
+		evas_object_size_hint_weight_set(base, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+		elm_win_resize_object_add(ad->win, base);
+		evas_object_show(base);
+		break;
+	case UG_MODE_FRAMEVIEW:
+		break;
+	default:
+		break;
+	}
+}
+
+static void __result_cb(ui_gadget_h ug, service_h service, void *priv)
+{
+	LOCK_SCREEN_TRACE_DBG("result_cb\n");
+}
+
+static void __destroy_cb(ui_gadget_h ug, void *priv)
+{
+	struct appdata *ad = (struct appdata *)priv;
+
+	if (!ug || !ad) {
+		return;
+	}
+	LOCK_SCREEN_TRACE_DBG("[%s:%d]", __func__, __LINE__);
+
+	ug_destroy(ug);
+	ug = NULL;
+}
+
+void launch_emgcall(struct appdata *ad)
+{
+	if (ad == NULL)
+		return;
+
+	service_h service;
+	service_create(&service);
+	UG_INIT_EFL(ad->win, UG_OPT_INDICATOR_ENABLE);
+	struct ug_cbs *cbs = (struct ug_cbs *)calloc(1, sizeof(struct ug_cbs));
+	if (cbs == NULL) {
+		service_destroy(service);
+		return;
+	}
+	cbs->layout_cb = __layout_cb;
+	cbs->result_cb = __result_cb;
+	cbs->destroy_cb = __destroy_cb;
+	cbs->priv = (void *)ad;
+
+	LOCK_SCREEN_TRACE_DBG("[%s:%d]", __func__, __LINE__);
+
+	if (!service) {
+		service_destroy(service);
+		free(cbs);
+		return;
+	}
+
+	service_add_extra_data(service, "emergency_dialer", "emergency");
+	ad->emgc_ug = ug_create(NULL, "dialer-efl", UG_MODE_FULLVIEW, service, cbs);
+	service_destroy(service);
+	free(cbs);
+
+	if (!ad->emgc_ug) {
+		LOCK_SCREEN_TRACE_DBG("dialer ug failed");
+		return;
+	}
 }

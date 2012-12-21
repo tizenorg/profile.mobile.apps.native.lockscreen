@@ -56,6 +56,8 @@ static void __simple_password_keypad_process(void *data, Evas_Object *obj, const
 
 	LOCK_SCREEN_TRACE_DBG("source = %s", source);
 	if (strcmp("SOS", source) == 0) {
+		launch_emgcall(ad);
+		return;
 	} else if (strcmp("Backspace", source) == 0) {
 		if(simple_password_length <= 0){
 			simple_password[0] = '\0';
