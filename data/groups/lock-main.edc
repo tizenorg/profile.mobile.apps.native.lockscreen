@@ -95,8 +95,8 @@
 						to: "bg";
 					}
 					text{
-						font: "SLP:style=Medium";
-						text_class: "slp";
+						font: "Tizen:style=Medium";
+						text_class: "tizen";
 						size: 100;
 						align: 0.0 0.5;
 						text: "Life Magazine";
@@ -146,8 +146,8 @@
 						to: "bg";
 					}
 					text{
-						font: "SLP:style=Bold";
-						text_class: "slp";
+						font: "Tizen:style=Bold";
+						text_class: "tizen";
 						size: 26;
 						align: 0.0 0.5;
 					}

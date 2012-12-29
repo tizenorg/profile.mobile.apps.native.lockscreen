@@ -25,8 +25,8 @@
 			rel2 { relative: 1.0 48*num/144; to: topart; }\
 			text {\
 					text: "";\
-					font: "SLP:style=Medium";\
-					text_class: "slp_medium";\
+					font: "Tizen:style=Medium";\
+					text_class: "tizen";\
 					size: 36;\
 					align: 0.0 0.5;\
 			}\
