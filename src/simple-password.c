@@ -211,7 +211,11 @@ static void __simple_password_results_update(void *data)
 		temp_length = strlen(temp);
 		length = (temp_length <= PASSWORD_TIMESTAMP_STR_LENGTH) ? temp_length : PASSWORD_TIMESTAMP_STR_LENGTH;
 		strncpy(timestamp_str, temp, length);
-		timestamp_str[length] = '\0';
+		if(length == PASSWORD_TIMESTAMP_STR_LENGTH) {
+			timestamp_str[length-1] = '\0';
+		}else {
+			timestamp_str[length] = '\0';
+		}
 		if ((strcmp(timestamp_str, "") != 0)
 		    || (strlen(timestamp_str) != 0)) {
 			time_t cur_time = time(NULL);

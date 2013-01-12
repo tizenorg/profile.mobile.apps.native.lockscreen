@@ -23,27 +23,27 @@ collections {
 		styles {
 			style {
 				name: "entry_single_textblock_style";
-				base: "font=SLP:style=Light text_class=slp font_size=88 color=#F9F9F9FF wrap=none";
+				base: "font=Tizen:style=Light text_class=tizen font_size=88 color=#F9F9F9FF wrap=none";
 				tag:  "br" "\n";
 				tag:  "ps" "ps";
 				tag:  "tab" "\t";
-				tag:  "em" "+ font=SLP:style=Oblique";
-				tag:  "b" "+ font=SLP:style=Bold";
+				tag:  "em" "+ font=Tizen:style=Oblique";
+				tag:  "b" "+ font=Tizen:style=Bold";
 				tag:  "link" "+ color=#800 underline=on underline_color=#8008";
-				tag:  "hilight" "+ font=SLP:style=Bold";
+				tag:  "hilight" "+ font=Tizen:style=Bold";
 				tag:  "preedit" "+ underline=on underline_color=#000000FF";
 				tag:  "preedit_sel" "+ backing=on backing_color=#000000FF color=#FFFFFFFF";
 			}
 			style {
 				name: "entry_single_textblock_disabled_style";
-				base: "font=SLP:style=Light text_class=slp font_size=88 color=#00000080 wrap=none";
+				base: "font=Tizen:style=Light text_class=tizen font_size=88 color=#00000080 wrap=none";
 				tag:  "br" "\n";
 				tag:  "ps" "ps";
 				tag:  "tab" "\t";
-				tag:  "em" "+ font=SLP:style=Oblique";
-				tag:  "b" "+ font=SLP:style=Bold";
+				tag:  "em" "+ font=Tizen:style=Oblique";
+				tag:  "b" "+ font=Tizen:style=Bold";
 				tag:  "link" "+ color=#00000080 underline=on underline_color=#00000080";
-				tag:  "hilight" "+ font=SLP:style=Bold";
+				tag:  "hilight" "+ font=Tizen:style=Bold";
 				tag:  "preedit" "+ underline=on underline_color=#000000FF";
 				tag:  "preedit_sel" "+ backing=on backing_color=#000000FF color=#FFFFFFFF";
 			}
