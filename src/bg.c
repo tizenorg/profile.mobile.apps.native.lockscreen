@@ -249,12 +249,11 @@ void _slider_up_cb(void *data, Evas * evas, Evas_Object * obj, void *event_info)
 	edje_object_signal_emit(_EDJ(ad->slider), "release", "lock.image.l");
 	edje_object_signal_emit(_EDJ(ad->slider), "release", "lock.image.r");
 
-	if (ad->bDrag == 1) {
-		LOCK_SCREEN_TRACE_DBG("unlock the lock-screen");
-		app_efl_exit();
-	}
-
 	evas_object_color_set(ad->ly_main, 255, 255, 255, 255);
 
-	ad->bDrag = 0;
+	if (ad->bDrag == 1) {
+		ad->bDrag = 0;
+		LOCK_SCREEN_TRACE_DBG("unlock the lock-screen");
+		edje_object_signal_emit(_EDJ(ad->ly_main), "transit,clipper", "clipper");
+	}
 }
