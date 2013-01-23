@@ -35,7 +35,7 @@ make %{?jobs:-j%jobs}
 %make_install
 mkdir -p %{buildroot}/usr/apps/org.tizen.lockscreen/data
 mkdir -p %{buildroot}/usr/share/license
-install -m 0755 LICENSE %{buildroot}/usr/share/license/org.tizen.lockscreen
+install -m 0755 LICENSE.Flora %{buildroot}/usr/share/license/org.tizen.lockscreen
 
 %post
 /sbin/ldconfig
