@@ -253,6 +253,10 @@ void _slider_up_cb(void *data, Evas * evas, Evas_Object * obj, void *event_info)
 
 	if (ad->bDrag == 1) {
 		ad->bDrag = 0;
+		if(ad->slider) {
+			evas_object_del(ad->slider);
+			ad->slider = NULL;
+		}
 		LOCK_SCREEN_TRACE_DBG("unlock the lock-screen");
 		edje_object_signal_emit(_EDJ(ad->ly_main), "transit,clipper", "clipper");
 	}
