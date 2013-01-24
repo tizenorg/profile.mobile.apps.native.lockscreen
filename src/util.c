@@ -21,6 +21,7 @@
 #include <vconf-keys.h>
 #include <ail.h>
 #include <ui-gadget.h>
+#include <heynoti.h>
 
 #include "util.h"
 #include "info.h"
@@ -28,6 +29,7 @@
 #include "noti.h"
 
 #define DEFAULT_BG_PATH     "/opt/share/settings/Wallpapers/Home_default.jpg"
+#define SYSTEM_RESUME       "system_wakeup"
 
 static Evas_Coord pos_down_y = 0;
 
@@ -223,6 +225,68 @@ static void _app_exit(void *data, Evas_Object *obj, const char *emission, const 
 	_app_terminate(ad);
 }
 
+static int _init_heynoti(void *data)
+{
+	struct appdata *ad = data;
+	if (ad == NULL) {
+		return EXIT_FAILURE;
+	}
+	int fd = -1, ret = -1;
+	LOCK_SCREEN_TRACE_DBG("[ == %s == ]", __func__);
+
+	fd = heynoti_init();
+	if (fd == -1) {
+		LOCK_SCREEN_TRACE_DBG("Heynoti init error\n");
+		return EXIT_FAILURE;
+	}
+
+	ret = heynoti_subscribe(fd, SYSTEM_RESUME, update_time, ad);
+	if (ret == -1) {
+		LOCK_SCREEN_TRACE_DBG("[Error] heynoti_subscribe : system_wakeup\n");
+		return EXIT_FAILURE;
+	}
+
+	ret = heynoti_attach_handler(fd);
+	if (ret == -1) {
+		LOCK_SCREEN_TRACE_DBG("[Error] heynoti_attach_handler failed.\n");
+		return EXIT_FAILURE;
+	}
+
+	ad->heynoti_fd = fd;
+
+	return EXIT_SUCCESS;
+}
+
+static void _fini_heynoti(void *data)
+{
+	struct appdata *ad = data;
+	if (ad == NULL) {
+		return;
+	}
+	LOCK_SCREEN_TRACE_DBG("[ == %s == ]", __func__);
+	heynoti_unsubscribe(ad->heynoti_fd, SYSTEM_RESUME, update_time);
+	heynoti_close(ad->heynoti_fd);
+	ad->heynoti_fd = 0;
+}
+
+static void _pm_state_cb(keynode_t * node, void *data)
+{
+	LOCK_SCREEN_TRACE_DBG("_pm_state_cb");
+
+	struct appdata *ad = data;
+	int val = -1;
+
+	if (vconf_get_int(VCONFKEY_PM_STATE, &val) < 0) {
+		LOCK_SCREEN_TRACE_ERR("Cannot get VCONFKEY_PM_STATE");
+		return;
+	}
+
+	if (val == VCONFKEY_PM_STATE_NORMAL) {
+		LOCK_SCREEN_TRACE_DBG("LCD on");
+		update_time(ad);
+	}
+}
+
 static Eina_Bool _init_widget_cb(void *data)
 {
 	struct appdata *ad = data;
@@ -250,6 +314,14 @@ static Eina_Bool _init_widget_cb(void *data)
 	evas_object_show(ad->info);
 	elm_object_part_content_set(ad->ly_main, "rect.info", ad->info);
 	_set_info(ad);
+
+	if(_init_heynoti(ad) != EXIT_SUCCESS) {
+		LOCK_SCREEN_TRACE_DBG("heynoti ERR..!!");
+	}
+
+	if (vconf_notify_key_changed(VCONFKEY_PM_STATE, _pm_state_cb, ad) != 0) {
+		LOCK_SCREEN_TRACE_ERR("Fail vconf_notify_key_changed : VCONFKEY_PM_STATE");
+	}
 
 	int state = 0;
 	vconf_get_bool(VCONFKEY_LOCKSCREEN_EVENT_NOTIFICATION_DISPLAY, &state);
@@ -330,6 +402,9 @@ int _app_terminate(struct appdata *ad)
 		LOGD("[_app_terminate] Invalid argument : struct appdata is NULL\n");
 		return -1;
 	}
+
+	vconf_ignore_key_changed(VCONFKEY_PM_STATE, _pm_state_cb);
+	_fini_heynoti(ad);
 
 	LOGD("[%s] app termiante", __func__);
 	elm_exit();

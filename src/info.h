@@ -18,5 +18,6 @@
 #define __INFO_H__
 
 void _set_info(void *data);
+void update_time(void *data);
 
 #endif

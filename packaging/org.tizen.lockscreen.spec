@@ -2,7 +2,7 @@
 
 Name:       org.tizen.lockscreen
 Summary:    lockscreen application
-Version:    0.1.8
+Version:    0.1.9
 Release:    1
 Group:      TBD
 License:    Apache
@@ -15,6 +15,7 @@ BuildRequires: pkgconfig(ail)
 BuildRequires: pkgconfig(notification)
 BuildRequires: pkgconfig(security-server)
 BuildRequires: pkgconfig(ui-gadget-1)
+BuildRequires: pkgconfig(heynoti)
 BuildRequires: pkgconfig(capi-system-info)
 
 BuildRequires: cmake

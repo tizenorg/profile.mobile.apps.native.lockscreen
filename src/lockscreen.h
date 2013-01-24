@@ -73,6 +73,8 @@ struct appdata {
 	Eina_Bool bFlick;//flick to launch shorcuts
 	Eina_Bool bDrag;//for drag lock
 
+	int heynoti_fd;
+
 	void *h_password_policy;
 	Ecore_Timer *password_timer;
 	int block_seconds;

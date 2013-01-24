@@ -178,3 +178,19 @@ void _set_info(void *data)
 		}
 	}
 }
+
+void update_time(void *data)
+{
+	struct appdata *ad = data;
+	if (ad == NULL) {
+		return;
+	}
+
+	int is_clock = -1;
+	int retc = vconf_get_bool(VCONFKEY_LOCKSCREEN_CLOCK_DISPLAY, &is_clock);
+	if(0 == retc) {
+		if(is_clock) {
+			_set_info_time(ad->info);
+		}
+	}
+}
