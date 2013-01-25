@@ -154,13 +154,13 @@ void __simple_password_check_result(void *data)
 			      value);
 		if(value == 1)
 		{
-			snprintf(temp_left, sizeof(temp_left), _L("1 attempt left."));
+			snprintf(temp_left, sizeof(temp_left), _("IDS_IDLE_BODY_1_ATTEMPT_LEFT"));
 		}
 		else
 		{
-			snprintf(temp_left, sizeof(temp_left), _L("%d attempts left."), value);
+			snprintf(temp_left, sizeof(temp_left), _("IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"), value);
 		}
-		snprintf(temp_str, sizeof(temp_str), "%s, %s", _L("Wrong password"), temp_left);
+		snprintf(temp_str, sizeof(temp_str), "%s, %s", _("IDS_IDLE_BODY_INCORRECT_PASSWORD"), temp_left);
 		edje_object_part_text_set(_EDJ(ad->ly_simple_password), "txt.result", temp_str);
 	} else if (value == 0) {
 		time_t cur_time = time(NULL);

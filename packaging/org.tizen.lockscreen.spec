@@ -2,7 +2,7 @@
 
 Name:       org.tizen.lockscreen
 Summary:    lockscreen application
-Version:    0.1.10
+Version:    0.1.11
 Release:    1
 Group:      TBD
 License:    Apache
@@ -52,3 +52,4 @@ GOPTION="-g 6514"
 /usr/apps/org.tizen.lockscreen/*
 /usr/share/packages/org.tizen.lockscreen.xml
 /usr/share/license/org.tizen.lockscreen
+/usr/apps/org.tizen.lockscreen/res/locale/*/LC_MESSAGES/lockscreen.mo

@@ -42,23 +42,23 @@ static void __noti_info_set(void *data, const char *pkgname, const char *title, 
 
 	if (!strcmp(pkgname, PHONE_LAUNCH_PKG)) {
 		if(count == 1){
-			snprintf(buf1, sizeof(buf1), "%d %s", count, _NOT_LOCALIZED("Missed call"));
+			snprintf(buf1, sizeof(buf1), "%d %s", count, _("IDS_IDLE_POP_MISSED_CALL"));
 		}else if(count > 1){
-			snprintf(buf1, sizeof(buf1), "%d %s", count, _NOT_LOCALIZED("Missed calls"));
+			snprintf(buf1, sizeof(buf1), "%d %s", count, _("IDS_IDLE_POP_MISSED_CALL"));
 		}
 		edje_object_part_text_set(_EDJ(ad->noti), buf2, buf1);
 	} else if (!strcmp(pkgname, MESSAGE_LAUNCH_PKG)) {
 		if(count == 1){
-			snprintf(buf1, sizeof(buf1), "%d %s", count, _NOT_LOCALIZED("New message"));
+			snprintf(buf1, sizeof(buf1), "%d %s", count, _("IDS_IDLE_POP_NEW_MESSAGE"));
 		}else if(count > 1){
-			snprintf(buf1, sizeof(buf1), "%d %s", count, _NOT_LOCALIZED("New messages"));
+			snprintf(buf1, sizeof(buf1), "%d %s", count, _("IDS_IDLE_POP_NEW_MESSAGE"));
 		}
 		edje_object_part_text_set(_EDJ(ad->noti), buf2, buf1);
 	} else if (!strcmp(pkgname, EMAIL_LAUNCH_PKG)) {
 		if(count == 1){
-			snprintf(buf1, sizeof(buf1), "%d %s", count, _NOT_LOCALIZED("New email"));
+			snprintf(buf1, sizeof(buf1), "%d %s", count, _("IDS_IDLE_POP_NEW_EMAIL"));
 		}else if(count > 1){
-			snprintf(buf1, sizeof(buf1), "%d %s", count, _NOT_LOCALIZED("New emails"));
+			snprintf(buf1, sizeof(buf1), "%d %s", count, _("IDS_IDLE_POP_NEW_EMAIL"));
 		}
 		edje_object_part_text_set(_EDJ(ad->noti), buf2, buf1);
 	} else {

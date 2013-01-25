@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Zbývá 1 pokus"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Počet zbývajících pokusů: %d"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Pouze tísňová volání"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Pro odemknutí přejeďte po displeji"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Klepněte na displej, držte a nakloňte zařízení dopředu"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Nesprávné heslo"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Zmeškaný hovor"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Zmeškané hovory"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Nová zpráva"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Nové zprávy"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Nový e-mail"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Nové e-maily"
+

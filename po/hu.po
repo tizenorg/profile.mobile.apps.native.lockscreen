@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Még 1 próbálkozásra van"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d kísérlet maradt."
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Csak segélyhívás indítható"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Feloldás a kijelző végigsimításával"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Tartsa ujját a képernyőn, és döntse az eszközt előre"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Téves jelszó"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Nem fogadott hívás"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Nem fogadott hívások"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Új üzenet"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Új üzenet"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Új e-mail"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Új e-mail"
+

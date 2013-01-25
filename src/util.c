@@ -193,7 +193,7 @@ static void _set_sim_state(void *data)
 	int ret = 0;
 	char *buf = NULL;
 
-	int service_type = VCONFKEY_TELEPHONY_SVCTYPE_NONE;
+	int service_type = VCONFKEY_TELEPHONY_SVCTYPE_SEARCH;
 
 	if(vconf_get_int(VCONFKEY_TELEPHONY_SVCTYPE, &service_type) != 0) {
 		LOGD("fail to get VCONFKEY_TELEPHONY_SVCTYPE");
@@ -213,8 +213,17 @@ static void _set_sim_state(void *data)
 				buf = vconf_get_str(VCONFKEY_TELEPHONY_NWNAME);
 				edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", buf);
 			}
+		} else if (service_type == VCONFKEY_TELEPHONY_SVCTYPE_NOSVC) {
+			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _S("IDS_COM_BODY_NO_SERVICE"));
+		} else if (service_type == VCONFKEY_TELEPHONY_SVCTYPE_EMERGENCY) {
+			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _("IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"));
 		} else {
-			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", "");
+			if (service_type > VCONFKEY_TELEPHONY_SVCTYPE_SEARCH) {
+				buf = vconf_get_str(VCONFKEY_TELEPHONY_NWNAME);
+				edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", buf);
+			}else {
+				edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _S("IDS_COM_BODY_SEARCHING"));
+			}
 		}
 	}
 }

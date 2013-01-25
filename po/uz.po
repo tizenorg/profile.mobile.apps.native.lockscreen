@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 attempt left"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d urinish qoldi"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Faqat favqulodda qo‘ng‘iroqlar"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Blokdan chiqarish uchun ekranni ustida barmog‘ingizni harakatlantiring"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Ekranni bosib turgan holda qurilmani oldinga og‘diring"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Noto‘g‘ri parol"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Qabul qilinmagan qo‘ng‘iroq"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "O‘tkazib yuborilgan qo‘ng‘iroqlar"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Yangi xabar"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Yangi xabarlar"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Yangi e-pochta"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Yangi e-pochta xabarlari"
+

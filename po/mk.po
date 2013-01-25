@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Уште 1 обид"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d attempts left"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Само итни повици"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Поминете преку екранот за да отклучите"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Допрете го и држете го екранот и навалете го уредот нанапред"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Погрешна лозинка"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Пропуштен повик"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Пропуштени повици"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Нова порака"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Нови пораки"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Нова email"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Нови email пораки"
+

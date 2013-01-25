@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 cəhd qalmışdır"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d cəhd qalıb"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Yalnız fövqəladə zənglər üçün"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Kilidi açmaq üçün ekrana vur"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Ekrana vurub saxlayın və cihazı irəli əyin"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Yanlış şifrə"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Buraxılmış zəng"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Buraxılmış zənglər"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Yeni mesaj"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Yeni mesaj"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Yeni epoçt"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Yeni epoçtlar"
+

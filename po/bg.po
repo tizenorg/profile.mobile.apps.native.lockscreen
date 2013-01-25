@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 оставащ опит"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Остават %d опита"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Само спешни повиквания"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Плъзнете екрана, за да го отключите"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Чукнете и задръжте екрана и наклонете устройството напред"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Грешна парола"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Пропуснат разговор"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Пропуснати разговори"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Ново съобщение"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Нови съобщения"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Нов имейл"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Нови имейли"
+

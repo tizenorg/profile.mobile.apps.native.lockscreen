@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Залишилась 1 спроба"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d спроб залишилось"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Лише екстрені виклики"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Проведіть по екрану, щоб розблокувати"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Натисніть і утримуйте екран, а потім нахиліть пристрій вперед"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Хибний пароль"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Пропущений виклик"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Пропущені"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Нове повідомлення"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Нових повідомлень"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Новий Email"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Нові повідомлення Email"
+

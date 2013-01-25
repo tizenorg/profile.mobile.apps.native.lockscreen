@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "还能尝试 1 次"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "还有%d次机会"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "仅限紧急通话"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "滑动屏幕以解锁"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "轻敲并按住屏幕并向前倾斜设备"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "密码不正确"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "未接来电"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "未接来电"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "新讯息"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "新讯息"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "新邮件"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "新电子邮件"
+

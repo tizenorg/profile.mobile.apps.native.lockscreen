@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Ahalegin 1 gelditzen zaizu"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d saiakera geratzen dira"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Larrialdi deiak bakarrik"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Irristatu pantaila desblokeatzeko"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Ukitu eta eutsi pantaila eta inklinatu gailua aurrerantz"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Pasahitz okerra"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Galdutako deia"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Galdutako deiak"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Mezu berria"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Mezu berriak"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Mezu elektroniko berria"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Mezu elektroniko berriak"
+

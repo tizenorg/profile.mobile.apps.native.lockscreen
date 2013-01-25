@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Απομένει 1 προσπάθεια"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d προσπάθειες απομένουν"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Μόνο επείγουσες κλήσεις"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Περάστε το δάχτυλό σας από την οθόνη για ξεκλείδωμα"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Πατήστε παρατεταμένα στην οθόνη και δώστε κλίση προς τα εμπρός στη συσκευή"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Λάθος κωδικός"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Αναπάντητη κλήση"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Αναπάντητες"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Νέο μήνυμα"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Νέα μηνύματα"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Νέο email"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Νέα email"
+

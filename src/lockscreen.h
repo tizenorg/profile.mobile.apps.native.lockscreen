@@ -33,6 +33,7 @@
 #define _S(str)	dgettext("sys_string", str)
 #define _L(str) dgettext("lockscreen", str)
 #define _NOT_LOCALIZED(str) (str)
+#define _(str) gettext(str)
 
 #define _EDJ(x) elm_layout_edje_get(x)
 #define _X(x) (x*elm_config_scale_get())

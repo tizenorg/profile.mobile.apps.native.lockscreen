@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 poging over"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d pogingen over"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Alleen noodoproepen"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Veeg uw vinger over het scherm om te ontgrendelen"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Tik en houd het scherm vast, en kantel het apparaat naar voren"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Onjuist wachtwoord"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Gemiste oproep"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Gemiste oproepen"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Nieuw bericht"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Nieuwe berichten"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Nieuwe e-mail"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Nieuwe e-mails"
+
