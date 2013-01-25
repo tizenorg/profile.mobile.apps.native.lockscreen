@@ -2,7 +2,7 @@
 
 Name:       org.tizen.lockscreen
 Summary:    lockscreen application
-Version:    0.1.9
+Version:    0.1.10
 Release:    1
 Group:      TBD
 License:    Apache

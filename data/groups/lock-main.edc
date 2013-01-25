@@ -138,11 +138,11 @@
 					visible: 1;
 					color: 255 255 255 255;
 					rel1{
-						relative: 36/WIDTH (30+20)/HEIGHT;//for it covers indicator, so move done 20 pixels
+						relative: 36/WIDTH (60+10)/HEIGHT;//for it covers indicator, so move done 20 pixels
 						to: "bg";
 					}
 					rel2{
-						relative: 1.0 (62+20)/HEIGHT;
+						relative: 1.0 (92+10)/HEIGHT;
 						to: "bg";
 					}
 					text{
