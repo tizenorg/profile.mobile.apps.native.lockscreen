@@ -4,6 +4,7 @@ PROJECT(lockscreen C)
 SET(SRCS
 	${CMAKE_SOURCE_DIR}/src/lockscreen.c
 	${CMAKE_SOURCE_DIR}/src/util.c
+	${CMAKE_SOURCE_DIR}/src/sim-state.c
 	${CMAKE_SOURCE_DIR}/src/info.c
 	${CMAKE_SOURCE_DIR}/src/bg.c
 	${CMAKE_SOURCE_DIR}/src/noti.c
