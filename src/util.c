@@ -91,7 +91,14 @@ Evas_Object *_make_top_layout(struct appdata *ad)
 	if(conform == NULL) {
 		return NULL;
 	}
+
+#if 0
 	elm_object_style_set(conform, "indicator_overlap");
+#else
+	elm_object_signal_emit(conform, "elm,state,virtualkeypad,disable", "");
+	elm_object_signal_emit(conform, "elm,state,indicator,overlap", "");
+	elm_object_signal_emit(conform, "elm,state,clipboard,disable", "");
+#endif
 
 	eo = _add_layout(conform, EDJEFILE, "lock-main");
 	if (eo == NULL)
