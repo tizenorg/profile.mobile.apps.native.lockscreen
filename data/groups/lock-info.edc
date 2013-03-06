@@ -17,6 +17,17 @@
 #define INFO_WIDTH 720
 #define INFO_HEIGHT 382
 
+	styles{
+		style {
+			name: "style_time";
+			base: "font=Tizen:style=Medium text_class=tizen font_size=130 align=top color=#ffffffff wrap=mixed";
+			tag: "br" "\n";
+			tag: "hilight" "+ color=#ffff";
+			tag: "b" "+ color=#ffff";
+			tag: "tab" "\t";
+		}
+	}
+
 	group{
 		name: "lock-info";
 		parts{
@@ -42,37 +53,7 @@
 						to: "info.bg";
 					}
 					rel2{
-						relative: 376/INFO_WIDTH 122/INFO_HEIGHT;
-						to: "info.bg";
-					}
-				}
-			}
-			part{
-				name: "rect.clock.ampm";
-				type: RECT;
-				scale: 1;
-				mouse_events: 0;
-				description{
-					state: "default" 0.0;//for 10:07 hour>=10
-					color: 0 0 0 0;
-					rel1{
-						relative: 376/INFO_WIDTH (122-54)/INFO_HEIGHT);
-						to: "info.bg";
-					}
-					rel2{
-						relative: 1.0 122/INFO_HEIGHT;
-						to: "info.bg";
-					}
-				}
-				description{
-					state: "digit" 1.0;//for 1:07 hour<10
-					color: 0 0 0 0;
-					rel1{
-						relative: (376-78)/INFO_WIDTH (122-54)/INFO_HEIGHT);
-						to: "info.bg";
-					}
-					rel2{
-						relative: 1.0 122/INFO_HEIGHT;
+						relative: 1.0 132/INFO_HEIGHT;
 						to: "info.bg";
 					}
 				}
@@ -97,7 +78,7 @@
 			}
 			part{
 				name: "txt.clock";
-				type: TEXT;
+				type: TEXTBLOCK;
 				scale: 1;
 				mouse_events: 0;
 				description{
@@ -109,33 +90,8 @@
 					rel2{
 						to: "rect.clock";
 					}
-					text{
-						font: "Tizen:style=Medium";
-						text_class: "tizen";
-						size: 130;
-						align: 0.0 0.5;
-					}
-				}
-			}
-			part{
-				name: "txt.clock.ampm";
-				type: TEXT;
-				scale: 1;
-				mouse_events: 0;
-				description{
-					state: "default" 0.0;
-					color: 255 255 255 255;
-					rel1{
-						to: "rect.clock.ampm";
-					}
-					rel2{
-						to: "rect.clock.ampm";
-					}
-					text{
-						font: "Tizen:style=Medium";
-						text_class: "tizen";
-						size: 46;
-						align: 0.0 0.5;
+					text {
+						style: "style_time";
 					}
 				}
 			}
@@ -210,20 +166,6 @@
 		}
 
 		programs{
-			program{
-				name: "digit,clock";
-				signal: "digit,clock";
-				source: "rect.clock.ampm";
-				action: STATE_SET "digit" 1.0;
-				target: "rect.clock.ampm";
-			}
-			program{
-				name: "default,clock";
-				signal: "default,clock";
-				source: "rect.clock.ampm";
-				action: STATE_SET "default" 0.0;
-				target: "rect.clock.ampm";
-			}
 			program{
 				name: "visible,helptext";
 				signal: "visible,helptext";

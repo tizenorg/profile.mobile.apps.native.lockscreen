@@ -25,26 +25,118 @@
 #include "lockscreen.h"
 #include "log.h"
 
+#define BUFFER_LENGTH 256
+
 static Ecore_Timer *timer = NULL;
+static int clock_font = 130;
+static int am_pm_font = 46;
+
+static void _lock_time_set(void *data, Eina_Bool is_pre, const char *clock, const char *am_pm)
+{
+	Evas_Object *info = data;
+	if (info == NULL)
+		return;
+
+	char time[BUFFER_LENGTH] = {0};
+	time[BUFFER_LENGTH-1] = '\0';
+
+	if(is_pre) {
+		snprintf(time, BUFFER_LENGTH - 1, "<font_size=%d>%s <font_size=%d>%s", am_pm_font, am_pm, clock_font, clock);
+	}else {
+		snprintf(time, BUFFER_LENGTH - 1, "<font_size=%d>%s <font_size=%d>%s", clock_font, clock, am_pm_font, am_pm);
+	}
+	LOCK_SCREEN_TRACE_DBG("time is %s", time);
+	edje_object_part_text_set(_EDJ(info), "txt.clock", time);
+}
+
+static bool get_formatted_ampm_from_utc_time(char* date_str, int date_size, int* str_length, Eina_Bool* is_pre)
+{
+	UChar customSkeleton[BUFFER_LENGTH] = { 0 };
+	UErrorCode status = U_ZERO_ERROR;
+	UDateFormat *formatter = NULL;
+
+	UChar bestPattern[BUFFER_LENGTH] = { 0 };
+	UChar formatted[BUFFER_LENGTH] = { 0 };
+
+	char bestPatternString[BUFFER_LENGTH] = { 0 };
+	char formattedString[BUFFER_LENGTH] = { 0 };
+
+	UDateTimePatternGenerator *pattern_generator = NULL;
+
+	char *time_skeleton = "hhmm";
+
+	char *locale = vconf_get_str(VCONFKEY_REGIONFORMAT);
+	if (locale == NULL) {
+		LOCK_SCREEN_TRACE_ERR("[Error] get value of VCONFKEY_REGIONFORMAT fail.");
+		return false;
+	}
+
+	u_uastrncpy(customSkeleton, time_skeleton, strlen(time_skeleton));
+
+	pattern_generator = udatpg_open(locale, &status);
+
+	int32_t bestPatternCapacity = (int32_t) (sizeof(bestPattern) / sizeof((bestPattern)[0]));
+	(void)udatpg_getBestPattern(pattern_generator, customSkeleton,
+				    u_strlen(customSkeleton), bestPattern,
+				    bestPatternCapacity, &status);
+
+	u_austrcpy(bestPatternString, bestPattern);
+	u_uastrcpy(bestPattern,"a");
+
+	if(bestPatternString[0] == 'a')
+	{
+		(*is_pre) = EINA_TRUE;
+	}
+	else
+	{
+		(*is_pre) = EINA_FALSE;
+	}
+
+	UDate date = ucal_getNow();
+	formatter = udat_open(UDAT_IGNORE, UDAT_IGNORE, locale, NULL, -1, bestPattern, -1, &status);
+	int32_t formattedCapacity = (int32_t) (sizeof(formatted) / sizeof((formatted)[0]));
+	(void)udat_format(formatter, date, formatted, formattedCapacity, NULL, &status);
+	u_austrcpy(formattedString, formatted);
+
+	LOCK_SCREEN_TRACE_DBG("DATE & TIME is %s %s %d %s", locale, formattedString, u_strlen(formatted), bestPatternString);
+
+	(*str_length) = u_strlen(formatted);
+
+	udatpg_close(pattern_generator);
+
+	udat_close(formatter);
+
+	if(strlen(formattedString) < date_size)	{
+		strncpy(date_str, formattedString, strlen(formattedString));
+	} else {
+		strncpy(date_str, formattedString, date_size - 1);
+	}
+
+	return true;
+}
 
 static bool get_formatted_date_from_utc_time(time_t* utc_time, char* date_str, int date_size)
 {
 	UErrorCode status = U_ZERO_ERROR;
-	UDateTimePatternGenerator *generator;
-	UDateFormat *formatter;
-	UChar skeleton[40] = { 0 }
-		, pattern[40] = { 0 }
-		, formatted[40] = { 0 };
+	UDateTimePatternGenerator *generator = NULL;
+	UDateFormat *formatter = NULL;
+	UChar skeleton[BUFFER_LENGTH] = { 0 }
+		, pattern[BUFFER_LENGTH] = { 0 }
+		, formatted[BUFFER_LENGTH] = { 0 };
 	int32_t patternCapacity, formattedCapacity;
 	int32_t skeletonLength, patternLength, formattedLength;
 	UDate date;
-	const char *locale;
+	const char *locale = NULL;
 	const char customSkeleton[] = UDAT_MONTH_WEEKDAY_DAY;
 
 	date = (UDate) (*utc_time) *1000;
 
 	uloc_setDefault(__secure_getenv("LC_TIME"), &status);
-	locale = uloc_getDefault();
+	locale = vconf_get_str(VCONFKEY_REGIONFORMAT);
+	if (locale == NULL) {
+		LOCK_SCREEN_TRACE_ERR("[Error] get value of VCONFKEY_REGIONFORMAT fail.");
+		return false;
+	}
 
 	generator = udatpg_open(locale, &status);
 	if (generator == NULL)
@@ -116,29 +208,30 @@ static Eina_Bool _set_info_time(void *data)
 	if (r == 0 && timeformat == APPCORE_TIME_FORMAT_24) {
 		strftime(bf1, sizeof(bf1), "%H:%M", &st);
 		snprintf(buf, sizeof(buf), "%s", bf1);
+		edje_object_part_text_set(_EDJ(info), "txt.clock", bf1);
 	} else {
 		strftime(bf1, sizeof(bf1), "%l", &st);
 		hour = atoi(bf1);
 		strftime(bf1, sizeof(bf1), ":%M", &st);
 		snprintf(buf, sizeof(buf), "%d%s", hour, bf1);
-		if (st.tm_hour >= 0 && st.tm_hour < 12) {
-			snprintf(bf2, sizeof(bf2), "%s", "AM");
-			if ((st.tm_hour - 10) < 0 && st.tm_hour != 0) {
-				edje_object_signal_emit(_EDJ(info), "digit,clock", "rect.clock.ampm");
-			} else {
-				edje_object_signal_emit(_EDJ(info), "default,clock", "rect.clock.ampm");
-			}
+
+		char utc_ampm[BUFFER_LENGTH] = { 0 };
+		int ampm_length = 0;
+		Eina_Bool is_pre = EINA_FALSE;
+
+		get_formatted_ampm_from_utc_time(utc_ampm, sizeof(utc_ampm), &ampm_length, &is_pre);
+		LOCK_SCREEN_TRACE_DBG("utc_ampm = %s", utc_ampm);
+		if(ampm_length > 0 && ampm_length <= 4) {
+			snprintf(bf2, sizeof(bf2), "%s", utc_ampm);
 		} else {
-			snprintf(bf2, sizeof(bf2), "%s", "PM");
-			if ((st.tm_hour - 12) < 10 && (st.tm_hour - 12) != 0) {
-				edje_object_signal_emit(_EDJ(info), "digit,clock", "rect.clock.ampm");
+			if (st.tm_hour >= 0 && st.tm_hour < 12) {
+				snprintf(bf2, sizeof(bf2), "%s", "AM");
 			} else {
-				edje_object_signal_emit(_EDJ(info), "default,clock", "rect.clock.ampm");
+				snprintf(bf2, sizeof(bf2), "%s", "PM");
 			}
 		}
-		edje_object_part_text_set(_EDJ(info), "txt.clock.ampm", bf2);
+		_lock_time_set(info, is_pre, buf, bf2);
 	}
-	edje_object_part_text_set(_EDJ(info), "txt.clock", buf);
 
 	return 0;
 }
