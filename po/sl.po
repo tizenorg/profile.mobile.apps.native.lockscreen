@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Preostal je še 1 poskus"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d preostalih poizkusov"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Samo klici v sili"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Podrsajte po zaslonu, da ga odklenete"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Pritisnite in pridržite zaslon ter nagnite napravo naprej"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Napačno geslo"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Neodgovorjen klic"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Neodgovorjeni klici"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Novo sporočilo"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Nova sporočila"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Nova e-pošta"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Nove e-pošte"
+

@@ -1,0 +1,7 @@
+lock-screen (0.0.1) unstable; urgency=low
+
+  * released first
+  * Git: 165.213.180.234:/magnolia/apps/home/lockscreen
+  * Tag: lock-screen_0.1.1
+
+ -- geunsun lee <gs86.lee@samsung.com>  Mon, 07 Mar 2012 13:51:11 +0900

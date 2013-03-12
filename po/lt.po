@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Liko 1 bandymas"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d likę bandymai"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Tik pagalbos skambučiai"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Perbraukite per ekraną ir atrakinkite"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Palaikykite bakstelėję ekraną ir paverskite įrenginį pirmyn"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Neteisingas slaptažodis"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Neatsakytas skambutis"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Praleisti skambučiai"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Nauja žinutė"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Naujos žinutės"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Naujas el. laiškas"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Nauji el. laiškai"
+

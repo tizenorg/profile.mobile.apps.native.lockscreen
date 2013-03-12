@@ -1,0 +1,432 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the License);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *  http://floralicense.org/license/
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define DRAGSLIDER_ARROW_RECT(pname, rel1x, rel2x)\
+	part {\
+		name: "rect."#pname;\
+		type: RECT;\
+		scale: 1;\
+		description {\
+			state: "default" 0.0;\
+			rel1 {\
+				relative: rel1x 0.0;\
+				to: "rect.arrow";\
+			}\
+			rel2 {\
+				relative: rel2x 1.0;\
+				to: "rect.arrow";\
+			}\
+			visible: 0;\
+		}\
+	}\
+
+#define DRAGSLIDER_ARROW_IMAGE(pname, rname)\
+	part {\
+		name: "arrow."#pname;\
+		type: IMAGE;\
+		scale: 1;\
+		description {\
+			state: "default" 0.0;\
+			min: 23 29;\
+			align: 0.5 0.5;\
+			rel1 {\
+				relative: 0.5 0.5;\
+				to: "rect."#rname;\
+			}\
+			rel2 {\
+				relative: 0.5 0.5;\
+				to: "rect."#rname;\
+			}\
+			image.normal: "slider/RB07_icon_Unlock_arrow.png";\
+			visible: 0;\
+		}\
+		description {\
+			state: "press" 0.0;\
+			inherit: "default" 0.0;\
+			image.normal: "slider/RB07_icon_Unlock_arrow_press.png";\
+			visible: 1;\
+		}\
+	}\
+
+#define DRAGSLIDER_LOCK_PRESS_DESC(pstate, file)\
+	description {\
+		state: #pstate 0.0;\
+		inherit: "default" 0.0;\
+		image.normal: #file;\
+		visible: 1;\
+	}\
+
+#define DRAGSLIDER_LOCK_PRESS_PROC(pname)\
+	program{\
+		name: #pname".lock.r";\
+		signal: #pname;\
+		source: "lock.image.r";\
+		action: STATE_SET #pname 0.0;\
+		target: "lock.image.r";\
+	}\
+
+group {
+	name: "lock-slider";
+
+	images {
+		image: "slider/RB07_Unlock_bg.png" COMP;
+		image: "slider/RB07_Unlock_bg_press.png" COMP;
+		image: "slider/RB07_icon_Unlock_01.png" COMP;
+		image: "slider/RB07_icon_Unlock_02.png" COMP;
+		image: "slider/RB07_icon_Unlock_arrow.png" COMP;
+		image: "slider/RB07_icon_Unlock_arrow_press.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_01.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_02.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_03.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_04.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_05.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_06.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_07.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_08.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_09.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_10.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_11.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_12.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_13.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_14.png" COMP;
+		image: "slider/RB07_icon_Unlock_press_15.png" COMP;
+	}
+
+	parts {
+		part {
+			name: "bg";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 0 114;
+				color: 0 0 0 0;
+			}
+		}
+
+		part {
+			name: "image.bg";
+			type: IMAGE;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+
+				rel1 {
+					to: "bg";
+				}
+				rel2 {
+					to: "bg";
+				}
+				image.normal: "slider/RB07_Unlock_bg.png";
+				visible: 0;
+			}
+			description {
+				state: "press" 0.0;
+				inherit: "default" 0.0;
+				image.normal: "slider/RB07_Unlock_bg_press.png";
+				visible: 1;
+			}
+		}
+
+		part {
+			name: "lock.padding.l";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 47 0;
+				align: 0.0 0.0;
+
+				rel1 {
+					to: "bg";
+				}
+				rel2 {
+					relative: 0.0 1.0;
+					to: "bg";
+				}
+				visible: 0;
+			}
+		}
+
+		part {
+			name: "lock.padding.r";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 46 0;
+				align: 1.0 0.0;
+
+				rel1 {
+					relative: 1.0 0.0;
+					to: "bg";
+				}
+				rel2 {
+					to: "bg";
+				}
+				visible: 0;
+			}
+		}
+
+		part {
+			name: "lock.wrapper.image.l";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 119 119;
+				align: 0.5 0.5;
+
+				rel1 {
+					relative: 0.5 0.5;
+					to: "lock.image.l";
+				}
+				rel2 {
+					relative: 0.5 0.5;
+					to: "lock.image.l";
+				}
+				color: 0 0 0 0;
+			}
+		}
+
+		part {
+			name: "lock.image.l";
+			type: IMAGE;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 76 76;
+				align: 0.0 0.5;
+
+				rel1 {
+					relative: 1.0 0.5;
+					to_x: "lock.padding.l";
+					to_y: "bg";
+				}
+				rel2 {
+					relative: 1.0 0.5;
+					to_x: "lock.padding.l";
+					to_y: "bg";
+				}
+				image.normal: "slider/RB07_icon_Unlock_01.png";
+			}
+			description {
+				state: "press" 0.0;
+				inherit: "default" 0.0;
+				image.normal: "slider/RB07_icon_Unlock_press_01.png";
+			}
+		}
+
+		part {
+			name: "lock.image.r";
+			type: IMAGE;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 76 76;
+				align: 1.0 0.5;
+
+				rel1 {
+					relative: 0.0 0.5;
+					to_x: "lock.padding.r";
+					to_y: "bg";
+				}
+				rel2 {
+					relative: 0.0 0.5;
+					to_x: "lock.padding.r";
+					to_y: "bg";
+				}
+				image.normal: "slider/RB07_icon_Unlock_02.png";
+				visible: 0;
+			}
+			DRAGSLIDER_LOCK_PRESS_DESC(press02, slider/RB07_icon_Unlock_press_02.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press03, slider/RB07_icon_Unlock_press_03.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press04, slider/RB07_icon_Unlock_press_04.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press05, slider/RB07_icon_Unlock_press_05.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press06, slider/RB07_icon_Unlock_press_06.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press07, slider/RB07_icon_Unlock_press_07.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press08, slider/RB07_icon_Unlock_press_08.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press09, slider/RB07_icon_Unlock_press_09.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press10, slider/RB07_icon_Unlock_press_10.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press11, slider/RB07_icon_Unlock_press_11.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press12, slider/RB07_icon_Unlock_press_12.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press13, slider/RB07_icon_Unlock_press_13.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press14, slider/RB07_icon_Unlock_press_14.png);
+			DRAGSLIDER_LOCK_PRESS_DESC(press15, slider/RB07_icon_Unlock_press_15.png);
+		}
+
+		part {
+			name: "lock.wrapper.image.r";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 122 114;
+				align: 1.0 0.0;
+
+				rel1 {
+					relative: 1.0 0.0;
+					to: "bg";
+				}
+				rel2 {
+					to: "bg";
+				}
+				color: 0 0 0 0;
+			}
+		}
+
+		part {
+			name: "arrow.padding.l";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 126 0;
+				align: 0.0 0.0;
+				fixed: 1.0 1.0;
+
+				rel1 {
+					to: "bg";
+				}
+				rel2 {
+					relative: 0.0 1.0;
+					to: "bg";
+				}
+				visible: 0;
+			}
+		}
+
+		part {
+			name: "arrow.padding.r";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+				min: 126 0;
+				align: 1.0 0.0;
+				fixed: 1.0 1.0;
+
+				rel1 {
+					relative: 1.0 0.0;
+					to: "bg";
+				}
+				rel2 {
+					to: "bg";
+				}
+				visible: 0;
+			}
+		}
+
+		part {
+			name: "rect.arrow";
+			type: RECT;
+			scale: 1;
+
+			description {
+				state: "default" 0.0;
+
+				rel1 {
+					relative: 1.0 0.0;
+					to: "arrow.padding.l";
+				}
+				rel2 {
+					relative: 0.0 1.0;
+					to: "arrow.padding.r";
+				}
+				visible: 0;
+			}
+		}
+
+		DRAGSLIDER_ARROW_RECT(arrow1, 0.0, 1/6);
+		DRAGSLIDER_ARROW_RECT(arrow2, 1/6, 2/6);
+		DRAGSLIDER_ARROW_RECT(arrow3, 2/6, 3/6);
+		DRAGSLIDER_ARROW_RECT(arrow4, 3/6, 4/6);
+		DRAGSLIDER_ARROW_RECT(arrow5, 4/6, 5/6);
+		DRAGSLIDER_ARROW_RECT(arrow6, 5/6, 6/6);
+
+		DRAGSLIDER_ARROW_IMAGE(image1, arrow1);
+		DRAGSLIDER_ARROW_IMAGE(image2, arrow2);
+		DRAGSLIDER_ARROW_IMAGE(image3, arrow3);
+		DRAGSLIDER_ARROW_IMAGE(image4, arrow4);
+		DRAGSLIDER_ARROW_IMAGE(image5, arrow5);
+		DRAGSLIDER_ARROW_IMAGE(image6, arrow6);
+	}
+
+	programs {
+		program{
+			name: "press.lock.l";
+			signal: "press";
+			source: "lock.image.l";
+			action: STATE_SET "press" 0.0;
+			target: "lock.image.l";
+			target: "arrow.image1";
+			target: "arrow.image2";
+			target: "arrow.image3";
+			target: "arrow.image4";
+			target: "arrow.image5";
+			target: "arrow.image6";
+			target: "image.bg";
+		}
+
+		program{
+			name: "release.lock.l";
+			signal: "release";
+			source: "lock.image.l";
+			action: STATE_SET "default" 0.0;
+			target: "lock.image.l";
+			target: "arrow.image1";
+			target: "arrow.image2";
+			target: "arrow.image3";
+			target: "arrow.image4";
+			target: "arrow.image5";
+			target: "arrow.image6";
+			target: "image.bg";
+		}
+
+		DRAGSLIDER_LOCK_PRESS_PROC(press02);
+		DRAGSLIDER_LOCK_PRESS_PROC(press03);
+		DRAGSLIDER_LOCK_PRESS_PROC(press04);
+		DRAGSLIDER_LOCK_PRESS_PROC(press05);
+		DRAGSLIDER_LOCK_PRESS_PROC(press06);
+		DRAGSLIDER_LOCK_PRESS_PROC(press07);
+		DRAGSLIDER_LOCK_PRESS_PROC(press08);
+		DRAGSLIDER_LOCK_PRESS_PROC(press09);
+		DRAGSLIDER_LOCK_PRESS_PROC(press10);
+		DRAGSLIDER_LOCK_PRESS_PROC(press11);
+		DRAGSLIDER_LOCK_PRESS_PROC(press12);
+		DRAGSLIDER_LOCK_PRESS_PROC(press13);
+		DRAGSLIDER_LOCK_PRESS_PROC(press14);
+		DRAGSLIDER_LOCK_PRESS_PROC(press15);
+
+		program{
+			name: "release.lock.r";
+			signal: "release";
+			source: "lock.image.r";
+			action: STATE_SET "default" 0.0;
+			target: "lock.image.r";
+		}
+	}
+}

@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Atlicis 1 mēģinājums"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Atlikuši %d mēģinājumi"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Tikai ārkārtas zvani"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Velciet pār ekrānu, lai atbloķētu"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Pieskarieties ekrānam un turiet, un sasveriet ierīci uz priekšu"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Nepareiza parole"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Neatbildēts zvans"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Neatbildētie zvani"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Jauna ziņa"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Jaunas ziņas"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Jauna e-pasta ziņa"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Jaunas e-pasta ziņas"
+

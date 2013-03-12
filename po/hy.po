@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 փորձ է մնացել"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Մնացել է %d փորձ"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Միայն հրատապ կանչեր"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Մատը սահեցրեք էկրանով՝ արգելաբացելու համար"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Թակեք ու պահեք էկրանը և սարքը թեքեք առաջ"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Սխալ գաղտնաբառ"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Բացթողած զանգ"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Բացթողնված կանչեր"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "նոր հաղորդագրություն"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "նոր հաղորդագրություններ"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Նոր էլ. փոստ"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Նոր էլ-նամակներ"
+

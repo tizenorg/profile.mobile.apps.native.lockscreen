@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 încercare rămasă"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d încercări rămase"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Numai apeluri de urgenţă"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Glisaţi cu degetul pe ecran pentru deblocare"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Ţineţi apăsat pe ecran şi înclinaţi dispozitivul înspre înainte"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Parolă incorectă"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Apel pierdut"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Apeluri pierdute"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Mesaj nou"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Mesaje noi"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Email nou"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Mesaje email noi"
+

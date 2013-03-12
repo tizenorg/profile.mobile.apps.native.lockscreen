@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 әрекет қалды"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d әрекеттену аяқталды"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Тек жедел қоңырау  үшін"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Құлпын ашу үшін экранды сипаңыз"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Экранды басып тұрып, құрылғыны еңкейтіңіз"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Қате кілтсөз"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Қабылданбаған қоңырау"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Қабылданбаған қоңыраулар"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Жаңа хабарлама"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Жаңа хабарламалар"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Жаңа email"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Жаңа emails"
+

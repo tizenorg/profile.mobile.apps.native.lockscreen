@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 iarracht fágtha"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d iarracht fágtha"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Glaonna éigeandála amháin"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Svaidhpeáil an scáileán le díghlasáil"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Tapáil agus coinnigh an scáileán agus déan an gléas a chlaonadh chun tosaigh"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Pasfhocal mícheart"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Glao caillte"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Glaonna a cailleadh"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Teachtaireacht nua"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Teachtaireachtaí nua"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "R-phost nua"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "R-phoist nua"
+

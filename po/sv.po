@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 försök kvar"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d försök kvar"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Endast nödsamtal"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Dra fingret över skärmen för att låsa upp"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Tryck och håll kvar på skärmen och vinkla enheten framåt"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Fel lösenord"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Missat samtal"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Missade samtal"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Nytt meddelande"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Nya meddelanden"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Ny e-post"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Ny e-post"
+

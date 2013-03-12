@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Queda 1 intent"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Queden %d intents"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Només trucades d'emergència"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Mogui la pantalla per desbloquejar"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Mantingui tocada la pantalla i inclini el dispositiu endavant"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Contrasenya incorrecta"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Trucada perduda"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Trucades perdudes"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Nou missatge"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Nous missatges"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Nou correu electrònic"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Nous correus electrònics"
+

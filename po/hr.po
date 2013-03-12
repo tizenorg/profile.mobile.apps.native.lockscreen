@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Još 1 pokušaj"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d pokušaja preostalo"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Samo SOS pozivi"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Kliznite po zaslonu za otključavanje"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Dodirnite i držite zaslon te nagnite uređaj prema naprijed"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Neispravna šifra"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Propušteni poziv"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Propušteni pozivi"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Nova poruka"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Nove poruke"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "Novi email"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "Nove email poruke"
+

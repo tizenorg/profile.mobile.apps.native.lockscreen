@@ -1,0 +1,17 @@
+Source: lockscreen
+Section: devel
+Priority: extra
+Maintainer: Geun Sun, Lee <gs86.lee@samsung.com>
+Build-Depends: debhelper (>= 5), libelm-dev, libslp-setting-dev, libheynoti-dev, libappcore-efl-dev, libslp-utilx-dev, libsvi-dev, libaul-1-dev, libbundle-dev, libslp-pm-dev, libui-gadget-dev, libcontacts-service-dev, libsoup2.4-dev, libxml2-dev, libecore-dev, libevas-dev, libedje-dev, dlog-dev, libicu-dev, libnotification-dev, libssl-dev,security-server, livebox-viewer, shortcut
+Standards-Version: 3.7.2
+
+Package: org.tizen.lockscreen
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libicu
+Description: lockscreen
+
+Package: org.tizen.lockscreen-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, org.tizen.lockscreen (= ${Source-Version})
+Description: lockscreen (unstripped)

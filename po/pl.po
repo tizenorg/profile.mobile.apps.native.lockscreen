@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Pozostała 1 próba"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Pozostało prób: %d"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Tylko połączenia alarmowe"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Przeciągnij ekran, aby odblokować"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Dotknij ekranu i przytrzymaj go, a następnie obróć urządzenie do przodu"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Błędne hasło"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Połączenie nieodebrane"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Nieodebrane"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "Nowa wiad."
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "Nowa wiad."
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr ": Nowy e-mail"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr ": Nowych email"
+

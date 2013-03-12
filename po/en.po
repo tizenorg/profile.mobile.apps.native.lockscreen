@@ -1,0 +1,36 @@
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 attempt left"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d attempts left"
+
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Emergency calls only"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Swipe screen to unlock"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
+msgstr "Tap and hold screen and tilt device forwards"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Incorrect password"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Missed call"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Missed calls"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgstr "New message"
+
+msgid "IDS_IDLE_POP_NEW_MESSAGES"
+msgstr "New messages"
+
+msgid "IDS_IDLE_POP_NEW_EMAIL"
+msgstr "New email"
+
+msgid "IDS_IDLE_POP_NEW_EMAILS"
+msgstr "New emails"
+
