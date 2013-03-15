@@ -24,6 +24,7 @@
 #include <heynoti.h>
 
 #include "util.h"
+#include "sim-state.h"
 #include "info.h"
 #include "bg.h"
 #include "noti.h"
@@ -90,7 +91,14 @@ Evas_Object *_make_top_layout(struct appdata *ad)
 	if(conform == NULL) {
 		return NULL;
 	}
+
+#if 0
 	elm_object_style_set(conform, "indicator_overlap");
+#else
+	elm_object_signal_emit(conform, "elm,state,virtualkeypad,disable", "");
+	elm_object_signal_emit(conform, "elm,state,indicator,overlap", "");
+	elm_object_signal_emit(conform, "elm,state,clipboard,disable", "");
+#endif
 
 	eo = _add_layout(conform, EDJEFILE, "lock-main");
 	if (eo == NULL)
@@ -183,51 +191,6 @@ void lockscreen_info_hide(struct appdata *ad)
 	}
 }
 
-static void _set_sim_state(void *data)
-{
-	struct appdata *ad = data;
-	if (ad == NULL)
-		return;
-
-	int state = 0;
-	int ret = 0;
-	char *buf = NULL;
-
-	int service_type = VCONFKEY_TELEPHONY_SVCTYPE_SEARCH;
-
-	if(vconf_get_int(VCONFKEY_TELEPHONY_SVCTYPE, &service_type) != 0) {
-		LOGD("fail to get VCONFKEY_TELEPHONY_SVCTYPE");
-	}
-
-	ret = (vconf_get_int(VCONFKEY_TELEPHONY_SPN_DISP_CONDITION, &state));
-	if (ret == 0) {
-		LOGD("[%s:%d] VCONFKEY(%s) = %d", __func__, __LINE__, VCONFKEY_TELEPHONY_SPN_DISP_CONDITION, state);
-		if (state != VCONFKEY_TELEPHONY_DISP_INVALID
-			&& service_type > VCONFKEY_TELEPHONY_SVCTYPE_SEARCH) {
-			if (state & VCONFKEY_TELEPHONY_DISP_SPN) {
-				buf = vconf_get_str(VCONFKEY_TELEPHONY_SPN_NAME);
-				edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", buf);
-			}
-
-			if (state & VCONFKEY_TELEPHONY_DISP_PLMN) {
-				buf = vconf_get_str(VCONFKEY_TELEPHONY_NWNAME);
-				edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", buf);
-			}
-		} else if (service_type == VCONFKEY_TELEPHONY_SVCTYPE_NOSVC) {
-			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _S("IDS_COM_BODY_NO_SERVICE"));
-		} else if (service_type == VCONFKEY_TELEPHONY_SVCTYPE_EMERGENCY) {
-			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _("IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"));
-		} else {
-			if (service_type > VCONFKEY_TELEPHONY_SVCTYPE_SEARCH) {
-				buf = vconf_get_str(VCONFKEY_TELEPHONY_NWNAME);
-				edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", buf);
-			}else {
-				edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _S("IDS_COM_BODY_SEARCHING"));
-			}
-		}
-	}
-}
-
 static void _app_exit(void *data, Evas_Object *obj, const char *emission, const char *source)
 {
 	struct appdata *ad = data;
@@ -316,7 +279,7 @@ static Eina_Bool _init_widget_cb(void *data)
 			&ad->slider_rel2.x, &ad->slider_rel2.y, &ad->slider_rel2.w,
 			&ad->slider_rel2.h);
 
-	_set_sim_state(ad);
+	set_sim_state(ad);
 
 	ad->info = elm_layout_add(ad->win);
 	elm_layout_file_set(ad->info, EDJEFILE, "lock-info");
@@ -413,6 +376,7 @@ int _app_terminate(struct appdata *ad)
 	}
 
 	vconf_ignore_key_changed(VCONFKEY_PM_STATE, _pm_state_cb);
+	fini_sim_state(ad);
 	_fini_heynoti(ad);
 
 	LOGD("[%s] app termiante", __func__);

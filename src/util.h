@@ -31,4 +31,5 @@ void launch_emgcall(struct appdata *ad);
 int _app_create(struct appdata *ad);
 int _app_reset(struct appdata *ad);
 int _app_terminate(struct appdata *ad);
+
 #endif
