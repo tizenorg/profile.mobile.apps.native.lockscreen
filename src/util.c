@@ -368,8 +368,6 @@ int _app_resume(struct appdata *ad)
 
 int _app_terminate(struct appdata *ad)
 {
-	vconf_set_int(VCONFKEY_IDLE_LOCK_STATE, VCONFKEY_IDLE_UNLOCK);
-
 	if (ad == NULL) {
 		LOGD("[_app_terminate] Invalid argument : struct appdata is NULL\n");
 		return -1;
