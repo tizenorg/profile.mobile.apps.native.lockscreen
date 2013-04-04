@@ -259,7 +259,6 @@ void _slider_up_cb(void *data, Evas * evas, Evas_Object * obj, void *event_info)
 		}
 		LOCK_SCREEN_TRACE_DBG("unlock the lock-screen");
 		elm_win_indicator_mode_set(ad->win, ELM_WIN_INDICATOR_HIDE);
-		edje_object_signal_emit(_EDJ(ad->ly_main), "transit,clipper", "clipper");
 		vconf_set_int(VCONFKEY_IDLE_LOCK_STATE, VCONFKEY_IDLE_UNLOCK);
 	}
 }
