@@ -113,7 +113,7 @@ static void _set_sim_state(void *data)
 		}else if (service_type == VCONFKEY_TELEPHONY_SVCTYPE_NOSVC) {
 			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _S("IDS_COM_BODY_NO_SERVICE"));
 		} else if (service_type == VCONFKEY_TELEPHONY_SVCTYPE_EMERGENCY) {
-			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _S("IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"));
+			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _("IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"));
 		} else if (service_type == VCONFKEY_TELEPHONY_SVCTYPE_SEARCH) {
 			edje_object_part_text_set(_EDJ(ad->ly_main), "sim.state", _S("IDS_COM_BODY_SEARCHING"));
 		} else {
