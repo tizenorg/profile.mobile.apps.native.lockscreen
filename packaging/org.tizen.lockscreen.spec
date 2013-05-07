@@ -53,4 +53,4 @@ GOPTION="-g 6514"
 /usr/share/packages/org.tizen.lockscreen.xml
 /usr/share/license/org.tizen.lockscreen
 /usr/apps/org.tizen.lockscreen/res/locale/*/LC_MESSAGES/lockscreen.mo
-/etc/smack/accesses2.d/org.tizen.lockscreen.rule
+/opt/etc/smack/accesses.d/org.tizen.lockscreen.rule
