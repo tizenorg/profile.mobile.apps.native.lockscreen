@@ -131,7 +131,7 @@ static bool get_formatted_date_from_utc_time(time_t* utc_time, char* date_str, i
 
 	date = (UDate) (*utc_time) *1000;
 
-	uloc_setDefault(__secure_getenv("LC_TIME"), &status);
+	uloc_setDefault(secure_getenv("LC_TIME"), &status);
 	locale = vconf_get_str(VCONFKEY_REGIONFORMAT);
 	if (locale == NULL) {
 		LOCK_SCREEN_TRACE_ERR("[Error] get value of VCONFKEY_REGIONFORMAT fail.");
