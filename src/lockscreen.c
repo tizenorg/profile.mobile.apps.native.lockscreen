@@ -17,7 +17,6 @@
 
 #include <app.h>
 #include <vconf.h>
-#include <Ecore_X.h>
 #include <system_info.h>
 
 #include "lockscreen.h"
@@ -38,7 +37,7 @@ static Evas_Object *create_win(const char *name)
 	Evas_Object *eo;
 	int w, h;
 
-	eo = elm_win_add(NULL, name, ELM_WIN_BASIC);
+	eo = elm_win_add(NULL, name, ELM_WIN_NOTIFICATION);
 	if (!eo) {
 		LOGE("[%s:%d] eo is NULL", __func__, __LINE__);
 		return NULL;
@@ -47,8 +46,6 @@ static Evas_Object *create_win(const char *name)
 	elm_win_title_set(eo, name);
 	elm_win_borderless_set(eo, EINA_TRUE);
 	evas_object_smart_callback_add(eo, "delete,request", win_del, NULL);
-	ecore_x_window_size_get(ecore_x_window_root_first_get(), &w, &h);
-	evas_object_resize(eo, w, h);
 	elm_win_alpha_set(eo, EINA_TRUE);
 
 	return eo;
@@ -95,15 +92,11 @@ static bool app_create(void *data)
 
 	Evas_Object *win = NULL;
 
-	ecore_x_window_size_get(ecore_x_window_root_first_get(), &ad->win_w, &ad->win_h);
-	LOGD("[%s:%d] win_w : %d, win_h : %d", __func__, __LINE__, ad->win_w, ad->win_h);
-
-	win = create_win(PACKAGE);
+	win = create_win("LOCK_SCREEN");
 	if (win == NULL)
 		return false;
 	ad->win = win;
 	elm_win_conformant_set(ad->win, EINA_TRUE);
-	evas_object_resize(win, ad->win_w, ad->win_h);
 	evas_object_event_callback_add(win, EVAS_CALLBACK_RESIZE, resize_cb, NULL);
 
 	int ret = _app_create(ad);

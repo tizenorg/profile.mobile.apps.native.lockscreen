@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#include <Ecore_X.h>
 #include <Elementary.h>
 #include <utilX.h>
 #include <vconf.h>
@@ -47,8 +46,6 @@ void _set_win_property(Evas_Object * win)
 		LOGD("[Error:%s] Cannot get xwindow", __func__);
 		return;
 	}
-
-	ecore_x_netwm_window_type_set(xwin, ECORE_X_WINDOW_TYPE_NOTIFICATION);
 
 	utilx_set_system_notification_level(ecore_x_display_get(), xwin, UTILX_NOTIFICATION_LEVEL_NORMAL);
 
@@ -109,7 +106,6 @@ Evas_Object *_make_top_layout(struct appdata *ad)
 	elm_win_resize_object_add(ad->win, conform);
 	elm_object_content_set(conform, eo);
 	evas_object_show(conform);
-	evas_object_resize(eo, ad->win_w, ad->win_h);
 
 	return eo;
 }
@@ -262,13 +258,16 @@ static void _pm_state_cb(keynode_t * node, void *data)
 static Eina_Bool _init_widget_cb(void *data)
 {
 	struct appdata *ad = data;
+	int width, height;
 	LOGD("[ == %s == ]", __func__);
 	if (ad == NULL)
 		return ECORE_CALLBACK_CANCEL;
 
+	elm_win_screen_size_get(ad->win, NULL, NULL, &width, &height);
+
 	ad->slider = _make_slider(ad->ly_main);
-	evas_object_resize(ad->slider, ad->win_w, SLIDER_RATIO_H * ad->win_h);
-	evas_object_move(ad->slider, 0, SLIDER_RATIO_Y * ad->win_h);
+	evas_object_resize(ad->slider, width, SLIDER_RATIO_H * height);
+	evas_object_move(ad->slider, 0, SLIDER_RATIO_Y * height);
 	evas_object_show(ad->slider);
 	evas_object_geometry_get(
 			edje_object_part_object_get(_EDJ(ad->slider), "lock.wrapper.image.l"),
@@ -318,11 +317,14 @@ static Eina_Bool _init_widget_cb(void *data)
 
 int _app_create(struct appdata *ad)
 {
+	Ecore_Evas *ee;
 	if (ad == NULL)
 		return -1;
 	LOGD("[ == %s == ]", __func__);
 
-	ecore_x_icccm_name_class_set(elm_win_xwindow_get(ad->win), "LOCK_SCREEN", "LOCK_SCREEN");
+	ee = ecore_evas_object_ecore_evas_get(ad->win);
+	ecore_evas_name_class_set(ee, "LOCK_SCREEN", "LOCK_SCREEN");
+
 	evas_object_show(ad->win);
 	_set_win_property(ad->win);
 

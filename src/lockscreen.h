@@ -55,8 +55,6 @@ struct appdata {
 	Evas_Object *win;
 	Evas_Object *ly_main;//top_layout
 
-	Evas_Coord win_w;
-	Evas_Coord win_h;
 	Evas_Coord posx[POS_MAX];
 	Evas_Coord posy[POS_MAX];
 
