@@ -39,9 +39,9 @@ INCLUDE_DIRECTORIES(
 INCLUDE(FindPkgConfig)
 pkg_check_modules(pkgs REQUIRED
 	capi-appfw-application
+	capi-ui-efl-util
 	ecore-x
 	appcore-efl
-	utilX
 	ail
 	notification
 	security-server

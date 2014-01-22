@@ -15,12 +15,12 @@
  */
 
 #include <Elementary.h>
-#include <utilX.h>
 #include <vconf.h>
 #include <vconf-keys.h>
 #include <ail.h>
 #include <ui-gadget.h>
 #include <heynoti.h>
+#include <efl_util.h>
 
 #include "util.h"
 #include "sim-state.h"
@@ -35,21 +35,13 @@ static Evas_Coord pos_down_y = 0;
 
 void _set_win_property(Evas_Object * win)
 {
-	Ecore_X_Window xwin;
-
 	if (win == NULL) {
 		LOGD("[Error:%s] Invalid argument: win is NULL", __func__);
 		return;
 	}
-	xwin = elm_win_xwindow_get(win);
-	if (xwin == 0) {
-		LOGD("[Error:%s] Cannot get xwindow", __func__);
-		return;
-	}
 
-	utilx_set_system_notification_level(ecore_x_display_get(), xwin, UTILX_NOTIFICATION_LEVEL_NORMAL);
-
-	utilx_set_window_opaque_state(ecore_x_display_get(), xwin, UTILX_OPAQUE_STATE_ON);
+	efl_util_set_system_notification_level(win, EFL_UTIL_NOTIFICATION_LEVEL_NORMAL);
+	efl_util_set_window_opaque_state(win, EFL_UTIL_OPAQUE_STATE_ON);
 }
 
 Evas_Object *_add_layout(Evas_Object *parent, const char *file, const char *group)

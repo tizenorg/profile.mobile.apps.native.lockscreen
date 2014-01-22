@@ -10,7 +10,7 @@ Source0:    %{name}-%{version}.tar.gz
 BuildRequires: pkgconfig(capi-appfw-application)
 BuildRequires: pkgconfig(ecore-x)
 BuildRequires: pkgconfig(appcore-efl)
-BuildRequires: pkgconfig(utilX)
+BuildRequires: pkgconfig(capi-ui-efl-util)
 BuildRequires: pkgconfig(ail)
 BuildRequires: pkgconfig(notification)
 BuildRequires: pkgconfig(security-server)
