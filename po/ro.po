@@ -1,17 +1,14 @@
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Numai apeluri de urgenţă"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Glisaţi cu degetul pe ecran pentru deblocare."
+
 msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
 msgstr "1 încercare rămasă"
 
 msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
 msgstr "%d încercări rămase"
-
-msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Numai apeluri de urgenţă"
-
-msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Glisaţi cu degetul pe ecran pentru deblocare"
-
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Ţineţi apăsat pe ecran şi înclinaţi dispozitivul înspre înainte"
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
 msgstr "Parolă incorectă"
@@ -22,15 +19,249 @@ msgstr "Apel pierdut"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Apeluri pierdute"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Fundaluri"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Menţineţi apăsat ecranul, apoi înclinaţi dispozitivul spre dvs. pentru a-l debloca. Dacă ecranul nu se deblochează, încercaţi să înclinaţi mai mult dispozitivul. Când este setată deblocarea prin mişcări, mişcările vor fi activate automat în Setări."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Selectare aplicaţie"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Fundalul ecranului de blocare s-a schimbat."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Fundalul ecranului de pornire s-a schimbat."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Glisare"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Setări pentru ecranul de blocare"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Blocare ecran"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Mențineți apăsat ecranul, apoi înclinaţi dispozitivul spre dvs. pentru a-l debloca. Dacă ecranul nu se deblochează, încercaţi să înclinaţi mai mult dispozitivul."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Parolă simplă"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Tip blocare ecran"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Parolă"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Niciuna"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Mişcare"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Editare"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Numai apeluri de urgenţă"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Fără SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Tutorial finalizat."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Acţiune nevalidă. Încercaţi din nou."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Înapoi"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Se procesează..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Selectare fundal"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Închide"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Se caută"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Nici un serviciu"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "PIN incorect"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Introduceţi PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Introduceţi parola."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Editare"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Închidere"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Încercaţi din nou peste 1 secundă."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Încărcat complet"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 apel pierdut"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Mesaj nou"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Mesaje noi"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 mesaj nou"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Email nou"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Aţi încercat să deblocaţi incorect dispozitivul de %1$d ori. Mai aveţi %2$d încercări înainte ca dispozitivul să fie resetat la valorile implicite din fabrică şi înainte ca toate datele să fie şterse."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Mesaje email noi"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Reîncercaţi peste %d sec."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Glisaţi pe ecran pentru a vizualiza mesajul"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Glisaţi pe ecran pentru a vizualiza jurnalul de apeluri"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Nicio potrivire"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Introduceţi codul PIN pentru a vizualiza mesajul"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Introduceţi codul PIN pentru a vizualiza jurnalul de apeluri"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Introduceţi parola pentru a vizualiza mesajul"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Introduceţi parola pentru a vizualiza jurnalul de apeluri"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Ceas dual"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Com. rapidă cameră foto"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "PIN greşit"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Revenire la apel"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Parolă alternativă"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Deblocaţi utilizând contul Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Deblocaţi cu\ncontul Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Aveţi %1$d apeluri pierdute şi %2$d mesaje necitite."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Aţi încercat să deblocaţi incorect dispozitivul de %d ori. Acesta va fi resetat acum la valorile implicite din fabrică şi toate datele vor fi şterse."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Glisaţi pe ecran pentru a vizualiza jurnalul apelurilor."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Glisaţi pe ecran pentru a deschide Mesajele."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Blocarea prin parolă simplă va fi activată automat dacă Gear este prea departe pentru a fi detectat. Când Gear este detectat, tipul de blocare a ecranului va fi schimbat la Blocare prin glisare."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d mesaje noi"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d apeluri pierdute"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Sunt necesare între %1$d şi %2$d cifre sau litere."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Introduceţi codul PIN de deblocare."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Introduceţi codul PIN din 4 cifre."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Numai apeluri de urgenţă"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Apel de urgenţă"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Încărcare: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ÎNCH."
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Amprentă"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Selectaţi aplicaţii"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Anulare"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Vreme"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Acasă"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Glisaţi şi fixaţi pătratele colorate din zona de sus în zona de jos sau atingeţi pătratele colorate din zona de sus în ordinea asemănării cu culoarea care este comparată. Puteţi glisa şi fixa pătratele în zona de jos pentru a le reordona."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Blocare automată"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Salvare"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Renunţ."
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Anulare"
 

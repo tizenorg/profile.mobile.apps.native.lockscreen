@@ -1,17 +1,14 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "剩餘1次機會"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "剩餘 %d 次機會"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
 msgstr "只限緊急通話"
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "滑動螢幕以解鎖"
+msgstr "滑動螢幕以解鎖。"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "輕觸並按住螢幕，然後將裝置往前傾"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "剩餘1次機會。"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "剩餘 %d 次機會。"
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
 msgstr "密碼不正確"
@@ -22,15 +19,249 @@ msgstr "未接電話"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "未接電話"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "螢幕牆紙"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "輕觸並按住螢幕，然後將裝置朝您的方向傾斜以解鎖。若螢幕未解鎖，請試著將裝置再傾斜一些。當動作解鎖設定時，動作將自動於設定中啟用。"
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "選擇應用程式"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "鎖定螢幕牆紙已變更。"
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "主螢幕牆紙已變更。"
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "滑動"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "鎖定螢幕設定"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "鎖定螢幕"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "輕觸並按住螢幕，然後將裝置朝您的方向傾斜以解鎖。若螢幕仍未解鎖，請嘗試將裝置更向前傾。"
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "簡易密碼"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "螢幕鎖定類型"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "漫遊"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "密碼"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "無"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "動作"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "編輯"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "僅可撥打緊急電話"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "無 SIM 卡"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "教學完成。"
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "動作無效。請重試。"
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "返回"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "正在處理..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "選擇螢幕牆紙"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "確定"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "關閉"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "正在搜尋"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "無服務"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "PIN 碼不正確。"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "輸入 PIN 碼"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "輸入密碼。"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "編輯"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "關閉"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "於 1  秒內重試。"
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "充電已完成"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 個未接電話"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "新訊息"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "新訊息"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 則新訊息"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "新電子郵件"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "您已嘗試錯誤解鎖裝置 %1$d 次。僅剩 %2$d 次機會嘗試，否則裝置將重設至原廠預設值且所有數據將被刪除。"
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "新電子郵件"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "請在 %d 秒後重試。"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "滑動螢幕以檢視訊息"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "滑動螢幕以檢視通話記錄"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "無相符項"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "輸入 PIN 碼以檢視訊息"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "輸入 PIN 碼以檢視通話記錄"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "輸入密碼以檢視訊息"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "輸入密碼以檢視通話記錄"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "雙時鐘"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "相機捷徑"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "錯誤的 PIN 碼"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "返回通話"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "替代密碼"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "透過 Tizen 帳戶解鎖"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "透過 Tizen\n帳戶解鎖"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "您有 %1$d 個未接來電及 %2$d 封未讀取訊息。"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "您已嘗試錯誤解鎖 %d 次。裝置將重設回原廠預設值且所有數據將被清除。"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "滑動螢幕以檢視通話記錄。"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "滑動螢幕以開啟訊息。"
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "簡單密碼鎖定將在偵測到您的 Gear 距離太遠時自動啟用。當偵測到您的 Gear 時，螢幕鎖定類型將變更為滑動鎖定。"
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d 個新訊息"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d 個未接來電"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "需輸入 %1$d 至 %2$d 位數或字母。"
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "輸入解鎖 PIN 碼。"
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "輸入 4 位數 PIN 碼。"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "只限緊急通話"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "緊急通話"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "充電中：%d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "關閉"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "指紋"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "選擇應用程式"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "取消"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "天氣"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "本地"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "將彩色方塊從上方區域拖放置下方區域，或按類似對比顏色的順序輕觸上方區域中的彩色方塊。可拖放下方區域中的方塊來重新排列。"
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "自動鎖定"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "儲存"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "捨棄"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "取消"
 

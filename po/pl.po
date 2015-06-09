@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Pozostała 1 próba"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "Pozostało prób: %d"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Tylko połączenia alarmowe"
+msgstr "Tylko połączenia alarmowe."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Przeciągnij ekran, aby odblokować"
+msgstr "Przeciągnij ekran, aby odblokować."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Dotknij ekranu i przytrzymaj go, a następnie obróć urządzenie do przodu"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Pozostała 1 próba."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Pozostało prób: %d."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Błędne hasło"
+msgstr "Błędne hasło."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Połączenie nieodebrane"
@@ -22,15 +19,249 @@ msgstr "Połączenie nieodebrane"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Nieodebrane"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Tapety"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Dotknij ekranu i przytrzymaj go, a następnie pochyl urządzenie w swoją stronę, aby je odblokować. Jeśli ekran pozostanie zablokowany, spróbuj mocniej pochylić urządzenie. Po ustawieniu funkcji odblokowywania ekranu za pomocą ruchu obsługa ruchu zostanie automatycznie włączona w ustawieniach."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Wybierz aplikację"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Zmieniono tapetę ekranu blokady."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Zmieniono tapetę ekranu startowego."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Przeciągnij"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Ustawienia blokowania ekranu"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Ekran blokady"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Dotknij ekranu i przytrzymaj go, a następnie obróć urządzenie do siebie, aby go odblokować. Jeżeli ekran nie odblokuje się, ponownie obróć urządzenie."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Proste hasło"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Typ blokady ekranu"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Hasło"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Brak"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Ruch"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Edytuj"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Tylko połączenia alarmowe"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Brak karty SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Samouczek ukończono."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Nieprawidłowa akcja. Spróbuj ponownie."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Wstecz"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Przetwarzanie..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Wybierz tapetę"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Zamknij"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Wyszukiwanie"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Brak sieci"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Nieprawidłowy PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Wpisz PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Wpisz hasło."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Edytuj"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Zamknij"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Ponów próbę za 1 s."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Bateria pełna."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 połączenie nieodebrane"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Nowa wiad."
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nowa wiad."
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "Now.wiad: 1"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr ": Nowy e-mail"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Nieprawidłowych prób odblokowania urządzenia: %1$d. Pozostałych prób przed wyzerowaniem urządzenia do domyślnych ustawień fabrycznych i usunięciem wszystkich danych: %2$d."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr ": Nowych email"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Ponów próbę za %d sek."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Przeciągnij palcem po ekranie, aby wyświetlić wiadomość"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Przeciągnij palcem po ekranie, aby wyświetlić spis połączeń"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Nie znaleziono"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Podaj kod PIN, aby wyświetlić wiadomość"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Podaj kod PIN, aby wyświetlić spis połączeń"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Podaj hasło, aby wyświetlić wiadomość"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Podaj hasło, aby wyświetlić spis połączeń"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Zegar podwójny"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Skrót do aparatu"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Nieprawidłowy kod PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Wróć do połączenia"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternatywne hasło"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Odblokuj za pomocą konta Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Odbl. za pomocą\nkonta Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Nieodebranych połączeń: %1$d i nieprzeczytanych wiadomości: %2$d."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Podjęto nieprawidłową próbę odblokowania urządzenia %d razy. W urządzeniu zostaną przywrócone domyślne ustawienia fabryczne oraz zostaną z niego usunięte wszystkie dane."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Przeciągnij palcem po ekranie, aby wyświetlić spis połączeń."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Przeciągnij palcem po ekranie, aby otworzyć wiadomości."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Jeśli wykrycie zegarka Gear będzie niemożliwe z powodu zbyt dużej odległości, automatyczne włączy się blokada za pomocą prostego hasła. Gdy zegarek Gear zostanie wykryty, typ blokady ekranu zmieni się na blokadę za pomocą przeciągania."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "Nowych wiadomości %d"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "Nieodebranych połączeń %d"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Wymaganych jest co najmniej cyfr lub liter: %1$d do %2$d."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Wprowadź odblokowujący kod PIN."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Wprowadź 4-cyfrowy kod PIN."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Tylko połączenia alarmowe."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Połączenie alarmowe"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Ładowanie: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ZAMKNIJ"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Odcisk palca"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Wybór aplikacji"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Anuluj"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Pogoda"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Macierzysta"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Przeciągaj kolorowe kwadraty z górnego obszaru i upuszczaj je na dolny obszar lub dotykaj kolorowych kwadratów w górnym obszarze w kolejności podobieństwa do koloru, który jest porównywany. Możesz przeciągać kwadraty do dolnego obszaru i upuszczać je w celu zmiany ich kolejności."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Automatyczna blokada"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Zapisz"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Odrzuć"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Anuluj"
 

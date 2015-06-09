@@ -1,110 +1,99 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-PROJECT(lockscreen C)
+PROJECT(lockscreen)
+# FIND ALL SOURCE IN A SOURCE DIRECTORY
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/src SRCS)
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/src/daemon SRCS)
 
-SET(SRCS
-	${CMAKE_SOURCE_DIR}/src/lockscreen.c
-	${CMAKE_SOURCE_DIR}/src/util.c
-	${CMAKE_SOURCE_DIR}/src/sim-state.c
-	${CMAKE_SOURCE_DIR}/src/info.c
-	${CMAKE_SOURCE_DIR}/src/bg.c
-	${CMAKE_SOURCE_DIR}/src/noti.c
-	${CMAKE_SOURCE_DIR}/src/simple-password.c
-	${CMAKE_SOURCE_DIR}/src/complex-password.c
-	${CMAKE_SOURCE_DIR}/src/password-verification.c
-)
-
-SET(VENDOR "tizen")
-SET(PACKAGE ${PROJECT_NAME})
-SET(PKGNAME "org.${VENDOR}.${PACKAGE}")
-SET(PREFIX ${CMAKE_INSTALL_PREFIX})
-SET(BINDIR "${PREFIX}/bin")
-SET(RESDIR "${PREFIX}/res")
-SET(DATADIR "/opt/usr/${PKGNAME}/data")
-SET(LOCALEDIR "${RESDIR}/locale")
-SET(IMAGEDIR "${RESDIR}/image/${PROJECT_NAME}")
-SET(EDJEDIR "${RESDIR}/edje/${PROJECT_NAME}")
-SET(ETCDIR "${RESDIR}/etc/${PROJECT_NAME}")
-SET(MANIFESTXMLDIR "/usr/share/packages")
-
-IF("${CMAKE_BUILD_TYPE}" STREQUAL "")
-	SET(CMAKE_BUILD_TYPE "Release")
-ENDIF("${CMAKE_BUILD_TYPE}" STREQUAL "")
-MESSAGE("Build type: ${CMAKE_BUILD_TYPE}")
-
-INCLUDE_DIRECTORIES(
-	${CMAKE_SOURCE_DIR}
-	${CMAKE_SOURCE_DIR}/src
-)
+#INCLUDE FILE
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include)
+SET(PACKAGE "${PROJECT_NAME}")
+SET(RESOURCE_DIR "${CMAKE_SOURCE_DIR}/res")
+SET(EDJDIR "${RESOURCE_DIR}/edje/${PACKAGE}")
+SET(LOCALEDIR "/usr/apps/org.tizen.lockscreen/res/locale")
 
 INCLUDE(FindPkgConfig)
 pkg_check_modules(pkgs REQUIRED
-	capi-appfw-application
-	capi-ui-efl-util
-	ecore-x
+	bundle
 	appcore-efl
+	evas
+	edje
+	elementary
+	ecore
+	eina
+	capi-system-sensor
+	capi-system-info
+	capi-system-runtime-info
+	capi-system-system-settings
+	capi-system-device
+	capi-appfw-application
+	capi-appfw-preference
+	capi-appfw-app-manager
+	aul
 	ail
 	notification
+	minicontrol-viewer
+	contacts-service2
 	security-server
+	minicontrol-monitor
 	ui-gadget-1
-	heynoti
-	capi-system-info
+	feedback
+	msg-service
+	tapi
+	efl-assist
+	efl-extension
+	key-manager
+	accounts-svc
+	dbus-1
+	dbus-glib-1
+	deviced
 )
 
+IF(X11_SUPPORT)
+pkg_check_modules(pkgs REQUIRED
+	ecore-x
+	utilX
+	)
+ENDIF(X11_SUPPORT)
+
+IF(WAYLAND_SUPPORT)
+pkg_check_modules(pkgs REQUIRED
+	ecore-wayland
+	)
+ENDIF(WAYLAND_SUPPORT)
+
+ADD_DEFINITIONS("-DPROJECT=\"${PROJECT_NAME}\"")
+
 FOREACH(flag ${pkgs_CFLAGS})
-	SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} ${flag} -fpie")
+	SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} ${flag}")
 ENDFOREACH(flag)
 
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS}")
-SET(CMAKE_C_FLAGS_DEBUG "-O0 -g")
-SET(CMAKE_C_FLAGS_RELEASE "-O2")
-
-FIND_PROGRAM(UNAME NAMES uname)
-EXEC_PROGRAM("${UNAME}" ARGS "-m" OUTPUT_VARIABLE "ARCH")
-IF("${ARCH}" STREQUAL "arm")
-	ADD_DEFINITIONS("-DTARGET")
-	MESSAGE("add -DTARGET")
-ENDIF("${ARCH}" STREQUAL "arm")
-
-ADD_DEFINITIONS("-DVENDOR=\"${VENDOR}\"")
-ADD_DEFINITIONS("-DPACKAGE=\"${PACKAGE}\"")
-ADD_DEFINITIONS("-DPACKAGE_NAME=\"${PKGNAME}\"")
-ADD_DEFINITIONS("-DPREFIX=\"${PREFIX}\"")
-ADD_DEFINITIONS("-DRESDIR=\"${RESDIR}\"")
-ADD_DEFINITIONS("-DDATADIR=\"${DATADIR}\"")
-ADD_DEFINITIONS("-DLOCALEDIR=\"${LOCALEDIR}\"")
-ADD_DEFINITIONS("-DIMAGEDIR=\"${IMAGEDIR}\"")
-ADD_DEFINITIONS("-DICONDIR=\"${ICONDIR}\"")
-ADD_DEFINITIONS("-DEDJEDIR=\"${EDJEDIR}\"")
-ADD_DEFINITIONS("-DETCDIR=\"${ETCDIR}\"")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS} -fPIE")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CFLAGS} -fPIE")
+SET(CMAKE_C_FLAGS_PROFILING    "-O0 -g -pg -fPIE")
+SET(CMAKE_CXX_FLAGS_PROFILING  "-O0 -std=c++0x -g -pg -fPIE")
+SET(CMAKE_C_FLAGS_DEBUG        "-O0 -g -fPIE")
+SET(CMAKE_CXX_FLAGS_DEBUG      "-O0 -std=c++0x -g -fPIE")
+SET(CMAKE_C_FLAGS_RELEASE      "-O2 -g -fPIE")
+SET(CMAKE_CXX_FLAGS_RELEASE    "-O2 -std=c++0x -g -fPIE")
+SET(CMAKE_C_FLAGS_CCOV         "-O2 -g --coverage -fPIE")
+SET(CMAKE_CXX_FLAGS_CCOV       "-O2 -std=c++0x -g --coverage -fPIE")
 
 SET(CMAKE_EXE_LINKER_FLAGS "-Wl,--as-needed -pie")
 
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRCS})
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS} "-lm")
 
-INSTALL(TARGETS ${PROJECT_NAME} DESTINATION ${BINDIR})
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS})
 
-ADD_CUSTOM_TARGET(lockscreen.edj
-		COMMAND edje_cc -id ${CMAKE_CURRENT_SOURCE_DIR}/data/images/
-		${CMAKE_CURRENT_SOURCE_DIR}/data/lockscreen.edc
-		${CMAKE_BINARY_DIR}/lockscreen.edj
-		DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/data/lockscreen.edc
-)
-ADD_CUSTOM_TARGET(lockscreen-entry.edj
-		COMMAND edje_cc -id ${CMAKE_CURRENT_SOURCE_DIR}/data/images/
-		${CMAKE_CURRENT_SOURCE_DIR}/data/lockscreen-entry.edc
-		${CMAKE_BINARY_DIR}/lockscreen-entry.edj
-		DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/data/lockscreen-entry.edc
-)
+# Install
+INSTALL(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
-ADD_DEPENDENCIES(${PROJECT_NAME} lockscreen.edj _theme.edj)
-ADD_DEPENDENCIES(${PROJECT_NAME} lockscreen-entry.edj)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/lockscreen.edj DESTINATION ${EDJEDIR})
-INSTALL(FILES ${CMAKE_BINARY_DIR}/lockscreen-entry.edj DESTINATION ${EDJEDIR})
+#Install images
+INSTALL(DIRECTORY data/images/ DESTINATION res/images)
 
-CONFIGURE_FILE(${PKGNAME}.xml.in ${CMAKE_BINARY_DIR}/${PKGNAME}.xml)
-INSTALL(FILES ${CMAKE_BINARY_DIR}/${PKGNAME}.xml DESTINATION ${MANIFESTXMLDIR})
+# Install Manifest File
+INSTALL(FILES org.tizen.lockscreen.xml DESTINATION /usr/share/packages)
+INSTALL(FILES org.tizen.lockscreen.efl DESTINATION /etc/smack/accesses.d)
 
-INSTALL(DIRECTORY DESTINATION ${DATADIR})
-
+# End of a file
+ADD_SUBDIRECTORY(data)
 ADD_SUBDIRECTORY(po)

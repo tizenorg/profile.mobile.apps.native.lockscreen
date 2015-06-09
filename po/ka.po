@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "დარჩა 1 ცდა"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d ცდა დარჩა"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "მხოლოდ გადაუდებელი ზარები"
+msgstr "მხოლოდ გადაუდებელი ზარები."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "გადაუსვით ხელი ეკრანზე და განიბლოკება"
+msgstr "გადაუსვით ხელი ეკრანზე და განიბლოკება."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "დაარტყით და არ აუშვათ ხელი ეკრანზე და გადახარეთ აპარატი წინ"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "დარჩა 1 ცდა."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d ცდა დარჩა."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "პაროლი არასწორია"
+msgstr "პაროლი არასწორია."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "გამოტოვებული ზარი"
@@ -22,15 +19,249 @@ msgstr "გამოტოვებული ზარი"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "გამოტოვებ. ზარები"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "ფონები"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "აპარატის განსაბლოკად ხანგრძლივად შეეხეთ ეკრანს და გადახარეთ აპარატი თქვენკენ. თუ ეკრანი არ განიბლოკება, უფრო მეტად გადახარეთ აპარატი. როდესაც დაყენებულია მოძრაობით განბლოკვა, მოძრაობის ფუნქცია ავტომატურად აქტიურდება პარამეტრებში."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "აირჩიეთ პროგრამა"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "დაბლოკილი ეკრანის ფონი შეიცვალა."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "საწყისი ეკრანის ფონი შეიცვალა."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "ხელის გადასმა"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "დაბლოკილი ეკრანის პარამეტრები"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "ეკრანის დაბლოკვა"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "ხანგრძლივად შეეხეთ ეკრანს, შემდეგ კი გადახარეთ აპარატი თქვენსკენ მის განსაბლოკად. თუ ეკრანი არ განიბლოკება, ცადეთ კიდევ გადახაროთ აპარატი."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "პაროლი მარტივია"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "ეკრანის დაბლოკვის ტიპი"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "როუმინგი"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "პაროლი"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "არც ერთი"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "მოძრაობა"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "შეცვლა"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "მხოლოდ საგანგებო ზარები"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "SIM არაა"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "სახელმძღვანელო დასრულდა."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "მოქმედება არასწორია. ისევ ცადეთ."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "უკან"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "მუშავდება..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "აირჩიეთ ფონი"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "დახურვა"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "იძებნება"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "მომსახურება არ არის"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "არასწორი PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "შეიყვანეთ PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "პაროლის შეყვანა."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "შეცვლა"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "დახურვა"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "ისევ ცადეთ 1 წამში."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "სრულად დატენილია."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 გამოტოვებული ზარი"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "ახალი შეტყობინება"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "ახალი წერილები"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 ახალი წერილი"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "ახალი ელ.წერილი"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "თქვენ აპარატის განბლოკვის %1$d არასწორი მცდელობა გქონდათ. თქვენ დაგრჩათ %2$d მცდელობა, სანამ დაბრუნდება აპარატის საწყისი ქარხნული პარამეტრები და წაიშლება ყველა მონაცემი."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "ახალი ელ. წერილები"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "კიდევ ცადეთ %d წამში."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "გადაუსვით თითი ეკრანს და ნახეთ შეტყობინება"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "გადაუსვით თითი ეკრანს და ნახეთ ზარების ჟურნალი"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "შესაბამისი არ არის"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "შეიყვანეთ PIN, რომ ნახოთ შეტყობინება"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "შეიყვანეთ PIN, რომ ნახოთ ზარების ჟურნალი"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "შეიყვანეთ პაროლი, რომ ნახოთ შეტყობინება"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "შეიყვანეთ პაროლი, რომ ნახოთ ზარების ჟურნალი"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "ორმაგი საათი"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "კამერის ღილაკი"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "PIN არასწორია"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "ზარზე დაბრუნება"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "ალტერნატიული პაროლი"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "განბლოკეთ\nTizen\nანგარიშით"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "განბლოკეთ\nTizen ანგარიშით"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "თქვენ გაქვთ %1$d გამოტოვებული ზარი და %2$d წაუკითხავი წერილი."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "თქვენ აპარატის განბლოკვის %d არასწორი მცდელობა გქონდათ. ახლა დაბრუნდება საწყისი ქარხნული პარამეტრები და წაიშლება ყველა მონაცემი"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "გადაუსვით თითი ეკრანს და ნახეთ ზარების ჟურნალი."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "გადაუსვით თითი ეკრანს და გაიხსნება შეტყობინებების პროგრამა."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "მარტივი პაროლით დაბლოკვა ავტომატურად ჩაირთვება, თუ Gear სიშორის გამო ვერ მოიძებნება. როდესაც Gear მოიძებნება, ეკრანის დაბლოკვის ტიპი შეიცვლება თითით გადასმით დაბლოკვით."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d ახალი წერილი"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d გამოტოვებული ზარი"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "უნდა იყოს %1$d-%2$d ციფრი ან ასო."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "ჩაწერეთ განბლოკვის PIN."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "ჩაწერეთ 4-ნიშნა PIN."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "მხოლოდ გადაუდებელი ზარები."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "საგანგებო ზარი"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "იმუხტება: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "დახურვა"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "თითის ანაბეჭდი"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "პროგრამების არჩევა"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "გაუქმება"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "ამინდი"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "საწყისი გვერდი"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "აიღეთ და გადაალაგეთ ფერადი უჯრები ზემოდან ქვემოთ, ან შეეხეთ ფერად უჯრებს ზემოთ ისე, რომ ყოველი მომდევნო უჯრის ფერი ყველაზე ახლოს იყოს წინა უჯრის ფერთან. მიმდევრობის შესაცვლელად შეგიძლიათ აიღოთ და გადაიტანოთ უჯრები ქვედა მხარეს."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "ავტო–საათი"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "შენახვა"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "წაშლა"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "გაუქმება"
 

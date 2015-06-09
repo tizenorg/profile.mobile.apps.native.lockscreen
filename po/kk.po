@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 әрекет қалды"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d әрекеттену аяқталды"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Тек жедел қоңырау  үшін"
+msgstr "Тек жедел қоңырау  үшін."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Құлпын ашу үшін экранды сипаңыз"
+msgstr "Құлпын ашу үшін экранды сипаңыз."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Экранды басып тұрып, құрылғыны еңкейтіңіз"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 әрекет қалды."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d әрекеттену аяқталды."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Қате кілтсөз"
+msgstr "Қате кілтсөз."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Қабылданбаған қоңырау"
@@ -22,15 +19,249 @@ msgstr "Қабылданбаған қоңырау"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Қабылданбаған қоңыраулар"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Түсқағаз"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Экранды басып тұрып, құрылғының құлпын ашу үшін оны өзіңізге қарай еңкейтіңіз. Егер экранның құлпы ашылмаса, құрылғыны көбірек еңкейтіңіз. Қозғалыс құлпы орнатылған кезде, қозғалыс параметрлерде автоматты түрде өшіріледі."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Бағдарлама таңдау"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Құлыптау экранының түсқағазы өзгертілді."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Бастапқы экран түсқағазы өзгертілді."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Сипау"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Құлыптау экранының параметрлері"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Экранды құлыптау"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Экранды басып тұрып, құрылғының құлпын ашу үшін оны өзіңізге қарай еңкейтіңіз. Егер экранның құлпы ашылмаса, құрылғыны көбірек еңкейтіңіз."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Қарапайым құпиясөз"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Экран құлыптау түрі"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Роуминг"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Кілтсөз"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Жоқ"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Қозғалыс"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Өзгерту"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Тек төтенше қоңыраулар"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "SIM жоқ"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Оқулық аяқталды."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Әрекет қате. Қайталап көріңіз."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Aртқа"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Өңделуде..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Түсқағаз таңдау"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Жабу"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Іздеу"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Қызмет жоқ"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Қате PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "PIN енгізу."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Кілтсөз енгізіңіз."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Өзгерту"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Жабу"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Әрекетті 1 секундтан кейін қайталап көріңіз."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Толық зарядталған."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 жауапсыз қоңырау"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Жаңа хабарлама"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Жаңа хабарламалар"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 жаңа хабар"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Жаңа email"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Құрылғының құлпын ашуда %1$d рет қателестіңіз. Құрылғының зауыттық параметрлері қалпына келтіріліп, барлық деректердің өшірілуінен бұрын %2$d талпынысыңыз қалды."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Жаңа emails"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "%d сек кейін қайталаңыз."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Хабарларды көру үшін, экранды сипау"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Қоңыраулар журналын көру үшін, экранды сипау"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Сәйкестік жоқ"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Хабарды көру үшін, PIN кодын енгізу"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Қоңыраулар журналын көру үшін, PIN кодын енгізу"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Хабарды көру үшін, құпиясөзді енгізу"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Қоңыраулар журналын көру үшін, құпиясөзді енгізу"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Қос сағат"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Камера белгішесі"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Қате PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Қоңырауға қайту"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Балама құпиясөз"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Tizen ар.\nқұлп. ашу"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Tizen ес. жазб.\nарқ. бұғаттау"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Сізде қабылданбаған %1$d қоңырау және оқылмаған %2$d хабар бар."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "%d рет дұрыс емес құрылғының құлпын ашу әрекетін жасадыңыз. Зауыттық әдепкі параметрлер қалпына келтіріліп, бүкіл деректер өшіріледі"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Қоңыраулар журналын көру үшін экранды сипаңыз."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Хабарларды ашу үшін экранды сипаңыз."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Егер Gear құрылғысы анықталуға тым алыс болса, үлгі құлпы автоматты түрде қосылады. Gear құрылғысы анықталса, экран құлпы сипау құлпына ауысады."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d жаңа хабар"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d қабылданбаған қоңырау"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d-%2$d сан немесе әріп талап етіледі."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Құлпын ашатын PIN енгізіңіз."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "4 таңбалы PIN енгізіңіз."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Тек жедел қоңырау  үшін."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Шұғыл қоңырау шалу"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Зарядталуда: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ЖАБУ"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Саусақ ізі"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Бағдарламаларды таңдау"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Тоқтату"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Ауа райы"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Үй парағы"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Түрлі түсті квадраттарды жоғарғы аумақтан төменгі аумаққа сүйреп апарыңыз немесе салыстырылатын түстің ұқсастығы үшін жоғарғы аумақтағы түрлі түсті квадраттарды түртіңіз. Квадраттарды қайта ретке келтіру үшін оларды төменгі аумақта сүйреп апаруға болады."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Автокұлып"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Сақтау"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Алып тас"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Тоқтату"
 

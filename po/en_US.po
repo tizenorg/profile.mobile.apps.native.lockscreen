@@ -1,36 +1,267 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 attempt left"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d attempts left"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
 msgstr "Emergency calls only"
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
 msgstr "Swipe screen to unlock"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Tap and hold screen and tilt device forward"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 attempt left."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d attempts left."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Incorrect password"
+msgstr "Incorrect password."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Missed call"
 
 msgid "IDS_IDLE_POP_MISSED_CALLS"
-msgstr "Missed calls"
+msgstr "Missed calls."
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Wallpapers"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Press and hold the screen, then tilt the device towards you to unlock it. If the screen does not unlock, try tilting the device more. When motion unlock is set, motion will be automatically turned on in Settings."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Select application"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Lock screen wallpaper changed."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Home screen wallpaper changed."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Swipe"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Lock screen settings"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Lock screen"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Tap and hold the screen, then tilt the device towards you to unlock it. If the screen does not unlock, try tilting the device more."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Simple password"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Screen lock type"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Password"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "None"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Motion"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Edit"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Emergency calls only"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "No SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Tutorial complete."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Invalid action. Try again."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Back"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Processing..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Select wallpaper"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Close"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Searching"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "No service"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Incorrect PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Enter PIN"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Enter password"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Edit"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Close"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Try again in 1 second."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Fully charged."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 missed call"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "New message"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "New messages"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 new message"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "New email"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "You have attempted to unlock the device incorrectly %1$d times. You have %2$d attempts left before the device is reset to factory defaults and all data is erased."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "New emails"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Try again in %d seconds."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Swipe screen to view message"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Swipe screen to view call log"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "No match"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Enter PIN to view message"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Enter PIN to view call log"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Enter password to view message"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Enter password to view call log"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Dual clock"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Camera shortcut"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Incorrect PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Return to call"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternative password"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Unlock via Tizen account"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Unlock via\nTizen account"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "You have %1$d missed calls and %2$d unread messages."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "You have attempted to unlock the device incorrectly %d times. It will now be reset to factory defaults and all data will be erased."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Swipe the screen to view the call log."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Swipe the screen to open Messages."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Simple password lock will be turned on automatically if your Gear is too far away to be detected. When your Gear is detected, your screen lock type will change to Swipe lock."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d new messages"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d missed calls"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d to %2$d digits or letters required."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Enter Unlock PIN."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Enter 4-digit PIN."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Emergency calls only"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Emergency call"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Charging: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "CLOSE"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Fingerprint"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Select applications"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Cancel"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Weather"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Home"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Drag and drop the colored squares from the upper area to the lower area or tap the colored squares in the upper area in order of similarity to the color that is being compared. You can drag and drop the squares in the lower area to re-order them."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Auto-lock"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Save"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Discard"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Cancel"
 

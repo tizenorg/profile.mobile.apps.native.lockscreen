@@ -1,17 +1,14 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Még 1 próbálkozásra van"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d kísérlet maradt."
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Csak segélyhívás indítható"
+msgstr "Csak segélyhívás indítható."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
 msgstr "Feloldás a kijelző végigsimításával"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Tartsa ujját a képernyőn, és döntse az eszközt előre"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Még 1 próbálkozásra van."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d kísérlet maradt."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
 msgstr "Téves jelszó"
@@ -22,15 +19,249 @@ msgstr "Nem fogadott hívás"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Nem fogadott hívások"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Háttérképek"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "A feloldáshoz tartsa ujját a képernyőn, majd billentse az eszközt maga felé. Ha nem sikerül feloldani a képernyőt, próbálja jobban megdönteni az eszközt. Mozgatásos feloldás beállítása esetén a Beállításokban automatikusan engedélyezve lesz a Mozdulatok funkció."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Alkalmazás kiválasztása"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "A zárolt képernyő háttere módosult."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "A kezdőképernyő háttere módosult."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Húzás"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Zárolt képernyő beállításai"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Képernyő lezárása"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "A feloldáshoz tartsa ujját a képernyőn, majd billentse az eszközt maga felé. Ha nem sikerül feloldani a képernyőt, próbálja jobban megdönteni az eszközt."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Egyszerű jelszó"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Képernyőzár típusa"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Jelszó"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Nincs"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Mozgás"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Szerkeszt"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Csak segélyhívás lehetséges."
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Nincs SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "A tankönyv befejeződött."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Érvénytelen művelet. Próbálja újra."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Vissza"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Feldolgozás folyamatban"
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Háttér kiválasztása"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Bezárás"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Keresés"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Nincs szolgáltatás"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Hibás PIN-kód"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Írja be a PIN-kódot!"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Írja be a jelszót."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Szerkeszt"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Bezárás"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Próbálja meg 1 másodperc múlva."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Feltöltve"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 nem fogadott hívás"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Új üzenet"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Új üzenet"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 új üzenet"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Új e-mail"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "%1$d alkalommal helytelenül kísérelte meg az eszköz feloldását. További %2$d sikertelen kísérlet esetén visszaállnak az eszköz gyári alapértelmezései, és minden adat törlődik róla."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Új e-mail"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Prób. újra %d mp múlva."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Simítsa meg a képernyőt az üzenet megtekintéséhez"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Simítsa meg a képernyőt a hívásnapló megtekintéséhez"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Nincs találat"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Adja meg a PIN-t az üzenet megjelenítéséhez"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Adja meg a PIN-t a hívásnapló megjelenítéséhez"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Adja meg a jelszót az üzenet megjelenítéséhez"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Adja meg a jelszót a hívásnapló megjelenítéséhez"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Második óra"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Fényképező parancsikonja"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Helytelen PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Vissza a híváshoz"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternatív jelszó"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Feloldás Tizen-fiókkal"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Feloldás\nTizen-fiókkal"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Van %1$d nem fogadott hívása és %2$d olvasatlan üzenete."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "%d alkalommal helytelenül kísérelte meg az eszköz feloldását. Most visszaállnak az eszköz gyári alapértelmezései, és minden adat törlődik róla."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Simítsa meg a képernyőt a hívásnapló megtekintéséhez."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Simítsa meg a képernyőt az Üzenetek megnyitásához."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Ha a Gear túl messze van az észleléshez, automatikusan az egyszerű jelszózár lesz aktív. A Gear észlelése esetén a képernyőzár típusa simításos zárolásra módosul."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d új üzenet"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d nem fogadott hívás"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d–%2$d számjegy vagy betű szükséges."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Adja meg a feloldó PIN kódot."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Adja meg a 4 jegyű PIN kódot."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Csak segélyhívás indítható."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Segélyhívás"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Töltés: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "BEZÁRÁS"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Ujjlenyomat"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Alkalmazások kiválasztása"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Mégse"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Időjárás"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Otthoni"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Húzza a színes négyzeteket a felső területről az alsóra, vagy érintse meg a színes négyzeteket a felső területen aszerinti sorrendben, hogy melyik hasonlít jobban az adott színhez. Az alsó területen húzással átrendezheti a négyzeteket."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Automatikus lezárás"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Mentés"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Elvetés"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Mégse"
 

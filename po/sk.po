@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Zostáva 1 pokus"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "Počet zostávajúcich pokusov: %d"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Len tiesňové volania"
+msgstr "Len tiesňové volania."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Odomknite potiahnutím prsta po obrazovke"
+msgstr "Odomknite potiahnutím prsta po obrazovke."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Ťuknite na obrazovku, podržte ju a nakloňte zariadenie dopredu"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Zostáva 1 pokus."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Počet zostávajúcich pokusov: %d."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Nesprávne heslo"
+msgstr "Nesprávne heslo."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Zmeškaný hovor"
@@ -22,15 +19,249 @@ msgstr "Zmeškaný hovor"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Zmeškané hovory"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Tapety"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Ťuknite na obrazovku a podržte ju a potom naklonením zariadenia smerom k sebe ho odomknite. Ak sa obrazovka neodomkne, skúste viac nakloniť zariadenie. Keď je nastavené odomknutie pohybom, v časti Nastavenia sa automaticky zapne funkcia pohybu."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Vyberte aplikáciu"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Tapeta zamknutej obrazovky bola zmenená."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Tapeta domovskej obrazovky bola zmenená."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Potiahnuť"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Nastavenia zamknutej obrazovky"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Zamknutá obrazovka"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Ťuknutím na obrazovku, jej podržaním a následným naklonením zariadenia smerom k sebe vykonajte jeho odomknutie. Ak sa obrazovka neodomkne, skúste viac nakloniť zariadenie."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Jednoduché heslo"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Typ zamknutia obrazovky"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Heslo"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Žiadny"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Pohyb"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Upraviť"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Iba tiesňové volania"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Žiadna SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Kurz je dokončený."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Neplatná akcia. Skúste to znova."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Späť"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Prebieha spracovanie..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Vybrať tapetu"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Zavrieť"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Hľadá sa"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Žiadna služba"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Nesprávny PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Zadať PIN"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Zadajte heslo."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Upraviť"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Zavrieť"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Skúste to znova za 1 sekundu."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Plne nabité."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 zmeškaný hovor"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Nová správa"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nové správy"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 nová správa"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Nový e-mail"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "%1$d-krát ste sa pokúsili nesprávne odomknúť zariadenie. Zostávajú vám ešte %2$d pokusy a potom sa pre zariadenie obnovia predvolené nastavenia od výrobcu a vymažú sa všetky údaje."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Nové e-maily"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Skúste znova o %d sekúnd."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Potiahnutím po obrazovke môžete zobraziť správu"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Potiahnutím po obrazovke môžete zobraziť denník hovorov"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Žiadna zhoda"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Zadajte kód PIN na zobrazenie správy"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Zadajte kód PIN na zobrazenie denníka hovorov"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Zadajte heslo na zobrazenie správy"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Zadajte heslo na zobrazenie denníka hovorov"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Duálne hodiny"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Odkaz na apl. Fotoaparát"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Nesprávny kód PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Návrat k hovoru"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternatívne heslo"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Odomknúť cez konto Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Odomknúť cez\nkonto Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Máte zmeškané hovory v počte %1$d a neprečítané správy v počte %2$d."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "%d-krát ste sa pokúsili nesprávne odomknúť zariadenie. Teraz sa preň obnovia predvolené nastavenia od výrobcu a vymažú sa všetky údaje."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Potiahnutím po obrazovke môžete zobraziť denník hovorov."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Potiahnutím po obrazovke môžete otvoriť aplikáciu Správy."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Ak sú hodinky Gear príliš ďaleko a nemožno ich zistiť, automaticky sa aktivuje zamykanie jednoduchým heslom. Keď sa zistia hodinky Gear, typ zámku obrazovky sa zmení na zamykanie potiahnutím."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "Nové správy: %d"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "Zmeškané hovory: %d"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Vyžaduje sa %1$d až %2$d číslic alebo písmen."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Zadajte odomykací kód PIN."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Zadajte 4-ciferný kód PIN."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Len tiesňové volania."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Tiesňový hovor"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Nabíja sa: %d %"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ZAVRIEŤ"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Odtlačok prsta"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Vyberte aplikácie"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Zrušiť"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Počasie"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Domov"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Uchopte a presuňte farebné štvorčeky z hornej časti do dolnej časti alebo ťuknite na farebné štvorčeky v hornej časti v poradí podľa podobnosti k farbe, ktorá sa porovnáva. Uchopením a presunutím štvorčekov do dolnej časti môžete zmeniť ich poradie."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Automatické zamykanie"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Uložiť"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Zahodiť"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Zrušiť"
 

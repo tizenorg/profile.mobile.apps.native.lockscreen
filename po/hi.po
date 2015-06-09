@@ -1,36 +1,267 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 प्रयास शेष"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d प्रयास शेष"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "केवल आपात कॉलें"
+msgstr "केवल आपातकालीन कॉल्स।"
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "अनलॉक करने के लिए स्क्रीन स्विप करें"
+msgstr "अनलॉक करने के लिए स्क्रीन स्वाइप करें।"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "स्क्रीन टैप करे रखें और डिवाइस आगे टिल्ट करें"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 प्रयास शेष।"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d प्रयास शेष।"
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "गलत पासवर्ड"
+msgstr "गलत पासवर्ड।"
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "छूटी कॉल"
 
 msgid "IDS_IDLE_POP_MISSED_CALLS"
-msgstr "छूटी कॉलें"
+msgstr "छूटी कॉल्स"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "वॉलपेपर्स"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "स्क्रीन टैप और होल्ड करें, फिर डिवाइस अनलॉक करने के लिए इसे अपनी ओर झुकाएँ। यदि स्क्रीन अनलॉक नहीं होती हैं, तो डिवाइस और अधिक झुकाने का प्रयास करें। जब गति अनलॉक सेट है, तो सेटिंग्स में गति स्वचालित रूप से सक्षमित हो जाएगी।"
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "एप्लीकेशन चुनें"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "लॉक स्क्रीन वॉलपेपर बदल दिया गया।"
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "होम स्क्रीन वॉलपेपर बदल दिया गया।"
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "स्वाइप करें"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "लॉक स्क्रीन सेटिंग्स"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "लॉक स्क्रीन"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "डिवाइस को अनलॉक करने के लिए स्क्रीन टैप और होल्‍ड करें, फिर उसे अपनी ओर झुकाएँ। यदि स्क्रीन अनलॉक नहीं होती हैं, तो डिवाइस को और अधिक झुकाने का प्रयास करें।"
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "आसान पासवर्ड"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "स्क्रीन लॉक प्रकार"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "रोमिंग"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "पासवर्ड"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "कुछ नहीं"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "गति"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "रोजमेरी"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "संपादित करें"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "कूल जैज"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "चोको कुकी"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "केवल आपातकालीन कॉल्स"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "कोई SIM नहीं"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "शिक्षण पूर्ण।"
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "अमान्य क्रिया। फिर से प्रयास करें।"
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "पीछे"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "प्रक्रिया हो रही है..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "वॉलपेपर चुनें"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "ओके"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "बंद"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "खोज रहा है"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "कोई सेवा नहीं"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "गलत PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "PIN प्रविष्ट करें।"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "पासवर्ड प्रविष्ट करें"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "संपादित करें"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "बंद करें"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "1 सेकंड में फिर से कोशिश करें"
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "पूर्ण चार्ज है।"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 छूटी कॉल"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "नया सन्देश"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "नये सन्देश"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 नया सन्देश"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "नयी ईमेल"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "आपने %1$d बार गलत ढंग से डिवाइस अनलॉक करने का प्रयास किया है। आपके पास डिवाइस फ़ैक्टरी डिफ़ॉल्ट पर रीसेट होने और सभी डाटा मिटने से पहले %2$d प्रयास शेष है।"
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "नए ईमेल"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "%d सेकंड में फिर से प्रयास करें।"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "सन्देश देखने के लिए स्क्रीन स्वाइप करें"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "कॉल लॉग देखने के लिए स्क्रीन स्वाइप करें"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "कोई मिलान नहीं"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "सन्देश देखने के लिए PIN प्रविष्‍ट करें"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "कॉल लॉग देखने के लिए PIN प्रविष्ट करें"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "सन्देश देखने के लिए पासवर्ड प्रविष्‍ट करें"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "कॉल लॉग देखने के लिए पासवर्ड प्रविष्ट करें"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "दोहरी घड़ी"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "कैमरा शॉर्टकट"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "गलत PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "कॉल पर वापस जाएँ"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "वैकल्पिक पासवर्ड"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Tizen खाता के द्वारा अनलॉक करें"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Tizen account\nद्वारा अनलॉक करें"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "आपके पास %1$d छूटी कॉल्स और %2$d अपठित सन्देश हैं।"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "आपने %d बार ग़लत ढ़ंग से डिवाइस अनलॉक करने का प्रयास किया है। यह अब फ़ैक्टरी डिफ़ॉल्ट में रीसेट किया जाएगा और सभी डाटा मिट जाएगा"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "कॉल लॉग देखने के लिए स्क्रीन स्वाइप करें।"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "संदेश खोलने के लिए स्क्रीन स्वाइप करें।"
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "यदि आपका गियर पता लगाए जाने के लिए बहुत दूर है, तो सरल पासवर्ड लॉक स्वचालित रूप से सक्षम हो जाएगा। आपके गियर का पता लगने पर, आपका स्क्रीन लॉक प्रकार स्वाइप लॉक में बदल जाएगा।"
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d नए संदेश"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d छूटी कॉल्स"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d से %2$d तक अंक या वर्ण आवश्यक।"
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "अनलॉक PIN प्रविष्ट करें।"
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "4-अंकीय PIN दर्ज करें"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "केवल आपातकालीन कॉल्स।"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "आपातकालीन कॉल"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "चार्ज हो रहा है: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "बंद करे"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "फिंगरप्रिंट"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "एप्लीकेशंस चुनें"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "रद्द"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "मौसम"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "होम"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "रंगीन वर्ग को ऊपरी क्षेत्र से निचले क्षेत्र में ड्रैग और ड्रॉप करें या जिस भी रंग की तुलना की जानी है उसकी समानता के क्रम में ऊपरी क्षेत्र में रंगीन वर्ग को टैप करें। आप वर्गों का क्रम परिवर्तित करने के लिए उनको निचले क्षेत्र में ड्रैग और ड्रॉप कर सकते है।"
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "स्वतः लॉक"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "सुरक्षित"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "निरस्त"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "रद्द"
 

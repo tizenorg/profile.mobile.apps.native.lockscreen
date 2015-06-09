@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 essai restant"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d essais restants"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Appels d'urgence uniquement"
+msgstr "Appels d'urgence uniquement."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Faites glisser votre doigt sur l'écran pour déverrouiller"
+msgstr "Faites glisser votre doigt sur l'écran pour déverrouiller."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Touchez longuement l'écran et inclinez l'appareil vers l'avant"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 essai restant."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d essais restants."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Mot de passe incorrect"
+msgstr "Mot de passe incorrect."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Appel manqué"
@@ -22,15 +19,249 @@ msgstr "Appel manqué"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Appels manqués"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Fonds d'écran"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Touchez longuement l'écran, puis inclinez l'appareil vers vous pour le déverrouiller. Si l'écran ne se déverrouille pas, essayez d'incliner l'appareil davantage. Lorsque la fonction de déverrouillage par mouvement est définie, l'interaction par mouvement est automatiquement activée dans Paramètres."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Sélectionnez une application"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Fond d'écran de verrouillage modifié."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Fond d'écran d'accueil modifié."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Glisser"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Paramètres de l'écran de verrouillage"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Écran verrouillé"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Touchez longuement l'écran, puis inclinez l'appareil vers vous pour le déverrouiller. Si l'écran ne se déverrouille pas, essayez d'incliner l'appareil davantage."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Mot de passe simple"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Type de verrouillage de l'écran"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Itinérance"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Mot de passe"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Aucun"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Mouvement"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Modifier"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Appels urgence uniquement"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Pas de carte SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Didacticiel terminé"
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Action non valide. Réessayez."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Précédent"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Traitement…"
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Sélectionner un fond d'écran"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Fermer"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Recherche"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Aucun service"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "NIP incorrect"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Saisir le NIP."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Saisir le mot de passe."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Modifier"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Fermer"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Réessayer dans 1 seconde."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Pile rechargée"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 appel manqué"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Nouveau message"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nouveaux messages"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 nouveau message"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Nouveau courriel"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Vous avez essayé de déverrouiller l'appareil de façon incorrecte à %1$d reprises. Il reste %2$d tentatives avant le rétablissement des paramètres d'origine et la suppression de toutes les données."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Nouveaux courriels"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Réessayez ds %d secondes."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Faire glisser votre doigt pour afficher le message"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Glissez votre doigt pour afficher le journal d'appels"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Aucune correspondance"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Saisir le code NIP pour afficher le message"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Saisir le code NIP pour afficher le journal d'appels"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Saisir le mot de passe pour afficher le message"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Saisir le mot de passe pour afficher le journal d'appels"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Double horloge"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Raccourci Appareil photo"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "NIP incorrect"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Revenir à l'appel"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "MDP alternatif"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Déverrouiller via un compte Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Déverrouil. via\ncompte Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Vous avez %1$d appels manqués et %2$d messages non lus."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Vous avez essayé de déverrouiller l'appareil de façon incorrecte à %d reprises. Les paramètres d'origine vont maintenant être rétablis et toutes les données effacées."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Faites glisser l'écran pour afficher le journal d'appels."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Faites glisser l'écran pour ouvrir les messages."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Le verrouillage avec mot de passe simple sera automatiquement activé si votre Gear est trop loin pour pouvoir être détecté. Lorsque votre Gear est détecté, le verrouillage d'écran passe en mode verrouillage par glissement."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d nouveaux messages"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d appels manqués"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d à %2$d chiffres ou lettres requis."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Entrez le NIP de déverrouillage."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Entrez un code NIP à 4 chiffres."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Appels d'urgence uniquement."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Appel d'urgence"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Charge : %d %"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "FERMER"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Empreinte"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Sélectionner les applications"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Entrer mot de passe de récup."
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Annuler"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Météo"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Domicile"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Glissez-déposez les carrés de couleur du haut vers le bas ou touchez les carrés de couleur dans la zone supérieure par ordre de similarité à la couleur comparée. Vous pouvez glisser-déposer les carrés dans la zone inférieure pour les réorganiser."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Verrouillage automatique"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Enregistrer"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Ignorer"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Annuler"
 

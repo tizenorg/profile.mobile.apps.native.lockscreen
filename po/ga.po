@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 iarracht fágtha"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d iarracht fágtha"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Glaonna éigeandála amháin"
+msgstr "Glaonna éigeandála amháin."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
 msgstr "Svaidhpeáil an scáileán le díghlasáil"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Tapáil agus coinnigh an scáileán agus déan an gléas a chlaonadh chun tosaigh"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 iarracht fágtha."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d iarracht fágtha."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Pasfhocal mícheart"
+msgstr "Pasfhocal mícheart."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Glao caillte"
@@ -22,15 +19,249 @@ msgstr "Glao caillte"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Glaonna a cailleadh"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Cúlbhrait"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Tapáil agus coinnigh an scáileán, ansin claon an gléas i do threosa lena dhíghlasáil. Mura ndéantar an scáileán a dhíghlasáil, triail an ngléas a chlaonadh a thuilleadh. Nuair atá díghlasáil gluaisne socraithe, cumasófar gluaisne go huathoibríoch i Socruithe."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Roghnaigh feidhmchlár"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Cúlbhrat an scáileáin ghlasála athraithe."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Cúlbhrat an scáileáin bhaile athraithe."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Svaidhpeáil"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Socruithe glasála scáileáin"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Glasáil an scáileán"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Tapáil agus coinnigh an scáileán, ansin claon an gléas chugat lena dhíghlasáil. Mura ndéantar an scáileán a dhíghlasáil, triail an gléas a chlaonadh tuilleadh."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Pasfhocal simplí"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Cineál glas scáileáin"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Ag fánaíocht"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Pasfhocal"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Dada"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Gluaisne"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Cuir in eagar"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Snag snasta"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Glaonna éigeandála amháin"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Níl SIM ann"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Ceacht teagaisc curtha i gcrích."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Gníomh neamhbhailí. Triail arís."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Siar"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Ag próiseáil..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Roghnaigh cúlbhrat"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Dún"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Ag cuardach"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Níl seirbhís ann"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "PIN mícheart."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Iontráil PIN"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Iontráil pasfhocal"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Cuir in eagar"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Dún"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Triail arís i gceann 1 soicind"
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Lánluchtaithe."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 ghlao caillte"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Teachtaireacht nua"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Teachtaireachtaí nua"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 theachtaireacht nua"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "R-phost nua"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Rinne tú iarracht mhícheart an gléas a dhíghlasáil %1$d uair. Tá %2$d iarracht fágtha sula bhfillfear an gléas ar réamhshocruithe monarchan agus sula scriosfar gach sonra."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "R-phoist nua"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Triail arís i gceann %d soicind"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Svaidhpeáil an scáileán le hamharc ar an teachtaireacht"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Svaidhpeáil an scáileán le hamharc ar an loga glaonna"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Níl meaits ann"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Iontráil PIN le hamharc ar an teachtaireacht"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Iontráil PIN le hamharc ar an loga glaonna"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Iontráil pasfhocal le hamharc ar an teachtaireacht"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Iontráil pasfhocal le hamharc ar an loga glaonna"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Déchlog"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Aicearra ceamara"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "PIN mícheart"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Fill ar ghlao"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Pasfhocal eile"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Díghlasáil trí chuntas Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Díghlasáil\nle cuntas Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Tá %1$d glao caillte agus %2$d teachtaireacht neamhléite agat"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Rinne tú iarracht mhícheart an gléas a dhíghlasáil %d uair. Socrófar anois chuig na réamhshocruithe monarchan é agus scriosfar na sonraí go léir."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Svaidhpeáil an scáileán le hamharc ar an loga glaonna."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Svaidhpeáil an scáileán le Teachtaireachtaí a oscailt."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Cumasófar an Glas pasfhocail simplí go huathoibríoch mura féidir do Gear a bhrath. Nuair a bhraithfear do Gear arís, athrófar cineál do ghlais scáileáin chuig Glas svaidhpeála."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d teachtaireacht nua"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d glao caillte"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d suas le %2$d digit nó litir de dhíth."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Iontráil PIN Díghlasála"
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Iontráil PIN 4 dhigit"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Glaonna éigeandála amháin."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Glao éigeandála"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Ag luchtú: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "DÚN"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Méarlorg"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Roghnaigh feidhmchláir"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Cealaigh"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Aimsir"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Baile"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Tarraing agus scaoil na cearnóga daite ón limistéar uachtair go dtí an limistéar íochtair nó tapáil na cearnóga daite sa limistéar uachtair in ord a gcomhchosúlachta leis an dath lena bhfuil sé i gcomparáid. Is féidir leat na cearnóga a tharraingt agus a scaoileadh sa limistéar thíos chun iad a athordú."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Uathghlas"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Sábháil"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Cuileáil"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Cealaigh"
 

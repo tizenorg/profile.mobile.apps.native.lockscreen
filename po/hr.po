@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Još 1 pokušaj"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d pokušaja preostalo"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Samo SOS pozivi"
+msgstr "Samo SOS pozivi."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Kliznite po zaslonu za otključavanje"
+msgstr "Kliznite po zaslonu za otključavanje."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Dodirnite i držite zaslon te nagnite uređaj prema naprijed"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Još 1 pokušaj."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d pokušaja preostalo."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Neispravna šifra"
+msgstr "Neispravna lozinka."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Propušteni poziv"
@@ -22,15 +19,249 @@ msgstr "Propušteni poziv"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Propušteni pozivi"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Pozadine"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Dodirnite i držite zaslon, zatim nagnite uređaj prema sebi da biste ga otključali. Ako se zaslon ne otključa, uređaj pokušajte još nagnuti. Kad je postavljeno otključavanje pokretom, pokret će se automatski uključiti u Postavkama."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Odaberi aplikaciju"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Pozadina zaslona zaključavanja promijenjena."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Pozadina početnog zaslona promijenjena."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Klizanje"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Postavke zaslona zaključavanja"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Zaslon zaključavanja"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Dodirnite i držite zaslon, zatim nagnite uređaj prema sebi da biste ga otključali. Ako se zaslon ne otključa, nagnite uređaj više."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Jednostavna lozinka"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Vrsta zaključavanja zaslona"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Šifra"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Ništa"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Pokreti"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Uredi"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Samo SOS pozivi"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Nema SIM-a"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Vodič dovršen."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Neispravna radnja. Ponovite."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Nazad"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Procesiranje..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Odaberite pozadinu"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Prekid"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Traženje"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Nema usluge"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Neispravan PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Unesite PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Unesite lozinku."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Uredi"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Prekid"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Ponovite nakon 1 sek."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Baterija napunjena."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 propušteni poziv"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Nova poruka"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nove poruke"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 nova poruka"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Novi email"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Pokušali ste neispravno otključati uređaj %1$d puta. Imate još %2$d pokušaja prije nego što se uređaj vrati na tvornički zadane postavke te se svi podaci izbrišu."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Nove email poruke"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Ponovite nakon %d sek."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Prijeđite prstom po zaslonu za prikaz poruke"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Prijeđite prstom po zaslonu za prikaz popisa poziva"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Nema rezultata"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Unesite PIN za prikaz poruke"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Unesite PIN za prikaz popisa poziva"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Unesite lozinku za prikaz poruke"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Unesite lozinku za prikaz popisa poziva"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Dvostruki sat"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Prečac kamere"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Neispravan PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Natrag na poziv"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Zamjenska lozinka"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Otključajte preko Tizen računa"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Otključajte\nTizen računom"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Imate %1$d propuštenih poziva i %2$d nepročitanih poruka."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Pokušali ste neispravno otključati uređaj %d puta. Vratit će se na tvornički zadane postavke i svi će podaci biti izbrisani."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Kliznite po zaslonu za prikaz popisa poziva."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Kliznite po zaslonu da biste otvorili Poruke."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Zaključavanje jednostavnom šifrom automatski će se uključiti ako je Gear predaleko za prepoznavanje. Kad je Gear prepoznat, vrsta vašeg zaključavanja zaslona promijenit će se na zaključavanje klizanjem."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d novih poruka"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d propuštenih poziva"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Potrebno je %1$d do %2$d znamenki ili slova."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Unesite PIN za otključavanje."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Unesite PIN od 4 znamenke."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Samo SOS pozivi."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "SOS poziv"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Punjenje: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ZATVORI"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Otisak prsta"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Odabir aplikacija"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Prekid"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Prognoza"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Kuća"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Dovucite i ispustite kvadrate u boji iz gornjeg područja u donje područje ili dodirnite kvadrate u boji u gornjem području u redoslijedu sličnosti s bojom koja se uspoređuje. Možete dovući i ispustiti kvadrate u donjem području da biste ih presložili."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Auto. zaključavanje"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Spremi"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Odbaci"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Prekid"
 

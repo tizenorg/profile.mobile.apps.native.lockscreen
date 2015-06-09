@@ -1,5 +1,0 @@
-@PREFIX@/bin/*
-@PREFIX@/res/*
-@PREFIX@/data
-/opt/share/applications/*
-/opt/ug/*

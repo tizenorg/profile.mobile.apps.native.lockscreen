@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 tentativo rimasto"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d tentativi rimasti"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
 msgstr "Solo chiamate di emergenza"
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
 msgstr "Trascina il dito sullo schermo per sbloccare"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Tenete premuto lo schermo e inclinate il dispositivo in avanti"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 tentativo rimasto."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d tentativi rimasti."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Password errata"
+msgstr "Password errata."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Chiamata persa"
@@ -22,15 +19,249 @@ msgstr "Chiamata persa"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Chiamate perse"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Sfondi"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Tenete il dito sullo schermo, quindi inclinate il dispositivo verso di voi per sbloccarlo. Se lo schermo non si sblocca, provate a inclinare di più il dispositivo. Se lo sblocco movimento è impostato, il movimento verrà attivato automaticamente in Impostazioni."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Seleziona applicazione"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Sfondo della schermata di blocco modificato."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Sfondo della schermata iniziale modificato."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Trascinamento"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Impostazioni schermata di blocco"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Schermata di blocco"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Tenete premuto il dito sullo schermo, quindi inclinate il dispositivo verso di voi per sbloccarlo. Se lo schermo non si sblocca, provate a inclinare di più il dispositivo."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Password semplice"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Tipo di blocco schermo"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Password"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Nessuno"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Movimento"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Modifica"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Solo emergenza"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Nessuna SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Tutorial completato."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Azione non valida. Riprovare."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Indietro"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Elaborazione..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Seleziona sfondo"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Chiudi"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Ricerca"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Nessun servizio"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "PIN errato."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Inserisci PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Inserisci password."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Modifica"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Chiudi"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Riprovate tra 1 secondo."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Ricarica completata."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 chiamata persa"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Nuovo messaggio"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nuovi messaggi"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 nuovo messaggio"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Nuova e-mail"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Avete tentato per %1$d volte di sbloccare il dispositivo in modo errato. Sono rimasti %2$d tentativi prima che il dispositivo venga ripristinato ai valori predefiniti di fabbrica e che tutti i dati vengano eliminati."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Nuove e-mail"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Riprovate tra %d secondi."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Trascinate la schermata per visualizzare il messaggio"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Trascinate la schermata per vedere il registro chiamate"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Ness. corrispondenza"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Inserite il PIN per visualizzare il messaggio"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Inserite il PIN per visualizzare il registro chiamate"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Inserite la password per visualizzare il messaggio"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Inserite la password per visualizzare il registro chiamate"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Orologio doppio"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Collegamento fotocamera"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "PIN errato"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Torna alla chiamata"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Password alternativa"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Sbloccate con l'account Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Sblocca con\naccount Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "%1$d chiamate perse e %2$d messaggi non letti."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "%d tentativi errati di sblocco del dispositivo. Il dispositivo verrà ripristinato ai valori predefiniti di fabbrica e i dati verranno eliminati."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Trascinate la schermata per visualizzare il registro delle chiamate."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Trascinate la schermata per aprire Messaggi."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Se Gear è troppo lontano per essere rilevato, verrà attivato automaticamente il blocco con password. Quando Gear viene rilevato, verrà attivato il blocco schermo con trascinamento."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d nuovi messaggi"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d chiamate perse"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Sono necessarie da %1$d a %2$d cifre o lettere."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Immetti PIN di sblocco."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Inserite il codice PIN di 4 cifre."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Solo chiamate di emergenza"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Chiamata di emergenza"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "In carica: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "CHIUDI"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Impronta digitale"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Seleziona applicazioni"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Immetti password ripristino"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Annulla"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Meteo"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Casa"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Trascinate e rilasciate i quadrati colorati dall'area superiore a quella inferiore della schermata o toccate i quadrati colorati nell'area superiore in base alla somiglianza con il colore che viene confrontato. Potete trascinare e rilasciare i quadrati colorati nell'area inferiore della schermata per riordinarli."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Blocco automatico"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Salva"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Scarta"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Annulla"
 

@@ -1,17 +1,14 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Осталась 1 попытка"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "Осталось попыток: %d"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Только экстренные вызовы"
+msgstr "Только экстренные вызовы."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Для разблокировки проведите пальцем по экрану"
+msgstr "Для разблокировки проведите пальцем по экрану."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Нажмите и удерживайте экран, а затем наклоните устройство вперед"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Осталась 1 попытка."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Осталось попыток: %d."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
 msgstr "Неправильный пароль"
@@ -22,15 +19,249 @@ msgstr "Пропущенный вызов"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Пропущено вызовов:"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Обои"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Для разблокировки нажмите и удерживайте экран, а затем наклоните устройство к себе. Если экран не разблокируется, попробуйте наклонить устройство сильнее. Если включена разблокировка движением, движения автоматически включаются в меню “Параметры”."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Выбор приложения"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Обои экрана блокировки изменены."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Обои главного экрана изменены."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Провести по экрану"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Параметры экрана блокировки"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Экран блокировки"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Для разблокировки нажмите и удерживайте экран, а затем наклоните устройство к себе. Если экран не разблокируется, попробуйте наклонить устройство сильнее."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Простой пароль"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Тип блокировки экрана"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Роуминг"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Пароль"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Нет"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Движение"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Изменить"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Только экстренные вызовы"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Нет SIM-карты"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Обучение завершено."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Недопустимое действие. Повторите попытку."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Назад"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Обработка..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Выбрать обои"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "ОК"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Закрыть"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Поиск"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Нет сети"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Неверный PIN"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Введите PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Введите пароль."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Изменить"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Закрыть"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Повторите через 1 секунду."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Заряжено."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 пропущенный звонок"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Новое сообщение"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Новые сообщения"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "Новых сообщений: 1"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Новое сообщение E-mail"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Число неудачных попыток разблокировки устройства: %1$d. Осталось попыток: %2$d, после чего настройки будут сброшены до заводских значений, а все данные — удалены."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Новые сообщения E-mail"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Повторите через %d сек."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Проведите по экрану, чтобы просмотреть сообщение"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Проведите по экрану, чтобы просмотреть журнал вызовов"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Совпадения не найдены"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Введите PIN-код, чтобы просмотреть сообщение"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Введите PIN-код, чтобы просмотреть журнал вызовов"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Введите пароль, чтобы просмотреть сообщение"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Введите пароль, чтобы просмотреть журнал вызовов"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Двойные часы"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Ярлык камеры"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Неправильный PIN-код"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Вернуться к вызову"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Альтернативн. пароль"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Разблок. с\nпом. уч.\nзаписи Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Разбл. с пом.\nуч. зап. Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "У вас есть пропущенные вызовы (%1$d) и непрочитанные сообщения (%2$d)."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Число неудачных попыток разблокировки устройства: %d. Настройки будут сброшены до заводских значений, а все данные — удалены"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Проведите по экрану, чтобы просмотреть журнал вызовов."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Проведите по экрану, чтобы открыть “Сообщения”."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Если не удается определить устройство Gear, так как оно находится слишком далеко, автоматически включается блокировка экрана с помощью простого пароля. Если Gear распознается, тип блокировки изменится на блокировку прокруткой."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "Новых сообщений: %d"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "Пропущено вызовов: %d"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Требуется от %1$d до %2$d цифр или букв."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Введите PIN-код разблокировки."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Введите 4-значный PIN-код."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Только экстренные вызовы."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Экстренный вызов"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Зарядка: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ЗАКРЫТЬ"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Отпечаток пальца"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Выбор приложений"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Отмена"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Погода"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Домашний"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Перетащите цветные квадраты из верхней области в нижнюю или нажмите на цветные квадраты в верхней области в порядке сходства с цветом, с которым выполняется сравнение. Можно перетащить квадраты в нижнюю область, чтобы изменить их порядок."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Автоблокировка"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Сохранить"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Удалить"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Отмена"
 

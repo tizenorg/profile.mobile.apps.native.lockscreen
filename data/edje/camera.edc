@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2009-2014 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+group {
+	name: "camera-layout";
+	images {
+		image: "quick_shot.png" COMP;
+		image: "quick_shot_press.png" COMP;
+	}
+	parts {
+		part {
+			name: "bg";
+			type: SPACER;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: 0.0 0.0; }
+				rel2 { relative: 1.0 1.0; }
+			}
+		}
+		part {
+			name: "img.camera";
+			type: IMAGE;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: CAMERA_ICON_SIZE CAMERA_ICON_SIZE;
+				max: CAMERA_ICON_SIZE CAMERA_ICON_SIZE;
+				fixed: 1 1;
+				rel1 { relative: 0.5 0.5; to: "bg"; }
+				rel2 { relative: 0.5 0.5; to: "bg"; }
+				image.normal: "quick_shot.png";
+				visible: 1;
+				map {
+					on: 1;
+					rotation {
+						center: "bg";
+						x: 0.0;
+						y: 0.0;
+						z: 0.0;
+					}
+				}
+			}
+			description {
+				state: "release" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+			}
+			description {
+				state: "press" 0.0;
+				inherit: "default" 0.0;;
+				image.normal: "quick_shot_press.png";
+			}
+		}
+	}
+	programs {
+		program {
+			signal: "mouse,down,1";
+			source: "img.camera";
+			action: SIGNAL_EMIT "camera,icon,mouse,down" "img.camera";
+		}
+		program {
+			name: "camera,icon,press";
+			signal: "camera,icon,press";
+			source: "img.camera";
+			action: STATE_SET "press" 0.0;
+			target: "img.camera";
+		}
+		program {
+			signal: "mouse,up,1";
+			source: "img.camera";
+			action: SIGNAL_EMIT "camera,icon,mouse,up" "img.camera";
+		}
+		program {
+			name: "camera,icon,release";
+			signal: "camera,icon,release";
+			source: "img.camera";
+			action: STATE_SET "release" 0.0;
+			target: "img.camera";
+		}
+	}
+}

@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 փորձ է մնացել"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "Մնացել է %d փորձ"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Միայն հրատապ կանչեր"
+msgstr "Միայն հրատապ կանչեր:"
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Մատը սահեցրեք էկրանով՝ արգելաբացելու համար"
+msgstr "Մատը սահեցրեք էկրանով՝ արգելաբացելու համար:"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Թակեք ու պահեք էկրանը և սարքը թեքեք առաջ"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 փորձ է մնացել:"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Մնացել է %d փորձ:"
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Սխալ գաղտնաբառ"
+msgstr "Սխալ գաղտնաբառ:"
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Բացթողած զանգ"
@@ -22,15 +19,249 @@ msgstr "Բացթողած զանգ"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Բացթողնված կանչեր"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Պաստառներ"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Թակեք և պահեք էկրանը, հետո սարքը թեքեք դեպի Ձեզ՝ այն արգելաբացելու համար: Եթե էկրանը չի արգելաբացվում, էլի փորձեք թեքել սարքը: Երբ շարժումով արգելաբացումը նախադրված է, շարժումն ինքնաբերաբար կընձեռվի Դրվածքներում:"
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Ընտրել ծրագիր"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Կողպված էկրանի պաստառը փոխվել է:"
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Հիմնական էկրանի պաստառը փոխվել է:"
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Մատների սահող շարժում"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Կողպված էկրանի դրվածքներ"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Կողպել էկրանը"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Թակեք և պահեք էկրանը, հետո սարքը թեքեք դեպի Ձեզ՝ այն արգելաբացելու համար: Եթե էկրանը չի արգելաբացվում, էլի փորձեք թեքել սարքը:"
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Պարզ գաղտնաբառ"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Էկրանի կողպման տեսակը"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Ռոումինգ"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Գաղտնաբառ"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Չկա"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Շարժում"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Խմբագրել"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Միայն արտ. իրավիճ. զանգեր"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "SIM չկա"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Ուսումնական ձեռնարկն ավարտվեց:"
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Անվավեր գործողություն: Նորից փորձեք:"
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Հետ"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Ընթացքում է"
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Ընտրել պաստառ"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Փակել"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Որոնում"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Ծառայություն չկա"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Սխալ PIN:"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Մուտքագրեք PIN-ը:"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Մուտքագրեք գաղտնաբառը:"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Խմբագրել"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Փակել"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Նորից փորձեք 1 վայրկյանից:"
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Ամբողջությամբ լիցքավորված է:"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 բացթողնված կանչ"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "նոր հաղորդագրություն"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "նոր հաղորդագրություններ"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 նոր ուղերձ"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Նոր էլ. փոստ"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Դուք սարքի արգելաբացման սխալ փորձ եք արել %1$d անգամ: Ձեզ %2$d փորձ է մնացել, նախքան սարքը կհետադարձվի գործարանային կանխադրվածքի, և բոլոր տվյալները կջնջվեն:"
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Նոր էլ-նամակներ"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Նորից փորձեք %d վրկ.-ից:"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Մատը սահեցրեք էկրանով՝ հաղորդագրությունը դիտելու համար"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Մատը սահեցրեք էկրանով՝ կանչերի մատյանը դիտելու համար"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Համընկնում չկա"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Մուտքագրեք PIN՝ հաղորդագրությունը դիտելու համար"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Մուտքագրեք PIN՝ կանչերի մատյանը դիտելու համար"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Մուտքագրեք գաղտնաբառ՝ հաղորդագրությունը դիտելու համար"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Մուտքագրեք գաղտնաբառ՝ կանչերի մատյանը դիտելու համար"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Կրկնակի ժամացույց"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Խցիկի դյուրանցում"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Սխալ PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Վերադառնալ կանչին"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Այլընտրնք. գաղտնաբառ"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Արգելաբացել Tizen հաշվի միջոցով"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Արգելաբացել\nTizen հաշվով"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Դուք ունեք %1$d կորսված զանգ և %2$d չկարդացված հաղորդագրություն:"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Դուք սարքի արգելաբացման սխալ փորձ եք արել %d անգամ: Այն հիմա կհետադարձվի գործարանային կանխադրվածքի, և բոլոր տվյալները կջնջվեն"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Մատով սահեցրեք էկրանը՝ կանչերի մատյանը դիտելու համար:"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Մատով սահեցրեք էկրանը՝ Հաղորդագրությունները բացելու համար:"
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Հասարակ գաղտնաբառով կողպումն ինքնաբերաբար կընձեռվի, եթե Ձեր Gear-ը շատ հեռու լինի հայտնաբերվելու համար: Երբ Gear-ը հայտնաբերվի, էկրանի կողպման տեսակը կփոխվի Մատների սահող շարժմամբ կողպման:"
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d նոր հաղորդագրություն"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d կորսված զանգ"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Պահանջվում է %1$d-ից %2$d թվանշան կամ տառ:"
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Մուտքագրել արգելաբացման PIN-ը:"
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Մուտքագրեք 4-նիշանի PIN:"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Միայն հրատապ կանչեր:"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Հրատապ զանգ"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Փոխվում է՝ %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ՓԱԿԵԼ"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Մատնահետք"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Ընտրել ծրագրեր"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Չեղարկել"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Եղանակ"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Տուն"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Գունավոր քառակուսիները վերևի տարածքից քարշեք և գցեք ներքևի տարածքի մեջ կամ վերևի տարածքում եղած գունավոր քառակուսիները թակեք համեմատվող գույնի հետ ունեցած նմանության հերթականությամբ: Կարող եք քարշել և թողնել ներքևի տարածքում եղած քառակուսիները՝ դրանք վերադասավորելու համար:"
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Ավտո արգելափակում"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Պահպանել"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Գցել"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Չեղարկել"
 

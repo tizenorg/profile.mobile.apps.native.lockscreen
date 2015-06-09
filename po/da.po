@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 forsøg tilbage"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d forsøg tilbage"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Kun nødopkald"
+msgstr "Kun nødopkald."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Stryg med fingeren over skærmen for at låse op"
+msgstr "Stryg med fingeren over skærmen for at låse op."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Tap og hold på skærmen, og hæld enheden fremad"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 forsøg tilbage."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d forsøg tilbage."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Forkert adgangskode"
+msgstr "Forkert adgangskode."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Ubesvaret opkald"
@@ -22,15 +19,249 @@ msgstr "Ubesvaret opkald"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Ubesvarede opkald"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Baggrunde"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Tap og hold nede på skærmen, og vip enheden ind imod dig for at låse den op. Hvis skærmen ikke låser op, kan du prøve at vippe enheden lidt mere. Når bevægelseoplåsning er indstillet, aktiveres bevægelse automatisk under Indstillinger."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Vælg program"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Baggrund for låst skærm ændret."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Baggrund for startskærm ændret."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Stryg"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Indstillinger for låst skærm"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Låseskærm"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Tap og hold nede på skærmen, og vip enheden ind imod dig selv for at låse den op. Hvis skærmen ikke låser op, kan du prøve at vippe enheden mere."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Enkelt adgangskode"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Skærmlåsningstype"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Adgangskode"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Ingen"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Bevægelse"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Redigér"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Kun nødopkald"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Intet SIM-kort"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Selvstudium fuldført."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Ugyldig handling. Prøv igen."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Tilbage"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Behandler ..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Vælg baggrund"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Luk"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Søger"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Ingen dækning"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Forkert PIN-kode."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Angiv PIN-kode."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Angiv adgangskode."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Redigér"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Luk"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Prøv igen om 1 sekund."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Fuldt opladet."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 ubesvaret opkald"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Ny meddelelse"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nye meddelelser"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 ny meddelelse"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Ny e-mail"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Du har brugt %1$d forkerte forsøg på at oplåse enheden. Du har %2$d forsøg tilbage, før enheden nulstilles til fabriksstandarderne, og alle data slettes."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Nye e-mail"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Prøv igen om %d sekunder."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Stryg over skærmen for at se besked"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Stryg over skærmen for at se opkaldslog"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Intet match"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Angiv PIN-kode for at se besked"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Angiv PIN-kode for at se opkaldslog"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Angiv adgangskode for at se besked"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Angiv adgangskode for at se opkaldslog"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Dobbelt ur"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Kameragenvej"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Forkert PIN-kode"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Tilbage til opkald"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alt. adgangskode"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Lås op via Tizen-konto"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Lås op via\nTizen-konto"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Du har %1$d %ubesvarede opkald, og %2$d ulæste beskeder."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Du har forgæves forsøgt at låse enheden op %d gange. Den nulstilles nu til fabriksstandarderne, og alle data slettes."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Stryg fingeren over skærmen for at se opkaldslog."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Stryg fingeren over skærmen for at åbne Beskeder."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Enkel adgangskodelåsning aktiveres automatisk, hvis dit Gear er for langt væk til at blive registreret. Når dit Gear bliver registreret, skifter skærmlåsningstypen til strygelås."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d nye meddelelser"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d ubesvarede opkald"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d til %2$d cifre eller bogstaver krævet."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Indtast PIN-kode til oplåsning."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Indtast 4-cifret PIN-kode."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Kun nødopkald."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Nødopkald"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Oplader: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "LUK"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Fingeraftryk"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Vælg applikationer"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Annullér"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Vejr"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Hjem"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Træk og slip de farvede firkanter fra det øverste område til det nederste område, eller tap på de farvede firkanter i det øverste område i rækkefølge for lighed med den farve, der sammenlignes. Du kan trække og slippe firkanterne i det nederste område for at ændre deres rækkefølge."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Automatisk lås"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Gem"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Afvis"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Annullér"
 

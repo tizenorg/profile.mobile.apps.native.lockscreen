@@ -1,36 +1,267 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "재입력 기회가 1번 남았습니다"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "입력 기회가 %d회 남았습니다"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "긴급전화만 가능합니다"
+msgstr "긴급전화만 가능합니다."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "해제하려면 화면을 움직이세요"
+msgstr "잠금을 해제하려면 화면을 미세요."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "터치 상태에서 디바이스를 앞으로 기울이세요"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "입력 기회가 1회 남았습니다."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "입력 기회가 %d회 남았습니다."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "비밀번호가 바르지 않습니다"
+msgstr "비밀번호가 바르지 않습니다."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "부재중 전화"
 
 msgid "IDS_IDLE_POP_MISSED_CALLS"
-msgstr "부재중통화"
+msgstr "부재중 전화"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "배경화면"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "잠금을 해제하려면 화면을 길게 누르면서 디바이스를 앞으로 기울이세요. 화면 잠금이 해제되지 않으면 디바이스를 더 기울이세요. [모션 잠금해제]를 설정한 [설정]에서 모션 기능을 자동 실행합니다."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "애플리케이션 선택"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "잠금화면 배경을 변경하였습니다."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "홈 배경화면을 변경하였습니다."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "드래그"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "잠금화면 설정"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "잠금화면"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UD명조"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "잠금을 해제하려면 화면을 길게 누르면서 디바이스를 앞으로 기울이세요. 화면 잠금이 해제되지 않으면 디바이스를 더 기울이세요."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "간단 비밀번호"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "화면 잠금 방식"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "로밍"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "비밀번호"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "설정 안 함"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "모션"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "로즈마리"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "편집"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "쿨재즈"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "초코쿠키"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "긴급전화만 가능"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "SIM 카드가 없습니다"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "가이드를 완료하였습니다."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "동작이 바르지 않습니다. 다시 시도하세요."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "뒤로가기"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "진행 중..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "배경화면 선택"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "확인"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "닫기"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "검색 중..."
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "서비스 지역이 아닙니다"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "PIN이 바르지 않습니다."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "PIN을 입력하세요."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "비밀번호를 입력하세요."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "편집"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "종료"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "1초 후에 다시 시도하세요."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "충전을 완료하였습니다."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "부재중 전화 1개"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "새 메시지"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "새 메시지"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "새 메시지 1개"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "새 이메일"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "잠금해제 비밀번호를 %1$d회 잘못 입력하였습니다. 디바이스 설정 및 데이터가 기본 설정으로 초기화되기까지 비밀번호를 %2$d회 입력할 수 있습니다."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "새 이메일"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "%d초 후에 다시 시도하세요."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "메시지를 보려면 화면을 미세요"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "통화기록을 보려면 화면을 미세요"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "일치하지 않는 지문입니다"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "메시지를 보려면 PIN을 입력하세요"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "통화기록을 보려면 PIN을 입력하세요"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "메시지를 보려면 비밀번호를 입력하세요"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "통화기록을 보려면 비밀번호를 입력하세요"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "듀얼 시계"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "카메라 바로가기"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "PIN 잘못 입력"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "통화로 돌아가기"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "대체 비밀번호"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "타이젠 계정으로 잠금해제"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "타이젠 계정으로\n잠금해제"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "부재중 전화 %1$d개 및 읽지 않은 메시지 %2$d개가 있습니다."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "잠금해제 비밀번호를 %d회 잘못 입력하였습니다. 디바이스 설정을 기본 설정으로 초기화하고 모든 데이터를 삭제합니다."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "통화기록을 보려면 화면을 미세요."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "메시지를 실행하려면 화면을 미세요."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Gear가 너무 멀리 있어 인식되지 않으면 간단 비밀번호 잠금을 자동 실행합니다. Gear가 인식되면, 화면 잠금 방식을 드래그 잠금으로 변경합니다."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "새 메시지 %d개"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "부재중 전화 %d개"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d-%2$d자의 숫자 또는 문자를 입력하세요."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "잠금해제 PIN을 입력하세요."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "비밀번호 4자를 입력하세요."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "긴급전화만 가능합니다."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "긴급전화"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "충전 중: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "종료"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "지문"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "애플리케이션 선택"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "복구 비밀번호 입력"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "취소"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "날씨"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "홈"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "상단의 색상 사각형을 비교 중인 색상과 유사한 순서대로 상단에서 하단으로 끌어다 놓거나 색상 사각형을 상단에서 누르세요. 하단의 사각형을 이동하여 순서를 변경할 수 있습니다."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "자동 잠금"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "저장"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "저장 안 함"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "취소"
 

@@ -1,17 +1,14 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Queda 1 intent"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "Queden %d intents"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
 msgstr "Només trucades d'emergència"
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
 msgstr "Mogui la pantalla per desbloquejar"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Mantingui tocada la pantalla i inclini el dispositiu endavant"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Queda 1 intent"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Queden %d intents"
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
 msgstr "Contrasenya incorrecta"
@@ -22,15 +19,249 @@ msgstr "Trucada perduda"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Trucades perdudes"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Fons de pantalla"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Mantingui tocada la pantalla i inclini el dispositiu cap a vostè per desbloquejar-lo. Si la pantalla no es desbloqueja, intenti inclinar més el dispositiu. Quan es defineixi desbloqueig de moviment, s'habilitarà el moviment automàticament a Ajustaments."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Seleccionar aplicació"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "S'ha canviat el fons de la pantalla de bloqueig"
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "S'ha canviat el fons de pantalla d'inici"
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Desplaçar"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Ajustaments de pantalla de bloqueig"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Bloquejar pantalla"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Mantingui tocada la pantalla i inclini el dispositiu cap a vostè per desbloquejar-lo. Si la pantalla no es desbloqueja, intenti inclinar més el dispositiu."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Contrasenya simple"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Tipus de bloqueig de pantalla"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Itinerància"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Contrasenya"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Cap"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Moviment"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Editar"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Només trucades emergència"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Sense SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Programa d'aprenentatge complet"
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Acció no vàlida. Torni-ho a intentar."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Enrere"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Processant..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Seleccionar fons de pantalla"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "Acceptar"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Tancar"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "S'està cercant"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Sense servei"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "PIN incorrecte"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Introdueixi PIN"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Introduir contrasenya"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Editar"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Tancar"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Torni a intentar-ho en 1 segon"
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Completament carregat"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 trucada perduda"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Nou missatge"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nous missatges"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 missatge nou"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Nou correu electrònic"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Ha intentat desbloquejar el dispositiu de forma incorrecta %1$d cops. Li queden %2$d intents abans que el dispositiu es restableixi als valors predeterminats de fàbrica i s'esborrin totes les dades."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Nous correus electrònics"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Torni a intentar en %d s"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Mogui la pantalla per veure el missatge"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Mogui la pantalla per veure el registre de trucades"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Cap coincidència"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Introdueixi el PIN per veure el missatge"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Introdueixi el PIN per veure el registre de trucades"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Introdueixi la contrasenya per veure el missatge"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Introdueixi la contrasenya per veure el registre de trucades"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Rellotge dual"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Accés directe a la càmera"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "PIN incorrecte"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Tornar a la trucada"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Contrasenya alternat"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Desbloq amb compte de Tizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Desbloq amb\ncompte de Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Té %1$d trucades perdudes i %2$d missatges sense llegir"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Ha intentat desbloquejar el dispositiu de forma incorrecta %d cops. Ara es restablirà als valors predeterminats de fàbrica i s'esborraran totes les dades."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Desplaci la pantalla per veure el registre de trucades."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Desplaci la pantalla per obrir Missatges."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "El bloqueig mitjançant contrasenya senzilla s'habilitarà automàticament si el seu Gear és massa lluny per detectar-lo. Quan es detecti, el tipus de bloqueig de pantalla canviarà a Bloqueig de desplaçament."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d missatges nous"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d trucades perdudes"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Calen de %1$d a %2$d dígits o lletres"
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Introdueixi el PIN de desbloqueig"
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Introdueixi PIN 4 dígits"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Només trucades d'emergència"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Trucada d'emergència"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Carregant: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "TANCAR"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Empremta"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Seleccionar aplicacions"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Cancel"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Temps"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Pers."
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Arrossegui i deixi anar els quadrats de color des de l'extrem superior a l'inferior o toqui els quadrats de color a l'extrem superior en ordre de similitud amb el color amb què es compara. Pot arrossegar i deixar anar els quadrats a l'extrem inferior per canviar-ne l'ordre."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Bloqueig automàtic"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Desar"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Descart"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Cancel"
 

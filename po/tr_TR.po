@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 deneme hakkı kaldı"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d deneme kaldı"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Yalnızca acil aramalar"
+msgstr "Yalnızca acil aramalar."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Açmak için ekranı kaydırın"
+msgstr "Açmak için ekranı kaydırın."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Ekrana dokunun ve basılı tutun ve cihazı öne eğin"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 deneme hakkı kaldı."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d deneme kaldı."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Yanlış şifre"
+msgstr "Şifre yanlış."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Cevapsız arama"
@@ -22,15 +19,249 @@ msgstr "Cevapsız arama"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Cevapsız arama"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Duvar kağıtları"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Ekrana dokunun ve basılı tutun, ardından kilidini açmak için cihazı kendinize doğru eğin. Ekran kilidi açılmazsa cihazı daha fazla eğmeyi deneyin. Hareket kilidi açıldığında hareket işlevi Ayarlar'da otomatik olarak etkinleştirilir."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Uygulama seç"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Kilit ekranı duvar kağıdı değişti."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Ana ekran duvar kağıdı değişti."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Kaydır"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Kilit ekranı ayarları"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Kilit ekranı"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Ekrana dokunup basılı tutun, sonra kilidini açmak için cihazı kendinize doğru eğin. Ekran kilidi açılmazsa, cihazı daha fazla eğmeyi deneyin."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Basit şifre"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Ekran kilidi türü"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Dolaşım"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Şifre"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Hiçbiri"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Hareket"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Düzenle"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Sadece acil aramalar"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "SIM yok"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Eğitsel bitti."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Geçersiz eylem. Yeniden deneyin."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Geri"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Uygulanıyor..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Duvar kağıdı seç"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "Tamam"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Kapat"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Aranıyor"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Servis yok"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "PIN yanlış."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "PIN'i girin."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Şifreyi girin."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Düzenle"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Kapat"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "1 saniye icinde tekrar deneyin."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Tam dolu."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 cevapsız arama"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Yeni mesaj"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Yeni mesaj"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 yeni msj"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "yeni E-posta"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Cihazın kilidini açmak için şifreyi %1$d kez yanlış girdiniz. Cihaz varsayılan fabrika ayarlarına sıfırlanmadan ve tüm veriler silinmeden önce %2$d deneme hakkınız kaldı."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Yeni e-posta"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "%d saniye içinde de tekrar deneyin."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Mesajı görüntülemek için ekranı kaydırın"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Arama kaydını görüntülemek için ekranı kaydırın"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Eşleşme yok"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Mesajı görüntülemek için PIN'i girin"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Arama günlüğünü görüntülemek için PIN'i girin"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Mesajı görüntülemek için şifreyi girin"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Arama kaydını görüntülemek için şifreyi girin"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Çift saat"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Kamera kısayolu"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Yanlış PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Aramaya geri dön"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternatif şifre"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Kilidi Tizen hesabı ile aç"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Kilidi Tizen\nhesabıyla aç"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "%1$d cevapsız arama ve %2$d okunmamış mesajınız var."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Cihazın kilidini %d defa yanlış açma girişiminde bulundunuz. Cihaz şimdi fabrika ayarlarına sıfırlanacak ve tüm veriler silinecektir."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Arama günlüğünü görüntülemek için ekranı kaydırın."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Mesajları açmak için ekranı kaydırın."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Gear'ınız algılanamayacak kadar uzaktaysa basit şifre kilidi otomatik olarak etkinleştirilir. Gear'ınız algılandığında ekran kilidi türünüz Kaydırma kilidi olarak değiştirilir."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d yeni mesaj"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d cevapsız çağrı"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d - %2$d hane veya harf gerekli."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Kilit açma PIN'i girin."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "4 haneli PIN'i girin"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Yalnızca acil aramalar."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Acil arama"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Şarj oluyor: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "KAPAT"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Parmak izi"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Uygulamaları seç"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "İptal"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Hava"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Ev"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Renkli kareleri üst alandan alt alana sürükleyip bırakın veya  karşılaştırılan renkle aynı sırada üst alandaki renkli karelere dokunun. Yeniden sıralamak için alt alandaki kareleri sürükleyip bırakabilirsiniz."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Otomatik kilit"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Kaydet"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Sil"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "İptal"
 

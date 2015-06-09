@@ -1,0 +1,267 @@
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Alleen noodoproepen."
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Veeg over het scherm om te ontgrendelen."
+
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 poging over."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d pogingen over."
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Onjuist wachtwoord."
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Gemiste oproep"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Gemiste oproepen"
+
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Achtergrond"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Tik en houd het scherm vast, en kantel het apparaat naar u toe om het te ontgrendelen. Als het scherm niet kan worden ontgrendeld, kantelt u het apparaat nog verder. Wanneer beweging ontgrendelen is ingesteld, wordt beweging automatisch ingeschakeld in Instellingen."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Applicatie selecteren"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Achtergrond vergrendelscherm gewijzigd."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Achtergrond startscherm gewijzigd."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Vegen"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Instellingen schermvergrendeling"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Vergrendelscherm"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Tik en houd het scherm vast, en kantel het apparaat naar u toe om het te ontgrendelen. Als het scherm niet worden ontgrendeld, kantelt u het apparaat nog verder."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Eenvoudig wachtwoord"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Type schermvergrendeling"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Wachtwoord"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Geen"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Beweging"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Bewerken"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Alleen noodoproepen"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Geen SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Zelfstudie voltooid."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Ongeldige actie. Probeer het opnieuw."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Terug"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Verwerken..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Achtergrond selecteren"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Sluiten"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Zoeken"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Geen netwerk"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Onjuiste PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "PIN invoeren"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Wachtwoord invoeren"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Bewerken"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Sluiten"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Probeer opnieuw over 1 seconde."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Opgeladen."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 gemiste opr."
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
+msgstr "Nieuw bericht"
+
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 nieuw bericht"
+
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "U hebt %1$d keer een onjuiste poging gedaan om het apparaat te ontgrendelen. U hebt nog %2$d pogingen over voordat het apparaat wordt teruggezet op de fabrieksinstellingen en alle gegevens worden gewist."
+
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Probeer opn. over %d sec."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Over het scherm vegen voor weergave bericht"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Over het scherm vegen voor weergave oproepenlijst"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Geen overeenkomst"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Pincode invoeren voor weergave bericht"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Pincode invoeren voor weergave oproepenlijst"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Wachtwoord invoeren voor weergave bericht"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Wachtwoord invoeren voor weergave oproepenlijst"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Dubbele klok"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Sneltoets camera"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Onjuiste pincode"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Terug naar oproep"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternatief wachtwoord"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Ontgrendelen via Tizen-account"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Ontgrend. via\nTizen-account"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "U hebt %1$d gemiste oproepen en %2$d ongelezen berichten."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "U hebt %d keer een onjuiste poging gedaan om het apparaat te ontgrendelen. Het wordt nu teruggezet op de fabrieksinstellingen en alle gegevens worden gewist."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Veeg over het scherm om de oproepenlijst weer te geven."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Veeg over het scherm om Berichten te openen."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Vergrendeling met eenvoudig wachtwoord wordt automatisch ingeschakeld als uw Gear te ver weg is om te worden gedetecteerd. Wanneer uw Gear wordt gedetecteerd, wordt uw schermvergrendelingstype gewijzigd in Veegvergrendeling."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d nieuwe berichten"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d gemiste oproepen"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d tot %2$d cijfers of letters vereist."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Geef pincode in voor ontgrendelen."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "4-cijferige PIN invoeren."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Alleen noodoproepen."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Noodoproep"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Opladen: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "SLUITEN"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Vingerafdruk"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Applicaties selecteren"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Annuleer"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Weer"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Privé"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Sleep de gekleurde vierkanten van het bovenste gedeelte naar het onderste gedeelte of tik op de gekleurde vierkanten in het bovenste gedeelte in de volgorde van overeenkomst met de kleur waarmee wordt vergeleken. Sleep de vierkanten naar het onderste gedeelte om de volgorde te wijzigen."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Automatisch vergrendelen"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Opslaan"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Wissen"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Annuleer"
+

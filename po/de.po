@@ -1,0 +1,267 @@
+msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
+msgstr "Nur Notrufe möglich"
+
+msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
+msgstr "Zum Entsperren über den Bildschirm streichen"
+
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Noch 1 Versuch"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d Versuche übrig"
+
+msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
+msgstr "Falsches Passwort"
+
+msgid "IDS_IDLE_POP_MISSED_CALL"
+msgstr "Anruf in Abwesenheit"
+
+msgid "IDS_IDLE_POP_MISSED_CALLS"
+msgstr "Verpasste Anrufe"
+
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Hintergrund"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Auf den Bildschirm tippen und halten, dann das Gerät nach vorn kippen, um es zu entsperren. Wenn Entsperren durch Bewegung eingestellt ist, wird in den Einstellungen automatisch Bewegung aktiviert."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Anwendung auswählen"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Sperrbildschirmhintergrund geändert"
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Hintergrund für Startbildschirm geändert"
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Streichen"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Sperrbildschirm-Einstellungen"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Sperrbildschirm"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Tippen Sie auf den Bildschirm und halten Sie ihn, dann das Gerät nach vorne kippen, um es zu entsperren. Wenn der Bildschirm nicht entsperrt wird, versuchen Sie das Gerät etwas weiter zu kippen."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Einfaches Passwort"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Sperrbildschirmtyp"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Auslandsaufenthalt"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Passwort"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Ohne"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Bewegung"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Bearbeiten"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Schoko-Cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Nur Notrufe"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Keine SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Ende der Anleitung."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Ungültige Aktion. Erneut versuchen."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Zurück"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Verarbeitung läuft ..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Hintergrund auswählen"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Schließen"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Suche"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Kein Netz"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Falsche PIN"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "PIN eingeben"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Passwort eingeben"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Bearbeiten"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Schließen"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Versuchen Sie es in 1 Sekunde erneut"
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Komplett geladen"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 unbeantworteter Anruf"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
+msgstr "Neue Nachricht"
+
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 neue Nachricht"
+
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Sie haben %1$d Mal fehlerhaft versucht, das Gerät zu entsperren. Sie haben noch %2$d Versuche. Danach wird das Gerät auf die Werkseinstellungen zurückgesetzt, und alle Daten werden gelöscht."
+
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "In %d s erneut versuchen."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Über den Bildschirm streichen, um die Nachricht anzuzeigen."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Über den Bildschirm streichen, um das Protokoll anzuzeigen."
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Keine Übereinstimmung"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Geben Sie die PIN ein, um die Nachricht anzuzeigen."
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Geben Sie die PIN ein, um das Anrufprotokoll anzuzeigen."
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Geben Sie das Passwort ein, um die Nachricht anzuzeigen."
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Geben Sie das Passwort ein, um das Anrufprotokoll anzuzeigen."
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Dual-Uhr"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Schnellzugriff für Kamera"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Falsche PIN"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Zurück zum Anruf"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternat. Passwort"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Über Tizen-Konto entsperren"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Über Tizen-\nKonto entsp."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Sie haben %1$d verpasste Anrufe und %2$d ungelesene Nachrichten."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Sie haben %d Mal vergeblich versucht, das Gerät zu entsperren. Das Gerät wird jetzt auf die Werkseinstellungen zurückgesetzt und alle Daten gelöscht."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Streichen Sie über den Bildschirm, um das Anrufprotokoll anzuzeigen."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Streichen Sie über den Bildschirm, um Nachrichten zu öffnen."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Wenn die Gear zu weit entfernt ist und nicht erkannt werden kann, wird die einfache Passwortsperre automatisch aktiviert. Wenn Ihre Gear erkannt wird, ändert sich Ihr Sperrbildschirmtyp zu „Entsperren durch Streichen“."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d neue Nachrichten"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d verpasste Anrufe"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Es sind %1$d bis %2$d Ziffern oder Buchstaben erforderlich."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "PIN zum Entsperren eingeben."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "4-stellige PIN eingeben"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Nur Notrufe möglich"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Notruf"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Wird geladen: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "SCHL."
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Fingerabdruck"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Anwendungen auswählen"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Wiederherstellungs-PW eingeben"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Abbruch"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Wetter"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Privat"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Ziehen Sie die farbigen Quadrate vom oberen in den unteren Bereich oder tippen Sie auf die Quadrate im oberen Bereich in der Reihenfolge der Vergleichsfarben. Sie können die Quadrate im unteren Bereich durch Ziehen und Ablegen neu anordnen."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Automatische Sperrung"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Speichern"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Verwerf."
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Abbruch"
+

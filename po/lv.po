@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Atlicis 1 mēģinājums"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "Atlikuši %d mēģinājumi"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Tikai ārkārtas zvani"
+msgstr "Tikai ārkārtas zvani."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Velciet pār ekrānu, lai atbloķētu"
+msgstr "Velciet pār ekrānu, lai atbloķētu."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Pieskarieties ekrānam un turiet, un sasveriet ierīci uz priekšu"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Atlicis 1 mēģinājums."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "Atlikuši %d mēģinājumi."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Nepareiza parole"
+msgstr "Nepareiza parole."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Neatbildēts zvans"
@@ -22,15 +19,249 @@ msgstr "Neatbildēts zvans"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Neatbildētie zvani"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Fona attēli"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Pieskarieties ekrānam un turiet to, pēc tam sasveriet ierīci uz savu pusi, lai to atbloķētu. Ja ekrāns netiek atbloķēts, sasveriet ierīci vēl vairāk. Ja ir iestatīta atbloķēšana ar kustību, iestatījumos automātiski tiks aktivizēta kustība."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Izvēlēties programmu"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Bloķēšanas ekrāna fona attēls ir nomainīts."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Sākuma ekrāna fona attēls ir nomainīts."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Vilkt"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Bloķētā ekrāna iestatījumi"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Bloķēšanas ekrāns"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Pieskarieties ekrānam un turiet to, pēc tam sasveriet ierīci uz savu pusi, lai to atbloķētu. Ja ekrāns netiek atbloķēts, sasveriet ierīci vēl vairāk."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Vienkārša parole"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Ekrāna bloķēšanas tips"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Viesabonēšana"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Parole"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Nav"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Kustība"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rozmarīns"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Rediģēt"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Nomierinošs džezs"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Šokolādes cepums"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Tikai ārkārtas zvani"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Nav SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Apmācība pabeigta."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Nederīga darbība. Mēģiniet vēlreiz."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Atpakaļ"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Notiek apstrāde..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Izvēlēties fona attēlu"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "Labi"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Aizvērt"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Meklē"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Nav pakalpojuma"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Nepareizs PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Ievadiet PIN kodu."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Ievadiet paroli."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Rediģēt"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Aizvērt"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Pēc 1 sekundes mēģiniet vēlreiz."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Pilnībā uzlādēts."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 neatbildēts zvans"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Jauna ziņa"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Jaunas ziņas"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 jauna ziņa"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Jauna e-pasta ziņa"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Jūs %1$d reizes nepareizi mēģinājāt atbloķēt ierīci. Jums ir atlikuši %2$d mēģinājumi, pirms ierīcē tiks atjaunoti rūpnīcas noklusējuma iestatījumi un visi dati tiks izdzēsti."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Jaunas e-pasta ziņas"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Mēģiniet vēlr.pēc %d sek."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Pavelciet pār ekrānu, lai skatītu ziņu"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Pavelciet pār ekrānu, lai skatītu zvanu žurnālu"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Nesakrīt"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Ievadiet PIN kodu, lai skatītu ziņu"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Ievadiet PIN kodu, lai skatītu zvanu žurnālu"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Ievadiet paroli, lai skatītu ziņu"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Ievadiet paroli, lai skatītu zvanu žurnālu"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Duālais pulkstenis"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Kameras īsceļš"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Nepareizs PIN kods"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Atgriezties sarunā"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternatīvā parole"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Atbloķēt, izmantojot Tizen kontu"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Atbloķēt ar\nTizen kontu"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Jums ir %1$d neatbildēti zvani un %2$d nelasītas ziņas."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Jūs %d reizes neveiksmīgi mēģinājāt atbloķēt ierīci. Tagad tajā tiks atjaunoti rūpnīcas iestatījumi un visi dati tiks izdzēsti."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Pavelciet ekrānu, lai skatītu zvanu žurnālu."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Pavelciet ekrānu, lai atvērtu ziņas."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Ja jūsu Gear ierīce būs pārāk tālu, lai to noteiktu, automātiski tiks aktivizēta vienkārša bloķēšana ar paroli. Kad Gear ierīce būs noteikta, ekrāna bloķēšanas veids tiks mainīts uz bloķēšanu ar pavilkšanu."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d jaunas ziņas"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d neatbildēti zvani"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Nepieciešams ievadīt no %1$d līdz %2$d cipariem vai burtiem."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Ievadiet atbloķēšanas PIN kodu."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Ievadiet 4 ciparu PIN kodu."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Tikai ārkārtas zvani."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Ārkārtas zvans"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Notiek uzlāde: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "AIZVĒRT"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Pirksta nospiedums"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Programmu izvēle"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Atcelt"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Laiks"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Mājas"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Velciet un nometiet krāsu kvadrātus no augšpuses uz leju vai pieskarieties augšpusē esošajiem kvadrātiem tā, lai sakārtotu līdzīgas krāsas blakus. Varat vilkt un mest kvadrātus apakšdaļā, lai mainītu to secību."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Automātiska bloķēšana"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Saglabāt"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Atmest"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Atcelt"
 

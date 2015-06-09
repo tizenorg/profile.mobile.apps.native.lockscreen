@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "Залишилась 1 спроба"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d спроб залишилось"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Лише екстрені виклики"
+msgstr "Лише екстрені виклики."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Проведіть по екрану, щоб розблокувати"
+msgstr "Проведіть по екрану, щоб розблокувати."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Натисніть і утримуйте екран, а потім нахиліть пристрій вперед"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "Залишилась 1 спроба."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d спроби залишилось."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Хибний пароль"
+msgstr "Хибний пароль."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Пропущений виклик"
@@ -22,15 +19,249 @@ msgstr "Пропущений виклик"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Пропущені"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Заставки"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Натисніть і утримуйте екран, а потім нахиліть пристрій до себе для його розблокування. Якщо екран не розблоковано, спробуйте більше нахилити пристрій. У разі встановлення розблокування за допомогою рухів функцію руху буде автоматично увімкнено в меню «Установки»."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Виберіть програму"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Заставку екрана блокування змінено."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Заставку екрана оформлення змінено."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Проведення"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Установки екрана блокування"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Екран блокування"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Натисніть і утримуйте екран, а потім нахиліть пристрій до себе для його розблокування. Якщо екран не розблоковано, спробуйте більше нахилити пристрій."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Простий пароль"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Тип блокування екрана"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Роумінг"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Пароль"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Немає"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Рух"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Редагувати"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Лише екстрені виклики"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Відсутня SIM-карта"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Посібник завершено."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Неприпустима дія. Cпробуйте ще раз."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Назад"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Обробка..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Вибір заставки"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "ОК"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Закрити"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Пошук"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Немає мережі"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Хибний PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Введіть PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Введіть пароль."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Редагувати"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Закрити"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Спробуйте ще раз через 1 секунду."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Батарею заряджено."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 пропущений виклик"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Нове повідомлення"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Нових повідомлень"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 нове повідомлення"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Новий Email"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Кількість невдалих спроб розблокування пристрою: %1$d. Залишилася %2$d спроб, перш ніж установки пристрою буде скинуто до стандартних заводських значень, а всі дані видалено."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Нові повідомлення Email"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Повт.спробу через %d сек."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Проведіть по екрану, щоб переглянути повідомлення"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Проведіть по екрану, щоб переглянути журнал викликів"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Немає збігів"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Введіть PIN-код, щоб переглянути повідомлення"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Введіть PIN-код, щоб переглянути журнал викликів"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Введіть пароль, щоб переглянути повідомлення"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Введіть пароль, щоб переглянути журнал викликів"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Подвійний годинник"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Ярлик камери"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Хибний PIN-код"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Повернутися до виклику"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Альтернативн. пароль"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Розбл.чер.\nоблік.запис\nTizen"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Розблокув.чер.\nобл.запис Tizen"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Пропущених викликів: %1$d, непрочитаних повідомлень: %2$d."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Кількість невдалих спроб розблокування пристрою: %d. Установки буде скинуто до заводських та усі дані буде стерто"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Проведіть по екрану, щоб переглянути журнал викликів."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Проведіть по екрану, щоб відкрити розділ «Повідомлення»."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Якщо Gear неможливо виявити через завелику відстань до нього, буде автоматично ввімкнено блокування за допомогою простого паролю. У разі виявлення Gear блокування екрана буде змінено на блокування в разі проведення."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "Нові повідомлення: %d"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "Пропущені виклики: %d"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Потрібно ввести від %1$d до %2$d цифр або літер."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Введіть PIN-код розблокування."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Введіть PIN-код із 4 цифр."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Лише екстрені виклики."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Екстрений виклик"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Заряджання: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "ЗАКРИТИ"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Відбиток пальця"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Вибір програм"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Скасувати"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Погода"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Домашній"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Перетягніть кольорові квадрати з верхньої частини екрана в нижню або натисніть їх у верхній частині екрана в порядку подібності до кольору, з яким здійснюється порівняння. Ви можете перетягувати квадрати у нижній частині екрана, щоб змінити їх порядок."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Автоматичне блокування"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Зберегти"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Відхил."
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Скасувати"
 

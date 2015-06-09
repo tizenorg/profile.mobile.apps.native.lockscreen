@@ -1,17 +1,14 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "还能尝试 1 次"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "还有 %d 次机会"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "仅限紧急通话"
+msgstr "仅限紧急呼叫"
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
 msgstr "滑动屏幕以解锁"
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "轻敲并按住屏幕并向前倾斜设备"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "还能尝试 1 次。"
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "还有 %d 次机会。"
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
 msgstr "密码错误"
@@ -22,15 +19,249 @@ msgstr "未接来电"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "未接来电"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "墙纸"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "輕觸並按住螢幕，然後將裝置朝您的方向傾斜以解鎖。若螢幕未解鎖，請試著將裝置再傾斜一些。當設定動作解鎖時，動作將自動於設定中啟用。"
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "选择应用程序"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "锁定屏幕墙纸已更改。"
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "主屏幕墙纸已更改。"
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "滑动"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "锁屏设置"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "锁定屏幕"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "长按屏幕，然后朝您倾斜设备以解锁。如果屏幕未解锁，尝试更倾斜设备。"
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "简单密码"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "屏幕锁定类型"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "漫游"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "密码"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "无"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "动作"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "玛丽玫瑰"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "编辑"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "爵士酷"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "仅限紧急呼叫"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "无 SIM 卡"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "教程完成"
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "无效动作，请重试。"
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "返回"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "处理中..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "选择墙纸"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "确定"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "关闭"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "正在搜索"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "无服务"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "错误的 PIN 码"
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "输入PIN码"
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "输入密码"
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "编辑"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "关闭"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "请在 1 秒后重试。"
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "充电完成"
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 个未接来电"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "新信息"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "新信息"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 条新信息"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "新邮件"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "您解锁设备的尝试已不正确 %1$d 次。设备重置为出厂默认设置并清除所有数据前还可尝试 %2$d 次。"
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "新邮件"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "请在%d秒后重试。"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "滑动屏幕以查看信息"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "滑动屏幕以查看通话记录"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "无匹配"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "输入 PIN 码以查看信息"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "输入 PIN 码以查看通话记录"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "输入密码以查看信息"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "输入密码以查看通话记录"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "双时钟"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "照相机快捷方式"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "PIN 码不正确"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "返回至通话"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "备用密码"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "通过 Tizen 账户解锁"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "通过 Tizen\n账户解锁"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "您有 %1$d 个未接来电和 %2$d 条未读消息。"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "您已尝试解锁设备不正确 %d 次。其现在将重置为出厂默认且所有数据将被擦除。"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "滑动屏幕以查看通话记录。"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "滑动屏幕以打开信息。"
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "简单密码锁定将在检测到 Gear 距离太远时自动启用。检测到您的 Gear 时，屏幕锁定类型将更改为滑动锁定。"
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d 条新信息"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d 个未接来电"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "需要 %1$d 至 %2$d 个数字或字母。"
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "输入解锁PIN码。"
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "输入 4 位 PIN 码。"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "仅限紧急呼叫"
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "紧急呼叫"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "正在充电：%d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "关闭"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "指纹"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "选择应用程序"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "输入恢复密码"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "取消"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "天气"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "家庭"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "将彩色方块从上部区域拖放至下部区域或按类似对比的颜色的顺序点击上部区域中的彩色方块。您可拖放下部区域中的方块以对其重新排序。"
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "自动锁定"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "保存"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "放弃"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "取消"
 

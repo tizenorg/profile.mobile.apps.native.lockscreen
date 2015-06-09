@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 försök kvar"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d försök kvar"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Endast nödsamtal"
+msgstr "Endast nödsamtal."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Dra fingret över skärmen för att låsa upp"
+msgstr "Dra fingret över skärmen för att låsa upp."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Tryck och håll kvar på skärmen och vinkla enheten framåt"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 försök kvar."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d försök kvar."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Fel lösenord"
+msgstr "Fel lösenord."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Missat samtal"
@@ -22,15 +19,249 @@ msgstr "Missat samtal"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Missade samtal"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Bakgrunder"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Tryck på skärmen, håll nedtryckt och luta enheten mot dig för att låsa upp den. Om skärmen inte blir upplåst kan du försöka att luta den mer. Om låsa upp med rörelse ställs in, aktiveras rörelse automatiskt i Inställningar."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Välj program"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Låsskärmens bakgrund har ändrats."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Hemskärmens bakgrund har ändrats."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Dra"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Inställningar för låsskärm"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Låsskärm"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Tryck på och håll kvar på skärmen och vinkla sedan enheten mot dig för att låsa upp. Vinkla skärmen mer om den inte låses upp."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Enkelt lösenord"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Skärmlåstyp"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Roaming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Lösenord"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Ingen"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Rörelse"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Redigera"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Endast nödsamtal"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Inget SIM"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Introduktionen är slutförd."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Ogiltig åtgärd. Försök igen."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Åter"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Bearbetar..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Välj bakgrund"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Stäng"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Söker"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Ej service"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Fel PIN-kod."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Ange PIN."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Ange lösenord."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Redigera"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Stäng"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Försök igen om 1 sekund."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Fulladdad."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 missat samtal"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Nytt meddelande"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Nya meddelanden"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 nytt meddelande"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Ny e-post"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Du har försökt låsa upp enheten på fel sätt %1$d gånger. Du har %2$d försök kvar innan enheten återställs till fabriksinställningar och alla data raderas."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Ny e-post"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Försök igen om %d sek."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Svep över skärmen för att visa meddelandet"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Svep över skärmen för att visa samtalsloggen"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Ingen matchning"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Ange PIN-koden för att visa meddelandet"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Ange PIN-koden för att visa samtalsloggen"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Ange lösenordet för att visa meddelandet"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Ange lösenordet för att visa samtalsloggen"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Dubbel klocka"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Kameragenväg"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Felaktig PIN-kod"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Återgå till samtal"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Alternativt lösenord"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Lås upp från Tizen-konto"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Lås upp från\nTizen-konto"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Du har %1$d missade samtal och %2$d olästa meddelanden."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Du har försökt att låsa upp enheten felaktigt %d gånger. Enheten kommer nu att återställas till fabriksinställningarna och alla data kommer att raderas."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Dra över skärmen för att visa samtalsloggen."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Dra över skärmen för att öppna Meddelanden."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Enkelt lösenordslås aktiveras automatiskt om din Gear är för långt bort för att identifieras. När Gear identifieras ändras skärmlåset till Lås genom att dra."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d nya meddelanden"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d missade samtal"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d till %2$d siffror eller bokstäver krävs."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Ange Upplåsnings-PIN."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Ange 4-siffrig PIN."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Endast nödsamtal."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Nödsamtal"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Laddar: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "STÄNG"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Fingeravtryck"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Välj program"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Avbryt"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Väder"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Hem"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Dra och släpp de färgade rutorna från det övre området till det nedre området eller tryck på de färgade rutorna i det övre området i den ordning som färgerna jämförs. Du kan dra och släppa rutorna i det nedre området för att sortera om dem."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Auto-lås"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Spara"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Ta bort"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Avbryt"
 

@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 tilraun eftir"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d tilraunir eftir"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Aðeins neyðarhringingar"
+msgstr "Aðeins neyðarhringingar."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Strjúktu yfir skjáinn til að opna"
+msgstr "Strjúktu yfir skjáinn til að opna."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Haltu fingrinum á skjánum og hallaðu tækinu fram"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 tilraun eftir."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d tilraunir eftir."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Rangt aðgangsorð"
+msgstr "Rangt aðgangsorð."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Ósvarað"
@@ -22,15 +19,249 @@ msgstr "Ósvarað"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "Ósvöruð símtöl"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Veggfóður"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Haltu fingri á skjánum og hallaðu tækinu að þér til að taka það úr lás. Ef skjárinn opnast ekki skaltu prófa að halla tækinu meira. Þegar kveikt er á hreyfiopnun verður sjálfkrafa kveikt á hreyfingu í stillingum."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Velja forrit"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Veggfóðri lásskjás var breytt."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Veggfóðri heimaskjás var breytt."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Strjúka"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Stillingar lásskjás"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Lásskjár"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Pikkaðu og haltu fingri við skjáinn, hallaðu svo tækinu fram til að aflæsa því. Ef skjárinn aflæsist ekki skaltu prófa að halla tækinu meira."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Einfalt lykilorð"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Gerð skjáláss"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Í reiki"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Aðgangsorð"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Ekkert"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Hreyfing"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Breyta"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Choco cooky"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Aðeins neyðarsímtöl"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "Ekkert SIM-kort"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Kennslu lokið."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Ógild aðgerð. Reyndu aftur."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Bakka"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Vinnsla í gangi..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Veldu veggfóður"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "Í lagi"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Loka"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Leita"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Engin þjónusta"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Rangt PIN-númer."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "Sláðu inn PIN-númeri."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Rita aðgangsorð."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Breyta"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Loka"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "Reyndu aftur eftir 1 sekúndu."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "Fullhlaðið."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 ósvarað símtal"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Ný boð"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Ný skilaboð"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 ný skilaboð"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Nýr póstur"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Þú hefur reynt að opna tækið á rangan hátt %1$d sinnum. Þú átt %2$d tilraunir eftir áður en tækið verður núllstillt og öllum gögnum þess eytt."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Nýir póstar"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "Reyndu aftur eftir %d sek."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Strjúktu yfir skjáinn til að skoða skilaboð"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Strjúktu yfir skjáinn til að skoða símtalaskrá"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Ekkert fannst"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Sláðu inn PIN-númer til að skoða skilaboð"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Sláðu inn PIN-númer til að skoða símtalaskrá"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Sláðu inn lykilorð til að skoða skilaboð"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Sláðu inn lykilorð til að skoða símtalaskrá"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Tvöföld klukka"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Flýtileið myndavélar"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Rangt PIN-númer"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Fara aftur í símtal"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Varalykilorð"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Opna með Tizen-reikningi"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Opna með\nTizen-reikningi"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Þú átt %1$d ósvaraðar hringingar og %2$d ólesin skilaboð."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Þú hefur reynt að opna tækið á rangan hátt %d sinnum. Það verður nú endurstillt á grunnstillingar framleiðanda og öllum gögnum verður eytt."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Strjúktu skjáinn til að skoða símtalaskrána."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Strjúktu skjáinn til að opna Skilaboð."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Sjálfkrafa verður kveikt á einfaldri lykilorðalæsingu ef Gear er of fjarri til að finnast. Þegar Gear finnst er skjálás breytt í stroklás."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%d ný skilaboð"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%d ósvöruð símtöl"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "Slá þarf inn %1$d til %2$d stafi."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Slá inn opnunar-PIN."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "Sláðu inn 4 stafa PIN-númer."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Aðeins neyðarhringingar."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Neyðarhringing"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Í hleðslu: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "LOKA"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Fingrafar"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Velja forrit"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Hætta v."
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Veður"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Heima"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Dragðu lituðu ferningana af efra svæðinu og slepptu þeim á neðra svæðinu eða pikkaðu á lituðu ferningana á efra svæðinu í réttri röð eftir því hversu svipaður litur þeirra er samanburðarlitnum. Þú getur dregið ferningana á neðra svæðinu og sleppt þeim til að endurraða þeim."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Sjálfvirk læsing"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Vista"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Fleygja"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Hætta v."
 

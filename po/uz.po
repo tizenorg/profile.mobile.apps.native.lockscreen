@@ -1,20 +1,17 @@
-msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
-msgstr "1 attempt left"
-
-msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
-msgstr "%d urinish qoldi"
-
 msgid "IDS_LCKSCN_HEADER_EMERGENCY_CALLS_ONLY"
-msgstr "Faqat favqulodda qo‘ng‘iroqlar"
+msgstr "Faqat favqulodda qo‘ng‘iroqlar."
 
 msgid "IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"
-msgstr "Blokdan chiqarish uchun ekranni ustida barmog‘ingizni harakatlantiring"
+msgstr "Blokdan chiqarish uchun ekranni ustida barmog‘ingizni harakatlantiring."
 
-msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_SCREEN_AND_TILT_DEVICE_FORWARDS"
-msgstr "Ekranni bosib turgan holda qurilmani oldinga og‘diring"
+msgid "IDS_IDLE_BODY_1_ATTEMPT_LEFT"
+msgstr "1 attempt left."
+
+msgid "IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"
+msgstr "%d urinish qoldi."
 
 msgid "IDS_IDLE_BODY_INCORRECT_PASSWORD"
-msgstr "Noto‘g‘ri parol"
+msgstr "Noto‘g‘ri parol."
 
 msgid "IDS_IDLE_POP_MISSED_CALL"
 msgstr "Qabul qilinmagan qo‘ng‘iroq"
@@ -22,15 +19,249 @@ msgstr "Qabul qilinmagan qo‘ng‘iroq"
 msgid "IDS_IDLE_POP_MISSED_CALLS"
 msgstr "O‘tkazib yuborilgan qo‘ng‘iroqlar"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGE"
+msgid "IDS_LCKSCN_BODY_WALLPAPERS"
+msgstr "Fon rasmlari"
+
+msgid "IDS_LCKSCN_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_MSG"
+msgstr "Ekran ustiga bosib turing, so‘ng qurilmani blokdan chiqarish uchun uni o‘zingiz tomon og‘diring. Agar qurilma blokdan chiqarilmasa, qurilmani ko‘proq og‘diring. Harakat bilan blokdan chiqarish o‘rnatilganda, harakat Parametrlarda avtomatik ravishda yoqiladi."
+
+msgid "IDS_LCKSCN_BODY_SELECT_APPLICATION"
+msgstr "Ilova tanlash"
+
+msgid "IDS_ST_POP_LOCK_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Bloklash ekrani fon rasmi o‘zgartirildi."
+
+msgid "IDS_ST_POP_HOME_SCREEN_WALLPAPER_CHANGED_ABB"
+msgstr "Uy ekranining fon rasmi o‘zgartirildi."
+
+msgid "IDS_ST_MBODY_SWIPE"
+msgstr "Surish"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN_SETTINGS"
+msgstr "Bloklash ekrani parametrlari"
+
+msgid "IDS_ST_HEADER_LOCK_SCREEN"
+msgstr "Bloklash ekrani"
+
+msgid "IDS_ST_BODY_UDMINCHO_JPN"
+msgstr "UDMincho"
+
+msgid "IDS_ST_BODY_TAP_AND_HOLD_THE_SCREEN_THEN_TILT_THE_DEVICE_TOWARDS_YOU_TO_UNLOCK_IT_IF_THE_SCREEN_DOES_NOT_UNLOCK_TRY_TILTING_THE_DEVICE_MORE"
+msgstr "Ekran ustiga bosib turing, so‘ng qurilmani blokdan chiqarish uchun uni o‘zingiz tomon og‘diring. Agar qurilma blokdan chiqarilmasa, qurilmani ko‘proq og‘diring."
+
+msgid "IDS_ST_BODY_SIMPLE_PASSWORD"
+msgstr "Sodda parol"
+
+msgid "IDS_ST_BODY_SCREEN_LOCK_TYPE"
+msgstr "Ekranni bloklash turi"
+
+msgid "IDS_ST_BODY_ROAMING"
+msgstr "Rouming"
+
+msgid "IDS_ST_BODY_PASSWORD"
+msgstr "Parol"
+
+msgid "IDS_ST_BODY_NONE"
+msgstr "Hech qaysi"
+
+msgid "IDS_ST_BODY_MOTION"
+msgstr "Harakat"
+
+msgid "IDS_ST_BODY_FONTSTYLE_ROSEMARY"
+msgstr "Rosemary"
+
+msgid "IDS_ST_BODY_EDIT"
+msgstr "Tahrirlash"
+
+msgid "IDS_ST_BODY_COOL_JAZZ"
+msgstr "Cool jazz"
+
+msgid "IDS_ST_BODY_CHOCO_COOKY"
+msgstr "Shokoladli pechenye"
+
+msgid "IDS_IDLE_MBODY_EMERGENCY_CALLS_ONLY"
+msgstr "Faqat favqulodda qo‘ng‘ir"
+
+msgid "IDS_IDLE_BODY_NO_SIM"
+msgstr "SIM-karta yo‘q"
+
+msgid "IDS_HELP_POP_TUTORIAL_COMPLETE"
+msgstr "Ko‘rsatma yakunlandi."
+
+msgid "IDS_HELP_POP_INVALID_ACTION_TRY_AGAIN"
+msgstr "Noto‘g‘ri harakat. Qayta urinib ko‘ring."
+
+msgid "IDS_COM_SK_BACK_A"
+msgstr "Orqaga"
+
+msgid "IDS_COM_POP_PROCESSING"
+msgstr "Bajarilmoqda..."
+
+msgid "IDS_COM_HEADER_SELECT_WALLPAPER"
+msgstr "Fon rasmini tanlang"
+
+msgid "IDS_COM_BUTTON_OK_ABB"
+msgstr "OK"
+
+msgid "IDS_COM_BUTTON_CLOSE"
+msgstr "Yopish"
+
+msgid "IDS_COM_BODY_SEARCHING"
+msgstr "Qidirilmoqda"
+
+msgid "IDS_COM_BODY_NO_SERVICE"
+msgstr "Xizmat yo‘q"
+
+msgid "IDS_COM_BODY_INCORRECT_PIN"
+msgstr "Noto‘g‘ri PIN."
+
+msgid "IDS_COM_BODY_ENTER_PIN"
+msgstr "PIN-kod kiriting."
+
+msgid "IDS_COM_BODY_ENTER_PASSWORD"
+msgstr "Parol kiriting."
+
+msgid "IDS_COM_BODY_EDIT"
+msgstr "Tahrirlash"
+
+msgid "IDS_COM_BODY_CLOSE"
+msgstr "Yopish"
+
+msgid "IDS_IDLE_BODY_TRY_AGAIN_IN_1_SECOND"
+msgstr "1 soniyadan keyin qayta urinib ko‘ring."
+
+msgid "IDS_SM_POP_FULLY_CHARGED"
+msgstr "To‘la zaryadlangan."
+
+msgid "IDS_AWGT_BODY_1_MISSED_CALL"
+msgstr "1 o‘tkazib yuborilgan qo‘ng‘iroq"
+
+msgid "IDS_MSGF_POP_NEW_MESSAGE"
 msgstr "Yangi xabar"
 
-msgid "IDS_IDLE_POP_NEW_MESSAGES"
-msgstr "Yangi xabarlar"
+msgid "IDS_MSG_BODY_1_NEW_MESSAGE"
+msgstr "1 yangi xabar"
 
-msgid "IDS_IDLE_POP_NEW_EMAIL"
-msgstr "Yangi e-pochta"
+msgid "IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"
+msgstr "Siz %1$d marta qurilmani blokdan chiqarishga noto‘g‘ri urindingiz. Yana %2$dta noto‘g‘ri urinishdan so‘ng qurilma ishlab chiqaruvchi parametrlariga qaytariladi va barcha ma’lumotlar o‘chirib tashlanadi."
 
-msgid "IDS_IDLE_POP_NEW_EMAILS"
-msgstr "Yangi e-pochta xabarlari"
+msgid "IDS_LCKSCN_POP_TRY_AGAIN_IN_PD_SECONDS"
+msgstr "%d soniyada qayta urining."
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_MESSAGE_ABB"
+msgstr "Xabarni ko‘rib chiqish uchun ekranni suring"
+
+msgid "IDS_LCKSCN_NPBODY_SWIPE_SCREEN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Qo‘ng‘iroqlar jurnalini ko‘rish uchun ekranni suring"
+
+msgid "IDS_LCKSCN_NPBODY_NO_MATCH_M_FINGERPRINT_ABB"
+msgstr "Moslik yo‘q"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_MESSAGE_ABB"
+msgstr "Xabarni ko‘rib chiqish uchun PIN-kodni kiriting"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PIN_TO_VIEW_CALL_LOG_ABB"
+msgstr "Qo‘ng‘iroqlar jurnalini ko‘rish uchun PIN-kodni kiriting"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_MESSAGE_ABB"
+msgstr "Xabarni ko‘rib chiqish uchun parolni kiriting"
+
+msgid "IDS_LCKSCN_NPBODY_ENTER_PASSWORD_TO_VIEW_CALL_LOG_ABB"
+msgstr "Qo‘ng‘iroqlar jurnalini ko‘rish uchun parolni kiriting"
+
+msgid "IDS_LCKSCN_MBODY_DUAL_CLOCK"
+msgstr "Ikkitali soat"
+
+msgid "IDS_LCKSCN_MBODY_CAMERA_SHORTCUT"
+msgstr "Kamera yorlig‘i"
+
+msgid "IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"
+msgstr "Noto‘g‘ri PIN-kod"
+
+msgid "IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"
+msgstr "Qo‘ng‘iroqqa qaytish"
+
+msgid "IDS_LCKSCN_BUTTON_ALTERNATIVE_PASSWORD_ABB"
+msgstr "Muqobil parol"
+
+msgid "IDS_LCKSCN_BUTTON3_UNLOCK_VIA_TIZEN_ACCOUNT"
+msgstr "Tizen his.\nqayd. orq.\nblk. chiq"
+
+msgid "IDS_LCKSCN_BUTTON2_UNLOCK_VIA_NTIZEN_ACCOUNT_ABB"
+msgstr "Tizen his.qayd.\norq. blk chiqar"
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_P1SD_MISSED_CALLS_AND_P2SD_UNREAD_MESSAGEST_TTS"
+msgstr "Sizda %1$d o‘tkazib yuborilgan qo‘ng‘iroq va %2$d o‘qilmagan xabar mavjud."
+
+msgid "IDS_LCKSCN_BODY_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_PD_TIMES_IT_WILL_NOW_BE_RESET_TO_FACTORY_DEFAULTS_AND_ALL_DATA_WILL_BE_ERASED"
+msgstr "Siz %d marta qurilmani blokdan chiqarishga noto‘g‘ri urindingiz. U hozir ishlab chiqaruvchi parametrlariga qaytariladi va barcha ma’lumotlar o‘chirib tashlanadi"
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_VIEW_THE_CALL_LOG"
+msgstr "Qo‘ng‘iroq jurnalini ko‘rib chiqish uchun ekranni suring."
+
+msgid "IDS_LCKSCN_BODY_SWIPE_THE_SCREEN_TO_OPEN_MESSAGES"
+msgstr "Xabarlarni ochish uchun ekranni suring."
+
+msgid "IDS_LCKSCN_BODY_SIMPLE_PASSWORD_LOCK_WILL_BE_AUTOMATICALLY_ENABLED_IF_YOUR_GEAR_IS_TOO_FAR_AWAY_TO_BE_DETECTED_MSG"
+msgstr "Agar Gearingiz juda uzoqda joylashgan bo‘lsa, oddiy parol bloki avtomatik ravishda yoqiladi. Gearingiz aniqlanganda, ekraningiz bloki turi Surib bloklashga o‘tkaziladi."
+
+msgid "IDS_LCKSCN_BODY_PD_NEW_MESSAGES_T_TTS"
+msgstr "%dta yangi xabar"
+
+msgid "IDS_LCKSCN_BODY_PD_MISSED_CALLS_T_TTS"
+msgstr "%dta o‘tkazib yuborilgan qo‘ng‘iroq"
+
+msgid "IDS_LCKSCN_BODY_P1SD_TO_P2SD_DIGITS_OR_LETTERS_REQUIRED"
+msgstr "%1$d-%2$d raqam yoki harflar talab qilinadi."
+
+msgid "IDS_LCKSCN_BODY_ENTER_UNLOCK_PIN"
+msgstr "Blokdan chiqarish PIN-kodini kiriting."
+
+msgid "IDS_LCKSCN_BODY_ENTER_4_DIGIT_PIN"
+msgstr "4 xonali PIN-kodni kiriting."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALLS_ONLY"
+msgstr "Faqat favqulodda qo‘ng‘iroqlar."
+
+msgid "IDS_LCKSCN_BODY_EMERGENCY_CALL"
+msgstr "Favqulodda qo‘ng‘iroqlar"
+
+msgid "IDS_LCKSCN_BODY_CHARGING_C_PDP"
+msgstr "Zaryadlanmoqda: %d%"
+
+msgid "IDS_LCKSCN_ACBUTTON_CLOSE_ABB"
+msgstr "YOPISH"
+
+msgid "IDS_ST_MBODY_FINGERPRINT"
+msgstr "Barmoq izi"
+
+msgid "IDS_ST_HEADER_SELECT_APPLICATIONS"
+msgstr "Ilovalarni tanlash"
+
+msgid "IDS_ST_HEADER_ENTER_RECOVERY_PASSWORD_ABB_VZW"
+msgstr "Enter recovery password"
+
+msgid "IDS_ST_BUTTON_CANCEL"
+msgstr "Bekor qilish"
+
+msgid "IDS_ST_BODY_WEATHER"
+msgstr "Ob-havo"
+
+msgid "IDS_ST_BODY_HOME_M_HOMECITY"
+msgstr "Asosiy"
+
+msgid "IDS_ST_BODY_DRAG_AND_DROP_OR_TAP_THE_COLOURED_SQUARES_FROM_THE_UPPER_AREA_TO_THE_LOWER_AREA_MSG"
+msgstr "Rangli kvadratlarni yuqoridan pastga tortib olib keling yoki yuqoridagi rangli kvadratlarni solishtirilayotgan ranglar ketma-ketligida cherting. Pastdagi rangli kvadratlar tartibini o‘zgartirish uchun kvadratlarni tartib olib kelishingiz mumkin."
+
+msgid "IDS_ST_BODY_AUTO_LOCK"
+msgstr "Avtomatik bloklash"
+
+msgid "IDS_IV_BUTTON_SAVE"
+msgstr "Saqlash"
+
+msgid "IDS_IV_BUTTON_DISCARD_ABB2"
+msgstr "Rad et"
+
+msgid "IDS_IV_BUTTON_CANCEL"
+msgstr "Bekor qilish"
 
