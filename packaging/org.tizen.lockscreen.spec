@@ -116,4 +116,3 @@ rm -rf %{buildroot}
 %{AppInstallPath}/res/edje/*.edj
 %{AppInstallPath}/res/locale/*/LC_MESSAGES/*
 /usr/share/packages/org.tizen.lockscreen.xml
-/etc/smack/accesses.d/*.efl

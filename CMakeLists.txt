@@ -92,7 +92,6 @@ INSTALL(DIRECTORY data/images/ DESTINATION res/images)
 
 # Install Manifest File
 INSTALL(FILES org.tizen.lockscreen.xml DESTINATION /usr/share/packages)
-INSTALL(FILES org.tizen.lockscreen.efl DESTINATION /etc/smack/accesses.d)
 
 # End of a file
 ADD_SUBDIRECTORY(data)
