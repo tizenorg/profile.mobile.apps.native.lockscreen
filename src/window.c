@@ -61,7 +61,7 @@ Evas_Object *lock_window_create(int type)
 	elm_win_title_set(win, "LOCKSCREEN");
 	elm_win_borderless_set(win, EINA_TRUE);
 	elm_win_autodel_set(win, EINA_TRUE);
-	elm_win_role_set(win, "no-dim");
+	elm_win_role_set(win, "notification-normal");
 
 	elm_win_screen_size_get(win, &x, &y, &w, &h);
 
