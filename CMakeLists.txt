@@ -39,7 +39,6 @@ pkg_check_modules(pkgs REQUIRED
 	feedback
 	msg-service
 	tapi
-	efl-assist
 	efl-extension
 	key-manager
 	accounts-svc

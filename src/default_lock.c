@@ -15,7 +15,7 @@
  */
 
 #include <Elementary.h>
-#include <efl_assist.h>
+#include <efl_extension.h>
 #include <app.h>
 #include <minicontrol-viewer.h>
 #include <bundle.h>
@@ -354,7 +354,7 @@ lock_error_e lock_default_lock_init(void)
 	goto_if(!conformant, ERROR);
 	s_info.conformant = conformant;
 
-	ea_object_event_callback_add(layout, EA_CALLBACK_BACK, _default_lock_hw_back_cb, NULL);
+	eext_object_event_callback_add(layout, EEXT_CALLBACK_BACK, _default_lock_hw_back_cb, NULL);
 
 	bg = lock_background_view_bg_get();
 	if (!bg) {
@@ -424,6 +424,7 @@ void lock_default_lock_fini(void)
 	}
 
 	if (s_info.layout) {
+		eext_object_event_callback_del(s_info.layout, EEXT_CALLBACK_BACK, _default_lock_hw_back_cb);
 		evas_object_del(s_info.layout);
 		s_info.layout = NULL;
 	}
