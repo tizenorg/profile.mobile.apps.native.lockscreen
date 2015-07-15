@@ -144,6 +144,7 @@ static lock_error_e _dbus_sig_attach(char *path, char *interface, char *member)
 
 	retv_if(!path, LOCK_ERROR_INVALID_PARAMETER);
 	retv_if(!interface, LOCK_ERROR_INVALID_PARAMETER);
+	retv_if(!member, LOCK_ERROR_INVALID_PARAMETER);
 
 	/* DBUS */
 	connection = _dbus_connection_get();
@@ -185,6 +186,7 @@ static lock_error_e _dbus_sig_dettach(const char *path, const char *interface, c
 
 	retv_if(!path, LOCK_ERROR_INVALID_PARAMETER);
 	retv_if(!interface, LOCK_ERROR_INVALID_PARAMETER);
+	retv_if(!member, LOCK_ERROR_INVALID_PARAMETER);
 
 	connection = _dbus_connection_get();
 	if (!connection) {
@@ -195,7 +197,7 @@ static lock_error_e _dbus_sig_dettach(const char *path, const char *interface, c
 	dbus_error_init(&err);
 	dbus_connection_remove_filter(connection, _dbus_message_recv_cb, NULL);
 
-	char rules[512] = {0,};
+	char rules[512] = { 0, };
 
 	snprintf(rules, sizeof(rules), "path='%s',type='signal',interface='%s',member='%s'", path, interface, member);
 	dbus_bus_remove_match(connection, rules, &err);
