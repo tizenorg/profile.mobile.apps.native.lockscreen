@@ -82,7 +82,7 @@ void lockscreen_feedback_tap_play(void)
 		return;
 	}
 
-	feedback_play_type(FEEDBACK_TYPE_SOUND, FEEDBACK_PATTERN_TOUCH_TAP);
+	feedback_play_type(FEEDBACK_TYPE_SOUND, FEEDBACK_PATTERN_TAP);
 }
 
 static Eina_Bool _lcd_off_timer_cb(void *data)
