@@ -43,4 +43,24 @@ color_classes {
 		name: "ATO007";
 		color: 255 255 255 255;
 	}
+	color_class {
+		name: "AO001";
+		color: 100 100 100 100;
+	}
+	color_class {
+		name: "AO001P";
+		color: 50 50 50 200;
+	}
+	color_class {
+		name: "AO002";
+		color: 150 150 150 150;
+	}
+	color_class {
+		name: "AO005";
+		color: 100 100 100 100;
+	}
+	color_class {
+		name: "AO002L1";
+		color: 200 200 200 100;
+	}
 }

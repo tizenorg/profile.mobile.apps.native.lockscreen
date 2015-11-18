@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.lockscreen" version="0.1.0" install-location="internal-only" api-version="2.3.1">
 	<label>lockscreen</label>
-	<author email="m.szczecinsk@partner.samsung.com" href="www.samsung.com">Michal Szczecinski</author>
+	<author email="gs86.lee@samsung.com" href="www.samsung.com">geunsun Lee</author>
 	<description>lockscreen</description>
 	<ui-application appid="org.tizen.lockscreen" exec="/usr/apps/org.tizen.lockscreen/bin/lockscreen" nodisplay="true" multiple="false" type="capp" taskmanage="false">
 		<label>lockscreen</label>

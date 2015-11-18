@@ -18,15 +18,16 @@ group {
 	styles {
 		style {
 			name: "time_style_contextual";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=28 align=center wrap=none";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=32 align=center wrap=none";
 		}
 		style {
 			name: "close_style";
-			base: "font=Tizen:style=Regular color=#FFFFFF font_size=21 wrap=none align=center";
+			base: "font=Tizen:style=Regular color=#FFFFFF font_size=32 wrap=none align=center";
 		}
 	}
 	images {
 		image: "event_close_bg.#.png" COMP;
+		image: "miss_noti_bg.#.png" COMP;
 	}
 	name: "contextual-event";
 	parts {
@@ -40,13 +41,38 @@ group {
 			}
 		}
 		part {
-			name: "txt.date";
-			type: TEXTBLOCK;
+			name: "img.event.area.bg";
+			type: IMAGE;
+			description {
+				state: "default" 0.0;
+				align: 0.0 0.0;
+				rel1 { relative: CONTEXTUAL_INFO_PADDING_LEFT/WIN_WIDTH CONTEXTUAL_INFO_DATE_HEIGHT/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
+				rel2 { relative: (WIN_WIDTH - CONTEXTUAL_INFO_PADDING_RIGHT)/WIN_WIDTH CONTEXTUAL_INFO_EVENT_AREA_HEIGHT/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
+				image {
+					normal: "miss_noti_bg.#.png";
+				}
+				color_class: "AO002";
+			}
+		}
+		part {
+			name: "rect.time.date.info";
+			type: SPACER;
 			description {
 				state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1 { relative: 0.0 0.0; to: "bg"; }
 				rel2 { relative: 1.0 CONTEXTUAL_INFO_DATE_HEIGHT/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
+			}
+		}
+		part {
+			name: "txt.date";
+			type: TEXTBLOCK;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				align: 0.0 0.0;
+				rel1 { relative: 0.0 0.0; to_x: "bg"; to_y: "rect.time.date.info"; offset: 0 10; }
+				rel2 { relative: 1.0 0.0; to_x: "bg"; to_y: "rect.time.date.info"; offset: 0 10;}
 				text {
 					style: "time_style_contextual";
 					align: 0.5 0.5;
@@ -57,25 +83,25 @@ group {
 			}
 		}
 		part {
-			name: "rect.event.area.bg";
-			type: RECT;
+			name: "rect.close.btn";
+			type: SPACER;
 			description {
 				state: "default" 0.0;
-				color: 150 150 150 150;
 				align: 0.0 0.0;
-				rel1 { relative: 0.0 CONTEXTUAL_INFO_DATE_HEIGHT/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
-				rel2 { relative: 1.0 (CONTEXTUAL_INFO_DATE_HEIGHT + CONTEXTUAL_INFO_EVENT_AREA_HEIGHT)/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
+				rel1 { relative: CONTEXTUAL_INFO_PADDING_LEFT/WIN_WIDTH  CONTEXTUAL_INFO_DATE_HEIGHT/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
+				rel2 { relative: (WIN_WIDTH - CONTEXTUAL_INFO_PADDING_RIGHT)/WIN_WIDTH (CONTEXTUAL_INFO_DATE_HEIGHT + 13 + CONTEXTUAL_INFO_CLOSE_BTN_HEIGHT + 13)/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
 			}
 		}
 		part {
 			name: "txt.close";
 			type: TEXTBLOCK;
+			scale: 1;
 			repeat_events: 1;
 			description {
 				state: "default" 0.0;
-				align: 1.0 0.0;
-				rel1 { relative: 1.0 0.0; to_x: "bg"; to_y: "rect.event.area.bg"; offset: -20 6; }
-				rel2 { relative: 1.0 0.0; to_x: "bg"; to_y: "rect.event.area.bg"; offset: -20 6; }
+				align: 1.0 0.5;
+				rel1 { relative: 1.0 0.5; to: "rect.close.btn"; offset: -32 0; }
+				rel2 { relative: 1.0 0.5; to: "rect.close.btn"; offset: -32 0; }
 				text {
 					style: "close_style";
 					min: 1 1;
@@ -91,12 +117,12 @@ group {
 			description {
 				state: "default" 0.0;
 				align: 1.0 0.0;
-				color: 100 100 100 100;
 				rel1 { to: "txt.close"; offset: -10 0; }
 				rel2 { to: "txt.close"; offset: 10 0; }
 				image {
 					normal: "event_close_bg.#.png";
 				}
+				color_class: "AO005";
 			}
 			description {
 				state: "press" 0.0;
@@ -107,12 +133,13 @@ group {
 		part {
 			name: "sw.scroller";
 			type: SWALLOW;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				fixed: 1 1;
 				align: 0.0 0.0;
-				rel1 { relative: 0.0 1.0; to_x: "bg"; to_y: "btn.close"; offset: 0 6; }
-				rel2 { relative: 1.0 1.0; to_x: "bg"; to_y: "rect.event.area.bg"; }
+				rel1 { relative: CONTEXTUAL_INFO_PADDING_LEFT/WIN_WIDTH 1.0; to_x: "bg"; to_y: "rect.close.btn"; }
+				rel2 { relative: (WIN_WIDTH - CONTEXTUAL_INFO_PADDING_RIGHT)/WIN_WIDTH 1.0; to_x: "bg"; to_y: "img.event.area.bg"; }
 			}
 		}
 		part {
@@ -121,8 +148,8 @@ group {
 			description {
 				state: "default" 0.0;
 				align: 0.0 0.0;
-				rel1 { relative: 0.0 (CONTEXTUAL_INFO_DATE_HEIGHT+CONTEXTUAL_INFO_EVENT_AREA_HEIGHT)/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
-				rel2 { relative: 1.0 (CONTEXTUAL_INFO_DATE_HEIGHT+CONTEXTUAL_INFO_EVENT_AREA_HEIGHT+CONTEXTUAL_INFO_PAGE_INDICATOR_HEIGHT)/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
+				rel1 { relative: 0.0 CONTEXTUAL_INFO_EVENT_AREA_HEIGHT/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
+				rel2 { relative: 1.0 (CONTEXTUAL_INFO_EVENT_AREA_HEIGHT + 10 + CONTEXTUAL_INFO_PAGE_INDICATOR_HEIGHT)/CONTEXTUAL_INFO_HEIGHT; to: "bg"; }
 			}
 		}
 		part {
@@ -131,9 +158,8 @@ group {
 			description {
 				state: "default" 0.0;
 				align: 0.5 0.5;
-				fixed: 1 1;
-				rel1 { relative: 0.5 0.5; to: "rect.index"; }
-				rel2 { relative: 0.5 0.5; to: "rect.index"; }
+				rel1 { relative: 0.0 0.0; to: "rect.index"; }
+				rel2 { relative: 1.0 1.0; to: "rect.index"; }
 				visible: 1;
 			}
 			description {
@@ -183,9 +209,6 @@ group {
 
 group {
 	name: "missed-event-page";
-	images {
-		image: "event_list_divider.#.png" COMP;
-	}
 	parts {
 		part {
 			name: "bg";
@@ -203,29 +226,20 @@ group {
 				state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1 { relative: 0.0 0.0; to: "bg"; }
-				rel2 { relative: 1.0 90/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
+				rel2 { relative: 1.0 MISSED_EVT_ITEM_HEIGHT/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
 			}
 		}
 		part {
-			name: "img.separator";
-			type: IMAGE;
+			name: "rect.separator";
+			type: RECT;
 			description {
 				state: "default" 0.0;
 				min: 1 1;
 				fixed: 1 1;
-				color: 0 0 0 255;
 				align: 0.0 0.0;
-				rel1 { relative: 10/WIN_WIDTH 90/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
-				rel2 { relative: (WIN_WIDTH-10)/WIN_WIDTH (90+MISSED_EVT_SEPARATOR_HEIGHT)/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
-				visible: 0;
-				image {
-					normal: "event_list_divider.#.png";
-				}
-			}
-			description {
-				state: "show" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+				rel1 { relative: CONTEXTUAL_INFO_PADDING_LEFT/WIN_WIDTH 1.0; to_x: "bg"; to_y: "sw.content.top"; }
+				rel2 { relative: (WIN_WIDTH - CONTEXTUAL_INFO_PADDING_RIGHT)/WIN_WIDTH 1.0; to_x: "bg"; to_y: "sw.content.top"; }
+				color_class: "AO002L1";
 			}
 		}
 		part {
@@ -234,25 +248,9 @@ group {
 			description {
 				state: "default" 0.0;
 				align: 0.0 0.0;
-				rel1 { relative: 0.0 (90+MISSED_EVT_SEPARATOR_HEIGHT)/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
-				rel2 { relative: 1.0 (90+MISSED_EVT_SEPARATOR_HEIGHT+90)/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
+				rel1 { relative: 0.0 MISSED_EVT_ITEM_HEIGHT/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
+				rel2 { relative: 1.0 (MISSED_EVT_ITEM_HEIGHT*2)/CONTEXTUAL_INFO_PAGE_HEIGHT; to: "bg"; }
 			}
-		}
-	}
-	programs {
-		program {
-			name: "show,separator";
-			signal: "show,separator";
-			source: "img.separator";
-			action: STATE_SET "show" 0.0;
-			target: "img.separator";
-		}
-		program {
-			name: "hide,separator";
-			signal: "hide,separator";
-			source: "img.separator";
-			action: STATE_SET "default" 0.0;
-			target: "img.separator";
 		}
 	}
 }

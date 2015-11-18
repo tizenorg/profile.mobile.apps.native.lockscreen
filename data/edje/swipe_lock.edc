@@ -18,13 +18,13 @@ group {
 	styles {
 		style {
 			name: "time_style_default";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=102 wrap=none";
-			tag: "small_font" "+ font_size=40 font=SamsungNeoNum-3T:style=Light";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=SNum-3T:style=Light color=#FFFFFF font_size=136 wrap=none text_class=tizen";
+			tag: "small_font" "+ font_size=35 font=SNum-3T:style=Light";
 		}
 		style {
-			name: "date_style_default";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=Tizen:style=Regular font_size=30 color=#FFFFFF wrap=none align=left text_class=ATO003";
-			tag: "small_font" "+ font_size=24";
+			name: "date_and_battery_style_default";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=Tizen:style=Regular font_size=35 color=#FFFFFF wrap=none align=left text_class=tizen";
+			tag: "small_font" "+ font_size=35";
 		}
 	}
 	name: "swipe-lock";
@@ -148,6 +148,7 @@ group {
 		part {
 			name: "txt.time";
 			type: TEXTBLOCK;
+			scale: 1;
 			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
@@ -167,6 +168,7 @@ group {
 		part {
 			name: "txt.date";
 			type: TEXTBLOCK;
+			scale: 1;
 			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
@@ -175,7 +177,7 @@ group {
 				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.time"; offset: 0 -13; }
 				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.time"; offset: 0 -13; }
 				text {
-					style: "date_style_default";
+					style: "date_and_battery_style_default";
 					align: 0.5 0.5;
 					min: 1 1;
 					ellipsis: -1;
@@ -184,66 +186,36 @@ group {
 			}
 		}
 		part {
-			name: "padding.txt.battery";
-			type: SPACER;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				min: WIN_WIDTH 62;
-				max: WIN_WIDTH 62;
-				fixed: 1 1;
-				align: 0 0;
-				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.date"; }
-				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.date"; }
-			}
-		}
-		part {
 			name: "txt.battery";
-			type: TEXT;
+			type: TEXTBLOCK;
 			scale: 1;
 			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
-				min: 314 40;
-				max: 314 40;
-				fixed: 1 1;
 				align: 0 0;
+				fixed: 1 1;
 				visible: 1;
-				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "padding.txt.battery"; }
-				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "padding.txt.battery"; }
+				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.date"; offset: 0 115; }
+				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.date"; offset: 0 115; }
 				text {
+					style: "date_and_battery_style_default";
 					align: 0.0 0.5;
 					min: 1 1;
 					ellipsis: -1;
 					text: "Charging: 50%";
-					size: 28;
 				}
 			}
 			description {
 				state: "contextual_event" 0.0;
 				inherit: "default" 0.0;
 				align: 0 0;
-				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "sw.contextual_event"; offset: 0 5; }
-				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "sw.contextual_event"; offset: 0 5; }
+				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "sw.contextual_event"; offset: 0 17; }
+				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "sw.contextual_event"; offset: 0 17; }
 			}
 			description {
 				state: "hide" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
-			}
-		}
-		part {
-			name: "padding.txt.plmn";
-			type: SPACER;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				min: WIN_WIDTH 14;
-				max: WIN_WIDTH 14;
-				fixed: 1 1;
-				align: 0 1;
-				rel1 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.bottom"; }
-				rel2 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.bottom"; }
 			}
 		}
 		part {
@@ -253,13 +225,11 @@ group {
 			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
-				min: 314 40;
-				max: 314 40;
 				fixed: 1 1;
 				align: 0 1;
 				visible: 1;
-				rel1 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.txt.plmn"; }
-				rel2 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.txt.plmn"; }
+				rel1 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.bottom"; offset: 0 -41; }
+				rel2 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.bottom"; offset: 0 -41; }
 			}
 			description {
 				state: "hide" 0.0;
@@ -274,12 +244,10 @@ group {
 			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
-				min: CAMERA_LAYOUT_SIZE CAMERA_LAYOUT_SIZE;
-				max: CAMERA_LAYOUT_SIZE CAMERA_LAYOUT_SIZE;
-				align: 1 1;
+				align: 0.5 0.5;
 				fixed: 1 1;
-				rel1 { relative: 0.0 0.0; to_x: "padding.right"; to_y: "padding.bottom"; offset: 85 85; }
-				rel2 { relative: 0.0 0.0; to_x: "padding.right"; to_y: "padding.bottom"; offset: 85 85; }
+				rel1 { relative: 220/WIN_WIDTH (WIN_HEIGHT-500)/WIN_HEIGHT; to: "bg"; }
+				rel2 { relative: (220+CAMERA_LAYOUT_SIZE)/WIN_WIDTH (WIN_HEIGHT-500+CAMERA_LAYOUT_SIZE)/WIN_HEIGHT; to: "bg"; }
 			}
 		}
 	}
