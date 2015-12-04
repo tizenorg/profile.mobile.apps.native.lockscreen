@@ -32,7 +32,6 @@ pkg_check_modules(pkgs REQUIRED
 	ail
 	notification
 	minicontrol-viewer
-	contacts-service2
 	security-server
 	minicontrol-monitor
 	ui-gadget-1
