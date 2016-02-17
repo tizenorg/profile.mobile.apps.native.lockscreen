@@ -27,4 +27,4 @@
 	<privileges>
 		<privilege>http://tizen.org/privilege/telephony.admin</privilege>
 	</privileges>
-</minifest>
+</manifest>
