@@ -24,4 +24,7 @@
 		<category name="http://tizen.org/category/lockapp"/>
 		<metadata key="http://developer.samsung.com/tizen/metadata/legacylifecycle"/>
 	</ui-application>
-</manifest>
+	<privileges>
+		<privilege>http://tizen.org/privilege/telephony.admin</privilege>
+	</privileges>
+</minifest>
