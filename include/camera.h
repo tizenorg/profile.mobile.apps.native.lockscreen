@@ -14,14 +14,24 @@
  * limitations under the License.
  */
 
-#ifndef __WINDOW_H__
-#define __WINDOW_H__
+#ifndef __CAMERA_H__
+#define __CAMERA_H__
 
-Evas_Object *lock_window_win_get(void);
-int lock_window_width_get(void);
-int lock_window_height_get(void);
+#define APP_NAME_CAMERA "org.tizen.camera-app"
 
-Evas_Object *lock_window_create(int type);
-void lock_window_destroy(void);
+typedef enum {
+	CAMERA_VIEW_DRAGGING_START = 1,
+	CAMERA_VIEW_DRAGGING_STOP = 2,
+	CAMERA_VIEW_ROTATE = 3,
+	CAMERA_VIEW_MAX,
+} camera_view_type_e;
+
+Evas_Object *lock_camera_layout_get(void);
+
+lock_error_e lock_camera_above_win_state_send(Eina_Bool state);
+void lock_camera_app_launch(void);
+lock_error_e lock_camera_view_action(camera_view_type_e action, int angle);
+Evas_Object *lock_camera_layout_create(Evas_Object *parent);
+void lock_camera_layout_destroy(void);
 
 #endif

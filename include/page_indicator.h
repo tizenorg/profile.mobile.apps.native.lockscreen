@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-#ifndef __WINDOW_H__
-#define __WINDOW_H__
+#ifndef __PAGE_INDICATOR_H__
+#define __PAGE_INDICATOR_H__
 
-Evas_Object *lock_window_win_get(void);
-int lock_window_width_get(void);
-int lock_window_height_get(void);
+Evas_Object *lock_page_indicator_index_get(void);
 
-Evas_Object *lock_window_create(int type);
-void lock_window_destroy(void);
+void lock_page_indicator_bring_in_page(int current_page);
+void lock_page_indicator_update(void);
+
+Evas_Object *lock_page_indicator_create(void);
+void lock_page_indicator_del(void);
 
 #endif

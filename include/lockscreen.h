@@ -18,7 +18,6 @@
 #define __LOCKSCREEN_H__
 
 #include <Elementary.h>
-//#include <Ecore_X.h>
 #include <Evas.h>
 #include <stdbool.h>
 
@@ -27,14 +26,20 @@
 
 #define LOCK_EDJE_FILE EDJE_DIR"lockscreen.edj"
 
-#define LOCK_DEFAULT_BG_PATH "/usr/apps/org.tizen.setting/shared/res/settings/Wallpapers/Home_default.jpg"
+#ifdef TIZEN_BUILD_EMULATOR
+#define LOCK_DEFAULT_BG_PATH "/opt/share/settings/Wallpapers/Default.jpg"
+#else
+#define LOCK_DEFAULT_BG_PATH "/opt/share/settings/Wallpapers/Lock_default.png"
+#endif
 
 #define _EDJ(x) elm_layout_edje_get(x)
 #define _X(x) ELM_SCALE_SIZE(x)
 
 #define _NOT_LOCALIZED(str) (str)
 
-static const int BUF_SIZE = 1024;
+#define BUF_SIZE_64 64
+#define BUF_SIZE_512 512
+#define BUF_SIZE_1024 1024
 
 typedef enum {
 	LOCK_TYPE_NONE = 0,
@@ -57,7 +62,7 @@ typedef enum {
 	LOCK_ERROR_MAX,
 } lock_error_e;
 
-Elm_Theme *lockscreen_theme_get(void);
+void lockscreen_exit(void);
 int lockscreen_setting_lock_type_get(void);
 Ecore_Timer *lockscreen_lcd_off_timer_get(void);
 
@@ -68,5 +73,6 @@ void lockscreen_lcd_off_count_raise(void);
 void lockscreen_lcd_off_count_reset(void);
 
 void lockscreen_feedback_tap_play(void);
+
 
 #endif
