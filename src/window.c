@@ -18,6 +18,7 @@
 #include <Ecore.h>
 #include <Elementary.h>
 #include <vconf.h>
+#include <efl_util.h>
 
 #include "lockscreen.h"
 #include "log.h"
@@ -61,7 +62,7 @@ Evas_Object *lock_window_create(int type)
 	elm_win_title_set(win, "LOCKSCREEN");
 	elm_win_borderless_set(win, EINA_TRUE);
 	elm_win_autodel_set(win, EINA_TRUE);
-	elm_win_role_set(win, "notification-normal");
+	efl_util_set_notification_window_level(win, EFL_UTIL_NOTIFICATION_LEVEL_MEDIUM);
 
 	elm_win_screen_size_get(win, &x, &y, &w, &h);
 

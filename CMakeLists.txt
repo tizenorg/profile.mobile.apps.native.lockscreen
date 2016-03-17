@@ -28,6 +28,7 @@ pkg_check_modules(pkgs REQUIRED
 	capi-appfw-application
 	capi-appfw-preference
 	capi-appfw-app-manager
+	capi-ui-efl-util
 	aul
 	ail
 	notification

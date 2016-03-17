@@ -27,5 +27,6 @@
 	<privileges>
 		<privilege>http://tizen.org/privilege/telephony.admin</privilege>
 		<privilege>http://tizen.org/privilege/telephony</privilege>
+		<privilege>http://tizen.org/privilege/window.priority.set</privilege>
 	</privileges>
 </manifest>
