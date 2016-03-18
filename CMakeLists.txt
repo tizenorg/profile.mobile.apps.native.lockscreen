@@ -45,6 +45,7 @@ pkg_check_modules(pkgs REQUIRED
 	dbus-1
 	dbus-glib-1
 	deviced
+	tzsh-lockscreen-service
 )
 
 IF(X11_SUPPORT)

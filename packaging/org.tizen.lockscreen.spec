@@ -52,6 +52,7 @@ BuildRequires:  pkgconfig(tapi)
 BuildRequires:  pkgconfig(efl-extension)
 BuildRequires:  pkgconfig(key-manager)
 BuildRequires:  pkgconfig(accounts-svc)
+BuildRequires:  pkgconfig(tzsh-lockscreen-service)
 BuildRequires:  cmake
 BuildRequires:  edje-tools
 BuildRequires:  gettext-tools

@@ -254,6 +254,7 @@ void _terminate_app(void *data)
 	lock_property_unregister();
 	feedback_deinitialize();
 	lock_dbus_fini(NULL);
+	lock_window_destroy();
 
 	_fini_theme();
 }
