@@ -140,8 +140,9 @@ static UDateFormat *__util_time_time_formatter_get(void *data, int time_format, 
 		s_info.is_pre_meridiem = EINA_FALSE;
 	}
 
-	char *a_best_pattern_fixed = strtok(a_best_pattern, "a");
-	a_best_pattern_fixed = strtok(a_best_pattern_fixed, " ");
+	char *saveptr;
+	char *a_best_pattern_fixed = strtok_r(a_best_pattern, "a", &saveptr);
+	a_best_pattern_fixed = strtok_r(a_best_pattern_fixed, " ", &saveptr);
 	if (a_best_pattern_fixed) {
 		u_uastrcpy(u_best_pattern, a_best_pattern_fixed);
 	}
