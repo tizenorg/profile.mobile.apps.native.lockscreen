@@ -26,11 +26,7 @@
 
 #define LOCK_EDJE_FILE EDJE_DIR"lockscreen.edj"
 
-#ifdef TIZEN_BUILD_EMULATOR
-#define LOCK_DEFAULT_BG_PATH "/opt/share/settings/Wallpapers/Default.jpg"
-#else
-#define LOCK_DEFAULT_BG_PATH "/opt/share/settings/Wallpapers/Lock_default.png"
-#endif
+#define LOCK_DEFAULT_BG_PATH "/usr/apps/org.tizen.lockscreen/res/images/Default.jpg"
 
 #define _EDJ(x) elm_layout_edje_get(x)
 #define _X(x) ELM_SCALE_SIZE(x)

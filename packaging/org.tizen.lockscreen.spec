@@ -58,12 +58,7 @@ BuildRequires:  edje-tools
 BuildRequires:  gettext-tools
 #BuildRequires:  model-build-features
 
-%if %{with wayland}
 BuildRequires:  pkgconfig(ecore-wayland)
-%else
-BuildRequires:  pkgconfig(ecore-x)
-BuildRequires:  pkgconfig(utilX)
-%endif
 
 %description
 Lockscreen application for Tizen.
@@ -113,6 +108,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %{AppInstallPath}/bin/lockscreen
 %{AppInstallPath}/res/images/*.png
+%{AppInstallPath}/res/images/*.jpg
 %{AppInstallPath}/res/edje/*.edj
 %{AppInstallPath}/res/locale/*/LC_MESSAGES/*
 /usr/share/packages/org.tizen.lockscreen.xml
