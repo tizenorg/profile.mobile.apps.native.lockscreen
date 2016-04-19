@@ -14,125 +14,92 @@
  * limitations under the License.
  */
 
-#include <Evas.h>
-#include <Ecore.h>
 #include <Elementary.h>
-#include <vconf.h>
-#include <efl_util.h>
+#include <tzsh_lockscreen_service.h>
 
-#include "lockscreen.h"
-#include "log.h"
 #include "window.h"
-#include "tzsh_lockscreen_service.h"
+#include "log.h"
 
-#define STR_ATOM_PANEL_SCROLLABLE_STATE "_E_MOVE_PANEL_SCROLLABLE_STATE"
 
-static struct _s_info {
+static struct {
 	Evas_Object *win;
+	Evas_Object *conformant;
+} view;
 
-	tzsh_h tzsh;
-	tzsh_lockscreen_service_h lockscreen_service;
-
-	int win_w;
-	int win_h;
-} s_info = {
-	.win = NULL,
-
-	.tzsh = NULL,
-	.lockscreen_service = NULL,
-
-	.win_w = 0,
-	.win_h = 0,
-};
-
-Evas_Object *lock_window_win_get(void)
+static void _lockscreen_window_event_rect_mouse_down_cb(void *data, Evas *e, Evas_Object *src, void *event_info)
 {
-	return s_info.win;
+	evas_object_smart_callback_call(data, SIGNAL_TOUCH_STARTED, NULL);
 }
 
-int lock_window_width_get(void)
+static void _lockscreen_window_event_rect_mouse_up_cb(void *data, Evas *e, Evas_Object *src, void *event_info)
 {
-	return s_info.win_w;
+	evas_object_smart_callback_call(data, SIGNAL_TOUCH_ENDED, NULL);
 }
 
-int lock_window_height_get(void)
+static void _lockscreen_window_event_rect_geometry_changed_cb(void *data, Evas *e, Evas_Object *obj, void *event_info)
 {
-	return s_info.win_h;
+	int x, y, w, h;
+	evas_object_geometry_get(obj, &x, &y, &w, &h);
+	evas_object_geometry_set(data, x, y, w, h);
 }
 
-static lock_error_e _tzsh_set(Evas_Object *win)
+Evas_Object *lockscreen_window_create(void)
 {
 	tzsh_h tzsh = NULL;
 	tzsh_lockscreen_service_h lockscreen_service = NULL;
-	tzsh_window tz_win;
-
-	retv_if(!win, LOCK_ERROR_INVALID_PARAMETER);
-
-	tzsh = tzsh_create(TZSH_TOOLKIT_TYPE_EFL);
-	retv_if(!tzsh, LOCK_ERROR_FAIL);
-	s_info.tzsh = tzsh;
-
-	tz_win = elm_win_window_id_get(win);
-	if (!tz_win) {
-		tzsh_destroy(tzsh);
-		return LOCK_ERROR_FAIL;
-	}
-
-	lockscreen_service = tzsh_lockscreen_service_create(tzsh, tz_win);
-	if (!lockscreen_service) {
-		tzsh_destroy(tzsh);
-		return LOCK_ERROR_FAIL;
-	}
-	s_info.lockscreen_service = lockscreen_service;
-
-	return LOCK_ERROR_OK;
-}
-
-static void _tzsh_unset(void)
-{
-	if (s_info.lockscreen_service) {
-		tzsh_lockscreen_service_destroy(s_info.lockscreen_service);
-		s_info.lockscreen_service = NULL;
-	}
-
-	if (s_info.tzsh) {
-		tzsh_destroy(s_info.tzsh);
-		s_info.tzsh = NULL;
-	}
-}
-
-Evas_Object *lock_window_create(int type)
-{
-	int x = 0, y = 0, w = 0, h = 0;
-
 	Evas_Object *win = elm_win_add(NULL, "LOCKSCREEN", ELM_WIN_NOTIFICATION);
-	retv_if(!win, NULL);
+	if (!win) return NULL;
 
 	elm_win_alpha_set(win, EINA_TRUE);
 	elm_win_title_set(win, "LOCKSCREEN");
 	elm_win_borderless_set(win, EINA_TRUE);
 	elm_win_autodel_set(win, EINA_TRUE);
-	efl_util_set_notification_window_level(win, EFL_UTIL_NOTIFICATION_LEVEL_MEDIUM);
+	elm_win_role_set(win, "notification-normal");
+	elm_win_fullscreen_set(win, EINA_TRUE);
+	elm_win_indicator_mode_set(win, ELM_WIN_INDICATOR_SHOW);
 
-	elm_win_screen_size_get(win, &x, &y, &w, &h);
-
-	s_info.win = win;
-	s_info.win_w = w;
-	s_info.win_h = h;
-
-	if (LOCK_ERROR_OK != _tzsh_set(win)) {
-		_E("Failed to set tzsh");
+	tzsh = tzsh_create(TZSH_TOOLKIT_TYPE_EFL);
+	if (!tzsh) {
+		ERR("tzsh_create failed");
+		evas_object_del(win);
+		return NULL;
 	}
+
+	lockscreen_service = tzsh_lockscreen_service_create(tzsh, elm_win_window_id_get(win));
+	if (!lockscreen_service) {
+		ERR("tzsh_lockscreen_service_create failed");
+		tzsh_destroy(tzsh);
+		evas_object_del(win);
+		return NULL;
+	}
+
+	Evas_Object *conformant = elm_conformant_add(win);
+	evas_object_size_hint_weight_set(conformant, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(conformant, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	elm_win_resize_object_add(win, conformant);
+
+	elm_object_signal_emit(conformant, "elm,state,indicator,overlap", "elm");
+
+	Evas_Object *event_rect = evas_object_rectangle_add(evas_object_evas_get(win));
+	evas_object_color_set(event_rect, 0, 0, 0, 0);
+	evas_object_layer_set(event_rect, EVAS_LAYER_MAX);
+	evas_object_repeat_events_set(event_rect, EINA_TRUE);
+	evas_object_event_callback_add(event_rect, EVAS_CALLBACK_MOUSE_DOWN, _lockscreen_window_event_rect_mouse_down_cb, win);
+	evas_object_event_callback_add(event_rect, EVAS_CALLBACK_MOUSE_UP, _lockscreen_window_event_rect_mouse_up_cb, win);
+	evas_object_show(event_rect);
+
+	evas_object_event_callback_add(win, EVAS_CALLBACK_RESIZE, _lockscreen_window_event_rect_geometry_changed_cb, event_rect);
+	evas_object_event_callback_add(win, EVAS_CALLBACK_MOVE, _lockscreen_window_event_rect_geometry_changed_cb, event_rect);
+	evas_object_show(win);
+	evas_object_show(conformant);
+
+	view.win = win;
+	view.conformant = conformant;
 
 	return win;
 }
 
-void lock_window_destroy(void)
+void lockscreen_window_content_set(Evas_Object *content)
 {
-	_tzsh_unset();
-
-	if (s_info.win) {
-		evas_object_del(s_info.win);
-		s_info.win = NULL;
-	}
+	elm_object_part_content_set(view.conformant, NULL, content);
 }

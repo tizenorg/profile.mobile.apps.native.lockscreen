@@ -1,0 +1,133 @@
+/*
+ * Copyright (c) 2009-2014 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+group {
+	name: "camera-layout";
+	images {
+		image: "quick_shot.png" COMP;
+		image: "quick_shot_press.png" COMP;
+		image: "lock_circle_line_camera.png" COMP;
+		image: "lock_circle_line_camera_drag.png" COMP;
+	}
+	parts {
+		part {
+			name: "camera.circle";
+			type: IMAGE;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 500 500;
+				visible: 0;
+				image.normal: "lock_circle_line_camera.png";
+				rel1 { relative: 0.0 0.0; }
+				rel2 { relative: 1.0 1.0; }
+			}
+			description {
+				inherit: "default";
+				state: "pressed" 1.0;
+				visible: 1;
+			}
+		}
+		part {
+			name: "camera.circle.fill";
+			type: IMAGE;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 500 500;
+				visible: 0;
+				image.normal: "lock_circle_line_camera_drag.png";
+				rel1 { relative: 0.0 0.0; }
+				rel2 { relative: 1.0 1.0; }
+				fixed: 1 1;
+			}
+			description {
+				inherit: "default";
+				state: "pressed" 1.0;
+				visible: 1;
+			}
+		}
+		part {
+			name: "img.camera";
+			type: IMAGE;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				max: 124 124;
+				fixed: 1 1;
+				align: 1.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "camera.circle.fill"; }
+				rel2 { relative: 462/500 462/500; to: "camera.circle.fill"; }
+				image.normal: "quick_shot.png";
+				visible: 1;
+			}
+			description {
+				state: "pressed" 1.0;
+				inherit: "default" 0.0;;
+				image.normal: "quick_shot_press.png";
+			}
+		}
+	}
+	programs {
+		program {
+			signal: "mouse,down,1";
+			source: "img.camera";
+			action: STATE_SET "pressed" 1.0;
+			target: "camera.circle.fill";
+			target: "camera.circle";
+			target: "img.camera";
+		}
+		program {
+			signal: "mouse,up,1";
+			source: "img.camera";
+			action: STATE_SET "default" 0.0;
+			target: "camera.circle.fill";
+			target: "camera.circle";
+			target: "img.camera";
+		}
+		program {
+			signal: "mouse,up,1";
+			source: "img.camera";
+			script {
+				/* get parts coords */
+				new x,y,w,h,ix,iy,iw,ih;
+				get_geometry(PART:"img.camera", ix, iy, iw, ih);
+				get_geometry(PART:"camera.circle.fill", x, y, w, h);
+
+				/* calculate elipsis center */
+				new xc = x + ix + iw / 2;
+				new yc = y + iy + ih / 2;
+
+				/* calculate elipsis radious */
+				new radx = xc - x;
+				new rady = yc - y;
+
+				/* get mouse coords */
+				new mx, my;
+				get_mouse(mx, my);
+
+				/* check if mouse is inside elipsis */
+				new Float:d = float((mx-xc)*(mx-xc))/float(radx*radx) + float((my-yc)*(my-yc))/float(rady*rady);
+
+				/* Emit signal if mouse inside elipsis */
+				if (d <= 1.0)
+				{
+					emit("camera,icon,clicked", "camera-layout");
+				}
+			}
+		}
+	}
+}

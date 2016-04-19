@@ -1,0 +1,159 @@
+/*
+ * Copyright (c) 2009-2014 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define WIN_WIDTH 720
+#define WIN_HEIGHT 1280
+
+#define INDICATOR_HEIGHT 38
+
+#define SWIPE_LOCK_PADDING_TOP 10
+#define SWIPE_LOCK_PADDING_BOTTOM 32
+#define SWIPE_LOCK_PADDING_LEFT 24
+#define SWIPE_LOCK_PADDING_RIGHT 24
+#define SWIPE_LOCK_EFFECT_HEIGHT 130
+#define SWIPE_LOCK_BOUNCE_EFFECT_OFFSET 12
+
+#define CONTEXTUAL_INFO_HEIGHT 314
+#define CONTEXTUAL_INFO_DATE_HEIGHT 44
+#define CONTEXTUAL_INFO_CLOSE_BTN_HEIGHT 41
+#define CONTEXTUAL_INFO_PAGE_HEIGHT 181
+#define CONTEXTUAL_INFO_PAGE_INDICATOR_HEIGHT 48
+#define CONTEXTUAL_INFO_EVENT_AREA_HEIGHT (CONTEXTUAL_INFO_PAGE_HEIGHT+CONTEXTUAL_INFO_CLOSE_BTN_HEIGHT)
+
+#define MISSED_EVT_ITEM_HEIGHT 90
+#define MISSED_EVT_ITEM_PADDING_LEFT 15
+#define MISSED_EVT_ITEM_PADDING_RIGHT 15
+#define MISSED_EVT_ITEM_PADDING_TOP 8
+#define MISSED_EVT_ITEM_PADDING_BOTTOM 8
+
+#define MISSED_EVT_SEPARATOR_WIDTH (540-20)
+#define MISSED_EVT_SEPARATOR_HEIGHT 1
+
+#define MISSED_EVT_ICON_SIZE 55
+
+#define CAMERA_LAYOUT_SIZE 280
+#define CAMERA_ICON_SIZE 110
+
+collections {
+	base_scale: 2.6;
+
+#include "color_classes.edc"
+#include "swipe_lock.edc"
+#include "camera.edc"
+#include "contextual_event.edc"
+#include "missed_event_item.edc"
+
+	group {
+		name: "lockscreen";
+		parts {
+			part {
+				name: "bg";
+				type: SPACER;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; }
+					rel2 { relative: 1.0 1.0; }
+				}
+			}
+			part {
+				name: "bg_clipper";
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					color: 255 255 255 255;
+				}
+				description {
+					state: "effect" 0.0;
+					color: 0 0 0 0;
+				}
+			}
+			part {
+				name: "sw.bg";
+				type: SWALLOW;
+				clip_to: "bg_clipper";
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+				}
+			}
+			part {
+				name: "music_dim";
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to : "sw.bg";}
+					rel2 { relative: 1.0 1.0; to : "sw.bg";}
+					color: 0 0 0 0;
+					visible: 0;
+				}
+				description {
+					state: "music_on" 0.0;
+					inherit: "default" 0.0;
+					color: 20 20 20 100;
+					visible: 1;
+				}
+			}
+			part {
+				name: "sw.password_layout";
+				type: SWALLOW;
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+				}
+			}
+			part {
+				name: "sw.swipe_layout";
+				type: SWALLOW;
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+				}
+			}
+		}
+		programs {
+			program {
+				name: "bg,hide";
+				signal: "bg,hide";
+				source: "lockscreen";
+				action: STATE_SET "effect" 0.0;
+				target: "bg_clipper";
+				transition: SIN_FAC 0.5 1.7;
+			}
+			program {
+				name: "bg,show";
+				signal: "bg,show";
+				source: "lockscreen";
+				action: STATE_SET "default" 0.0;
+				target: "bg_clipper";
+				transition: SIN_FAC 0.5 1.7;
+			}
+			program {
+				name: "music_on";
+				signal: "music_on";
+				source: "lockscreen";
+				action: STATE_SET "music_on" 0.0;
+				target: "music_dim";
+			}
+			program {
+				name: "music_off";
+				signal: "music_off";
+				source: "lockscreen";
+				action: STATE_SET "default" 0.0;
+				target: "music_dim";
+			}
+		}
+	}
+}

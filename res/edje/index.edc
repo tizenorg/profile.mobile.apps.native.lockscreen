@@ -1,0 +1,382 @@
+/*
+ * Copyright (c) 2009-2014 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define INDEX_PAGECONTROL_IND_INC 35 35
+#define INDEX_PAGECONTROL_IND_MIN_INC 35 35
+#define INDEX_PAGECONTROL_FONT_COLOR_INC 255 255 255
+#define INDEX_PAGECONTROL_FONT_SIZE_INC 18
+
+collections {
+	base_scale: 2.6;
+	group {
+		name: "elm/index/base/vertical/lockscreen/index";
+		alias: "elm/index/base/horizontal/lockscreen/index";
+		parts {
+			part {
+				name: "clip";
+				type: RECT;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					visible:  0;
+					color: 255 255 255 0;
+				}
+				description {
+					state: "active" 0.0;
+					visible:  1;
+					color: 255 255 255 255;
+				}
+			}
+			part {
+				name: "elm.swallow.index.0";
+				type: SWALLOW;
+				mouse_events: 0;
+				clip_to: "clip";
+				description {
+					state: "default" 0.0;
+					align: 0.5 0.5;
+					rel1.relative: 0 0;
+					rel2.relative: 1 1;
+				}
+			}
+			part {
+				name: "elm.swallow.event.0";
+				type: SWALLOW;
+				mouse_events: 0;
+				repeat_events: 0;
+				description {
+					state: "default" 0.0;
+					align: 0.5 0.5;
+				}
+			}
+		}
+		programs {
+			program {
+				name: "active";
+				signal: "elm,state,active";
+				source: "elm";
+				action: STATE_SET "active" 0.0;
+				transition: DECELERATE 0.5;
+				target: "clip";
+			}
+			program {
+				name: "inactive";
+				signal: "elm,state,inactive";
+				source: "elm";
+				action: STATE_SET "default" 0.0;
+				transition: DECELERATE 0.5;
+				target: "clip";
+			}
+		}
+	}
+
+	group {
+		name: "elm/index/item/vertical/lockscreen/index";
+		alias: "elm/index/item_odd/vertical/lockscreen/index";
+		alias: "elm/index/item/horizontal/lockscreen/index";
+		alias: "elm/index/item_odd/horizontal/lockscreen/index";
+		images {
+			image: "page indicator.png" COMP;
+			image: "page indicator_focus.png" COMP;
+		}
+		parts {
+			part {
+				name:"bg";
+				type: RECT;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					min: INDEX_PAGECONTROL_IND_INC;
+					max: INDEX_PAGECONTROL_IND_INC;
+					visible: 0;
+					align: 0.5 0.5;
+				}
+			}
+			part {
+				name: "indicator1";
+				type: IMAGE;
+				mouse_events: 0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.5 0.5;
+					fixed: 1 1;
+					rel1.to: "bg";
+					rel2.to: "bg";
+					min: INDEX_PAGECONTROL_IND_MIN_INC;
+					max: INDEX_PAGECONTROL_IND_MIN_INC;
+					image.normal: "page indicator.png";
+				}
+				description {
+					state: "active" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+			part {
+				name: "indicator2";
+				type: IMAGE;
+				mouse_events: 0;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					align: 0.5 0.5;
+					fixed: 1 1;
+					min: INDEX_PAGECONTROL_IND_MIN_INC;
+					max: INDEX_PAGECONTROL_IND_MIN_INC;
+					image.normal: "page indicator_focus.png";
+					visible: 0;
+				}
+				description {
+					state: "active" 0.0;
+					inherit: "default" 0.0;
+					min: INDEX_PAGECONTROL_IND_INC;
+					max: INDEX_PAGECONTROL_IND_INC;
+					visible: 1;
+				}
+			}
+			part {
+				name: "elm.text";
+				type: TEXT;
+				mouse_events: 0;
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+					color: INDEX_PAGECONTROL_FONT_COLOR_INC 0;
+					align: 0.5 0.5;
+					text {
+						font: "TIZEN:style=Bold";
+						size: INDEX_PAGECONTROL_FONT_SIZE_INC;
+						min: 0 1;
+						//FIXME:values should be 0.5 0.5 when fonts are aligned correctly.
+						align: 0.53 0.56;
+					}
+					rel1 { to: "indicator2"; }
+					rel2 { to: "indicator2"; }
+				}
+				description {
+					state: "active" 0.0;
+					inherit: "default" 0.0;
+					color: INDEX_PAGECONTROL_FONT_COLOR_INC 255;
+				}
+			}
+		}
+		programs {
+			program {
+				name: "active";
+				signal: "elm,state,active";
+				source: "elm";
+				action: STATE_SET "active" 0.0;
+				target: "indicator1";
+				target: "indicator2";
+				target: "elm.text";
+				transition: LINEAR 0.2;
+			}
+			program {
+				name: "inactive";
+				signal: "elm,state,inactive";
+				source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "indicator1";
+				target: "indicator2";
+				target: "elm.text";
+				transition: LINEAR 0.2;
+			}
+		}
+	}
+	/* Elementary theme to overwrite */
+	group { name: "elm/genlist/item/noti/default";
+		styles {
+			style {
+				name: "variable_style";
+				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO009 font_size=24 text_class=ATO009 align=right ellipsis=1.0";
+			}
+			style {
+				name: "title_style";
+				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO039 font_size=30 text_class=ATO039 ellipsis=1.0";
+			}
+			style {
+				name: "content_style";
+				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO010 font_size=24 text_class=ATO010 ellipsis=1.0";
+			}
+			style {
+				name: "time_style";
+				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO010 font_size=24 text_class=ATO010 align=right";
+			}
+			style {
+				name: "selected_style";
+				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO039 font_size=30 text_class=ATO039 wrap=mixed";
+			}
+		}
+	   data.item: "texts" "elm.text elm.text.sub elm.text.time";
+	   data.item: "contents" "elm.swallow.icon elm.swallow.sub.icon";
+
+	   parts {
+		  // base spacer for item min height
+		  spacer { "base"; scale;
+			 desc { "default";
+				min: 0 130;
+			 }
+		  }
+		  rect { "bg"; scale;
+			 desc { "default";
+				visible: 0;
+				color: 0 0 0 10;
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 1.0 1.0;
+			 }
+			 desc { "pressed"; inherit: "default";
+				visible: 1;
+			 }
+		  }
+		spacer { "padding.left"; scale;
+			  desc { state: "default";
+				fixed: 1 0;
+				min: 26 0;
+				max: 26 -1;
+				align: 0.0 0.5;
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 0.0 1.0;
+			 }
+		}
+		spacer { "padding.right"; scale;
+			  desc { state: "default";
+				fixed: 1 0;
+				min: 26 0;
+				max: 26 -1;
+				align: 1.0 0.5;
+				rel1.relative: 1.0 0.0;
+				rel2.relative: 1.0 1.0;
+			 }
+		}
+		spacer { "padding.top"; scale;
+			  desc { state: "default";
+				fixed: 0 1;
+				min: 0 16;
+				max: -1 16;
+				align: 0.5 0.0;
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 1.0 0.0;
+			 }
+		}
+		spacer { "padding.bottom"; scale;
+			  desc { state: "default";
+				fixed: 0 1;
+				min: 0 16;
+				max: -1 16;
+				align: 0.5 0.0;
+				rel1.relative: 0.0 1.0;
+				rel2.relative: 1.0 1.0;
+			 }
+		}
+		swallow { "elm.swallow.icon"; scale;
+			desc { state: "default";
+				fixed: 1 0;
+				align: 0.0 0.5;
+				min: 98 98;
+				max: 98 98;
+				rel1 { to_x: "padding.left"; to_y: "padding.top"; relative: 1.0 1.0; }
+				rel2 { to_x: "padding.left"; to_y: "padding.bottom"; relative: 1.0 0.0; }
+			}
+		}
+		swallow { "elm.swallow.sub.icon"; scale;
+			desc { state: "default";
+				fixed: 1 0;
+				align: 0.0 0.0;
+				min: 45 45;
+				max: 45 45;
+				rel1 { to: "elm.swallow.icon"; relative: 60/98 60/98; }
+				rel2 { to: "elm.swallow.icon"; relative: 104/98 104/98; }
+			}
+		}
+		spacer { "padding.icon.text"; scale;
+			  desc { state: "default";
+				fixed: 0 1;
+				min: 16 0;
+				max: 16 -1;
+				align: 0 0.5;
+				rel1 { relative: 1.0 1.0; to_x: "elm.swallow.icon"; to_y: "padding.top"; }
+				rel2 { relative: 1.0 1.0; to_x: "elm.swallow.icon"; }
+			 }
+		}
+		// sub text line
+		textblock { "elm.text"; scale;
+			desc { "default";
+				fixed: 1 1;
+				min: 0 54;
+				max: -1 54;
+				align: 0.0 0.0;
+				rel1 { to_x: "padding.icon.text"; to_y: "padding.top"; relative: 1.0 1.0; }
+				//rel2 { to_x: "elm.padding.A.D"; to_y: "elm.padding.bottom"; relative: 0.0 0.0; }
+				text.style: "title_style";
+				text.min: 1 1;
+				text.max: 0 1;
+				text.ellipsis: -1;
+			}
+		}
+		textblock { "elm.text.sub"; scale;
+			desc { "default";
+				fixed: 1 1;
+				min: 0 43;
+				max: -1 43;
+				align: 0.0 0.0;
+				rel1 { to: "elm.text"; relative: 0.0 1.0; }
+				//rel2 { to_x: "elm.padding.A.D"; to_y: "elm.padding.bottom"; relative: 0.0 0.0; }
+				text.style: "content_style";
+				text.min: 1 1;
+				text.max: 0 1;
+				text.ellipsis: -1;
+			}
+		}
+		spacer { "padding.text.date"; scale;
+			  desc { state: "default";
+				fixed: 0 1;
+				min: 32 0;
+				max: 32 -1;
+				align: 1.0 0.5;
+				rel1 { relative: 1.0 1.0; to_x: "elm.swallow.icon"; to_y: "padding.top"; }
+				rel2 { relative: 1.0 1.0; to_x: "elm.swallow.icon"; }
+			 }
+		}
+		textblock { "elm.text.time"; scale;
+			desc { "default";
+				fixed: 1 1;
+				min: 0 54;
+				max: -1 54;
+				align: 0.0 0.0;
+				rel1 { to_x: "padding.text.date"; to_y: "padding.top"; relative: 1.0 1.0; }
+				rel2 { to_x: "padding.right"; to_y: "padding.top"; relative: 0.0 1.0; }
+				text.style: "time_style";
+				text.min: 1 1;
+				text.max: 0 1;
+				text.ellipsis: -1;
+			}
+		}
+		}
+		  program { name: "pressed";
+			 signal: "elm,state,selected";
+			 source: "elm";
+			 action: STATE_SET "pressed" 0.0;
+			 target: "bg";
+		  }
+		  program { name: "unpressed";
+			 signal: "elm,state,unselected";
+			 source: "elm";
+			 action: STATE_SET "default" 0.0;
+			 target: "bg";
+		  }
+	}
+}
