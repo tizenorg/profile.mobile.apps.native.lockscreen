@@ -15,7 +15,9 @@
  */
 
 #include <Elementary.h>
+#ifdef USE_TIZEN_SHELL
 #include <tzsh_lockscreen_service.h>
+#endif
 
 #include "window.h"
 #include "log.h"
@@ -45,8 +47,10 @@ static void _lockscreen_window_event_rect_geometry_changed_cb(void *data, Evas *
 
 Evas_Object *lockscreen_window_create(void)
 {
+#ifdef USE_TIZEN_SHELL
 	tzsh_h tzsh = NULL;
 	tzsh_lockscreen_service_h lockscreen_service = NULL;
+#endif
 	Evas_Object *win = elm_win_add(NULL, "LOCKSCREEN", ELM_WIN_NOTIFICATION);
 	if (!win) return NULL;
 
@@ -58,6 +62,7 @@ Evas_Object *lockscreen_window_create(void)
 	elm_win_fullscreen_set(win, EINA_TRUE);
 	elm_win_indicator_mode_set(win, ELM_WIN_INDICATOR_SHOW);
 
+#ifdef USE_TIZEN_SHELL
 	tzsh = tzsh_create(TZSH_TOOLKIT_TYPE_EFL);
 	if (!tzsh) {
 		ERR("tzsh_create failed");
@@ -72,6 +77,7 @@ Evas_Object *lockscreen_window_create(void)
 		evas_object_del(win);
 		return NULL;
 	}
+#endif
 
 	Evas_Object *conformant = elm_conformant_add(win);
 	evas_object_size_hint_weight_set(conformant, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
