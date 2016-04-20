@@ -170,7 +170,9 @@ static void _lockscreen_events_ctrl_launch_result(bool result)
 static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event = data;
-	lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_result);
+	if (!lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_result)) {
+		elm_genlist_item_selected_set(info, EINA_FALSE);
+	}
 }
 
 static void _lockscreen_events_ctrl_events_load()
