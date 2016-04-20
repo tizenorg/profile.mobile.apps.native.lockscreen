@@ -95,7 +95,6 @@ cd -
 %manifest org.tizen.lockscreen.manifest
 %defattr(-,root,root,-)
 %{_pkg_dir}/bin/lockscreen
-%{_pkg_dir}/res/images/*.png
 %{_pkg_dir}/res/images/*.jpg
 %{_pkg_dir}/res/edje/*.edj
 %{_pkg_dir}/res/locale/*/LC_MESSAGES/*
