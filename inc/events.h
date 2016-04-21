@@ -89,7 +89,7 @@ lockscreen_event_type_e lockscreen_event_type_get(const lockscreen_event_t *even
 /**
  * @brief Gets list of all displayed events.
  *
- * @note list elements are only until LOCKSCREEN_EVENT_NOTIFICATIONS_CHANGED is fired.
+ * @note list elements are valid until next LOCKSCREEN_EVENT_NOTIFICATIONS_CHANGED event is fired.
  * @note should be free with eina_list_free
  */
 Eina_List *lockscreen_events_get(void);

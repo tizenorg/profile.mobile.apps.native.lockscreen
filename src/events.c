@@ -165,11 +165,24 @@ static lockscreen_event_t *_lockscreen_event_notification_create(notification_h 
 	return event;
 }
 
-static int _load_notifications()
+static void _unload_notifications(void *eevent, void *data)
+{
+	lockscreen_event_t *event;
+	Eina_List *free_list = data;
+
+	if (!free_list)
+		return;
+
+	EINA_LIST_FREE(free_list, event)
+		_lockscreen_event_destroy(event);
+}
+
+static int _reload_notifications()
 {
 	notification_list_h noti_list;
 	notification_list_h noti_list_head = NULL;
 	notification_h noti = NULL;
+	Eina_List *new_notifications = NULL;
 
 	int ret = notification_get_list(NOTIFICATION_TYPE_NOTI, -1, &noti_list_head);
 	if (ret != NOTIFICATION_ERROR_NONE) {
@@ -182,35 +195,21 @@ static int _load_notifications()
 		noti = notification_list_get_data(noti_list);
 		if (_notification_accept(noti)) {
 			lockscreen_event_t *me = _lockscreen_event_notification_create(noti);
-			notifications = eina_list_append(notifications, me);
+			new_notifications = eina_list_append(new_notifications, me);
 		}
 		noti_list = notification_list_get_next(noti_list);
 	}
 
-	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
+	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, notifications, _unload_notifications, NULL);
+	notifications = new_notifications;
 
 	notification_free_list(noti_list_head);
 	return 0;
 }
 
-static void _unload_notifications()
-{
-	lockscreen_event_t *event;
-
-	if (!notifications)
-		return;
-
-	EINA_LIST_FREE(notifications, event)
-		_lockscreen_event_destroy(event);
-
-	notifications = NULL;
-	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
-}
-
 static void _noti_changed_cb(void *data, notification_type_e type, notification_op *op_list, int num_op)
 {
-	_unload_notifications();
-	_load_notifications();
+	_reload_notifications();
 }
 
 static void _unload_minicontrollers(void)
@@ -254,7 +253,7 @@ int lockscreen_events_init(void)
 			return 1;
 		}
 		handler = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_minicontroller_changed, NULL);
-		if (_load_notifications()) {
+		if (_reload_notifications()) {
 			ERR("load_notifications failed");
 			return 1;
 		}
@@ -272,7 +271,7 @@ void lockscreen_events_shutdown(void)
 			if (ret != NOTIFICATION_ERROR_NONE) {
 				ERR("notification_unregister_detailed_changed_cb failed: %s", get_error_message(ret));
 			}
-			_unload_notifications();
+			_unload_notifications(NULL, notifications);
 			_unload_minicontrollers();
 			ecore_event_handler_del(handler);
 		}
