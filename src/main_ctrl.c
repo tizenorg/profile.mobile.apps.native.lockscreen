@@ -26,6 +26,7 @@
 #include "sim_ctrl.h"
 #include "display.h"
 #include "events_ctrl.h"
+#include "background_ctrl.h"
 
 #include <Elementary.h>
 #include <app.h>
@@ -80,13 +81,6 @@ int lockscreen_main_ctrl_init(void)
 	if (!view)
 		FAT("lockscreen_main_view_create failed.");
 
-	if (lockscreen_background_init()) {
-		FAT("lockscreen_background_init failed. Background changes will not be available");
-	} else {
-		if (!lockscreen_main_view_background_set(view, LOCKSCREEN_BACKGROUND_TYPE_DEFAULT, lockscreen_background_file_get()))
-			FAT("lockscreen_main_view_background_image_set failed");
-	}
-
 	if (lockscreen_display_init()) {
 		FAT("lockscreen_display_init failed. Display on/off changes will not be available.");
 	} else {
@@ -114,11 +108,13 @@ int lockscreen_main_ctrl_init(void)
 	if (lockscreen_events_ctrl_init(view))
 		FAT("lockscreen_events_ctrl_init failed. Lockscreen events will not be displayed");
 
+	if (lockscreen_background_ctrl_init(view))
+		FAT("lockscreen_background_ctrl_init failed. Lockscreen background changes will not be available");
+
 	return 0;
 }
 
 void lockscreen_main_ctrl_shutdown(void)
 {
-	lockscreen_background_shutdown();
 	evas_object_del(win);
 }
