@@ -29,21 +29,37 @@ static char *background_file;
 static int init_count;
 int LOCKSCREEN_EVENT_BACKGROUND_CHANGED;
 
-int lockscreen_background_init(void)
+static void _lockscreen_background_load_from_system_settings(void)
 {
 	char *bg;
+	int ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_WALLPAPER_LOCK_SCREEN, &bg);
+	if (ret != SYSTEM_SETTINGS_ERROR_NONE) {
+		ERR("system_settings_set_value_string failed: %s", get_error_message(ret));
+		lockscreen_background_file_set(NULL);
+		return;
+	}
+	if (lockscreen_background_file_set(bg))
+		lockscreen_background_file_set(NULL);
+	free(bg);
+}
 
+static void _lockscreen_background_system_settings_key_changed(system_settings_key_e key, void *user_data)
+{
+	if (key != SYSTEM_SETTINGS_KEY_WALLPAPER_LOCK_SCREEN)
+		return;
+	_lockscreen_background_load_from_system_settings();
+}
+
+int lockscreen_background_init(void)
+{
 	if (!init_count) {
 		LOCKSCREEN_EVENT_BACKGROUND_CHANGED = ecore_event_type_new();
-		int ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_WALLPAPER_LOCK_SCREEN, &bg);
+		int ret = system_settings_set_changed_cb(SYSTEM_SETTINGS_KEY_WALLPAPER_LOCK_SCREEN, _lockscreen_background_system_settings_key_changed, NULL);
 		if (ret != SYSTEM_SETTINGS_ERROR_NONE) {
-			ERR("system_settings_set_value_string failed: %s", get_error_message(ret));
-			init_count = 0;
+			ERR("system_settings_set_changed_cb: %s", get_error_message(ret));
 			return -1;
 		}
-		if (lockscreen_background_file_set(bg))
-			lockscreen_background_file_set(NULL);
-		free(bg);
+		_lockscreen_background_load_from_system_settings();
 	}
 	init_count++;
 	return 0;
@@ -67,6 +83,7 @@ int lockscreen_background_file_set(const char *path)
 	free(background_file);
 	background_file = strdup(path);
 
+	INF("Background file: %s", path);
 	ecore_event_add(LOCKSCREEN_EVENT_BACKGROUND_CHANGED, NULL, NULL, NULL);
 	return 0;
 }
