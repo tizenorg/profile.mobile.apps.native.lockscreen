@@ -26,6 +26,38 @@
 #define PLMN_LABEL_STYLE_START "<style=far_shadow,bottom><shadow_color=#00000033><font_size=24><align=left><color=#FFFFFF><text_class=ATO007><color_class=ATO007><wrap=none>"
 #define PLMN_LABEL_STYLE_END "</wrap></color_class></text_class></color></align></font_size></shadow_color></style>"
 
+typedef enum {
+	TEXT_TEMPLATE_TIME_24H = 0,
+	TEXT_TEMPLATE_TIME_AMPM,
+	TEXT_TEMPLATE_TIME_AMPM_KOREAN,
+} time_template_e;
+
+typedef enum {
+	TEXT_TEMPLATE_DATE = 0,
+} datee_template_e;
+
+typedef enum {
+	TEXT_TEMPLATE_DATETIME_24h = 0,
+	TEXT_TEMPLATE_DATETIME_AMPM,
+	TEXT_TEMPLATE_DATETIME_AMPM_KOREAN,
+} datetime_template_e;
+
+static const char *time_templates[] = {
+	[TEXT_TEMPLATE_TIME_24H] = "%1$s",
+	[TEXT_TEMPLATE_TIME_AMPM] = "%1$s <small_font>%2$s</>",
+	[TEXT_TEMPLATE_TIME_AMPM_KOREAN] = "<small_font>%2$s</> %1$s",
+};
+
+static const char *date_templates[] = {
+	[TEXT_TEMPLATE_DATE] = "<small_font>%1$s</>",
+};
+
+static const char *datetime_templates[] = {
+	[TEXT_TEMPLATE_DATETIME_24h] = "%1$s %2$s",
+	[TEXT_TEMPLATE_DATETIME_AMPM] = "%1$s %3$s %2$s",
+	[TEXT_TEMPLATE_DATETIME_AMPM_KOREAN] = "%3$s %1$s %2$s",
+};
+
 static Evas_Object *_swipe_layout_create(Evas_Object *parent)
 {
 	Evas_Object *swipe_layout = NULL;
@@ -259,6 +291,8 @@ void lockscreen_main_view_time_set(Evas_Object *view, const char *locale, const 
 	}
 	char buf[PATH_MAX] = {0,};
 	char *str_date, *str_time, *str_meridiem;
+	time_template_e time_tmpl;
+	datetime_template_e datetime_tmpl;
 
 	if (!util_time_formatted_time_get(time, locale, timezone, use24hformat, &str_time, &str_meridiem)) {
 		ERR("util_time_formatted_time_get failed");
@@ -272,20 +306,25 @@ void lockscreen_main_view_time_set(Evas_Object *view, const char *locale, const 
 	}
 
 	if (use24hformat) {
-		snprintf(buf, sizeof(buf), "%s", str_time);
+		time_tmpl = TEXT_TEMPLATE_TIME_24H;
+		datetime_tmpl = TEXT_TEMPLATE_DATETIME_24h;
 	} else {
 		if (_is_korea_locale(locale)) {
-			snprintf(buf, sizeof(buf), "<%s>%s </>%s", "small_font", str_meridiem, str_time);
+			time_tmpl = TEXT_TEMPLATE_TIME_AMPM_KOREAN;
+			datetime_tmpl = TEXT_TEMPLATE_DATETIME_AMPM_KOREAN;
 		} else {
-			snprintf(buf, sizeof(buf), "%s<%s> %s</>", str_time, "small_font", str_meridiem);
+			time_tmpl = TEXT_TEMPLATE_TIME_AMPM;
+			datetime_tmpl = TEXT_TEMPLATE_DATETIME_AMPM;
 		}
 	}
+
+	snprintf(buf, sizeof(buf), time_templates[time_tmpl], str_time, str_meridiem);
 	elm_object_part_text_set(swipe_layout, "txt.time", buf);
 
-	snprintf(buf, sizeof(buf), "<%s>%s</>", "small_font", str_date);
+	snprintf(buf, sizeof(buf), date_templates[TEXT_TEMPLATE_DATE], str_date);
 	elm_object_part_text_set(swipe_layout, "txt.date", buf);
 
-	snprintf(buf, sizeof(buf), "%s %s", str_time, str_date);
+	snprintf(buf, sizeof(buf), datetime_templates[datetime_tmpl], str_time, str_date, str_meridiem);
 	elm_object_part_text_set(swipe_layout, "txt.timedate", buf);
 
 	free(str_date);
