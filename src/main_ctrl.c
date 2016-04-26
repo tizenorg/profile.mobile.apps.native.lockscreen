@@ -26,24 +26,12 @@
 #include "sim_ctrl.h"
 #include "display.h"
 #include "events_ctrl.h"
+#include "device_lock_ctrl.h"
 
 #include <Elementary.h>
-#include <app.h>
 
 static Evas_Object *win;
 static Evas_Object *view;
-
-static void _view_unlocked(void *data, Evas_Object *obj, void *event)
-{
-	ui_app_exit();
-}
-
-static void _swipe_finished(void *data, Evas_Object *obj, void *event)
-{
-	/* When swipe finished play unlock animation and exit */
-	evas_object_smart_callback_add(obj, SIGNAL_UNLOCK_ANIMATION_FINISHED, _view_unlocked, NULL);
-	lockscreen_main_view_unlock(obj);
-}
 
 static Eina_Bool _lockscreen_main_ctrl_win_event_cb(void *data, Evas_Object *obj, Evas_Object *source, Evas_Callback_Type type, void *event_info)
 {
@@ -95,7 +83,6 @@ int lockscreen_main_ctrl_init(void)
 	}
 
 	lockscreen_window_content_set(view);
-	evas_object_smart_callback_add(view, SIGNAL_SWIPE_GESTURE_FINISHED, _swipe_finished, NULL);
 	elm_object_event_callback_add(win, _lockscreen_main_ctrl_win_event_cb, NULL);
 
 	// init subcontrollers
@@ -113,6 +100,9 @@ int lockscreen_main_ctrl_init(void)
 
 	if (lockscreen_events_ctrl_init(view))
 		FAT("lockscreen_events_ctrl_init failed. Lockscreen events will not be displayed");
+
+	if (lockscreen_device_lock_ctrl_init(view))
+		FAT("lockscreen_device_lock_ctrl_init failed. Password unlock will not be available");
 
 	return 0;
 }

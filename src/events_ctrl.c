@@ -21,10 +21,10 @@
 #include "events.h"
 #include "time_format.h"
 #include "util_time.h"
+#include "device_lock.h"
 
 #include <Ecore.h>
 #include <time.h>
-#include <app.h>
 
 static Ecore_Event_Handler *events_handler;
 static Evas_Object *main_view;
@@ -152,16 +152,10 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 	return time1 > time2 ? -1 : 1;
 }
 
-static void _lockscreen_events_ctrl_main_view_unlocked(void *data, Evas_Object *obj, void *event_info)
-{
-	ui_app_exit();
-}
-
 static void _lockscreen_events_ctrl_launch_result(bool result)
 {
 	if (result) {
-		evas_object_smart_callback_add(main_view, SIGNAL_UNLOCK_ANIMATION_FINISHED, _lockscreen_events_ctrl_main_view_unlocked, NULL);
-		lockscreen_main_view_unlock(main_view);
+		lockscreen_device_lock_unlock_request();
 	} else {
 		INF("Failed to launch application");
 	}
@@ -230,6 +224,14 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 	if (lockscreen_time_format_init()) {
 		FAT("lockscreen_time_format_init failed.");
 		lockscreen_events_shutdown();
+		return 1;
+	}
+
+	if (lockscreen_device_lock_init()) {
+		FAT("lockscreen_device_lock_init failed.");
+		lockscreen_events_shutdown();
+		lockscreen_time_format_shutdown();
+		return 1;
 	}
 
 	main_view = mv;
@@ -250,4 +252,5 @@ void lockscreen_events_ctrl_shutdown()
 	ecore_event_handler_del(events_handler);
 	lockscreen_events_shutdown();
 	lockscreen_time_format_shutdown();
+	lockscreen_device_lock_shutdown();
 }
