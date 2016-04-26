@@ -65,6 +65,8 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/util_time.c
 	${PROJECT_ROOT_DIR}/src/time_format_ctrl.c
 	${PROJECT_ROOT_DIR}/src/sim_ctrl.c
+	${PROJECT_ROOT_DIR}/src/device_lock.c
+	${PROJECT_ROOT_DIR}/src/device_lock_ctrl.c
 )
 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS} -lm)
