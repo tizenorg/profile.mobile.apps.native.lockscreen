@@ -32,6 +32,8 @@ pkg_check_modules(MENU_PKGS REQUIRED
 	capi-base-utils-i18n
 	capi-telephony
 	vconf
+	auth-fw
+	dpm
 )
 
 FOREACH (flag ${MENU_PKGS_CFLAGS})
@@ -69,6 +71,7 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/sim_ctrl.c
 	${PROJECT_ROOT_DIR}/src/device_lock.c
 	${PROJECT_ROOT_DIR}/src/device_lock_ctrl.c
+	${PROJECT_ROOT_DIR}/src/password_view.c
 )
 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS} -lm)
