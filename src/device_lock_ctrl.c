@@ -20,6 +20,7 @@
 #include "device_lock.h"
 #include "main_view.h"
 #include "log.h"
+#include "password_view.h"
 
 static Ecore_Event_Handler *handler[2];
 static Evas_Object *main_view;
@@ -37,6 +38,62 @@ static Eina_Bool _lockscreen_device_lock_ctrl_unlocked(void *data, int event, vo
 	return EINA_TRUE;
 }
 
+static void _lockscreen_device_lock_ctrl_pin_unlock_hide(void)
+{
+	Evas_Object *pin_view = lockscreen_main_view_part_content_unset(main_view, PART_PASSWORD);
+	if (pin_view) evas_object_del(pin_view);
+}
+
+static void _lockscreen_device_lock_ctrl_pass_view_cancel_button_clicked(void *data, Evas_Object  *obj, void *event_info)
+{
+	_lockscreen_device_lock_ctrl_pin_unlock_hide();
+}
+
+static void _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked(void *data, Evas_Object  *obj, void *event_info)
+{
+	int ret = lockscreen_device_lock_unlock(event_info);
+	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
+	if (!pass_view) FAT("lockscreen_main_view_part_content_get failed");
+
+	if (ret != 0) {
+		switch (lockscreen_device_lock_type_get()) {
+			case LOCKSCREEN_DEVICE_LOCK_PIN:
+				elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_COM_BODY_INCORRECT_PIN"));
+				break;
+			case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
+				elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_IDLE_BODY_INCORRECT_PASSWORD"));
+				break;
+			default:
+				FAT("Unahandled lock type");
+		}
+		lockscreen_password_view_clear(pass_view);
+	}
+}
+
+static void _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_device_lock_type_e type)
+{
+	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
+	if (pass_view) return;
+
+	pass_view = lockscreen_password_view_create(type, main_view);
+	evas_object_smart_callback_add(pass_view, SIGNAL_CANCEL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_cancel_button_clicked, NULL);
+	evas_object_smart_callback_add(pass_view, SIGNAL_ACCEPT_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked, NULL);
+	lockscreen_main_view_part_content_set(main_view, PART_PASSWORD, pass_view);
+
+	switch (type) {
+		case LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN:
+			elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_COM_BODY_ENTER_PIN"));
+			break;
+		case LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD:
+			elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_COM_BODY_ENTER_PASSWORD"));
+			break;
+		default:
+			FAT("Unhandled view type");
+			break;
+	}
+	elm_object_part_text_set(pass_view, PART_TEXT_CANCEL, _("IDS_ST_BUTTON_CANCEL"));
+}
+
 static Eina_Bool _lockscreen_device_lock_ctrl_unlock_request(void *data, int event, void *event_info)
 {
 	lockscreen_device_lock_type_e type = lockscreen_device_lock_type_get();
@@ -47,8 +104,11 @@ static Eina_Bool _lockscreen_device_lock_ctrl_unlock_request(void *data, int eve
 				ERR("lockscreen_device_lock_unlock failed");
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
-		case LOCKSCREEN_DEVICE_LOCK_NUMBER:
+			_lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN);
+			break;
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
+			_lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD);
+			break;
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
 			WRN("Unhandled lock type");
 			break;

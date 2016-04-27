@@ -21,8 +21,7 @@
 
 typedef enum {
 	LOCKSCREEN_DEVICE_LOCK_NONE, /* No password is set */
-	LOCKSCREEN_DEVICE_LOCK_PIN,  /* PIN password type [0-9][0-9][0-9][0-9] */
-	LOCKSCREEN_DEVICE_LOCK_NUMBER,  /* Numberic password type [0-9]* */
+	LOCKSCREEN_DEVICE_LOCK_PIN,  /* PIN password type [0-9]* */
 	LOCKSCREEN_DEVICE_LOCK_PASSWORD, /* Alphanumeric passoword */
 	LOCKSCREEN_DEVICE_LOCK_PATTERN, /* Patter password */
 } lockscreen_device_lock_type_e;
@@ -73,9 +72,9 @@ lockscreen_device_lock_type_e lockscreen_device_lock_type_get(void);
  * @note May trigger LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED event.
  *
  * @return 0 if device was successfully unlocked
- * @return value > 0 on failure, value indicate number of attempts left to
- * unlock
- * @return value < 0 on failure, in case when max attempts has been reached or
+ * @return value > 0 on failure, value indicate number of attempts left to unlock
+ * @return -1 on failure, indicate thet infinit number of attempts remains
+ * @return value < -1 on failure, in case when max attempts has been reached or
  * an error occured.
  */
 int lockscreen_device_lock_unlock(const char *pass);
