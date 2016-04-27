@@ -9,7 +9,7 @@ type = app
 profile = mobile-3.0
 
 # C Sources
-USER_SRCS = src/background.c src/battery.c src/battery_ctrl.c src/camera.c src/camera_ctrl.c src/display.c src/lockscreen.c src/main_ctrl.c src/main_view.c src/minicontrollers.c src/events.c src/sim.c src/sim_ctrl.c src/time_format.c src/time_format_ctrl.c src/util.c src/util_time.c src/window.c src/events_view.c src/events_ctrl.c src/camera_view.c src/background_ctrl.c src/device_lock.c src/device_lock_ctrl.c
+USER_SRCS = src/background.c src/battery.c src/battery_ctrl.c src/camera.c src/camera_ctrl.c src/display.c src/lockscreen.c src/main_ctrl.c src/main_view.c src/minicontrollers.c src/events.c src/sim.c src/sim_ctrl.c src/time_format.c src/time_format_ctrl.c src/util.c src/util_time.c src/window.c src/events_view.c src/events_ctrl.c src/camera_view.c src/background_ctrl.c src/device_lock.c src/device_lock_ctrl.c src/password_view.c
 
 # EDC Sources
 USER_EDCS =  
@@ -59,7 +59,7 @@ USER_EDCS_FONT_DIRS_ABS =
 # EDC Flags
 USER_EXT_EDC_KEYS = EDC0 
 
-USER_EXT_EDC0_EDCS = res/edje/lockscreen.edc res/edje/index.edc 
+USER_EXT_EDC0_EDCS = res/edje/lockscreen.edc res/edje/index.edc
 USER_EXT_EDC0_EDCS_IMAGE_DIRS = res/edje/images 
 USER_EXT_EDC0_EDCS_IMAGE_DIRS_ABS = 
 USER_EXT_EDC0_EDCS_SOUND_DIRS = edje/sounds 
