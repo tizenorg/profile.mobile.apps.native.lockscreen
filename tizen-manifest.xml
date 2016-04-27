@@ -28,5 +28,7 @@
         <privilege>http://tizen.org/privilege/display</privilege>
         <privilege>http://tizen.org/privilege/notification</privilege>
         <privilege>http://tizen.org/privilege/haptic</privilege>
+        <privilege>http://tizen.org/privilege/dpm.password</privilege>
+        <privilege>dpm.password</privilege>
     </privileges>
 </manifest>
