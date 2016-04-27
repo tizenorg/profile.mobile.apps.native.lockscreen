@@ -55,6 +55,7 @@ collections {
 #include "camera.edc"
 #include "contextual_event.edc"
 #include "missed_event_item.edc"
+#include "password.edc"
 
 	group {
 		name: "lockscreen";
@@ -107,7 +108,7 @@ collections {
 				}
 			}
 			part {
-				name: "sw.password_layout";
+				name: "sw.swipe_layout";
 				type: SWALLOW;
 				description {
 					state: "default" 0.0;
@@ -115,7 +116,7 @@ collections {
 				}
 			}
 			part {
-				name: "sw.swipe_layout";
+				name: "sw.password_layout";
 				type: SWALLOW;
 				description {
 					state: "default" 0.0;

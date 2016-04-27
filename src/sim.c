@@ -36,6 +36,7 @@ static char *_sim_plmn_get(telephony_h handle)
 {
 	char *network_name;
 
+	telephony_sim_lock_state_e
 	int ret = telephony_network_get_network_name(handle, &network_name);
 	if (ret != TELEPHONY_ERROR_NONE) {
 		ERR("telephony_network_get_network_name failed: %s", get_error_message(ret));
