@@ -79,7 +79,7 @@ static Evas_Object *_swipe_layout_create(Evas_Object *parent)
 	return swipe_layout;
 }
 
-void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
+static void _lockscreen_main_view_swipe_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
 {
 	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
 	if (!swipe_layout) {
@@ -92,7 +92,26 @@ void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, 
 	elm_object_part_content_set(swipe_layout, part, content);
 }
 
-Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
+static void _lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
+{
+	if  (!strcmp(part, PART_PASSWORD)) {
+		elm_object_signal_emit(elm_object_part_content_get(view, "sw.swipe_layout"), "unlock,anim,start", "lockscreen");
+		elm_object_signal_emit(view, "password,show", "lockscreen");
+	}
+	elm_object_part_content_set(view, part, content);
+}
+
+void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
+{
+	if (!part) return;
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+		_lockscreen_main_view_swipe_part_content_set(view, part, content);
+	if (!strcmp(part, PART_PASSWORD)) {
+		_lockscreen_main_view_part_content_set(view, part, content);
+	}
+}
+
+static Evas_Object *_lockscreen_main_view_swipe_part_content_unset(Evas_Object *view, const char *part)
 {
 	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
 	if (!swipe_layout) {
@@ -105,14 +124,38 @@ Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const ch
 	return elm_object_part_content_unset(swipe_layout, part);
 }
 
-Evas_Object *lockscreen_main_view_part_content_get(Evas_Object *view, const char *part)
+static Evas_Object *_lockscreen_main_view_part_password_unset(Evas_Object *view)
 {
 	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
-	if (!swipe_layout) {
-		FAT("No sw.swipe_layout part");
-		return false;
+
+	elm_object_signal_emit(view, "password,hide", "lockscreen");
+	elm_object_signal_emit(swipe_layout, "lock,anim,start", "lockscreen");
+
+	return elm_object_part_content_unset(view, PART_PASSWORD);
+}
+
+Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
+{
+	if (!part) return NULL;
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+		return _lockscreen_main_view_swipe_part_content_unset(view, part);
+	if (!strcmp(part, PART_PASSWORD)) {
+		return _lockscreen_main_view_part_password_unset(view);
 	}
-	return elm_object_part_content_get(swipe_layout, part);
+
+	return NULL;
+}
+
+Evas_Object *lockscreen_main_view_part_content_get(Evas_Object *view, const char *part)
+{
+	if (!part) return NULL;
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+		return elm_object_part_content_get(elm_object_part_content_get(view, "sw.swipe_layout"), part);
+	if (!strcmp(part, PART_PASSWORD)) {
+		return elm_object_part_content_get(view, part);
+	}
+
+	return NULL;
 }
 
 static Evas_Event_Flags _swipe_state_end(void *data, void *event_info)
@@ -148,7 +191,6 @@ Evas_Object *lockscreen_main_view_create(Evas_Object *win)
 
 	Evas_Object *gesture_layer = elm_gesture_layer_add(layout);
 	elm_gesture_layer_hold_events_set(gesture_layer, EINA_TRUE);
-	elm_gesture_layer_attach(gesture_layer, layout);
 	elm_gesture_layer_attach(gesture_layer, swipe_layout);
 	elm_gesture_layer_attach(gesture_layer, bg);
 	elm_gesture_layer_cb_set(gesture_layer, ELM_GESTURE_N_FLICKS, ELM_GESTURE_STATE_END, _swipe_state_end, layout);
@@ -272,6 +314,7 @@ void lockscreen_main_view_unlock(Evas_Object *view)
 	elm_object_signal_callback_add(swipe_layout, "unlock,anim,end", "swipe-layout", _layout_unlocked, view);
 	elm_object_signal_emit(swipe_layout, "unlock,anim,start", "lockscreen");
 	elm_object_signal_emit(view, "bg,hide", "lockscreen");
+	elm_object_signal_emit(view, "password,hide", "lockscreen");
 }
 
 static int _is_korea_locale(const char *locale)

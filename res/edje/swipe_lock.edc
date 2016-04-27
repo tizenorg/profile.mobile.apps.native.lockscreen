@@ -387,6 +387,23 @@ group {
 			after: "vi_effect_anim";
 		}
 		program {
+			name: "lock,anim,start";
+			signal: "lock,anim,start";
+			source: "lockscreen";
+			action: STATE_SET "default" 0.0;
+			target: "event";
+			after: "vi_effect_anim_reverse";
+		}
+		program {
+			name: "vi_effect_anim_reverse";
+			action: STATE_SET "default" 0.0;
+			target: "padding.top";
+			target: "sw.contextual_event";
+			target: "padding.bottom";
+			target: "vi_clipper";
+			transition: DECEL 0.5;
+		}
+		program {
 			name: "vi_effect_anim";
 			action: STATE_SET "effect" 0.0;
 			target: "padding.top";

@@ -47,7 +47,7 @@ Evas_Object *lockscreen_window_create(void)
 {
 	tzsh_h tzsh = NULL;
 	tzsh_lockscreen_service_h lockscreen_service = NULL;
-	Evas_Object *win = elm_win_add(NULL, "LOCKSCREEN", ELM_WIN_NOTIFICATION);
+	Evas_Object *win = elm_win_add(NULL, "LOCKSCREEN", ELM_WIN_BASIC);
 	if (!win) return NULL;
 
 	elm_win_alpha_set(win, EINA_TRUE);
@@ -102,4 +102,8 @@ Evas_Object *lockscreen_window_create(void)
 void lockscreen_window_content_set(Evas_Object *content)
 {
 	elm_object_part_content_set(view.conformant, NULL, content);
+}
+
+void lockscreen_window_quickpanel_block_set(Eina_Bool block)
+{
 }
