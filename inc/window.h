@@ -42,4 +42,9 @@ Evas_Object *lockscreen_window_create(void);
  */
 void lockscreen_window_content_set(Evas_Object *content);
 
+/**
+ * @brief Block/Unblock indicator access on main window
+ */
+void lockscreen_window_quickpanel_block_set(Eina_Bool block);
+
 #endif
