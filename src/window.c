@@ -47,17 +47,20 @@ Evas_Object *lockscreen_window_create(void)
 {
 	tzsh_h tzsh = NULL;
 	tzsh_lockscreen_service_h lockscreen_service = NULL;
-	Evas_Object *win = elm_win_add(NULL, "LOCKSCREEN", ELM_WIN_NOTIFICATION);
+	Evas_Object *win = elm_win_add(NULL, "LOCKSCREEN", ELM_WIN_BASIC);
 	if (!win) return NULL;
 
 	elm_win_alpha_set(win, EINA_TRUE);
 	elm_win_title_set(win, "LOCKSCREEN");
 	elm_win_borderless_set(win, EINA_TRUE);
 	elm_win_autodel_set(win, EINA_TRUE);
+#if 0
 	elm_win_role_set(win, "notification-normal");
+#endif
 	elm_win_fullscreen_set(win, EINA_TRUE);
 	elm_win_indicator_mode_set(win, ELM_WIN_INDICATOR_SHOW);
 
+#if 0
 	tzsh = tzsh_create(TZSH_TOOLKIT_TYPE_EFL);
 	if (!tzsh) {
 		ERR("tzsh_create failed");
@@ -72,6 +75,7 @@ Evas_Object *lockscreen_window_create(void)
 		evas_object_del(win);
 		return NULL;
 	}
+#endif
 
 	Evas_Object *conformant = elm_conformant_add(win);
 	evas_object_size_hint_weight_set(conformant, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -102,4 +106,14 @@ Evas_Object *lockscreen_window_create(void)
 void lockscreen_window_content_set(Evas_Object *content)
 {
 	elm_object_part_content_set(view.conformant, NULL, content);
+}
+
+void lockscreen_window_indicator_visible_set(Eina_Bool visible)
+{
+	if (visible) {
+		elm_win_indicator_mode_set(view.win, ELM_WIN_INDICATOR_SHOW);
+		elm_object_signal_emit(view.conformant, "elm,state,indicator,overlap", "elm");
+	} else {
+		elm_win_indicator_mode_set(view.win, ELM_WIN_INDICATOR_HIDE);
+	}
 }

@@ -20,6 +20,7 @@
 #include "device_lock.h"
 #include "main_view.h"
 #include "log.h"
+#include "password_view.h"
 
 static Ecore_Event_Handler *handler[2];
 static Evas_Object *main_view;
@@ -37,18 +38,51 @@ static Eina_Bool _lockscreen_device_lock_ctrl_unlocked(void *data, int event, vo
 	return EINA_TRUE;
 }
 
+static void _lockscreen_device_lock_ctrl_pin_unlock_hide(void)
+{
+	DBG("Hide PIN lock");
+	Evas_Object *pin_view = lockscreen_main_view_part_content_unset(main_view, PART_PASSWORD);
+	if (pin_view) evas_object_del(pin_view);
+}
+
+static void _lockscreen_device_lock_ctrl_pin_view_cancel_button_clicked(void *data, Evas_Object  *obj, void *event_info)
+{
+	_lockscreen_device_lock_ctrl_pin_unlock_hide();
+}
+
+static void _lockscreen_device_lock_ctrl_pin_view_accept_button_clicked(void *data, Evas_Object  *obj, void *event_info)
+{
+	DBG("Password typed");
+	lockscreen_device_lock_unlock(event_info);
+}
+
+static void _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_device_lock_type_e type)
+{
+	Evas_Object *pin_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
+	if (pin_view) return;
+
+	pin_view = lockscreen_password_view_create(type, main_view);
+	evas_object_smart_callback_add(pin_view, SIGNAL_CANCEL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pin_view_cancel_button_clicked, NULL);
+	evas_object_smart_callback_add(pin_view, SIGNAL_ACCEPT_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pin_view_accept_button_clicked, NULL);
+	lockscreen_main_view_part_content_set(main_view, PART_PASSWORD, pin_view);
+}
+
 static Eina_Bool _lockscreen_device_lock_ctrl_unlock_request(void *data, int event, void *event_info)
 {
 	lockscreen_device_lock_type_e type = lockscreen_device_lock_type_get();
 
+	ERR("Unlock request");
 	switch (type) {
 		case LOCKSCREEN_DEVICE_LOCK_NONE:
 			if (lockscreen_device_lock_unlock(NULL))
 				ERR("lockscreen_device_lock_unlock failed");
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
-		case LOCKSCREEN_DEVICE_LOCK_NUMBER:
+			_lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN);
+			break;
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
+			_lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD);
+			break;
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
 			WRN("Unhandled lock type");
 			break;

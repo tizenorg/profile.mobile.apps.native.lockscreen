@@ -43,14 +43,13 @@ void lockscreen_device_lock_shutdown(void)
 int lockscreen_device_lock_unlock_request(void)
 {
 	/* Currently no password check is implemented */
-	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, NULL, NULL, NULL);
-	INF("Device successfully unlocked");
+	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST, NULL, NULL, NULL);
 	return 0;
 }
 
 lockscreen_device_lock_type_e lockscreen_device_lock_type_get(void)
 {
-	return LOCKSCREEN_DEVICE_LOCK_NONE;
+	return LOCKSCREEN_DEVICE_LOCK_PASSWORD;
 }
 
 int lockscreen_device_lock_attempts_left_get(void)
@@ -60,5 +59,6 @@ int lockscreen_device_lock_attempts_left_get(void)
 
 int lockscreen_device_lock_unlock(const char *pass)
 {
-	return lockscreen_device_lock_unlock_request();
+	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, NULL, NULL, NULL);
+	return 0;
 }

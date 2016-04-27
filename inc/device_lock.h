@@ -21,8 +21,7 @@
 
 typedef enum {
 	LOCKSCREEN_DEVICE_LOCK_NONE, /* No password is set */
-	LOCKSCREEN_DEVICE_LOCK_PIN,  /* PIN password type [0-9][0-9][0-9][0-9] */
-	LOCKSCREEN_DEVICE_LOCK_NUMBER,  /* Numberic password type [0-9]* */
+	LOCKSCREEN_DEVICE_LOCK_PIN,  /* PIN password type [0-9]* */
 	LOCKSCREEN_DEVICE_LOCK_PASSWORD, /* Alphanumeric passoword */
 	LOCKSCREEN_DEVICE_LOCK_PATTERN, /* Patter password */
 } lockscreen_device_lock_type_e;
