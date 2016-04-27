@@ -42,4 +42,9 @@ Evas_Object *lockscreen_window_create(void);
  */
 void lockscreen_window_content_set(Evas_Object *content);
 
+/**
+ * @brief Show/Hides indicator on main window
+ */
+void lockscreen_window_indicator_visible_set(Eina_Bool visible);
+
 #endif
