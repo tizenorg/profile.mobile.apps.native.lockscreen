@@ -21,8 +21,7 @@
 
 typedef enum {
 	LOCKSCREEN_DEVICE_LOCK_NONE, /* No password is set */
-	LOCKSCREEN_DEVICE_LOCK_PIN,  /* PIN password type [0-9][0-9][0-9][0-9] */
-	LOCKSCREEN_DEVICE_LOCK_NUMBER,  /* Numberic password type [0-9]* */
+	LOCKSCREEN_DEVICE_LOCK_PIN,  /* PIN password type [0-9]* */
 	LOCKSCREEN_DEVICE_LOCK_PASSWORD, /* Alphanumeric passoword */
 	LOCKSCREEN_DEVICE_LOCK_PATTERN, /* Patter password */
 } lockscreen_device_lock_type_e;
@@ -68,16 +67,27 @@ int lockscreen_device_lock_unlock_request(void);
 lockscreen_device_lock_type_e lockscreen_device_lock_type_get(void);
 
 /**
+ * @brief Unlock result description
+ */
+typedef enum {
+	LOCKSCREEN_DEVICE_UNLOCK_SUCCESS,
+	LOCKSCREEN_DEVICE_UNLOCK_FAILED,
+	LOCKSCREEN_DEVICE_UNLOCK_ERROR
+} lockscreen_device_unlock_result_e;
+
+/**
  * @brief Try to unlock device using given password.
+ *
+ * @param pass password used to unlock
+ * @param[out] attempts_left number of unlock attempts left
  *
  * @note May trigger LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED event.
  *
- * @return 0 if device was successfully unlocked
- * @return value > 0 on failure, value indicate number of attempts left to
- * unlock
- * @return value < 0 on failure, in case when max attempts has been reached or
- * an error occured.
+ * @return error code.
+ *
+ * @note if return value == LOCKSCREEN_DEVICE_UNLOCK_ERROR, attempts_left is undefined.
+ * @note attempts_left == -1, means infinite number of attempts left.
  */
-int lockscreen_device_lock_unlock(const char *pass);
+lockscreen_device_unlock_result_e lockscreen_device_lock_unlock(const char *pass, int *attempts_left);
 
 #endif
