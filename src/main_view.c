@@ -79,7 +79,7 @@ static Evas_Object *_swipe_layout_create(Evas_Object *parent)
 	return swipe_layout;
 }
 
-void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
+static void _lockscreen_main_view_swipe_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
 {
 	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
 	if (!swipe_layout) {
@@ -92,7 +92,22 @@ void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, 
 	elm_object_part_content_set(swipe_layout, part, content);
 }
 
-Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
+static void _lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
+{
+	elm_object_part_content_set(view, part, content);
+}
+
+void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
+{
+	if (!part) return;
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+		_lockscreen_main_view_swipe_part_content_set(view, part, content);
+	if (!strcmp(part, PART_PASSWORD)) {
+		_lockscreen_main_view_part_content_set(view, part, content);
+	}
+}
+
+static Evas_Object *_lockscreen_main_view_swipe_part_content_unset(Evas_Object *view, const char *part)
 {
 	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
 	if (!swipe_layout) {
@@ -105,14 +120,33 @@ Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const ch
 	return elm_object_part_content_unset(swipe_layout, part);
 }
 
+static Evas_Object *_lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
+{
+	return elm_object_part_content_unset(view, part);
+}
+
+Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
+{
+	if (!part) return NULL;
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+		return _lockscreen_main_view_swipe_part_content_unset(view, part);
+	if (!strcmp(part, PART_PASSWORD)) {
+		return _lockscreen_main_view_part_content_unset(view, part);
+	}
+
+	return NULL;
+}
+
 Evas_Object *lockscreen_main_view_part_content_get(Evas_Object *view, const char *part)
 {
-	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
-	if (!swipe_layout) {
-		FAT("No sw.swipe_layout part");
-		return false;
+	if (!part) return NULL;
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+		return elm_object_part_content_get(elm_object_part_content_get(view, "sw.swipe_layout"), part);
+	if (!strcmp(part, PART_PASSWORD)) {
+		return elm_object_part_content_get(view, part);
 	}
-	return elm_object_part_content_get(swipe_layout, part);
+
+	return NULL;
 }
 
 static Evas_Event_Flags _swipe_state_end(void *data, void *event_info)

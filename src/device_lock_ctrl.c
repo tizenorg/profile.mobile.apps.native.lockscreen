@@ -20,6 +20,7 @@
 #include "device_lock.h"
 #include "main_view.h"
 #include "log.h"
+#include "password_view.h"
 
 static Ecore_Event_Handler *handler[2];
 static Evas_Object *main_view;
@@ -37,16 +38,26 @@ static Eina_Bool _lockscreen_device_lock_ctrl_unlocked(void *data, int event, vo
 	return EINA_TRUE;
 }
 
+static void _lockscreen_device_lock_ctrl_pin_unlock_handle(void)
+{
+	Evas_Object *pin_view = lockscreen_password_view_create(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN, main_view);
+
+	lockscreen_main_view_part_content_set(main_view, PART_PASSWORD, pin_view);
+}
+
 static Eina_Bool _lockscreen_device_lock_ctrl_unlock_request(void *data, int event, void *event_info)
 {
 	lockscreen_device_lock_type_e type = lockscreen_device_lock_type_get();
 
+	ERR("Unlock request");
 	switch (type) {
 		case LOCKSCREEN_DEVICE_LOCK_NONE:
 			if (lockscreen_device_lock_unlock(NULL))
 				ERR("lockscreen_device_lock_unlock failed");
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
+			_lockscreen_device_lock_ctrl_pin_unlock_handle();
+			break;
 		case LOCKSCREEN_DEVICE_LOCK_NUMBER:
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
