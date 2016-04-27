@@ -55,6 +55,7 @@ collections {
 #include "camera.edc"
 #include "contextual_event.edc"
 #include "missed_event_item.edc"
+#include "password.edc"
 
 	group {
 		name: "lockscreen";

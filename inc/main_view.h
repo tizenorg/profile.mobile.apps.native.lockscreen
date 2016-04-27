@@ -46,6 +46,11 @@ typedef enum {
 #define PART_EVENTS "sw.contextual_event"
 
 /**
+ * @brief Part accessible via lockscreen_main_view_part_content_get/set/unset
+ */
+#define PART_PASSWORD "sw.password_layout"
+
+/**
  * @brief Creates main view object
  */
 Evas_Object *lockscreen_main_view_create(Evas_Object *parent);
