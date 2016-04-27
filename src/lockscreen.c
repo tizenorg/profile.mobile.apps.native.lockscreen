@@ -53,7 +53,7 @@ void _terminate_app(void *data)
 	DBG("Lockscreen terminated request.");
 }
 
-int main(int argc, char *argv[])
+EAPI int main(int argc, char *argv[])
 {
 	int ret = 0;
 
