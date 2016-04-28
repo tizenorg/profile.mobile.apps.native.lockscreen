@@ -152,19 +152,18 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 	return time1 > time2 ? -1 : 1;
 }
 
-static void _lockscreen_events_ctrl_launch_result(bool result)
+static void _lockscreen_events_ctrl_launch_done(void)
 {
-	if (result) {
-		lockscreen_device_lock_unlock_request();
-	} else {
-		INF("Failed to launch application");
-	}
+	lockscreen_device_lock_unlock_request();
 }
 
 static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event = data;
-	lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_result);
+
+	if (!lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_done)) {
+		lockscreen_device_lock_unlock_request();
+	}
 }
 
 static void _lockscreen_events_ctrl_events_load()

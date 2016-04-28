@@ -280,28 +280,28 @@ void lockscreen_events_shutdown(void)
 
 static void _app_control_reply_cb(app_control_h request, app_control_h reply, app_control_result_e result, void *user_data)
 {
-	bool ret = false;
-	Launch_Result_Cb cb = user_data;
+	Launch_Done_Cb cb = user_data;
 
 	switch (result) {
 		case APP_CONTROL_RESULT_APP_STARTED:
-		case APP_CONTROL_RESULT_SUCCEEDED:
-			ret = true;
-			break;
-		case APP_CONTROL_RESULT_FAILED:
 		case APP_CONTROL_RESULT_CANCELED:
-			ret = false;
+			if (cb) cb();
 			break;
+		default:
+			return;
 	}
-	if (cb) cb(ret);
 }
 
-bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Result_Cb cb)
+bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb)
 {
 	app_control_h service = NULL;
 
 	if (event->type != LOCKSCREEN_EVENT_TYPE_NOTIFICATION)
 		return false;
+
+	if (!event->service_handle) {
+		return false;
+	}
 
 	int ret = app_control_create(&service);
 	if (ret != APP_CONTROL_ERROR_NONE) {
@@ -312,6 +312,13 @@ bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Result_Cb cb)
 	ret = app_control_import_from_bundle(service, event->service_handle);
 	if (ret != APP_CONTROL_ERROR_NONE) {
 		ERR("app_control_import_from_bundle: %s", get_error_message(ret));
+		app_control_destroy(service);
+		return false;
+	}
+
+	ret = app_control_enable_app_started_result_event(service);
+	if (ret != APP_CONTROL_ERROR_NONE) {
+		ERR("app_control_enable_app_started_result_event: %s", get_error_message(ret));
 		app_control_destroy(service);
 		return false;
 	}
