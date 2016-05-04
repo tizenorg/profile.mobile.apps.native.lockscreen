@@ -39,3 +39,8 @@ Evas_Object *lockscreen_camera_view_create(Evas_Object *parent)
 	evas_object_show(cam_ly);
 	return cam_ly;
 }
+
+void lockscreen_camera_view_reset(Evas_Object *view)
+{
+	elm_object_signal_emit(view, "camera,reset", "lockscreen");
+}

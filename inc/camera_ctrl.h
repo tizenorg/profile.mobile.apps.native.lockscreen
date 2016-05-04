@@ -27,7 +27,7 @@
  *
  * @return: 0 on success, other value on failure.
  */
-int lockscreen_camera_ctrl_init(Evas_Object *main_view);
+int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *main_view);
 
 /**
  * @brief Deinitializes camera controller.

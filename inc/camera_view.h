@@ -31,4 +31,11 @@
  */
 Evas_Object *lockscreen_camera_view_create(Evas_Object *parent);
 
+/**
+ * @brief Resets camera view.
+ *
+ * Show unclicked camera button.
+ */
+void lockscreen_camera_view_reset(Evas_Object *parent);
+
 #endif
