@@ -224,6 +224,10 @@ collections {
 	   data.item: "texts" "elm.text elm.text.sub elm.text.time";
 	   data.item: "contents" "elm.swallow.icon elm.swallow.sub.icon";
 
+		images {
+			image: "miss_noti_bg.png" COMP;
+		}
+
 	   parts {
 		  // base spacer for item min height
 		  spacer { "base"; scale;
@@ -282,7 +286,19 @@ collections {
 				rel2.relative: 1.0 1.0;
 			 }
 		}
+		image { "icon.clipper"; scale;
+			desc { state: "default";
+				fixed: 1 1;
+				align: 0.1 0.5;
+				min: 128 128;
+				max: 128 128;
+				image.normal: "miss_noti_bg.png";
+				rel1 { to_x: "padding.left"; to_y: "padding.top"; relative: 1.0 1.0; }
+				rel2 { to_x: "padding.left"; to_y: "padding.bottom"; relative: 1.0 0.0; }
+			}
+		}
 		swallow { "elm.swallow.icon"; scale;
+			clip_to: "icon.clipper";
 			desc { state: "default";
 				fixed: 1 0;
 				align: 0.0 0.5;
