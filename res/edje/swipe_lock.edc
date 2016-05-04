@@ -333,10 +333,10 @@ group {
 			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
-				max: 500 500;
-				align: 1 1;
+				min: 500 500;
+				align: 0 0;
 				fixed: 1 1;
-				rel2 { to: "padding.bottom"; };
+				rel1 { relative: (WIN_WIDTH-500)/WIN_WIDTH (WIN_HEIGHT-500)/WIN_HEIGHT; }
 			}
 		}
 	}

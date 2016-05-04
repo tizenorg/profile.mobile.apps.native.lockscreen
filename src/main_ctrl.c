@@ -83,7 +83,7 @@ int lockscreen_main_ctrl_init(void)
 	if (lock_battery_ctrl_init(view))
 		FAT("lock_battery_ctrl_init failed. Battery information will not be available");
 
-	if (lockscreen_camera_ctrl_init(view))
+	if (lockscreen_camera_ctrl_init(win, view))
 		FAT("lockscreen_camera_ctrl_init failed. Camera quickshot will not be available");
 
 	if (lockscreen_time_format_ctrl_init(view))

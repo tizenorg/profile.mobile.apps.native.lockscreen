@@ -23,7 +23,7 @@
 #include "main_view.h"
 
 static Ecore_Event_Handler *handler;
-static Evas_Object *main_view;
+static Evas_Object *main_view, *win;
 
 static void _camera_clicked(void *data, Evas_Object *obj, void *event)
 {
@@ -51,7 +51,15 @@ static Eina_Bool _cam_status_changed(void *data, int event, void *event_info)
 	return EINA_TRUE;
 }
 
-int lockscreen_camera_ctrl_init(Evas_Object *view)
+static void _lockscreen_camera_ctrl_win_normal(void *data, Evas_Object *obj, void *event_info)
+{
+	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
+	if (cam_view) {
+		lockscreen_camera_view_reset(cam_view);
+	}
+}
+
+int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *view)
 {
 	if (lockscreen_camera_init()) {
 		ERR("lockscreen_camera_init failed");
@@ -62,6 +70,9 @@ int lockscreen_camera_ctrl_init(Evas_Object *view)
 	if (!handler)
 		FAT("ecore_event_handler_add failed on LOCKSCREEN_EVENT_BATTERY_CHANGED event");
 	main_view = view;
+	/* "widthdrawn" seems to be better event, however on Tizen 3.0 is never
+	 * triggered */
+	evas_object_smart_callback_add(win, "normal", _lockscreen_camera_ctrl_win_normal, NULL);
 	_camera_view_update();
 
 	return 0;
@@ -72,5 +83,6 @@ void lockscreen_camera_ctrl_fini(void)
 	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
 	if (cam_view) evas_object_smart_callback_del(cam_view, SIGNAL_CAMERA_SELECTED, _camera_clicked);
 	ecore_event_handler_del(handler);
+	evas_object_smart_callback_del(win, "normal", _lockscreen_camera_ctrl_win_normal);
 	lockscreen_camera_shutdown();
 }

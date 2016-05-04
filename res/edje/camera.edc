@@ -24,21 +24,29 @@ group {
 	}
 	parts {
 		part {
+			name :"bg";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 802 802;
+			}
+		}
+		part {
 			name: "camera.circle";
 			type: IMAGE;
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: 500 500;
+				max: 50 50;
 				visible: 0;
 				image.normal: "lock_circle_line_camera.png";
-				rel1 { relative: 0.0 0.0; }
-				rel2 { relative: 1.0 1.0; }
 			}
 			description {
 				inherit: "default";
 				state: "pressed" 1.0;
 				visible: 1;
+				min: 802 802;
 			}
 		}
 		part {
@@ -47,17 +55,16 @@ group {
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: 500 500;
 				visible: 0;
+				max: 50 50;
 				image.normal: "lock_circle_line_camera_drag.png";
-				rel1 { relative: 0.0 0.0; }
-				rel2 { relative: 1.0 1.0; }
 				fixed: 1 1;
 			}
 			description {
 				inherit: "default";
 				state: "pressed" 1.0;
 				visible: 1;
+				min: 802 802;
 			}
 		}
 		part {
@@ -68,9 +75,6 @@ group {
 				state: "default" 0.0;
 				max: 124 124;
 				fixed: 1 1;
-				align: 1.0 1.0;
-				rel1 { relative: 0.0 0.0; to: "camera.circle.fill"; }
-				rel2 { relative: 462/500 462/500; to: "camera.circle.fill"; }
 				image.normal: "quick_shot.png";
 				visible: 1;
 			}
@@ -86,17 +90,27 @@ group {
 			signal: "mouse,down,1";
 			source: "img.camera";
 			action: STATE_SET "pressed" 1.0;
-			target: "camera.circle.fill";
-			target: "camera.circle";
 			target: "img.camera";
+			after: "circle,expand";
 		}
 		program {
-			signal: "mouse,up,1";
-			source: "img.camera";
-			action: STATE_SET "default" 0.0;
-			target: "camera.circle.fill";
+			signal: "camera,reset";
+			source: "lockscreen";
+			after: "circle,contract";
+		}
+		program {
+			name: "circle,expand";
+			action: STATE_SET "pressed" 1.0;
 			target: "camera.circle";
+			transition: DECEL 0.3;
+		}
+		program {
+			name: "circle,contract";
+			action: STATE_SET "default" 0.0;
+			target: "camera.circle";
+			target: "camera.circle.fill";
 			target: "img.camera";
+			transition: DECEL 0.3;
 		}
 		program {
 			signal: "mouse,up,1";
@@ -105,7 +119,7 @@ group {
 				/* get parts coords */
 				new x,y,w,h,ix,iy,iw,ih;
 				get_geometry(PART:"img.camera", ix, iy, iw, ih);
-				get_geometry(PART:"camera.circle.fill", x, y, w, h);
+				get_geometry(PART:"bg", x, y, w, h);
 
 				/* calculate elipsis center */
 				new xc = x + ix + iw / 2;
@@ -122,11 +136,42 @@ group {
 				/* check if mouse is inside elipsis */
 				new Float:d = float((mx-xc)*(mx-xc))/float(radx*radx) + float((my-yc)*(my-yc))/float(rady*rady);
 
-				/* Emit signal if mouse inside elipsis */
-				if (d <= 1.0)
+				/* Emit signal if mouse outside elipsis */
+				if (d >= 1.0)
 				{
 					emit("camera,icon,clicked", "camera-layout");
+				} else {
+					run_program(PROGRAM:"circle,contract");
 				}
+			}
+		}
+		program {
+			signal: "mouse,move";
+			source: "img.camera";
+			script {
+				new mx,my,x,y,w,h;
+				get_mouse(mx, my);
+
+				get_geometry(PART:"img.camera", x, y, w, h);
+
+				new xb, yb, wb, hb;
+				get_geometry(PART:"bg", xb, yb, wb, hb);
+
+				new cx = x + w / 2;
+				new cy = y + h / 2;
+
+				new Float:dx = abs(cx - mx) * 2;
+				new Float:dy = abs(cy - my) * 2;
+
+				new min = round(sqrt((dx * dx) + (dy * dy)));
+
+				min = (min > wb) ? wb : min;
+				min = (min < w) ? w : min;
+
+				custom_state(PART:"camera.circle.fill", "pressed", 1.0);
+				set_state_val(PART:"camera.circle.fill", STATE_MIN, min, min);
+				set_state_val(PART:"camera.circle.fill", STATE_MAX, min, min);
+				set_state(PART:"camera.circle.fill", "custom", 0.0);
 			}
 		}
 	}
