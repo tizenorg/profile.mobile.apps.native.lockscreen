@@ -51,6 +51,7 @@ static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *
 
 	if (!strcmp(part, NOTI_ITEM_ICON)) {
 		ret = elm_icon_add(obj);
+		elm_image_fill_outside_set(ret, EINA_TRUE);
 		elm_image_file_set(ret, lockscreen_event_icon_get(event), NULL);
 	}
 	else if (!strcmp(part, NOTI_ITEM_ICON_SUB)) {
