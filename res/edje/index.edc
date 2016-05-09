@@ -300,7 +300,8 @@ collections {
 		image { "icon.clipper";
 			desc { state: "default";
 				image.normal: "miss_noti_bg.png";
-				rel.to: "elm.swallow.icon";
+				rel1.to: "elm.swallow.icon";
+				rel2.to: "elm.swallow.icon";
 			}
 		}
 		swallow { "elm.swallow.sub.icon"; scale;
