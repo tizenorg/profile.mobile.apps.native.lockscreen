@@ -52,7 +52,6 @@ group {
 		part {
 			name: "camera.circle.fill";
 			type: IMAGE;
-			scale: 1;
 			description {
 				state: "default" 0.0;
 				visible: 0;
