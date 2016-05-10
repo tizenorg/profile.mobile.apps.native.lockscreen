@@ -20,12 +20,15 @@
 #include "device_lock.h"
 #include "main_view.h"
 #include "log.h"
+#include <Elementary.h>
 
 static Ecore_Event_Handler *handler[2];
 static Evas_Object *main_view;
 
 static void _lockscreen_device_lock_ctrl_view_unlocked(void *data, Evas_Object *obj, void *event)
 {
+	Evas_Object *win = elm_object_top_widget_get(main_view);
+	evas_object_hide(win);
 	ui_app_exit();
 }
 
