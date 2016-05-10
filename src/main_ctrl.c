@@ -28,11 +28,13 @@
 #include "events_ctrl.h"
 #include "background_ctrl.h"
 #include "device_lock_ctrl.h"
+#include "device_lock.h"
 
 #include <Elementary.h>
 
 static Evas_Object *win;
 static Evas_Object *view;
+static Ecore_Event_Handler *handler;
 
 static Eina_Bool _lockscreen_main_ctrl_win_event_cb(void *data, Evas_Object *obj, Evas_Object *source, Evas_Callback_Type type, void *event_info)
 {
@@ -59,7 +61,7 @@ static void _lockcscreen_main_ctrl_win_touch_end_cb(void *data, Evas_Object *obj
 	lockscreen_display_timer_renew();
 }
 
-int lockscreen_main_ctrl_init(void)
+int _lockscreen_main_ctrl_view_init(void)
 {
 	win = lockscreen_window_create();
 	if (!win)
@@ -104,7 +106,28 @@ int lockscreen_main_ctrl_init(void)
 	return 0;
 }
 
+static Eina_Bool
+_lockscreen_main_ctrl_device_locked(void *data, int event, void *event_info) {
+	static int init_once;
+	if (!init_once) {
+		_lockscreen_main_ctrl_view_init();
+		init_once = 1;
+	}
+	return EINA_TRUE;
+}
+
+int lockscreen_main_ctrl_init(void)
+{
+	if (lockscreen_device_lock_init()) {
+		ERR("lockscreen_device_lock_init failed");
+		return 1;
+	}
+	handler = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_LOCKED, _lockscreen_main_ctrl_device_locked, NULL);
+	return 0;
+}
+
 void lockscreen_main_ctrl_shutdown(void)
 {
+	ecore_event_handler_del(handler);
 	evas_object_del(win);
 }

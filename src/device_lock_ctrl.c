@@ -26,6 +26,7 @@ static Evas_Object *main_view;
 
 static void _lockscreen_device_lock_ctrl_view_unlocked(void *data, Evas_Object *obj, void *event)
 {
+	evas_object_hide(main_view);
 	ui_app_exit();
 }
 

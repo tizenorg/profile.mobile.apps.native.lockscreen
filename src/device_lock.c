@@ -20,14 +20,17 @@
 #include <Ecore.h>
 
 static int init_count;
+static bool locked;
 int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
 int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED;
+int LOCKSCREEN_EVENT_DEVICE_LOCK_LOCKED;
 
 int lockscreen_device_lock_init(void)
 {
 	if (!init_count) {
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST = ecore_event_type_new();
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED = ecore_event_type_new();
+		LOCKSCREEN_EVENT_DEVICE_LOCK_LOCKED = ecore_event_type_new();
 	}
 	init_count++;
 	return 0;
@@ -60,5 +63,18 @@ int lockscreen_device_lock_attempts_left_get(void)
 
 int lockscreen_device_lock_unlock(const char *pass)
 {
+	locked = false;
 	return lockscreen_device_lock_unlock_request();
+}
+
+int lockscreen_device_lock_lock(void)
+{
+	locked = true;
+	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_LOCKED, NULL, NULL, NULL);
+	return 0;
+}
+
+bool lockscreen_device_is_locked(void)
+{
+	return locked;
 }
