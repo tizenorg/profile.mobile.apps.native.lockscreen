@@ -21,6 +21,12 @@
         <label xml:lang="ur-pk">اسکرین مقفل</label>
         <icon>lockscreen.png</icon>
         <category name="http://tizen.org/category/lockapp"/>
+        <app-control>
+             <operation name="http://tizen.org/appcontrol/operation/lock"/>
+        </app-control>
+        <app-control>
+             <operation name="http://tizen.org/appcontrol/operation/unlock"/>
+        </app-control>
     </ui-application>
     <privileges>
         <privilege>http://tizen.org/privilege/telephony</privilege>

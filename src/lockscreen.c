@@ -26,13 +26,7 @@
 #include "lockscreen.h"
 #include "log.h"
 #include "main_ctrl.h"
-
-static Eina_Bool _lock_idler_cb(void *data)
-{
-	lockscreen_main_ctrl_init();
-
-	return ECORE_CALLBACK_CANCEL;
-}
+#include "app_control_ctrl.h"
 
 bool _create_app(void *data)
 {
@@ -41,9 +35,8 @@ bool _create_app(void *data)
 	DBG("base scale : %f", elm_app_base_scale_get());
 	DBG("edje scale : %f", edje_scale_get());
 
-	/* Quickfix: run real creation in idler since running device/display API here
-	 * causes SIGSEGV */
-	ecore_idler_add(_lock_idler_cb, NULL);
+	lockscreen_main_ctrl_init();
+	lockscreen_app_control_ctrl_init();
 
 	return true;
 }
@@ -51,6 +44,11 @@ bool _create_app(void *data)
 void _terminate_app(void *data)
 {
 	DBG("Lockscreen terminated request.");
+}
+
+static void _app_control(app_control_h request, void *data)
+{
+	lockscreen_app_control_ctrl_handle(request);
 }
 
 int main(int argc, char *argv[])
@@ -61,6 +59,7 @@ int main(int argc, char *argv[])
 
 	lifecycle_callback.create = _create_app;
 	lifecycle_callback.terminate = _terminate_app;
+	lifecycle_callback.app_control = _app_control;
 
 	ret = ui_app_main(argc, argv, &lifecycle_callback, NULL);
 	if (ret != APP_ERROR_NONE) {
