@@ -35,6 +35,12 @@ extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
 
 /**
  * @brief Event fired when device has been successfully
+ * locked with lockscreen_device_lock_lock method.
+ */
+extern int LOCKSCREEN_EVENT_DEVICE_LOCK_LOCKED;
+
+/**
+ * @brief Event fired when device has been successfully
  * unlocked with lockscreen_device_lock_unlock method.
  */
 extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED;
@@ -79,5 +85,21 @@ lockscreen_device_lock_type_e lockscreen_device_lock_type_get(void);
  * an error occured.
  */
 int lockscreen_device_lock_unlock(const char *pass);
+
+/**
+ * @brief Try to lock device
+ *
+ * @note May trigger LOCKSCREEN_EVENT_DEVICE_LOCK_LOCKED event.
+ *
+ * @return 0 if device was successfully locked
+ * @return 1 if device was already locked
+ * @return value > 1 on failure
+ */
+int lockscreen_device_lock_lock(void);
+
+/**
+ * @brief Get current lock status.
+ */
+bool lockscreen_device_is_locked(void);
 
 #endif
