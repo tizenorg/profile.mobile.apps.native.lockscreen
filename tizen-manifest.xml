@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="org.tizen.lockscreen" version="0.1.0">
     <profile name="mobile"/>
-    <ui-application appid="org.tizen.lockscreen" exec="lockscreen" launch_mode="single" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+    <ui-application appid="org.tizen.lockscreen" exec="lockscreen" hw-acceleration="on" process-pool="true" launch_mode="single" multiple="false" nodisplay="true" taskmanage="false" type="capp">
         <label>lockscreen</label>
         <label xml:lang="as-in">লক স্ক্ৰীণ</label>
         <label xml:lang="bn-in">লক স্ক্রিন</label>
