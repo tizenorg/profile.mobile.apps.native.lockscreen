@@ -152,6 +152,7 @@ Evas_Object *lockscreen_main_view_create(Evas_Object *win)
 	elm_gesture_layer_attach(gesture_layer, swipe_layout);
 	elm_gesture_layer_attach(gesture_layer, bg);
 	elm_gesture_layer_cb_set(gesture_layer, ELM_GESTURE_N_FLICKS, ELM_GESTURE_STATE_END, _swipe_state_end, layout);
+	elm_gesture_layer_flick_time_limit_ms_set(gesture_layer, 500);
 	evas_object_show(gesture_layer);
 
 	return layout;
