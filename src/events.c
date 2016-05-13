@@ -249,7 +249,7 @@ int lockscreen_events_init(void)
 		}
 		int ret = notification_register_detailed_changed_cb(_noti_changed_cb, NULL);
 		if (ret != NOTIFICATION_ERROR_NONE) {
-			ERR("notification_register_detailed_changed_cb failed: %d", get_error_message(ret));
+			ERR("notification_register_detailed_changed_cb failed: %s", get_error_message(ret));
 			return 1;
 		}
 		handler = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_minicontroller_changed, NULL);
