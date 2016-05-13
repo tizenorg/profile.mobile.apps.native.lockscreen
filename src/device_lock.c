@@ -18,16 +18,29 @@
 #include "log.h"
 
 #include <Ecore.h>
+#include <vconf.h>
 
 static int init_count;
 int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
 int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED;
+
+static void _lockscreen_device_unlock(void)
+{
+	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, NULL, NULL, NULL);
+}
+
+static void _lockscreen_device_vconf_idle_key_changed(keynode_t *node, void *user_data)
+{
+	if (node->value.i == VCONFKEY_IDLE_UNLOCK)
+		_lockscreen_device_unlock();
+}
 
 int lockscreen_device_lock_init(void)
 {
 	if (!init_count) {
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST = ecore_event_type_new();
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED = ecore_event_type_new();
+		vconf_notify_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed, NULL);
 	}
 	init_count++;
 	return 0;
@@ -37,14 +50,16 @@ void lockscreen_device_lock_shutdown(void)
 {
 	if (init_count) {
 		init_count--;
+		if (!init_count)
+			vconf_ignore_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed);
 	}
 }
 
 int lockscreen_device_lock_unlock_request(void)
 {
 	/* Currently no password check is implemented */
-	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, NULL, NULL, NULL);
 	INF("Device successfully unlocked");
+	_lockscreen_device_unlock();
 	return 0;
 }
 
@@ -60,5 +75,6 @@ int lockscreen_device_lock_attempts_left_get(void)
 
 int lockscreen_device_lock_unlock(const char *pass)
 {
-	return lockscreen_device_lock_unlock_request();
+	_lockscreen_device_unlock();
+	return 0;
 }
