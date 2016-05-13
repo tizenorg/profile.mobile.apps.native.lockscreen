@@ -19,9 +19,10 @@
 
 #include <app_control.h>
 #include <Ecore.h>
+#include <vconf.h>
 #define KEY_DISPLAY_OVER_LOCKSCREEN "http://tizen.org/lock/window/above"
 
-static bool camera_enabled;
+static int camera_enabled;
 static int init_count;
 
 int LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED;
@@ -96,8 +97,7 @@ int lockscreen_camera_activate()
 int lockscreen_camera_init(void)
 {
 	if (!init_count) {
-		//FIXME load this from settings
-		camera_enabled = true;
+		vconf_get_bool(VCONFKEY_LOCKSCREEN_CAMERA_QUICK_ACCESS, &camera_enabled);
 		LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED = ecore_event_type_new();
 	}
 
