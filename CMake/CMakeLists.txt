@@ -31,6 +31,7 @@ pkg_check_modules(MENU_PKGS REQUIRED
 	tzsh-lockscreen-service
 	capi-base-utils-i18n
 	capi-telephony
+	vconf
 )
 
 FOREACH (flag ${MENU_PKGS_CFLAGS})
