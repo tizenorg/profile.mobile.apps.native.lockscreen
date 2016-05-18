@@ -1,6 +1,6 @@
 Name:       org.tizen.lockscreen
 #VCS_FROM:   profile/mobile/apps/native/lockscreen#29d4c43e38ab08fb2ab4b845afb02d8015a22646
-#RS_Ver:    20160516_2 
+#RS_Ver:    20160518_1 
 Summary:    Lockscreen app
 Version:    0.1.0
 Release:    1
