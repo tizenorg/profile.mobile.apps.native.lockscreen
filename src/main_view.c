@@ -97,7 +97,9 @@ static void _lockscreen_main_view_part_content_set(Evas_Object *view, const char
 	if  (!strcmp(part, PART_PASSWORD)) {
 		elm_object_signal_emit(elm_object_part_content_get(view, "sw.swipe_layout"), "unlock,anim,start", "lockscreen");
 		elm_object_signal_emit(view, "password,show", "lockscreen");
-	}
+	} else if (!strcmp(part, PART_SIMLOCK))
+		elm_object_signal_emit(view, "simlock,show", "lockscreen");
+
 	elm_object_part_content_set(view, part, content);
 }
 
@@ -106,7 +108,7 @@ void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, 
 	if (!part) return;
 	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
 		_lockscreen_main_view_swipe_part_content_set(view, part, content);
-	if (!strcmp(part, PART_PASSWORD)) {
+	if (!strcmp(part, PART_PASSWORD) || !strcmp(part, PART_SIMLOCK)) {
 		_lockscreen_main_view_part_content_set(view, part, content);
 	}
 }
@@ -134,14 +136,22 @@ static Evas_Object *_lockscreen_main_view_part_password_unset(Evas_Object *view)
 	return elm_object_part_content_unset(view, PART_PASSWORD);
 }
 
+static Evas_Object *_lockscreen_main_view_part_simlock_unset(Evas_Object *view)
+{
+	elm_object_signal_emit(view, "simlock,hide", "lockscreen");
+
+	return elm_object_part_content_unset(view, PART_SIMLOCK);
+}
+
 Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
 {
 	if (!part) return NULL;
 	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
 		return _lockscreen_main_view_swipe_part_content_unset(view, part);
-	if (!strcmp(part, PART_PASSWORD)) {
+	if (!strcmp(part, PART_PASSWORD))
 		return _lockscreen_main_view_part_password_unset(view);
-	}
+	if (!strcmp(part, PART_SIMLOCK))
+		return _lockscreen_main_view_part_simlock_unset(view);
 
 	return NULL;
 }
