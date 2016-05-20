@@ -18,17 +18,17 @@ group {
 	styles {
 		style {
 			name: "time_style_default";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=106 wrap=none";
-			tag: "small_font" "+ font_size=40 font=SamsungNeoNum-3T:style=Light";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=136 wrap=none";
+			tag: "small_font" "+ font_size=45 font=SamsungNeoNum-3T:style=Light";
 		}
 		style {
 			name: "date_style_default";
 			base: "style=far_shadow,bottom shadow_color=#00000033 font=Tizen:style=Regular font_size=44 color=#FFFFFF wrap=none align=left text_class=ATO003";
-			tag: "small_font" "+ font_size=32";
+			tag: "small_font" "+ font_size=35";
 		}
 		style {
 			name: "time_style_contextual";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=34 align=center wrap=none";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=35 align=center wrap=none";
 		}
 	}
 	name: "swipe-lock";
@@ -109,11 +109,14 @@ group {
 		part {
 			name: "padding.left";
 			type: SPACER;
+			scale;
 			description {
 				state: "default" 0.0;
-				align: 0 0;
+				min: 38 WIN_HEIGHT;
+				max: 38 WIN_HEIGHT;
+				align: 0.0 0.0;
 				rel1 { relative: 0.0 0.0; to: "bg"; }
-				rel2 { relative: SWIPE_LOCK_PADDING_LEFT/WIN_WIDTH 1.0; to: "bg"; }
+				rel2 { relative: 1.0 1.0; to: "bg"; }
 			}
 		}
 		part {
