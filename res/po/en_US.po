@@ -118,6 +118,9 @@ msgstr "Incorrect PIN."
 msgid "IDS_COM_BODY_ENTER_PIN"
 msgstr "Enter PIN"
 
+msgid "IDS_COM_BODY_ENTER_SIM_CARD_PIN"
+msgstr "Enter SIM card unlock PIN"
+
 msgid "IDS_COM_BODY_ENTER_PASSWORD"
 msgstr "Enter password"
 
