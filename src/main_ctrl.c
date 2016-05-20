@@ -24,6 +24,7 @@
 #include "time_format_ctrl.h"
 #include "util.h"
 #include "sim_ctrl.h"
+#include "sim_lock_ctrl.h"
 #include "display.h"
 #include "events_ctrl.h"
 #include "background_ctrl.h"
@@ -100,6 +101,9 @@ int lockscreen_main_ctrl_init(void)
 
 	if (lockscreen_device_lock_ctrl_init(view))
 		FAT("lockscreen_device_lock_ctrl_init failed. Password unlock will not be available");
+
+	if (lockscreen_sim_lock_ctrl_init(view))
+		FAT("lockscreen_sim_lock_ctrl_init failed. Password unlock will not be available");
 
 	return 0;
 }
