@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#define BOUNCE_EFFECT_RELATIVE_LENGTH 0.025
+#define SWIPE_EFFECT_RELATIVE_LENGTH 0.2
+
 group {
 	styles {
 		style {
@@ -53,57 +56,53 @@ group {
 			}
 		}
 		part {
-			name: "padding.status_bar";
-			type: SPACER;
-			description {
-				state: "default" 0.0;
-				align: 0 0;
-				rel1 { relative: 0.0 0.0; to: "bg"; }
-				rel2 { relative: 1.0 INDICATOR_HEIGHT/WIN_HEIGHT; to: "bg"; }
-			}
-		}
-		part {
 			name: "padding.top";
 			type: SPACER;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				align: 0 0;
-				rel1 { relative: 0.0 INDICATOR_HEIGHT/WIN_HEIGHT; to: "bg"; }
-				rel2 { relative: 1.0 (INDICATOR_HEIGHT+SWIPE_LOCK_PADDING_TOP)/WIN_HEIGHT; to: "bg"; }
-			}
-			description {
-				state: "effect_start" 0.0;
-				inherit: "default" 0.0;
-				rel1 { relative: 0.0 (INDICATOR_HEIGHT-SWIPE_LOCK_BOUNCE_EFFECT_OFFSET)/WIN_HEIGHT; to: "bg"; }
-				rel2 { relative: 1.0 (INDICATOR_HEIGHT+SWIPE_LOCK_PADDING_TOP-SWIPE_LOCK_BOUNCE_EFFECT_OFFSET)/WIN_HEIGHT; to: "bg"; }
-			}
-			description {
-				state: "effect" 0.0;
-				inherit: "default" 0.0;
-				rel1 { offset: 0 -SWIPE_LOCK_EFFECT_HEIGHT; }
-				rel2 { offset: 0 -SWIPE_LOCK_EFFECT_HEIGHT; }
-			}
-		}
-		part {
-			name: "padding.bottom";
-			type: SPACER;
-			description {
-				state: "default" 0.0;
-				align: 0 0;
-				rel1 { relative: 0.0 (WIN_HEIGHT-SWIPE_LOCK_PADDING_BOTTOM)/WIN_HEIGHT; to: "bg"; }
+				min: 0 (10 + INDICATOR_HEIGHT);
+				max: -1 (10 + INDICATOR_HEIGHT);
+				rel1 { relative: 0.0 0.0; to: "bg"; }
 				rel2 { relative: 1.0 1.0; to: "bg"; }
 			}
 			description {
 				state: "effect_start" 0.0;
 				inherit: "default" 0.0;
-				rel1 { relative: 0.0 (WIN_HEIGHT-SWIPE_LOCK_PADDING_BOTTOM+SWIPE_LOCK_BOUNCE_EFFECT_OFFSET)/WIN_HEIGHT; to: "bg"; }
-				rel2 { relative: 1.0 (WIN_HEIGHT+SWIPE_LOCK_BOUNCE_EFFECT_OFFSET)/WIN_HEIGHT; to: "bg"; }
+				rel1 { relative: 0.0 (0.0 - BOUNCE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
+				rel2 { relative: 1.0 (1.0 - BOUNCE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
 			}
 			description {
 				state: "effect" 0.0;
 				inherit: "default" 0.0;
-				rel1 { offset: 0 SWIPE_LOCK_EFFECT_HEIGHT; }
-				rel2 { offset: 0 SWIPE_LOCK_EFFECT_HEIGHT; }
+				rel1 { relative: 0.0 (0.0 - SWIPE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
+				rel2 { relative: 1.0 (1.0 - SWIPE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
+			}
+		}
+		part {
+			name: "padding.bottom";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				align: 0 1.0;
+				min: 0 30;
+				max: -1 30;
+				rel2 { relative: 0.0 0.0; to: "bg"; }
+				rel2 { relative: 1.0 1.0; to: "bg"; }
+			}
+			description {
+				state: "effect_start" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0.0 (0.0 + BOUNCE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
+				rel2 { relative: 1.0 (1.0 + BOUNCE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
+			}
+			description {
+				state: "effect" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0.0 (0.0 + SWIPE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
+				rel2 { relative: 1.0 (1.0 + SWIPE_EFFECT_RELATIVE_LENGTH); to: "bg"; }
 			}
 		}
 		part {
@@ -330,16 +329,27 @@ group {
 			}
 		}
 		part {
-			name: "sw.camera";
-			type: SWALLOW;
+			name: "spacer.camera";
+			type: SPACER;
 			scale: 1;
-			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
 				min: 500 500;
-				align: 0 0;
+				max: 500 500;
 				fixed: 1 1;
-				rel1 { relative: (WIN_WIDTH-500)/WIN_WIDTH (WIN_HEIGHT-500)/WIN_HEIGHT; }
+				align: 1.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "bg"; }
+				rel2 { relative: 1.0 0.0; to: "padding.bottom"; }
+			}
+		}
+		part {
+			name: "sw.camera";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				align: 0.0 0.0;
+				rel1 { relative: 0.0 0.0; to: "spacer.camera"; }
+				rel2 { relative: 1.0 1.0; to: "spacer.camera"; }
 			}
 		}
 	}
