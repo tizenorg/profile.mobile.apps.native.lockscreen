@@ -113,9 +113,28 @@ collections {
 					state: "default" 0.0;
 					fixed: 1 1;
 				}
+				description {
+					state: "hidden" 0.0;
+					inherit: "default";
+					visible: 0;
+				}
 			}
 			part {
 				name: "sw.password_layout";
+				type: SWALLOW;
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+					visible: 0;
+				}
+				description {
+					state: "shown" 0.0;
+					inherit: "default";
+					visible: 1;
+				}
+			}
+			part {
+				name: "sw.simlock_layout";
 				type: SWALLOW;
 				description {
 					state: "default" 0.0;
@@ -175,6 +194,36 @@ collections {
 				action: STATE_SET "default" 0.0;
 				target: "sw.password_layout";
 				transition: DECEL 0.2;
+			}
+			program {
+				name: "simlock,show";
+				signal: "simlock,show";
+				source: "lockscreen";
+				action: STATE_SET "shown" 0.0;
+				target: "sw.simlock_layout";
+				transition: DECEL 1.0;
+			}
+			program {
+				name: "simlock,hide";
+				signal: "simlock,hide";
+				source: "lockscreen";
+				action: STATE_SET "default" 0.0;
+				target: "sw.simlock_layout";
+				transition: DECEL 0.2;
+			}
+			program {
+				signal: "simlock,show";
+				source: "lockscreen";
+				action: STATE_SET "hidden" 0.0;
+				target: "sw.swipe_layout";
+				transition: DECEL 1.0;
+			}
+			program {
+				signal: "simlock,hide";
+				source: "lockscreen";
+				action: STATE_SET "default" 0.0;
+				target: "sw.swipe_layout";
+				transition: DECEL 1.0;
 			}
 		}
 	}
