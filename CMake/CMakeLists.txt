@@ -60,6 +60,8 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/events_ctrl.c
 	${PROJECT_ROOT_DIR}/src/minicontrollers.c
 	${PROJECT_ROOT_DIR}/src/sim.c
+	${PROJECT_ROOT_DIR}/src/sim_lock.c
+	${PROJECT_ROOT_DIR}/src/sim_lock_ctrl.c
 	${PROJECT_ROOT_DIR}/src/camera.c
 	${PROJECT_ROOT_DIR}/src/main_view.c
 	${PROJECT_ROOT_DIR}/src/main_ctrl.c
