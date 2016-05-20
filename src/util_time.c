@@ -96,6 +96,7 @@ static i18n_udate_format_h __util_time_time_formatter_get(bool use24hformat, con
 	i18n_uchar u_best_pattern[64] = {0,};
 	int32_t u_best_pattern_capacity, u_best_pattern_len;
 	char a_best_pattern[128] = {0,};
+	char *save_ptr;
 
 	i18n_udate_format_h formatter = NULL;
 
@@ -117,7 +118,7 @@ static i18n_udate_format_h __util_time_time_formatter_get(bool use24hformat, con
 	u_best_pattern_capacity =
 		(int32_t) (sizeof(u_best_pattern) / sizeof((u_best_pattern)[0]));
 
-	status = i18n_udatepg_get_best_pattern(generator, u_pattern, sizeof(u_pattern),
+	status = i18n_udatepg_get_best_pattern(generator, u_pattern, i18n_ustring_get_length(u_pattern),
 			u_best_pattern, u_best_pattern_capacity, &u_best_pattern_len);
 	if (status != I18N_ERROR_NONE) {
 		ERR("i18n_udatepg_get_best_pattern() failed: %s", get_error_message(status));
@@ -126,7 +127,7 @@ static i18n_udate_format_h __util_time_time_formatter_get(bool use24hformat, con
 
 	i18n_ustring_copy_au(a_best_pattern, u_best_pattern);
 
-	char *a_best_pattern_fixed = strtok(a_best_pattern, "a");
+	char *a_best_pattern_fixed = strtok_r(a_best_pattern, "a", &save_ptr);
 	a_best_pattern_fixed = strtok(a_best_pattern_fixed, " ");
 	if (a_best_pattern_fixed) {
 		i18n_ustring_copy_ua(u_best_pattern, a_best_pattern_fixed);
