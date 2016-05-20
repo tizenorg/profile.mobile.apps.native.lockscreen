@@ -129,7 +129,7 @@ static Evas_Object* _lockscreen_password_view_pin_create(Evas_Object *parent)
 	elm_object_signal_emit(ly, "layout,pinpad,show", "lockscreen");
 	Evas_Object *entry = elm_object_part_content_get(ly, "sw.entry");
 	elm_entry_text_style_user_push(entry, "DEFAULT='font=Sans style=Regular color=#FFFFFF font_size=110 wrap=none align=center'");
-	evas_object_smart_callback_add(entry, "changed", _lockscreen_password_view_pin_entry_activated, ly);
+	evas_object_smart_callback_add(entry, "changed,user", _lockscreen_password_view_pin_entry_activated, ly);
 
 	return ly;
 }
