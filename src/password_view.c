@@ -154,6 +154,16 @@ static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *paren
 	return ly;
 }
 
+void lockscreen_password_view_btn_cancel_hide(Evas_Object *view)
+{
+	if (!view) {
+		ERR("layout == NULL");
+		return;
+	}
+
+	elm_object_signal_emit(view, "btn,cancel,hide", "lockscreen");
+}
+
 Evas_Object *lockscreen_password_view_create(lockscreen_password_view_type type, Evas_Object *parent)
 {
 	Evas_Object *ret = NULL;
