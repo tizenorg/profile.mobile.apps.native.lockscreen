@@ -299,7 +299,7 @@ void lockscreen_main_view_time_set(Evas_Object *view, const char *locale, const 
 		ERR("util_time_formatted_time_get failed");
 		return;
 	}
-	if (!util_time_formatted_date_get(time, locale, timezone, "MMMMEd", &str_date)) {
+	if (!util_time_formatted_date_get(time, locale, timezone, "MMMMEEEEd", &str_date)) {
 		ERR("util_time_formatted_date_get failed");
 		free(str_time);
 		free(str_meridiem);
