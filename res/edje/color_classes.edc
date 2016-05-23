@@ -16,7 +16,11 @@
 
 color_classes {
 	color_class {
-		name: "pinpad_key_background";
-		color: 179 179 179 179;
+		name: "ATO007";
+		color: 255 255 255 255;
+	}
+	color_class {
+		name: "ATO001P";
+		color: 25 25 25 64;
 	}
 }

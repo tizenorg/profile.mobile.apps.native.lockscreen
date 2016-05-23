@@ -29,7 +29,14 @@
  */
 #define SIGNAL_TOUCH_ENDED "win,touch,ended"
 
+/**
+ * @brief Gets main window width
+ */
 int lock_window_width_get(void);
+
+/**
+ * @brief Gets main window height
+ */
 int lock_window_height_get(void);
 
 /**

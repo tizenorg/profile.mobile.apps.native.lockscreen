@@ -23,21 +23,15 @@
 #include "log.h"
 #include "lockscreen.h"
 #include "events.h"
-#include "minicontrollers.h"
 
 static Eina_List *notifications;
-static Eina_List *minicontrollers;
 static int init_count;
 int LOCKSCREEN_EVENT_EVENTS_CHANGED;
 static Ecore_Event_Handler *handler;
 static bool freeze_event;
 
 struct lockscreen_event {
-	lockscreen_event_type_e type;
-	union {
-		char *icon_path;
-		char *minicontroller_name;
-	};
+	char *icon_path;
 	char *icon_sub_path;
 	char *title;
 	char *content;
@@ -71,25 +65,12 @@ static void _lockscreen_event_destroy(lockscreen_event_t *event)
 	free(event);
 }
 
-static lockscreen_event_t *_lockscreen_event_minicontroller_create(const char *mini_name)
-{
-	lockscreen_event_t *event = calloc(1, sizeof(lockscreen_event_t));
-	if (!event) return NULL;
-
-	event->type = LOCKSCREEN_EVENT_TYPE_MINICONTROLLER;
-	event->minicontroller_name = mini_name ? strdup(mini_name) : NULL;
-
-	return event;
-}
-
 static lockscreen_event_t *_lockscreen_event_notification_create(notification_h noti)
 {
 	int ret;
 	char *val;
 	lockscreen_event_t *event = calloc(1, sizeof(lockscreen_event_t));
 	if (!event) return NULL;
-
-	event->type = LOCKSCREEN_EVENT_TYPE_NOTIFICATION;
 
 	ret = notification_get_text(noti, NOTIFICATION_TEXT_TYPE_TITLE, &val);
 	if (ret != NOTIFICATION_ERROR_NONE) {
@@ -209,50 +190,31 @@ static int _reload_notifications()
 
 static void _noti_changed_cb(void *data, notification_type_e type, notification_op *op_list, int num_op)
 {
-	_reload_notifications();
-}
-
-static void _unload_minicontrollers(void)
-{
-	lockscreen_event_t *event;
-	EINA_LIST_FREE(minicontrollers, event)
-		_lockscreen_event_destroy(event);
-	minicontrollers = NULL;
-	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
-}
-
-static void _load_minicontrollers(void)
-{
-	Eina_List *mini = lockscreen_minicontrollers_list_get();
-	const char *name;
-	EINA_LIST_FREE(mini, name) {
-		lockscreen_event_t *event = _lockscreen_event_minicontroller_create(name);
-		minicontrollers = eina_list_append(minicontrollers, event);
+	//TODO optimize loading
+	switch (op_list->type) {
+		case NOTIFICATION_OP_INSERT:
+		case NOTIFICATION_OP_UPDATE:
+			if (_notification_accept(op_list->noti))
+				_reload_notifications();
+			break;
+		case NOTIFICATION_OP_DELETE:
+		case NOTIFICATION_OP_DELETE_ALL:
+			_reload_notifications();
+			break;
+		default:
+			break;
 	}
-	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
-}
-
-static Eina_Bool _lockscreen_events_minicontroller_changed(void *data, int event, void *event_info)
-{
-	_unload_minicontrollers();
-	_load_minicontrollers();
-	return EINA_TRUE;
 }
 
 int lockscreen_events_init(void)
 {
 	if (!init_count) {
 		LOCKSCREEN_EVENT_EVENTS_CHANGED = ecore_event_type_new();
-		if (lockscreen_minicontrollers_init()) {
-			ERR("lockscreen_minicontrollers_init failed");
-			return 1;
-		}
 		int ret = notification_register_detailed_changed_cb(_noti_changed_cb, NULL);
 		if (ret != NOTIFICATION_ERROR_NONE) {
 			ERR("notification_register_detailed_changed_cb failed: %s", get_error_message(ret));
 			return 1;
 		}
-		handler = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_minicontroller_changed, NULL);
 		if (_reload_notifications()) {
 			ERR("load_notifications failed");
 			return 1;
@@ -272,7 +234,6 @@ void lockscreen_events_shutdown(void)
 				ERR("notification_unregister_detailed_changed_cb failed: %s", get_error_message(ret));
 			}
 			_unload_notifications(NULL, notifications);
-			_unload_minicontrollers();
 			ecore_event_handler_del(handler);
 		}
 	}
@@ -295,9 +256,6 @@ static void _app_control_reply_cb(app_control_h request, app_control_h reply, ap
 bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb)
 {
 	app_control_h service = NULL;
-
-	if (event->type != LOCKSCREEN_EVENT_TYPE_NOTIFICATION)
-		return false;
 
 	if (!event->service_handle) {
 		return false;
@@ -339,12 +297,12 @@ bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb)
 
 Eina_List *lockscreen_events_get(void)
 {
-	return eina_list_merge(eina_list_clone(notifications), eina_list_clone(minicontrollers));;
+	return eina_list_clone(notifications);
 }
 
 bool lockscreen_events_exists(void)
 {
-	return notifications || minicontrollers ? EINA_TRUE : EINA_FALSE;
+	return notifications ? EINA_TRUE : EINA_FALSE;
 }
 
 const char *lockscreen_event_title_get(const lockscreen_event_t *event)
@@ -372,18 +330,6 @@ const char *lockscreen_event_sub_icon_get(const lockscreen_event_t *event)
 	return event->icon_sub_path;
 }
 
-lockscreen_event_type_e lockscreen_event_type_get(const lockscreen_event_t *event)
-{
-	return event->type;
-}
-
-Evas_Object *lockscreen_event_minicontroller_create(lockscreen_event_t *event, Evas_Object *parent)
-{
-	if (event->type != LOCKSCREEN_EVENT_TYPE_MINICONTROLLER)
-		return NULL;
-	return lockscreen_minicontrollers_minicontroller_create(event->minicontroller_name, parent);
-}
-
 static void _lockscreen_event_notification_delete(notification_h noti)
 {
 	int ret = notification_delete(noti);
@@ -392,23 +338,10 @@ static void _lockscreen_event_notification_delete(notification_h noti)
 	}
 }
 
-static void _lockscreen_event_minicontroller_delete(const char *name)
-{
-	lockscreen_minicontrollers_minicontroller_stop(name);
-}
-
 void lockscreen_event_remove(lockscreen_event_t *event)
 {
-	switch (event->type) {
-		case LOCKSCREEN_EVENT_TYPE_NOTIFICATION:
-			_lockscreen_event_notification_delete(event->noti);
-			notifications = eina_list_remove(notifications, event);
-			break;
-		case LOCKSCREEN_EVENT_TYPE_MINICONTROLLER:
-			_lockscreen_event_minicontroller_delete(event->minicontroller_name);
-			minicontrollers = eina_list_remove(minicontrollers, event);
-			break;
-	}
+	_lockscreen_event_notification_delete(event->noti);
+	notifications = eina_list_remove(notifications, event);
 	_lockscreen_event_destroy(event);
 	if (!freeze_event)
 		ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
@@ -418,14 +351,12 @@ void lockscreen_events_remove_all(void)
 {
 	lockscreen_event_t *event;
 	freeze_event = true;
+	Eina_List *l, *l2;
 
-	EINA_LIST_FREE(notifications, event) {
+	EINA_LIST_FOREACH_SAFE(notifications, l, l2, event) {
 		lockscreen_event_remove(event);
 	}
-	EINA_LIST_FREE(minicontrollers, event) {
-		lockscreen_event_remove(event);
-	}
-	notifications = minicontrollers = NULL;
+	notifications = NULL;
 	freeze_event = false;
 	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
 }
