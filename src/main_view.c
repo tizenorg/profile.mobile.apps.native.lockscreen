@@ -387,3 +387,16 @@ void lockscreen_main_view_time_set(Evas_Object *view, const char *locale, const 
 	free(str_time);
 	free(str_meridiem);
 }
+
+void lockscreen_main_view_contextual_view_fullscreen_set(Evas_Object *view, bool fullscreen)
+{
+	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
+	if (!swipe_layout) {
+		FAT("No sw.swipe_layout part");
+		return;
+	}
+	if (fullscreen) {
+		elm_object_signal_emit(swipe_layout, "contextual,events,fullscreen,show", "lockscreen");
+	} else
+		elm_object_signal_emit(swipe_layout, "contextual,events,fullscreen,hide", "lockscreen");
+}
