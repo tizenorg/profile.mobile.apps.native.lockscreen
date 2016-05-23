@@ -268,3 +268,5 @@ msgstr "Discard"
 msgid "IDS_IV_BUTTON_CANCEL"
 msgstr "Cancel"
 
+msgid "IDS_ST_BUTTON_CLEAR_ALL"
+msgstr "Clear all"

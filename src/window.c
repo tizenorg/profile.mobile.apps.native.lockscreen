@@ -107,3 +107,17 @@ void lockscreen_window_content_set(Evas_Object *content)
 void lockscreen_window_quickpanel_block_set(Eina_Bool block)
 {
 }
+
+int lock_window_width_get(void)
+{
+	int ret;
+	evas_object_geometry_get(view.win, NULL, NULL, &ret, NULL);
+	return ret;
+}
+
+int lock_window_height_get(void)
+{
+	int ret;
+	evas_object_geometry_get(view.win, NULL, NULL, NULL, &ret);
+	return ret;
+}
