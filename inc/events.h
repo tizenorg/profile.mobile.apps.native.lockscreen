@@ -19,11 +19,6 @@
 #include <Elementary.h>
 #include <time.h>
 
-typedef enum {
-	LOCKSCREEN_EVENT_TYPE_NOTIFICATION = (1 << 0),
-	LOCKSCREEN_EVENT_TYPE_MINICONTROLLER = (1 << 1)
-} lockscreen_event_type_e;
-
 /**
  * @brief Event fired when lockscreen's events change.
  */
@@ -87,11 +82,6 @@ typedef void (*Launch_Done_Cb)(void);
 bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb);
 
 /**
- * @brief Get event type.
- */
-lockscreen_event_type_e lockscreen_event_type_get(const lockscreen_event_t *event);
-
-/**
  * @brief Gets list of all displayed events.
  *
  * @note list elements are valid until next LOCKSCREEN_EVENT_NOTIFICATIONS_CHANGED event is fired.
@@ -103,11 +93,6 @@ Eina_List *lockscreen_events_get(void);
  * @brief Inticates if any events for lockscreen are currently posted.
  */
 bool lockscreen_events_exists(void);
-
-/**
- * @brief Creates minicontroller for given event.
- */
-Evas_Object *lockscreen_event_minicontroller_create(lockscreen_event_t *event, Evas_Object *parent);
 
 /**
  * @brief Clears event
