@@ -33,7 +33,7 @@ color_classes {
 	}
 	color_class {
 		name: "ATO005";
-		color: 255 255 255 255;
+		color: 23 23 23 20;
 	}
 	color_class {
 		name: "ATO006";

@@ -22,16 +22,21 @@
 #include "time_format.h"
 #include "util_time.h"
 #include "device_lock.h"
+#include "minicontrollers.h"
 
 #include <Ecore.h>
 #include <time.h>
+#include <Elementary.h>
 
-static Ecore_Event_Handler *events_handler;
-static Evas_Object *main_view;
+#define MAX_EVENTS_SHOW_COUNT 1
+
+static Ecore_Event_Handler *events_handler[2];
+static Evas_Object *main_view, *noti_page, *media_page;
 
 static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *data, Evas_Object *obj, const char *part);
 static char *_lockscreen_events_view_ctrl_genlist_noti_text_get(void *data, Evas_Object *obj, const char *part);
 static Evas_Object *_lockscreen_events_view_ctrl_genlist_widget_content_get(void *data, Evas_Object *obj, const char *part);
+static void _lockscreen_events_ctrl_events_reload();
 
 static Elm_Genlist_Item_Class noti_itc = {
 	.item_style = NOTI_ITEM_STYLE,
@@ -42,6 +47,10 @@ static Elm_Genlist_Item_Class noti_itc = {
 static Elm_Genlist_Item_Class widget_itc = {
 	.item_style = WIDGET_ITEM_STYLE,
 	.func.content_get = _lockscreen_events_view_ctrl_genlist_widget_content_get,
+};
+
+static Elm_Genlist_Item_Class noti_more_itc = {
+	.item_style = NOTI_MORE_ITEM_STYLE,
 };
 
 static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *data, Evas_Object *obj, const char *part)
@@ -105,17 +114,26 @@ static char *_lockscreen_events_view_ctrl_genlist_noti_text_get(void *data, Evas
 
 static Evas_Object *_lockscreen_events_view_ctrl_genlist_widget_content_get(void *data, Evas_Object *obj, const char *part)
 {
-	lockscreen_event_t *event = data;
+	const char *name = data;
 
 	if (!strcmp(part, WIDGET_ITEM_CONTENT)) {
-		return lockscreen_event_minicontroller_create(event, obj);
+		return lockscreen_minicontrollers_minicontroller_create(name, obj);
 	}
 	return NULL;
 }
 
-static void _lockscreen_events_view_close_all_button_clicked(void *data, Evas_Object *obj, void *event_info)
+
+static void _lockscreen_events_view_cancel_button_clicked(void *data, Evas_Object *obj, void *event_info)
+{
+	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_FALSE);
+	lockscreen_main_view_contextual_view_fullscreen_set(main_view, EINA_FALSE);
+	_lockscreen_events_ctrl_events_reload();
+}
+
+static void _lockscreen_events_view_clear_button_clicked(void *data, Evas_Object *obj, void *event_info)
 {
 	lockscreen_events_remove_all();
+	lockscreen_main_view_contextual_view_fullscreen_set(main_view, EINA_FALSE);
 }
 
 static void _lockscreen_events_ctrl_view_show()
@@ -123,16 +141,19 @@ static void _lockscreen_events_ctrl_view_show()
 	Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
 	if (!events_view) {
 		events_view = lockscreen_events_view_create(main_view);
-		evas_object_smart_callback_add(events_view, SIGNAL_CLOSE_BUTTON_CLICKED, _lockscreen_events_view_close_all_button_clicked, NULL);
 		lockscreen_main_view_part_content_set(main_view, PART_EVENTS, events_view);
 	}
 }
 
 static void _lockscreen_events_ctrl_view_hide()
 {
-	Evas_Object *events_view = lockscreen_main_view_part_content_unset(main_view, PART_EVENTS);
+	Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
 	if (events_view) {
+		if (noti_page || media_page)
+			return;
+		lockscreen_main_view_part_content_unset(main_view, PART_EVENTS);
 		evas_object_del(events_view);
+		events_view = NULL;
 	}
 }
 
@@ -140,12 +161,6 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 {
 	const lockscreen_event_t *event1 = data1;
 	const lockscreen_event_t *event2 = data2;
-
-	lockscreen_event_type_e type1 = lockscreen_event_type_get(event1);
-	lockscreen_event_type_e type2 = lockscreen_event_type_get(event2);
-
-	if (type1 != type2)
-		return type1 > type2 ? -1 : 1;
 
 	time_t time1 = lockscreen_event_time_get(event1);
 	time_t time2 = lockscreen_event_time_get(event2);
@@ -167,49 +182,113 @@ static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, 
 	}
 }
 
-static void _lockscreen_events_ctrl_events_load()
+static void _lockscreen_events_ctrl_item_expand(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event;
+	elm_object_item_del(info);
 
-	Evas_Object *genlist = lockscreen_events_genlist_get(lockscreen_main_view_part_content_get(main_view, PART_EVENTS));
+	lockscreen_main_view_contextual_view_fullscreen_set(main_view, true);
+	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_TRUE);
+
+	evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_CANCEL_BUTTON_CLICKED, _lockscreen_events_view_cancel_button_clicked, NULL);
+	evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_CLEAR_BUTTON_CLICKED, _lockscreen_events_view_clear_button_clicked, NULL);
+
+	Eina_List *events = lockscreen_events_get();
+	events = eina_list_sort(events, -1, _lockscreen_events_ctrl_sort);
+
+	EINA_LIST_FREE(events, event) {
+			elm_genlist_item_append(data, &noti_itc, event, NULL, ELM_GENLIST_ITEM_NONE, _lockscreen_events_ctrl_item_selected, event);
+	}
+}
+
+static void _lockscreen_events_ctrl_events_reload()
+{
+	lockscreen_event_t *event;
+	Eina_List *l;
+	int i, max = MAX_EVENTS_SHOW_COUNT;
+
+	if (!noti_page) {
+		Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
+		noti_page = lockscreen_events_view_page_add(events_view);
+	}
+
+	Evas_Object *genlist = lockscreen_events_view_page_genlist_get(noti_page);
 	if (!genlist) {
 		FAT("lockscreen_events_genlist_get failed");
 		return;
 	}
 
+	elm_genlist_clear(genlist);
+
 	Eina_List *events = lockscreen_events_get();
 	events = eina_list_sort(events, -1, _lockscreen_events_ctrl_sort);
-	EINA_LIST_FREE(events, event) {
-		lockscreen_event_type_e type = lockscreen_event_type_get(event);
 
-		switch (type) {
-			case LOCKSCREEN_EVENT_TYPE_NOTIFICATION:
-				elm_genlist_item_append(genlist, &noti_itc, event, NULL, ELM_GENLIST_ITEM_NONE, _lockscreen_events_ctrl_item_selected, event);
-				break;
-			case LOCKSCREEN_EVENT_TYPE_MINICONTROLLER:
-				elm_genlist_item_append(genlist, &widget_itc, event, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
-		}
+	for (i = 0, l = events; l && (i < max); i++, l = eina_list_next(l)) {
+		event = eina_list_data_get(l);
+		DBG("Append event...");
+		elm_genlist_item_append(genlist, &noti_itc, event, NULL, ELM_GENLIST_ITEM_NONE, _lockscreen_events_ctrl_item_selected, event);
 	}
-}
+	if (i >= max) {
+		elm_genlist_item_append(genlist, &noti_more_itc, NULL, NULL, ELM_GENLIST_ITEM_TREE, _lockscreen_events_ctrl_item_expand, genlist);
+	}
 
-static void _lockscreen_events_ctrl_events_unload()
-{
-	Evas_Object *genlist = lockscreen_events_genlist_get(lockscreen_main_view_part_content_get(main_view, PART_EVENTS));
-	elm_genlist_clear(genlist);
+	eina_list_free(events);
 }
 
 static Eina_Bool _lockscreen_events_ctrl_events_changed(void *data, int event, void *event_info)
 {
-	/* Improve load/unload in the future */
-	_lockscreen_events_ctrl_events_unload();
-
 	if (lockscreen_events_exists()) {
+		DBG("Add events page");
 		_lockscreen_events_ctrl_view_show();
-		_lockscreen_events_ctrl_events_load();
+		_lockscreen_events_ctrl_events_reload();
 	}
 	else {
+		DBG("Delete events page");
+		Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
+		if (noti_page) lockscreen_events_view_page_del(events_view, noti_page);
+		noti_page = NULL;
 		_lockscreen_events_ctrl_view_hide();
 	}
+
+	return EINA_TRUE;
+}
+
+static void _lockscreen_events_ctrl_minicontrollers_reload(const Eina_List *minis)
+{
+	const char *name;
+	const Eina_List *l;
+
+	Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
+	if (!media_page) media_page = lockscreen_events_view_page_add(events_view);
+
+	Evas_Object *genlist = lockscreen_events_view_page_genlist_get(media_page);
+	if (!genlist) {
+		FAT("lockscreen_events_genlist_get failed");
+		return;
+	}
+
+	elm_genlist_clear(genlist);
+
+	EINA_LIST_FOREACH(minis, l, name) {
+		elm_genlist_item_append(genlist, &widget_itc, name, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+	}
+}
+
+static Eina_Bool _lockscreen_events_ctrl_minicontrollers_changed(void *data, int event, void *event_info)
+{
+	Eina_List *minicontrollers = lockscreen_minicontrollers_list_get();
+	if (minicontrollers) {
+		DBG("Media page create");
+		_lockscreen_events_ctrl_view_show();
+		_lockscreen_events_ctrl_minicontrollers_reload(minicontrollers);
+	} else {
+		DBG("Media page empty");
+		Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
+		if (media_page) lockscreen_events_view_page_del(events_view, media_page);
+		media_page = NULL;
+		_lockscreen_events_ctrl_view_hide();
+	}
+	eina_list_free(minicontrollers);
 
 	return EINA_TRUE;
 }
@@ -221,36 +300,41 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 		return 1;
 	}
 
+	if (lockscreen_minicontrollers_init()) {
+		FAT("lockscreen_minicontrollers_init failed.");
+		lockscreen_events_shutdown();
+		return 1;
+	}
+
 	if (lockscreen_time_format_init()) {
 		FAT("lockscreen_time_format_init failed.");
 		lockscreen_events_shutdown();
+		lockscreen_minicontrollers_shutdown();
 		return 1;
 	}
 
 	if (lockscreen_device_lock_init()) {
 		FAT("lockscreen_device_lock_init failed.");
 		lockscreen_events_shutdown();
+		lockscreen_minicontrollers_shutdown();
 		lockscreen_time_format_shutdown();
 		return 1;
 	}
 
 	main_view = mv;
 
-	events_handler = ecore_event_handler_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, _lockscreen_events_ctrl_events_changed, NULL);
-
-	if (lockscreen_events_exists()) {
-		_lockscreen_events_ctrl_view_show();
-	}
-	else
-		_lockscreen_events_ctrl_view_hide();
+	events_handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, _lockscreen_events_ctrl_events_changed, NULL);
+	events_handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_ctrl_minicontrollers_changed, NULL);
 
 	return 0;
 }
 
 void lockscreen_events_ctrl_shutdown()
 {
-	ecore_event_handler_del(events_handler);
+	ecore_event_handler_del(events_handler[0]);
+	ecore_event_handler_del(events_handler[1]);
 	lockscreen_events_shutdown();
+	lockscreen_minicontrollers_shutdown();
 	lockscreen_time_format_shutdown();
 	lockscreen_device_lock_shutdown();
 }

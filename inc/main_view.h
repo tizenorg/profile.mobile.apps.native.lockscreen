@@ -94,4 +94,9 @@ void lockscreen_main_view_time_set(Evas_Object *view, const char *locale, const 
  */
 void lockscreen_main_view_sim_status_text_set(Evas_Object *view, const char *text);
 
+/**
+ * @brief Sets fullscreen status of contextual view
+ */
+void lockscreen_main_view_contextual_view_fullscreen_set(Evas_Object *view, bool fullscreen);
+
 #endif
