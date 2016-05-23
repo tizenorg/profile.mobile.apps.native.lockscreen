@@ -21,6 +21,13 @@
 
 collections {
 	base_scale: 2.6;
+#include "color_classes.edc"
+	styles {
+		style {
+			name: "close_style";
+			base: "font=Tizen:style=Regular color=#FFFFFF font_size=35 wrap=none align=center";
+		}
+	}
 	group {
 		name: "elm/index/base/vertical/lockscreen/index";
 		alias: "elm/index/base/horizontal/lockscreen/index";
@@ -201,10 +208,6 @@ collections {
 	group { name: "elm/genlist/item/noti/default";
 		styles {
 			style {
-				name: "variable_style";
-				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO009 font_size=24 text_class=ATO009 align=right ellipsis=1.0";
-			}
-			style {
 				name: "title_style";
 				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO039 font_size=30 text_class=ATO039 ellipsis=1.0";
 			}
@@ -216,10 +219,6 @@ collections {
 				name: "time_style";
 				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO010 font_size=24 text_class=ATO010 align=right";
 			}
-			style {
-				name: "selected_style";
-				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO039 font_size=30 text_class=ATO039 wrap=mixed";
-			}
 		}
 	   data.item: "texts" "elm.text elm.text.sub elm.text.time";
 	   data.item: "contents" "elm.swallow.icon elm.swallow.sub.icon";
@@ -230,20 +229,20 @@ collections {
 
 	   parts {
 		  // base spacer for item min height
-		  spacer { "base"; scale;
+		spacer { "base"; scale;
 			 desc { "default";
 				min: 0 130;
 			 }
 		  }
 		  rect { "bg"; scale;
 			 desc { "default";
-				visible: 0;
-				color: 0 0 0 10;
+				color: 22 22 22 50;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 1.0;
 			 }
-			 desc { "pressed"; inherit: "default";
-				visible: 1;
+			 desc { "pressed";
+				inherit: "default";
+				color: 24 24 24 24;
 			 }
 		  }
 		spacer { "padding.left"; scale;
@@ -390,5 +389,129 @@ collections {
 			 action: STATE_SET "default" 0.0;
 			 target: "bg";
 		  }
+	}
+	group { "elm/scroller/base/pass_effect";
+		parts {
+			spacer { "bg";
+				desc { "default";
+					rel1.offset: 0 0;
+					rel2.offset: -1 -1;
+				}
+			}
+			rect { "clipper";
+				mouse_events: 0;
+				desc { "default";
+					rel1.to: "bg";
+					rel2.to: "bg";
+				}
+			}
+			swallow { "elm.swallow.content";
+				clip: "clipper";
+				desc { state: "default" 0.0;
+					rel1.to: "bg";
+					rel2.to: "bg";
+				}
+			}
+		}
+	}
+	group { name: "elm/genlist/item/noti_more/default";
+		alias: "elm/genlist/tree/noti_more/default";
+		images {
+			image: "ls_noti_btn_more.png" COMP;
+			image: "ls_noti_btn_more_ef.png" COMP;
+		}
+		data.item: "texts" "";
+		data.item: "contents" "";
+		parts {
+			rect { "base"; scale;
+				desc { "default";
+					min: 0 48;
+					max: -1 48;
+					color: 0 0 0 0;
+				}
+				desc { "expanded";
+					inherit: "default";
+					visible: 0;
+					min: 0 0;
+					max: 0 0;
+				}
+			}
+			image { "more_ef"; scale;
+				desc { "default";
+					min: 48 48;
+					max: 48 48;
+					image.normal: "ls_noti_btn_more_ef.png";
+					rel1 { relative: 0.0 0.0; to: "base"; }
+					rel2 { relative: 1.0 1.0; to: "base"; }
+				}
+				desc { "expanded";
+					inherit: "default";
+					visible: 0;
+					min: 0 0;
+					max: 0 0;
+				}
+			}
+			image { "more"; scale;
+				desc { "default";
+					min: 48 48;
+					max: 48 48;
+					image.normal: "ls_noti_btn_more.png";
+					rel1 { relative: 0.0 0.0; to: "base"; }
+					rel2 { relative: 1.0 1.0; to: "base"; }
+				}
+				desc { "expanded";
+					inherit: "default";
+					visible: 0;
+					min: 0 0;
+					max: 0 0;
+				}
+			}
+		}
+		program { name: "expanded";
+			signal: "elm,state,expanded";
+			source: "elm";
+			action: STATE_SET "expanded" 0.0;
+			target: "more_ef";
+			target: "base";
+			target: "more";
+		}
+		program { name: "contracted";
+			signal: "elm,state,contracted";
+			source: "elm";
+			action: STATE_SET "default" 0.0;
+			target: "more_ef";
+			target: "base";
+			target: "more";
+		}
+	}
+	group { "elm/button/panel/default";
+		images {
+			image: "event_close_bg.#.png" COMP;
+		}
+		parts {
+			image { "bg";
+				desc { "default";
+					color_class: "ATO001P";
+					image.normal: "event_close_bg.#.png";
+					rel1.offset: -3 -3;
+					rel2.offset: 3 3;
+				}
+			}
+			textblock { "elm.text"; scale;
+				repeat_events: 1;
+				desc { "default";
+					align: 0.0 1.0;
+					text {
+						style: "close_style";
+						ellipsis: -1;
+					}
+				}
+			}
+		}
+		program {
+			signal: "mouse,clicked,1";
+			source: "bg";
+			action: SIGNAL_EMIT "elm,action,click" "lockscreen-theme";
+		}
 	}
 }
