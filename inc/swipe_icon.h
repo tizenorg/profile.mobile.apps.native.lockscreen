@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef _LOCKSCREEN_CAMERA_VIEW_H_
-#define _LOCKSCREEN_CAMERA_VIEW_H_
+#ifndef _LOCKSCREEN_SWIPE_ICON_VIEW_H_
+#define _LOCKSCREEN_SWIPE_ICON_VIEW_H_
 
 #include <Elementary.h>
 
@@ -25,32 +25,38 @@
  */
 
 /**
- * @defgroup Camera Camera
+ * @defgroup Swipe Swipe Icon
  */
 
 /**
- * @addtogroup Camera
+ * @addtogroup Swipe
  * @{
  */
 
 /**
- * @brief Smart signal emitted when camera icon is being selected.
+ * @brief Smart signal emitted when swipe icon is being selected.
  */
-#define SIGNAL_CAMERA_SELECTED "camera,icon,selected"
+#define SIGNAL_ICON_SELECTED "icon,selected"
 
 /**
- * @brief Creates camera view
+ * @brief Creates swipe icon view
  *
  * @note parent should be Elementary widget.
  */
-Evas_Object *lockscreen_camera_view_create(Evas_Object *parent);
+Evas_Object *lockscreen_swipe_icon_view_create(Evas_Object *parent, const char *icon_path);
 
 /**
- * @brief Resets camera view.
+ * @brief Resets swipe icon view.
  *
  * Show unclicked camera button.
  */
-void lockscreen_camera_view_reset(Evas_Object *parent);
+void lockscreen_swipe_icon_view_reset(Evas_Object *parent);
+
+/**
+ * @brief Sets icons description
+ *
+ */
+void lockscreen_swipe_icon_text_set(Evas_Object *ly, const char *text);
 
 /**
  * @}
