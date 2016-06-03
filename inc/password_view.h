@@ -30,6 +30,11 @@
 #define SIGNAL_CANCEL_BUTTON_CLICKED "cancel,button,clicked"
 
 /**
+ * @brief Smart signal emitted when user has clicked return to call button.
+ */
+#define SIGNAL_RETURN_TO_CALL_BUTTON_CLICKED "return_to_call,button,clicked"
+
+/**
  * @brief Smart signal sent to show default sim card icon.
  */
 #define SIGNAL_SIM_ICON_SHOW "layout,pin_icon,show"
@@ -90,5 +95,15 @@ void lockscreen_password_view_btn_cancel_hide(Evas_Object *view);
  * @brief Displays event minature on view
  */
 void lockscreen_password_view_event_set(Evas_Object *view, Evas_Object *event);
+
+/**
+ * @brief Hides return to call button
+ */
+void lockscreen_password_view_btn_return_to_call_hide(Evas_Object *view);
+
+/**
+ * @brief Shows return to call button
+ */
+void lockscreen_password_view_btn_return_to_call_show(Evas_Object *view);
 
 #endif
