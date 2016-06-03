@@ -297,6 +297,11 @@ group {
 				inherit: "default" 0.0;
 				visible: 0;
 			}
+			description {
+				state: "center" 0.0;
+				inherit: "default" 0.0;
+				align: 0.5 0.5;
+			}
 		}
 		part {
 			name: "event";
@@ -357,6 +362,30 @@ group {
 				align: 0.0 0.0;
 				rel1 { relative: 0.0 0.0; to: "spacer.camera"; }
 				rel2 { relative: 1.0 1.0; to: "spacer.camera"; }
+			}
+		}
+		part {
+			name: "spacer.call";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 500 500;
+				max: 500 500;
+				fixed: 1 1;
+				align: 0.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "bg"; }
+				rel2 { relative: 1.0 0.0; to: "padding.bottom"; }
+			}
+		}
+		part {
+			name: "sw.call";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				align: 1.0 0.0;
+				rel1 { relative: 0.0 0.0; to: "spacer.call"; }
+				rel2 { relative: 1.0 1.0; to: "spacer.call"; }
 			}
 		}
 	}
@@ -497,6 +526,12 @@ group {
 			signal: "show,txt,plmn";
 			source: "lockscreen";
 			action: STATE_SET "default" 0.0;
+			target: "txt.plmn";
+		}
+		program {
+			signal: "show,txt,plmn,center";
+			source: "lockscreen";
+			action: STATE_SET "center" 0.0;
 			target: "txt.plmn";
 		}
 		program {

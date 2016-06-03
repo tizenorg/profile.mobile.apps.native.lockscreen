@@ -19,7 +19,7 @@
 #include "log.h"
 #include "camera_ctrl.h"
 #include "camera.h"
-#include "camera_view.h"
+#include "swipe_icon.h"
 #include "main_view.h"
 
 static Ecore_Event_Handler *handler;
@@ -35,8 +35,8 @@ static void _camera_view_update()
 	Evas_Object *cam_view;
 
 	if (lockscreen_camera_is_on()) {
-		cam_view = lockscreen_camera_view_create(main_view);
-		evas_object_smart_callback_add(cam_view, SIGNAL_CAMERA_SELECTED, _camera_clicked, NULL);
+		cam_view = lockscreen_swipe_icon_view_create(main_view, ICON_PATH_CAMERA);
+		evas_object_smart_callback_add(cam_view, SIGNAL_ICON_SELECTED, _camera_clicked, NULL);
 		lockscreen_main_view_part_content_set(main_view, PART_CAMERA, cam_view);
 	}
 	else {
@@ -61,6 +61,15 @@ int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *view)
 	handler = ecore_event_handler_add(LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED, _cam_status_changed, NULL);
 	if (!handler)
 		FAT("ecore_event_handler_add failed on LOCKSCREEN_EVENT_BATTERY_CHANGED event");
+
+	if (lockscreen_camera_init()) {
+		ERR("lockscreen_camera_init failed");
+		return 1;
+	}
+
+	handler = ecore_event_handler_add(LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED, _cam_status_changed, NULL);
+	if (!handler)
+		FAT("ecore_event_handler_add failed on LOCKSCREEN_EVENT_BATTERY_CHANGED event");
 	main_view = view;
 	main_win = win;
 	_camera_view_update();
@@ -71,7 +80,7 @@ int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *view)
 void lockscreen_camera_ctrl_fini(void)
 {
 	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
-	if (cam_view) evas_object_smart_callback_del(cam_view, SIGNAL_CAMERA_SELECTED, _camera_clicked);
+	if (cam_view) evas_object_smart_callback_del(cam_view, SIGNAL_ICON_SELECTED, _camera_clicked);
 	ecore_event_handler_del(handler);
 	lockscreen_camera_shutdown();
 }
@@ -80,7 +89,7 @@ void lockscreen_camera_ctrl_app_paused(void)
 {
 	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
 	if (cam_view) {
-		lockscreen_camera_view_reset(cam_view);
+		lockscreen_swipe_icon_view_reset(cam_view);
 		/* Quick fix for rendering artifacts
 		 * When camera is launched the lockscreen goes into "paused" state.
 		 * On pause callback camera view is reset.

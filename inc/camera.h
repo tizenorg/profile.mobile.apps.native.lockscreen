@@ -19,6 +19,8 @@
 
 #include <stdbool.h>
 
+#define ICON_PATH_CAMERA "quick_shot_icon.png"
+
 /**
  * @addtogroup Models
  * @{
