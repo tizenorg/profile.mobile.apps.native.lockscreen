@@ -51,7 +51,7 @@ collections {
 
 #include "color_classes.edc"
 #include "swipe_lock.edc"
-#include "camera.edc"
+#include "swipe_icon.edc"
 #include "contextual_event.edc"
 #include "password.edc"
 
