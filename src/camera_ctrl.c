@@ -19,7 +19,7 @@
 #include "log.h"
 #include "camera_ctrl.h"
 #include "camera.h"
-#include "camera_view.h"
+#include "swipe_icon.h"
 #include "main_view.h"
 
 static Ecore_Event_Handler *handler;
@@ -35,8 +35,8 @@ static void _camera_view_update()
 	Evas_Object *cam_view;
 
 	if (lockscreen_camera_is_on()) {
-		cam_view = lockscreen_camera_view_create(main_view);
-		evas_object_smart_callback_add(cam_view, SIGNAL_CAMERA_SELECTED, _camera_clicked, NULL);
+		cam_view = lockscreen_swipe_icon_view_create(main_view, ICON_PATH_CAMERA);
+		evas_object_smart_callback_add(cam_view, SIGNAL_ICON_SELECTED, _camera_clicked, NULL);
 		lockscreen_main_view_part_content_set(main_view, PART_CAMERA, cam_view);
 	}
 	else {
@@ -54,9 +54,8 @@ static Eina_Bool _cam_status_changed(void *data, int event, void *event_info)
 static void _lockscreen_camera_ctrl_win_normal(void *data, Evas_Object *obj, void *event_info)
 {
 	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
-	if (cam_view) {
-		lockscreen_camera_view_reset(cam_view);
-	}
+	if (cam_view)
+		lockscreen_swipe_icon_view_reset(cam_view);
 }
 
 int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *view)
@@ -81,7 +80,7 @@ int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *view)
 void lockscreen_camera_ctrl_fini(void)
 {
 	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
-	if (cam_view) evas_object_smart_callback_del(cam_view, SIGNAL_CAMERA_SELECTED, _camera_clicked);
+	if (cam_view) evas_object_smart_callback_del(cam_view, SIGNAL_ICON_SELECTED, _camera_clicked);
 	ecore_event_handler_del(handler);
 	evas_object_smart_callback_del(win, "normal", _lockscreen_camera_ctrl_win_normal);
 	lockscreen_camera_shutdown();

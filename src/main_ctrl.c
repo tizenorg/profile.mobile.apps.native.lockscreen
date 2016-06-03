@@ -29,6 +29,7 @@
 #include "events_ctrl.h"
 #include "background_ctrl.h"
 #include "device_lock_ctrl.h"
+#include "call_ctrl.h"
 
 #include <Elementary.h>
 
@@ -106,6 +107,9 @@ int lockscreen_main_ctrl_init(void)
 
 	if (lockscreen_sim_lock_ctrl_init(view))
 		FAT("lockscreen_sim_lock_ctrl_init failed. Password unlock will not be available");
+
+	if (lockscreen_call_ctrl_init(win, view))
+		FAT("lockscreen_call_ctrl_init failed. Lockscreen return to call will not be available");
 
 	return 0;
 }
