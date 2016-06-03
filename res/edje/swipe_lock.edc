@@ -371,6 +371,30 @@ group {
 				rel2 { relative: 1.0 1.0; to: "spacer.camera"; }
 			}
 		}
+		part {
+			name: "spacer.call";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 500 500;
+				max: 500 500;
+				fixed: 1 1;
+				align: 0.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "bg"; }
+				rel2 { relative: 1.0 0.0; to: "padding.bottom"; }
+			}
+		}
+		part {
+			name: "sw.call";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				align: 1.0 0.0;
+				rel1 { relative: 0.0 0.0; to: "spacer.call"; }
+				rel2 { relative: 1.0 1.0; to: "spacer.call"; }
+			}
+		}
 	}
 	programs {
 		program {

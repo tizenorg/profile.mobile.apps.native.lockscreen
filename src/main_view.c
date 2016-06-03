@@ -106,7 +106,7 @@ static void _lockscreen_main_view_part_content_set(Evas_Object *view, const char
 void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
 {
 	if (!part) return;
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
 		_lockscreen_main_view_swipe_part_content_set(view, part, content);
 	if (!strcmp(part, PART_PASSWORD) || !strcmp(part, PART_SIMLOCK)) {
 		_lockscreen_main_view_part_content_set(view, part, content);
@@ -146,7 +146,7 @@ static Evas_Object *_lockscreen_main_view_part_simlock_unset(Evas_Object *view)
 Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
 {
 	if (!part) return NULL;
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
 		return _lockscreen_main_view_swipe_part_content_unset(view, part);
 	if (!strcmp(part, PART_PASSWORD))
 		return _lockscreen_main_view_part_password_unset(view);
@@ -159,7 +159,7 @@ Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const ch
 Evas_Object *lockscreen_main_view_part_content_get(Evas_Object *view, const char *part)
 {
 	if (!part) return NULL;
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
 		return elm_object_part_content_get(elm_object_part_content_get(view, "sw.swipe_layout"), part);
 	if (!strcmp(part, PART_PASSWORD)) {
 		return elm_object_part_content_get(view, part);
