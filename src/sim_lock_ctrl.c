@@ -204,7 +204,6 @@ static void _sim_lock_ctrl_popup_create(Evas_Object *win, char *title, char *des
 		elm_popup_align_set(popup, 0.5, 0.5);
 
 		button = elm_button_add(win);
-		elm_object_style_set(button, "botton");
 		elm_object_text_set(button, "OK");
 
 		elm_object_part_content_set(popup, "button1", button);
