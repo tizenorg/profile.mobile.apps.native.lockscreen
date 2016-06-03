@@ -52,6 +52,10 @@
 /**
  * @brief Accessible via lockscreen_main_view_part_content_get/set/unset
  */
+#define PART_CALL "sw.call"
+/**
+ * @brief Accessible via lockscreen_main_view_part_content_get/set/unset
+ */
 #define PART_EVENTS "sw.contextual_event"
 
 /**
