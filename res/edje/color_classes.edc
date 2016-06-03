@@ -23,4 +23,8 @@ color_classes {
 		name: "ATO001P";
 		color: 25 25 25 64;
 	}
+	color_class {
+		name: "AO001";
+		color: 23 23 23 30;
+	}
 }
