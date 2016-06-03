@@ -50,7 +50,6 @@ typedef enum {
  *
  * @return: 0 on success, other value on failure
  */
-
 int lockscreen_sim_lock_init(void);
 
 /**
