@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -14,28 +14,19 @@
  * limitations under the License.
  */
 
-#ifndef _LOCKSCREEN_CAMERA_VIEW_H_
-#define _LOCKSCREEN_CAMERA_VIEW_H_
-
 #include <Elementary.h>
 
 /**
- * @brief Smart signal emitted when camera icon is being selected.
+ * @brief Initializes call controller
+ *
+ * Call controller is responsible for updating call icon on main
+ * lockscreen view when call status changes.
+ *
+ * @return: 0 on success, other value on failure
  */
-#define SIGNAL_CAMERA_SELECTED "camera,icon,selected"
+int lockscreen_call_ctrl_init(Evas_Object *view);
 
 /**
- * @brief Creates camera view
- *
- * @note parent should be Elementary widget.
+ * @brief Shutdowns call controller
  */
-Evas_Object *lockscreen_camera_view_create(Evas_Object *parent);
-
-/**
- * @brief Resets camera view.
- *
- * Show unclicked camera button.
- */
-void lockscreen_camera_view_reset(Evas_Object *parent);
-
-#endif
+void lockscreen_call_ctrl_shutdown(void);
