@@ -15,6 +15,7 @@
  */
 
 #include "password_view.h"
+#include "call.h"
 #include "log.h"
 #include "lockscreen.h"
 #include "util.h"
@@ -29,6 +30,12 @@ static void
 _lockscreen_password_view_cancel_button_clicked(void *data, Evas_Object *obj, void *event_info)
 {
 	evas_object_smart_callback_call(data, SIGNAL_CANCEL_BUTTON_CLICKED, NULL);
+}
+
+static void
+_lockscreen_password_view_return_to_call_button_clicked(void *data, Evas_Object *obj, void *event_info)
+{
+	evas_object_smart_callback_call(data, SIGNAL_RETURN_TO_CALL_BUTTON_CLICKED, NULL);
 }
 
 static void
@@ -89,8 +96,8 @@ static Evas_Object* _lockscreen_password_view_layout_create(Evas_Object *parent,
 		ERR("elm_object_style_set failed");
 	elm_object_text_set(btn, _("IDS_ST_BUTTON_CANCEL"));
 	evas_object_smart_callback_add(btn, "clicked", _lockscreen_password_view_cancel_button_clicked, ly);
-
 	elm_object_part_content_set(ly, "sw.cancel", btn);
+
 	evas_object_show(btn);
 	evas_object_show(ly);
 
@@ -200,12 +207,29 @@ static Evas_Object* _lockscreen_password_view_swipe_create(Evas_Object *parent)
 
 void lockscreen_password_view_btn_cancel_hide(Evas_Object *view)
 {
-	if (!view) {
-		ERR("layout == NULL");
-		return;
+	elm_object_signal_emit(view, "btn,cancel,hide", "lockscreen");
+}
+
+void lockscreen_password_view_btn_return_to_call_hide(Evas_Object *view)
+{
+	elm_object_signal_emit(view, "btn,return,hide", "lockscreen");
+}
+
+void lockscreen_password_view_btn_return_to_call_show(Evas_Object *view)
+{
+	Evas_Object *btn_return = elm_object_part_content_get(view, "sw.return");
+	if (!btn_return) {
+		btn_return = elm_button_add(view);
+		elm_layout_theme_set(btn_return, "button", "panel", "default");
+		elm_object_text_set(btn_return, _("IDS_LCKSCN_BUTTON_RETURN_TO_CALL_ABB"));
+		evas_object_smart_callback_add(btn_return, "clicked", _lockscreen_password_view_return_to_call_button_clicked, view);
+
+		elm_object_part_content_set(view, "sw.return", btn_return);
+
+		evas_object_show(btn_return);
 	}
 
-	elm_object_signal_emit(view, "btn,cancel,hide", "lockscreen");
+	elm_object_signal_emit(view, "btn,return,show", "lockscreen");
 }
 
 Evas_Object *lockscreen_password_view_create(lockscreen_password_view_type type, Evas_Object *parent)

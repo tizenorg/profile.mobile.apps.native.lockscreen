@@ -24,6 +24,7 @@
 
 #define EMG_BUTTON_WIDTH 322
 #define PLMN_LABEL_STYLE_START "<style=far_shadow,bottom><shadow_color=#00000033><font_size=24><align=left><color=#FFFFFF><text_class=ATO007><color_class=ATO007><wrap=none>"
+#define PLMN_LABEL_STYLE_START_CENTER "<style=far_shadow,bottom><shadow_color=#00000033><font_size=24><align=center><color=#FFFFFF><text_class=ATO007><color_class=ATO007><wrap=none>"
 #define PLMN_LABEL_STYLE_END "</wrap></color_class></text_class></color></align></font_size></shadow_color></style>"
 
 typedef enum {
@@ -79,6 +80,31 @@ static Evas_Object *_swipe_layout_create(Evas_Object *parent)
 	return swipe_layout;
 }
 
+static void _lockscreen_main_view_swipe_plmn_center_set(Evas_Object *swipe_layout, bool set)
+{
+	char buf[512] = {0, };
+
+	Evas_Object *label = elm_object_part_content_get(swipe_layout, "txt.plmn");
+	if (!label)
+		return;
+
+	char *utf8_text = elm_entry_markup_to_utf8(elm_object_text_get(label));
+
+	if (set) {
+		snprintf(buf, sizeof(buf), "%s%s%s", PLMN_LABEL_STYLE_START_CENTER, utf8_text, PLMN_LABEL_STYLE_END);
+		elm_object_signal_emit(swipe_layout, "show,txt,plmn,center", "lockscreen");
+	} else {
+		snprintf(buf, sizeof(buf), "%s%s%s", PLMN_LABEL_STYLE_START, utf8_text, PLMN_LABEL_STYLE_END);
+		elm_object_signal_emit(swipe_layout, "show,txt,plmn", "lockscreen");
+	}
+
+	elm_object_text_set(label, buf);
+
+	free(utf8_text);
+
+	return ;
+}
+
 static void _lockscreen_main_view_swipe_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
 {
 	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
@@ -86,13 +112,14 @@ static void _lockscreen_main_view_swipe_part_content_set(Evas_Object *view, cons
 		FAT("No sw.swipe_layout part");
 		return;
 	}
+
 	if (!strcmp(PART_EVENTS, part)) {
 		evas_object_propagate_events_set(content, EINA_FALSE);
 		elm_object_signal_emit(swipe_layout, "contextual,events,show", "lockscreen");
-	}
-	else if (!strcmp(PART_CAMERA, part)) {
+	} else if (!strcmp(PART_CAMERA, part)) {
 		evas_object_propagate_events_set(content, EINA_FALSE);
 	}
+
 	elm_object_part_content_set(swipe_layout, part, content);
 }
 
@@ -109,7 +136,7 @@ static void _lockscreen_main_view_part_content_set(Evas_Object *view, const char
 void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, Evas_Object *content)
 {
 	if (!part) return;
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
 		_lockscreen_main_view_swipe_part_content_set(view, part, content);
 	if (!strcmp(part, PART_PASSWORD) || !strcmp(part, PART_SIMLOCK)) {
 		_lockscreen_main_view_part_content_set(view, part, content);
@@ -123,9 +150,11 @@ static Evas_Object *_lockscreen_main_view_swipe_part_content_unset(Evas_Object *
 		FAT("No sw.swipe_layout part");
 		return false;
 	}
-	if (!strcmp(PART_EVENTS, part)) {
+	if (!strcmp(PART_EVENTS, part))
 		elm_object_signal_emit(swipe_layout, "contextual,events,hide", "lockscreen");
-	}
+	else if (!strcmp(part, PART_CALL))
+		_lockscreen_main_view_swipe_plmn_center_set(swipe_layout, false);
+
 	return elm_object_part_content_unset(swipe_layout, part);
 }
 
@@ -148,7 +177,7 @@ static Evas_Object *_lockscreen_main_view_part_simlock_unset(Evas_Object *view)
 Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part)
 {
 	if (!part) return NULL;
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
 		return _lockscreen_main_view_swipe_part_content_unset(view, part);
 	if (!strcmp(part, PART_PASSWORD))
 		return _lockscreen_main_view_part_password_unset(view);
@@ -161,7 +190,7 @@ Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const ch
 Evas_Object *lockscreen_main_view_part_content_get(Evas_Object *view, const char *part)
 {
 	if (!part) return NULL;
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS))
+	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
 		return elm_object_part_content_get(elm_object_part_content_get(view, "sw.swipe_layout"), part);
 	if (!strcmp(part, PART_PASSWORD)) {
 		return elm_object_part_content_get(view, part);
@@ -241,38 +270,40 @@ void lockscreen_main_view_sim_status_text_set(Evas_Object *view, const char *tex
 		return;
 	}
 
-	label = elm_label_add(swipe_layout);
-	evas_object_size_hint_align_set(label, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	evas_object_size_hint_weight_set(label, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_object_scale_set(label, edje_scale_get() * 0.6);
+	label = lockscreen_main_view_part_content_get(swipe_layout, "txt.plmn");
+	if (!label) {
+		label = elm_label_add(swipe_layout);
+		evas_object_size_hint_align_set(label, EVAS_HINT_FILL, EVAS_HINT_FILL);
+		evas_object_size_hint_weight_set(label, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+		elm_object_scale_set(label, edje_scale_get() * 0.6);
+
+		elm_object_style_set(label, "slide_short");
+		elm_label_wrap_width_set(label, 100);
+		elm_label_ellipsis_set(label, EINA_TRUE);
+		elm_label_slide_duration_set(label, 2);
+		elm_label_slide_mode_set(label, ELM_LABEL_SLIDE_MODE_NONE);
+
+		Evas_Object *label_edje = elm_layout_edje_get(label);
+		tb = (Evas_Object *)edje_object_part_object_get(label_edje, "elm.text");
+		if (!tb)
+			FAT("elm.text part not found in edje");
+
+		evas_object_textblock_size_native_get(tb, &tb_w, NULL);
+
+		if ((tb_w > 0) && (tb_w > ELM_SCALE_SIZE(EMG_BUTTON_WIDTH)))
+			elm_label_slide_mode_set(label, ELM_LABEL_SLIDE_MODE_AUTO);
+
+		elm_label_slide_go(label);
+
+		elm_object_part_content_set(swipe_layout, "txt.plmn", label);
+		elm_object_signal_emit(swipe_layout, "show,txt,plmn", "lockscreen");
+		evas_object_show(label);
+	}
+
 	markup_text = elm_entry_utf8_to_markup(text);
 	snprintf(buf, sizeof(buf), "%s%s%s", PLMN_LABEL_STYLE_START, markup_text, PLMN_LABEL_STYLE_END);
-	free(markup_text);
 
-	elm_object_style_set(label, "slide_short");
-	elm_label_wrap_width_set(label, 100);
-	elm_label_ellipsis_set(label, EINA_TRUE);
-	elm_label_slide_duration_set(label, 2);
-	elm_label_slide_mode_set(label, ELM_LABEL_SLIDE_MODE_NONE);
-
-	Evas_Object *label_edje = elm_layout_edje_get(label);
-	tb = (Evas_Object *)edje_object_part_object_get(label_edje, "elm.text");
-	if (!tb) {
-		FAT("elm.text part not found in edje");
-	}
-
-	evas_object_textblock_size_native_get(tb, &tb_w, NULL);
-
-	if ((tb_w > 0) && (tb_w > ELM_SCALE_SIZE(EMG_BUTTON_WIDTH))) {
-		elm_label_slide_mode_set(label, ELM_LABEL_SLIDE_MODE_AUTO);
-	}
-
-	elm_label_slide_go(label);
 	elm_object_text_set(label, buf);
-
-	elm_object_part_content_set(swipe_layout, "txt.plmn", label);
-	elm_object_signal_emit(swipe_layout, "show,txt,plmn", "lockscreen");
-	evas_object_show(label);
 }
 
 static void _layout_unlocked(void *data, Evas_Object *obj, const char *emission, const char *source)

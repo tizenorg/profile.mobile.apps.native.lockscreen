@@ -28,9 +28,10 @@
 #include "util_time.h"
 #include "events_view.h"
 #include "time_format.h"
+#include "call.h"
+#include "util.h"
 
-
-static Ecore_Event_Handler *handler[1];
+static Ecore_Event_Handler *handler[2];
 static Evas_Object *main_view;
 
 static void _lockscreen_device_lock_ctrl_view_unlocked(void *data, Evas_Object *obj, void *event)
@@ -165,6 +166,13 @@ _lockscreen_device_lock_ctrl_view_del(void *data, Evas *e, Evas_Object *obj, voi
 	lockscreen_event_free(data);
 }
 
+static void _lockscreen_device_lock_ctrl_pass_view_return_to_call_button_clicked(void *data, Evas_Object  *obj, void *event_info)
+{
+	int ret = lockscreen_call_app_launch_request();
+	if (ret)
+		ERR("Could not send launch request");
+}
+
 static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_view_type type, const lockscreen_event_t *event)
 {
 	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
@@ -178,6 +186,11 @@ static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_vi
 	pass_view = lockscreen_password_view_create(type, main_view);
 	evas_object_smart_callback_add(pass_view, SIGNAL_CANCEL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_cancel_button_clicked, NULL);
 	evas_object_smart_callback_add(pass_view, SIGNAL_ACCEPT_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked, copy);
+	evas_object_smart_callback_add(pass_view, SIGNAL_RETURN_TO_CALL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_return_to_call_button_clicked, NULL);
+
+	if (lockscreen_call_active_is())
+		lockscreen_password_view_btn_return_to_call_show(pass_view);
+
 	lockscreen_main_view_part_content_set(main_view, PART_PASSWORD, pass_view);
 	if (copy)
 		evas_object_event_callback_add(pass_view, EVAS_CALLBACK_DEL,
@@ -228,6 +241,21 @@ static int _lockscreen_device_lock_ctrl_unlock_request(const lockscreen_event_t 
 	return 1;
 }
 
+static Eina_Bool _lockscreen_device_lock_ctrl_btn_return_update(void *data, int event, void *event_info)
+{
+	int active_call = lockscreen_call_active_is();
+
+	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
+	if (pass_view) {
+		if (active_call)
+			lockscreen_password_view_btn_return_to_call_show(pass_view);
+		else
+			lockscreen_password_view_btn_return_to_call_hide(pass_view);
+	}
+
+	return EINA_TRUE;
+}
+
 static void _lockscreen_device_lock_ctrl_swipe_finished(void *data, Evas_Object *obj, void *event)
 {
 	lockscreen_device_lock_type_e type = lockscreen_device_lock_type_get();
@@ -271,12 +299,17 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 		ERR("lockscreen_time_format_init failed");
 	}
 
+	if (lockscreen_call_init()) {
+		ERR("lockscreen_call_init failed");
+	}
+
 	int err = vconf_notify_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed, NULL);
 	if (err) {
 		ERR("vconf_notify_key_changed failed: %s", get_error_message(err));
 	}
 
 	handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_device_lock_ctrl_unlocked, NULL);
+	handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_CALL_STATUS_CHANGED, _lockscreen_device_lock_ctrl_btn_return_update, NULL);
 
 	evas_object_smart_callback_add(view, SIGNAL_SWIPE_GESTURE_FINISHED, _lockscreen_device_lock_ctrl_swipe_finished, NULL);
 	main_view = view;
@@ -287,6 +320,7 @@ void lockscreen_device_lock_ctrl_shutdown()
 {
 	vconf_ignore_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed);
 	ecore_event_handler_del(handler[0]);
+	ecore_event_handler_del(handler[1]);
 	lockscreen_device_lock_shutdown();
 }
 
