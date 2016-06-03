@@ -24,18 +24,23 @@
  */
 #define SIGNAL_CAMERA_SELECTED "camera,icon,selected"
 
+typedef enum {
+	ICON_DEFAULT,
+	ICON_CAMERA = ICON_DEFAULT,
+	ICON_CALL,
+} swipe_icon_e;
 /**
  * @brief Creates camera view
  *
  * @note parent should be Elementary widget.
  */
-Evas_Object *lockscreen_camera_view_create(Evas_Object *parent);
+Evas_Object *lockscreen_swipe_icon_view_create(Evas_Object *parent, swipe_icon_e icon_type);
 
 /**
  * @brief Resets camera view.
  *
  * Show unclicked camera button.
  */
-void lockscreen_camera_view_reset(Evas_Object *parent);
+void lockscreen_swipe_icon_view_reset(Evas_Object *parent);
 
 #endif

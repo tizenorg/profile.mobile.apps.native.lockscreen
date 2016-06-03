@@ -15,12 +15,11 @@
  */
 
 group {
-	name: "camera-layout";
+	name: "swipe-icon-layout";
 	images {
-		image: "quick_shot.png" COMP;
-		image: "quick_shot_press.png" COMP;
 		image: "lock_circle_line_camera.png" COMP;
 		image: "lock_circle_line_camera_drag.png" COMP;
+		image: "quick_shot_bg.png" COMP;
 	}
 	parts {
 		part {
@@ -33,7 +32,7 @@ group {
 			}
 		}
 		part {
-			name: "camera.circle";
+			name: "icon.circle";
 			type: IMAGE;
 			scale: 1;
 			description {
@@ -50,7 +49,7 @@ group {
 			}
 		}
 		part {
-			name: "camera.circle.fill";
+			name: "icon.circle.fill";
 			type: IMAGE;
 			description {
 				state: "default" 0.0;
@@ -67,57 +66,69 @@ group {
 			}
 		}
 		part {
-			name: "img.camera";
+			name: "img.bg";
 			type: IMAGE;
 			scale: 1;
 			description {
 				state: "default" 0.0;
 				max: 124 124;
 				fixed: 1 1;
-				image.normal: "quick_shot.png";
-				visible: 1;
+				image.normal: "quick_shot_bg.png";
+				color_class: "AO001";
 			}
+		}
+		part {
+			name: "sw.icon";
+			type: SWALLOW;
+			scale: 1;
 			description {
-				state: "pressed" 1.0;
-				inherit: "default" 0.0;;
-				image.normal: "quick_shot_press.png";
+				state: "default" 0.0;
+				fixed: 1 1;
+				rel1 {
+					relative: 0.0 0.0;
+					to: "img.bg";
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					to: "img.bg";
+				}
 			}
 		}
 	}
 	programs {
 		program {
 			signal: "mouse,down,1";
-			source: "img.camera";
+			source: "sw.icon";
 			action: STATE_SET "pressed" 1.0;
-			target: "img.camera";
+			target: "sw.icon";
 			after: "circle,expand";
 		}
 		program {
-			signal: "camera,reset";
+			signal: "swipe_icon,reset";
 			source: "lockscreen";
 			after: "circle,contract";
 		}
 		program {
 			name: "circle,expand";
 			action: STATE_SET "pressed" 1.0;
-			target: "camera.circle";
+			target: "icon.circle";
 			transition: DECEL 0.3;
 		}
 		program {
 			name: "circle,contract";
 			action: STATE_SET "default" 0.0;
-			target: "camera.circle";
-			target: "camera.circle.fill";
-			target: "img.camera";
+			target: "icon.circle";
+			target: "icon.circle.fill";
+			target: "sw.icon";
 			transition: DECEL 0.3;
 		}
 		program {
 			signal: "mouse,up,1";
-			source: "img.camera";
+			source: "sw.icon";
 			script {
 				/* get parts coords */
 				new x,y,w,h,ix,iy,iw,ih;
-				get_geometry(PART:"img.camera", ix, iy, iw, ih);
+				get_geometry(PART:"sw.icon", ix, iy, iw, ih);
 				get_geometry(PART:"bg", x, y, w, h);
 
 				/* calculate elipsis center */
@@ -138,7 +149,7 @@ group {
 				/* Emit signal if mouse outside elipsis */
 				if (d >= 1.0)
 				{
-					emit("camera,icon,clicked", "camera-layout");
+					emit("swipe_icon,icon,clicked", "swipe-icon-layout");
 				} else {
 					run_program(PROGRAM:"circle,contract");
 				}
@@ -146,12 +157,12 @@ group {
 		}
 		program {
 			signal: "mouse,move";
-			source: "img.camera";
+			source: "sw.icon";
 			script {
 				new mx,my,x,y,w,h;
 				get_mouse(mx, my);
 
-				get_geometry(PART:"img.camera", x, y, w, h);
+				get_geometry(PART:"sw.icon", x, y, w, h);
 
 				new xb, yb, wb, hb;
 				get_geometry(PART:"bg", xb, yb, wb, hb);
@@ -167,10 +178,10 @@ group {
 				min = (min > wb) ? wb : min;
 				min = (min < w) ? w : min;
 
-				custom_state(PART:"camera.circle.fill", "pressed", 1.0);
-				set_state_val(PART:"camera.circle.fill", STATE_MIN, min, min);
-				set_state_val(PART:"camera.circle.fill", STATE_MAX, min, min);
-				set_state(PART:"camera.circle.fill", "custom", 0.0);
+				custom_state(PART:"icon.circle.fill", "pressed", 1.0);
+				set_state_val(PART:"icon.circle.fill", STATE_MIN, min, min);
+				set_state_val(PART:"icon.circle.fill", STATE_MAX, min, min);
+				set_state(PART:"icon.circle.fill", "custom", 0.0);
 			}
 		}
 	}

@@ -22,6 +22,7 @@
 #include "log.h"
 #include "password_view.h"
 #include "window.h"
+#include "call.h"
 
 static Ecore_Event_Handler *handler[2];
 static Evas_Object *main_view;
@@ -102,14 +103,26 @@ static void _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked(void *d
 	}
 }
 
+static void _lockscreen_device_lock_ctrl_pass_view_return_to_call_button_clicked(void *data, Evas_Object  *obj, void *event_info)
+{
+	DBG("");
+
+	int ret = lockscreen_call_app_launch_request();
+	if (ret)
+		ERR("Could not send launch request");
+}
+
 static void _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_device_lock_type_e type)
 {
+	DBG("");
 	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
 	if (pass_view) return;
 
 	pass_view = lockscreen_password_view_create(type, main_view);
 	evas_object_smart_callback_add(pass_view, SIGNAL_CANCEL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_cancel_button_clicked, NULL);
 	evas_object_smart_callback_add(pass_view, SIGNAL_ACCEPT_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked, NULL);
+	evas_object_smart_callback_add(pass_view, SIGNAL_RETURN_TO_CALL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_return_to_call_button_clicked, NULL);
+
 	lockscreen_main_view_part_content_set(main_view, PART_PASSWORD, pass_view);
 
 	switch (type) {
