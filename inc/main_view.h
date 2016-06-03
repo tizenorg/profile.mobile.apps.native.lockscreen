@@ -43,6 +43,10 @@ typedef enum {
 /**
  * @brief Accessible via lockscreen_main_view_part_content_get/set/unset
  */
+#define PART_CALL "sw.call"
+/**
+ * @brief Accessible via lockscreen_main_view_part_content_get/set/unset
+ */
 #define PART_EVENTS "sw.contextual_event"
 
 /**
@@ -97,6 +101,11 @@ void lockscreen_main_view_unlock(Evas_Object *obj);
  * timezone and 24h format option.
  */
 void lockscreen_main_view_time_set(Evas_Object *view, const char *locale, const char *timezone, bool use24hformat, time_t time);
+
+/**
+ * @brief Sets sim status textual information position.
+ */
+void lockscreen_main_view_plmn_text_center_set(Evas_Object *view, bool center);
 
 /**
  * @brief Sets sim status textual information.
