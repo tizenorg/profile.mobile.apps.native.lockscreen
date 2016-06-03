@@ -52,7 +52,7 @@ INCLUDE_DIRECTORIES(${PROJECT_ROOT_DIR}/inc)
 ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/battery_ctrl.c
 	${PROJECT_ROOT_DIR}/src/camera_ctrl.c
-	${PROJECT_ROOT_DIR}/src/camera_view.c
+	${PROJECT_ROOT_DIR}/src/swipe_icon.c
 	${PROJECT_ROOT_DIR}/src/lockscreen.c
 	${PROJECT_ROOT_DIR}/src/util.c
 	${PROJECT_ROOT_DIR}/src/window.c
@@ -78,6 +78,8 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/device_lock_ctrl.c
 	${PROJECT_ROOT_DIR}/src/password_view.c
 	${PROJECT_ROOT_DIR}/src/deviced.c
+	${PROJECT_ROOT_DIR}/src/call.c
+	${PROJECT_ROOT_DIR}/src/call_ctrl.c
 )
 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS} -lm)
