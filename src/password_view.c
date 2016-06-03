@@ -15,6 +15,7 @@
  */
 
 #include "password_view.h"
+#include "call.h"
 #include "log.h"
 #include "lockscreen.h"
 #include "util.h"
@@ -29,6 +30,12 @@ static void
 _lockscreen_password_view_cancel_button_clicked(void *data, Evas_Object *obj, const char *emission, const char *source)
 {
 	evas_object_smart_callback_call(data, SIGNAL_CANCEL_BUTTON_CLICKED, NULL);
+}
+
+static void
+_lockscreen_password_view_return_to_call_button_clicked(void *data, Evas_Object *obj, const char *emission, const char *source)
+{
+	evas_object_smart_callback_call(data, SIGNAL_RETURN_TO_CALL_BUTTON_CLICKED, NULL);
 }
 
 static void
@@ -84,6 +91,12 @@ static Evas_Object* _lockscreen_password_view_layout_create(Evas_Object *parent)
 	evas_object_show(entry);
 
 	elm_object_signal_callback_add(ly, "cancel,button,clicked", "lock-simple-password", _lockscreen_password_view_cancel_button_clicked, ly);
+	elm_object_signal_callback_add(ly, "return_to_call,button,clicked", "lock-simple-password", _lockscreen_password_view_return_to_call_button_clicked, ly);
+	elm_object_part_text_set(ly, "text.return_to_call", "Return to call");
+
+	if (lockscreen_call_active_is())
+		lockscreen_password_view_btn_return_to_call_show(ly);
+
 	evas_object_show(ly);
 
 	return ly;
@@ -156,12 +169,17 @@ static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *paren
 
 void lockscreen_password_view_btn_cancel_hide(Evas_Object *view)
 {
-	if (!view) {
-		ERR("layout == NULL");
-		return;
-	}
-
 	elm_object_signal_emit(view, "btn,cancel,hide", "lockscreen");
+}
+
+void lockscreen_password_view_btn_return_to_call_hide(Evas_Object *view)
+{
+	elm_object_signal_emit(view, "btn,return_to_call,hide", "lockscreen");
+}
+
+void lockscreen_password_view_btn_return_to_call_show(Evas_Object *view)
+{
+	elm_object_signal_emit(view, "btn,return_to_call,show", "lockscreen");
 }
 
 Evas_Object *lockscreen_password_view_create(lockscreen_password_view_type type, Evas_Object *parent)
