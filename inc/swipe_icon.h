@@ -25,17 +25,34 @@
 #define SIGNAL_CAMERA_SELECTED "camera,icon,selected"
 
 /**
- * @brief Creates camera view
+ * @brief Smart signal emitted when call icon is being selected.
+ */
+#define SIGNAL_CALL_SELECTED "call,icon,selected"
+
+typedef enum {
+	ICON_DEFAULT,
+	ICON_CAMERA = ICON_DEFAULT,
+	ICON_CALL,
+} swipe_icon_e;
+
+/**
+ * @brief Creates swipe icon view
  *
  * @note parent should be Elementary widget.
  */
-Evas_Object *lockscreen_camera_view_create(Evas_Object *parent);
+Evas_Object *lockscreen_swipe_icon_view_create(Evas_Object *parent, swipe_icon_e icon_type);
 
 /**
- * @brief Resets camera view.
+ * @brief Resets swipe icon view.
  *
  * Show unclicked camera button.
  */
-void lockscreen_camera_view_reset(Evas_Object *parent);
+void lockscreen_swipe_icon_view_reset(Evas_Object *parent);
+
+/**
+ * @brief Sets icons description
+ *
+ */
+void lockscreen_swipe_icon_text_set(Evas_Object *ly, char *text);
 
 #endif
