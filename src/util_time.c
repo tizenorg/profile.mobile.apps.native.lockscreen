@@ -238,3 +238,25 @@ bool util_time_formatted_date_get(time_t time, const char *locale, const char *t
 	}
 	return false;
 }
+
+char *util_time_string_get(time_t time, const char *locale, const char *timezone, bool use24hformat)
+{
+	char *str_time, *str_meridiem;
+	char time_buf[256] = {0,};
+
+	if (!util_time_formatted_time_get(time, locale, timezone, use24hformat, &str_time, &str_meridiem)) {
+		ERR("util_time_formatted_time_get failed");
+		return NULL;
+	}
+
+	if (use24hformat) {
+		snprintf(time_buf, sizeof(time_buf), "%s", str_time);
+	} else {
+		snprintf(time_buf, sizeof(time_buf), "%s %s", str_time, str_meridiem);
+	}
+
+	free(str_time);
+	free(str_meridiem);
+	return strdup(time_buf);
+}
+

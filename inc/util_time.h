@@ -21,4 +21,12 @@ bool util_time_formatted_date_get(time_t time, const char *locale, const char *t
 
 bool util_time_formatted_time_get(time_t time, const char *locale, const char *timezone, bool use24hformat, char **str_time, char **str_meridiem);
 
+/**
+ * @brief Get time string with concatenated meridiem
+ *
+ * @return string on success, NULL otherwise
+ * @note returned string must be @free
+ */
+char *util_time_string_get(time_t time, const char *locale, const char *timezone, bool use24hformat);
+
 #endif

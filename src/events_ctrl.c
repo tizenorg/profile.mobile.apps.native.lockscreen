@@ -21,9 +21,9 @@
 #include "events.h"
 #include "time_format.h"
 #include "util_time.h"
-#include "device_lock.h"
 #include "minicontrollers.h"
 #include "display.h"
+#include "device_lock_ctrl.h"
 
 #include <Ecore.h>
 #include <time.h>
@@ -31,7 +31,7 @@
 
 #define MAX_EVENTS_SHOW_COUNT 3
 
-static Ecore_Event_Handler *events_handler[3];
+static Ecore_Event_Handler *events_handler[2];
 static Evas_Object *main_view, *noti_page, *media_page;
 
 static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *data, Evas_Object *obj, const char *part);
@@ -71,30 +71,6 @@ static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *
 	return ret;
 }
 
-static char *_lockscreen_events_view_ctrl_genlist_noti_text_time_get(time_t time)
-{
-	const char *locale = lockscreen_time_format_locale_get();
-	const char *timezone = lockscreen_time_format_timezone_get();
-	bool use24hformat = lockscreen_time_format_use_24h();
-	char *str_time, *str_meridiem;
-	char time_buf[PATH_MAX] = {0,};
-
-	if (!util_time_formatted_time_get(time, locale, timezone, use24hformat, &str_time, &str_meridiem)) {
-		ERR("util_time_formatted_time_get failed");
-		return NULL;
-	}
-
-	if (use24hformat) {
-		snprintf(time_buf, sizeof(time_buf), "%s", str_time);
-	} else {
-		snprintf(time_buf, sizeof(time_buf), "%s %s", str_time, str_meridiem);
-	}
-
-	free(str_time);
-	free(str_meridiem);
-	return strdup(time_buf);
-}
-
 static char *_lockscreen_events_view_ctrl_genlist_noti_text_get(void *data, Evas_Object *obj, const char *part)
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
@@ -107,7 +83,10 @@ static char *_lockscreen_events_view_ctrl_genlist_noti_text_get(void *data, Evas
 		val = lockscreen_event_content_get(event);
 	}
 	else if (!strcmp(part, NOTI_ITEM_TEXT_TIME)) {
-		val = _lockscreen_events_view_ctrl_genlist_noti_text_time_get(lockscreen_event_time_get(event));
+		const char *locale = lockscreen_time_format_locale_get();
+		const char *timezone = lockscreen_time_format_timezone_get();
+		bool use24hformat = lockscreen_time_format_use_24h();
+		val = util_time_string_get(lockscreen_event_time_get(event), locale, timezone, use24hformat);
 		return (char*)val;
 	}
 	return val ? strdup(val) : NULL;
@@ -169,18 +148,11 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 	return time1 > time2 ? -1 : 1;
 }
 
-static void _lockscreen_events_ctrl_launch_done(void)
-{
-	lockscreen_device_lock_unlock_request();
-}
-
 static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
-
-	if (!lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_done)) {
-		lockscreen_device_lock_unlock_request();
-	}
+	lockscreen_device_lock_ctrl_unlock_and_launch_request(event);
+	elm_genlist_item_selected_set(info, EINA_FALSE);
 }
 
 static void _lockscreen_events_ctrl_item_expand_request(void *data, Evas_Object *obj, void *info)
@@ -296,12 +268,6 @@ static Eina_Bool _lockscreen_events_ctrl_minicontrollers_changed(void *data, int
 	return EINA_TRUE;
 }
 
-static Eina_Bool _lockscreen_events_ctrl_device_unlocked(void *data, int event, void *event_info)
-{
-	lockscreen_events_remove_all();
-	return EINA_TRUE;
-}
-
 int lockscreen_events_ctrl_init(Evas_Object *mv)
 {
 	if (lockscreen_events_init()) {
@@ -319,11 +285,6 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 		goto time_failed;
 	}
 
-	if (lockscreen_device_lock_init()) {
-		FAT("lockscreen_device_lock_init failed.");
-		goto lock_failed;
-	}
-
 	if (lockscreen_display_init()) {
 		FAT("lockscreen_display_init failed.");
 		goto display_failed;
@@ -333,13 +294,10 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 
 	events_handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, _lockscreen_events_ctrl_events_changed, NULL);
 	events_handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_ctrl_minicontrollers_changed, NULL);
-	events_handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_events_ctrl_device_unlocked, NULL);
 
 	return 0;
 
 display_failed:
-	lockscreen_device_lock_shutdown();
-lock_failed:
 	lockscreen_time_format_shutdown();
 time_failed:
 	lockscreen_minicontrollers_shutdown();
@@ -353,9 +311,5 @@ void lockscreen_events_ctrl_shutdown()
 {
 	ecore_event_handler_del(events_handler[0]);
 	ecore_event_handler_del(events_handler[1]);
-	ecore_event_handler_del(events_handler[2]);
-	lockscreen_events_shutdown();
-	lockscreen_minicontrollers_shutdown();
-	lockscreen_time_format_shutdown();
-	lockscreen_device_lock_shutdown();
+	lockscreen_events_remove_all();
 }
