@@ -150,9 +150,6 @@ void lockscreen_device_lock_shutdown(void)
 int lockscreen_device_lock_unlock_request(void)
 {
 	switch (lockscreen_device_lock_type_get()) {
-		case LOCKSCREEN_DEVICE_LOCK_NONE:
-			_lockscreen_device_unlock();
-			break;
 		// FIXME  because of VK issue (appears under lockscreen) unlock w/o
 		// validation
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:

@@ -21,7 +21,6 @@
 #include "events.h"
 #include "time_format.h"
 #include "util_time.h"
-#include "device_lock.h"
 #include "minicontrollers.h"
 
 #include <Ecore.h>
@@ -168,18 +167,11 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 	return time1 > time2 ? -1 : 1;
 }
 
-static void _lockscreen_events_ctrl_launch_done(void)
-{
-	lockscreen_device_lock_unlock_request();
-}
-
 static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
-
-	if (!lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_done)) {
-		lockscreen_device_lock_unlock_request();
-	}
+	lockscreen_event_launch_request(event);
+	elm_genlist_item_selected_set(info, EINA_FALSE);
 }
 
 static void _lockscreen_events_ctrl_item_expand_request(void *data, Evas_Object *obj, void *info)
@@ -296,12 +288,6 @@ static Eina_Bool _lockscreen_events_ctrl_minicontrollers_changed(void *data, int
 	return EINA_TRUE;
 }
 
-static Eina_Bool _lockscreen_events_ctrl_device_unlocked(void *data, int event, void *event_info)
-{
-	lockscreen_events_remove_all();
-	return EINA_TRUE;
-}
-
 int lockscreen_events_ctrl_init(Evas_Object *mv)
 {
 	if (lockscreen_events_init()) {
@@ -322,30 +308,15 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 		return 1;
 	}
 
-	if (lockscreen_device_lock_init()) {
-		FAT("lockscreen_device_lock_init failed.");
-		lockscreen_events_shutdown();
-		lockscreen_minicontrollers_shutdown();
-		lockscreen_time_format_shutdown();
-		return 1;
-	}
-
 	main_view = mv;
 
 	events_handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, _lockscreen_events_ctrl_events_changed, NULL);
 	events_handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_ctrl_minicontrollers_changed, NULL);
-	events_handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_events_ctrl_device_unlocked, NULL);
 
 	return 0;
 }
 
 void lockscreen_events_ctrl_shutdown()
 {
-	ecore_event_handler_del(events_handler[0]);
-	ecore_event_handler_del(events_handler[1]);
-	ecore_event_handler_del(events_handler[2]);
-	lockscreen_events_shutdown();
-	lockscreen_minicontrollers_shutdown();
-	lockscreen_time_format_shutdown();
-	lockscreen_device_lock_shutdown();
+	lockscreen_events_remove_all();
 }

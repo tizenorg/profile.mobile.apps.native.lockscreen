@@ -27,6 +27,7 @@
 static Eina_List *notifications;
 static int init_count;
 int LOCKSCREEN_EVENT_EVENTS_CHANGED;
+int LOCKSCREEN_EVENT_EVENT_LAUNCH_REQUEST;
 static Ecore_Event_Handler *handler;
 static bool freeze_event;
 
@@ -210,6 +211,7 @@ int lockscreen_events_init(void)
 {
 	if (!init_count) {
 		LOCKSCREEN_EVENT_EVENTS_CHANGED = ecore_event_type_new();
+		LOCKSCREEN_EVENT_EVENT_LAUNCH_REQUEST = ecore_event_type_new();
 		int ret = notification_register_detailed_changed_cb(_noti_changed_cb, NULL);
 		if (ret != NOTIFICATION_ERROR_NONE) {
 			ERR("notification_register_detailed_changed_cb failed: %s", get_error_message(ret));
@@ -359,4 +361,25 @@ void lockscreen_events_remove_all(void)
 	notifications = NULL;
 	freeze_event = false;
 	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
+}
+
+lockscreen_event_t *lockscreen_event_copy(lockscreen_event_t *event)
+{
+	return _lockscreen_event_notification_create(event->noti);
+}
+
+void lockscreen_event_free(lockscreen_event_t *event)
+{
+	_lockscreen_event_destroy(event);
+}
+
+static void _lockscreen_event_free_data(void *data, void *fn)
+{
+	_lockscreen_event_destroy(fn);
+}
+
+bool lockscreen_event_launch_request(lockscreen_event_t *event)
+{
+	ecore_event_add(LOCKSCREEN_EVENT_EVENT_LAUNCH_REQUEST, _lockscreen_event_notification_create(event->noti), _lockscreen_event_free_data, NULL);
+	return true;
 }

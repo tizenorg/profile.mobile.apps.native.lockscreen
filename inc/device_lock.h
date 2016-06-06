@@ -51,11 +51,9 @@ int lockscreen_device_lock_init(void);
 void lockscreen_device_lock_shutdown(void);
 
 /**
- * @brief Request device unlock.
+ * @brief Request device unlock with event
  *
  * @note This function may trigger LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST
- * event or LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED event in case when no lock
- * type is set.
  *
  * @return 0 on success, other value on failure.
  */

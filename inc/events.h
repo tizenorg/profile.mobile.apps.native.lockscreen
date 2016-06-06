@@ -25,6 +25,11 @@
 extern int LOCKSCREEN_EVENT_EVENTS_CHANGED;
 
 /**
+ * @brief Event fired when lockscreen's events change.
+ */
+extern int LOCKSCREEN_EVENT_EVENT_LAUNCH_REQUEST;
+
+/**
  * @brief lockscreen event handle
  */
 typedef struct lockscreen_event lockscreen_event_t;
@@ -81,6 +86,8 @@ typedef void (*Launch_Done_Cb)(void);
  */
 bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb);
 
+bool lockscreen_event_launch_request(lockscreen_event_t *event);
+
 /**
  * @brief Gets list of all displayed events.
  *
@@ -103,5 +110,15 @@ void lockscreen_event_remove(lockscreen_event_t *event);
  * @brief Clears all events
  */
 void lockscreen_events_remove_all(void);
+
+/**
+ * @brief Copies event
+ */
+lockscreen_event_t *lockscreen_event_copy(lockscreen_event_t *event);
+
+/**
+ *
+ */
+void lockscreen_event_free(lockscreen_event_t *event);
 
 #endif
