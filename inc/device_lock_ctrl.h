@@ -20,6 +20,20 @@
 #include <Elementary.h>
 
 /**
+ * @brief Event fired when unlock request has been canceled by the user.
+ */
+extern int LOCKSCREEN_EVENT_DEVICE_LOCK_CTRL_UNLOCK_REQUEST_CANCELED;
+
+/**
+ * @brief Request controller to unlock device.
+ *
+ * @note This function triggers LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST
+ *
+ * @return 0 on success, other value on failure.
+ */
+int lockscreen_device_lock_ctrl_unlock_request(void);
+
+/**
  * @brief Initialize device_lock controller.
  *
  * Device lock controller module manages displaying unlock panels (password type, PIN,

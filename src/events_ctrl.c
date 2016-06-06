@@ -21,8 +21,9 @@
 #include "events.h"
 #include "time_format.h"
 #include "util_time.h"
-#include "device_lock.h"
 #include "minicontrollers.h"
+#include "device_lock.h"
+#include "device_lock_ctrl.h"
 
 #include <Ecore.h>
 #include <time.h>
@@ -30,8 +31,9 @@
 
 #define MAX_EVENTS_SHOW_COUNT 3
 
-static Ecore_Event_Handler *events_handler[3];
+static Ecore_Event_Handler *events_handler[4];
 static Evas_Object *main_view, *noti_page, *media_page;
+static lockscreen_event_t *launched_event;
 
 static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *data, Evas_Object *obj, const char *part);
 static char *_lockscreen_events_view_ctrl_genlist_noti_text_get(void *data, Evas_Object *obj, const char *part);
@@ -168,18 +170,13 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 	return time1 > time2 ? -1 : 1;
 }
 
-static void _lockscreen_events_ctrl_launch_done(void)
-{
-	lockscreen_device_lock_unlock_request();
-}
-
 static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
-
-	if (!lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_done)) {
-		lockscreen_device_lock_unlock_request();
-	}
+	lockscreen_device_lock_ctrl_unlock_request();
+	elm_genlist_item_selected_set(info, EINA_FALSE);
+	if (launched_event) lockscreen_event_free(launched_event);
+	launched_event = lockscreen_event_copy(event);
 }
 
 static void _lockscreen_events_ctrl_item_expand_request(void *data, Evas_Object *obj, void *info)
@@ -298,8 +295,19 @@ static Eina_Bool _lockscreen_events_ctrl_minicontrollers_changed(void *data, int
 
 static Eina_Bool _lockscreen_events_ctrl_device_unlocked(void *data, int event, void *event_info)
 {
-	lockscreen_events_remove_all();
+	if (launched_event) {
+		lockscreen_event_launch(launched_event, NULL);
+		lockscreen_event_free(launched_event);
+	}
 	return EINA_TRUE;
+}
+
+static Eina_Bool _lockscreen_events_ctrl_device_ctrl_request_canceled(void *data, int event, void *event_info)
+{
+	if (launched_event) {
+		lockscreen_event_free(launched_event);
+		launched_event = NULL;
+	}
 }
 
 int lockscreen_events_ctrl_init(Evas_Object *mv)
@@ -311,41 +319,39 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 
 	if (lockscreen_minicontrollers_init()) {
 		FAT("lockscreen_minicontrollers_init failed.");
-		lockscreen_events_shutdown();
-		return 1;
+		goto mini_fail;
 	}
 
 	if (lockscreen_time_format_init()) {
 		FAT("lockscreen_time_format_init failed.");
-		lockscreen_events_shutdown();
-		lockscreen_minicontrollers_shutdown();
-		return 1;
+		goto time_fail;
 	}
 
 	if (lockscreen_device_lock_init()) {
 		FAT("lockscreen_device_lock_init failed.");
-		lockscreen_events_shutdown();
-		lockscreen_minicontrollers_shutdown();
-		lockscreen_time_format_shutdown();
-		return 1;
+		goto device_fail;
 	}
 
 	main_view = mv;
 
 	events_handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, _lockscreen_events_ctrl_events_changed, NULL);
 	events_handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_ctrl_minicontrollers_changed, NULL);
-	events_handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_events_ctrl_device_unlocked, NULL);
+	events_handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_CTRL_UNLOCK_REQUEST_CANCELED, _lockscreen_events_ctrl_device_ctrl_request_canceled, NULL);
+	events_handler[3] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_events_ctrl_device_unlocked, NULL);
 
 	return 0;
+
+device_fail:
+	lockscreen_time_format_shutdown();
+time_fail:
+	lockscreen_minicontrollers_shutdown();
+mini_fail:
+	lockscreen_events_shutdown();
+
+	return 1;
 }
 
 void lockscreen_events_ctrl_shutdown()
 {
-	ecore_event_handler_del(events_handler[0]);
-	ecore_event_handler_del(events_handler[1]);
-	ecore_event_handler_del(events_handler[2]);
-	lockscreen_events_shutdown();
-	lockscreen_minicontrollers_shutdown();
-	lockscreen_time_format_shutdown();
-	lockscreen_device_lock_shutdown();
+	lockscreen_events_remove_all();
 }

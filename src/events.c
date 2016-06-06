@@ -360,3 +360,13 @@ void lockscreen_events_remove_all(void)
 	freeze_event = false;
 	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
 }
+
+lockscreen_event_t *lockscreen_event_copy(lockscreen_event_t *event)
+{
+	return _lockscreen_event_notification_create(event->noti);
+}
+
+void lockscreen_event_free(lockscreen_event_t *event)
+{
+	_lockscreen_event_destroy(event);
+}

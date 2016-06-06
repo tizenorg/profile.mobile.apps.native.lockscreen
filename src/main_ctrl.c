@@ -110,5 +110,6 @@ int lockscreen_main_ctrl_init(void)
 
 void lockscreen_main_ctrl_shutdown(void)
 {
+	lockscreen_events_ctrl_shutdown();
 	evas_object_del(win);
 }

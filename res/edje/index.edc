@@ -206,6 +206,7 @@ collections {
 	}
 	/* Elementary theme to overwrite */
 	group { name: "elm/genlist/item/noti/default";
+		alias: "elm/layout/noti/default";
 		styles {
 			style {
 				name: "title_style";
