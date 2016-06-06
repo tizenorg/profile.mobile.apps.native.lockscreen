@@ -95,13 +95,27 @@ Eina_List *lockscreen_events_get(void);
 bool lockscreen_events_exists(void);
 
 /**
- * @brief Clears event
+ * @brief Removes event from internal notification database and free event.
  */
 void lockscreen_event_remove(lockscreen_event_t *event);
 
 /**
- * @brief Clears all events
+ * @brief Removes all events
  */
 void lockscreen_events_remove_all(void);
+
+/**
+ * @brief Copies event
+ */
+lockscreen_event_t *lockscreen_event_copy(lockscreen_event_t *event);
+
+/**
+ * @brief Free event
+ */
+void lockscreen_event_free(lockscreen_event_t *event);
+
+void lockscreen_events_launch_candidate_set(lockscreen_event_t *event);
+
+lockscreen_event_t *lockscreen_events_launch_candidate_get(void);
 
 #endif
