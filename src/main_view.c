@@ -272,6 +272,8 @@ void lockscreen_main_view_sim_status_text_set(Evas_Object *view, const char *tex
 	}
 
 	label = elm_label_add(swipe_layout);
+	evas_object_size_hint_align_set(label, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	evas_object_size_hint_weight_set(label, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	elm_object_scale_set(label, edje_scale_get() * 0.6);
 	markup_text = elm_entry_utf8_to_markup(text);
 	snprintf(buf, sizeof(buf), "%s%s%s", PLMN_LABEL_STYLE_START, markup_text, PLMN_LABEL_STYLE_END);
