@@ -50,6 +50,7 @@ bool _create_app(void *data)
 
 void _terminate_app(void *data)
 {
+	lockscreen_main_ctrl_shutdown();
 	DBG("Lockscreen terminated request.");
 }
 

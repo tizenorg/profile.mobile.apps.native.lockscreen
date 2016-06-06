@@ -27,12 +27,6 @@ typedef enum {
 } lockscreen_device_lock_type_e;
 
 /**
- * @brief Event fired when unlock request has been triggered
- * with lockscreen_device_lock_unlock_request method.
- */
-extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
-
-/**
  * @brief Event fired when device has been successfully
  * unlocked with lockscreen_device_lock_unlock method.
  */
@@ -49,17 +43,6 @@ int lockscreen_device_lock_init(void);
  * @brief Shutdowns device lock module
  */
 void lockscreen_device_lock_shutdown(void);
-
-/**
- * @brief Request device unlock.
- *
- * @note This function may trigger LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST
- * event or LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED event in case when no lock
- * type is set.
- *
- * @return 0 on success, other value on failure.
- */
-int lockscreen_device_lock_unlock_request(void);
 
 /**
  * @brief Get current lock type.
