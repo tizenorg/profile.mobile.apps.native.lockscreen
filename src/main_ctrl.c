@@ -50,12 +50,12 @@ static Eina_Bool _lockscreen_main_ctrl_win_event_cb(void *data, Evas_Object *obj
 	return EINA_TRUE;
 }
 
-static void _lockcscreen_main_ctrl_win_touch_start_cb(void *data, Evas_Object *obj, void *event_info)
+static void _lockcscreen_main_ctrl_win_display_freeze(void *data, Evas_Object *obj, void *event_info)
 {
 	lockscreen_display_timer_freeze();
 }
 
-static void _lockcscreen_main_ctrl_win_touch_end_cb(void *data, Evas_Object *obj, void *event_info)
+static void _lockcscreen_main_ctrl_win_display_thaw(void *data, Evas_Object *obj, void *event_info)
 {
 	lockscreen_display_timer_renew();
 }
@@ -73,8 +73,10 @@ int lockscreen_main_ctrl_init(void)
 	if (lockscreen_display_init()) {
 		FAT("lockscreen_display_init failed. Display on/off changes will not be available.");
 	} else {
-		evas_object_smart_callback_add(win, SIGNAL_TOUCH_STARTED, _lockcscreen_main_ctrl_win_touch_start_cb, NULL);
-		evas_object_smart_callback_add(win, SIGNAL_TOUCH_ENDED, _lockcscreen_main_ctrl_win_touch_end_cb, NULL);
+		evas_object_smart_callback_add(win, SIGNAL_TOUCH_STARTED, _lockcscreen_main_ctrl_win_display_freeze, NULL);
+		evas_object_smart_callback_add(win, SIGNAL_TOUCH_ENDED, _lockcscreen_main_ctrl_win_display_thaw, NULL);
+		evas_object_smart_callback_add(win, "unfocused", _lockcscreen_main_ctrl_win_display_freeze, NULL);
+		evas_object_smart_callback_add(win, "focused", _lockcscreen_main_ctrl_win_display_thaw, NULL);
 	}
 
 	lockscreen_window_content_set(view);
