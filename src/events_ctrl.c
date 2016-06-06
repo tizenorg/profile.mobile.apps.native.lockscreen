@@ -23,6 +23,7 @@
 #include "util_time.h"
 #include "device_lock.h"
 #include "minicontrollers.h"
+#include "display.h"
 
 #include <Ecore.h>
 #include <time.h>
@@ -210,6 +211,8 @@ static void _lockscreen_events_ctrl_events_reload()
 	static Eina_List *events;
 	int i, max;
 
+	lockscreen_display_timer_renew();
+
 	if (!noti_page) {
 		Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
 		noti_page = lockscreen_events_view_page_prepend(events_view);
@@ -308,23 +311,22 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 
 	if (lockscreen_minicontrollers_init()) {
 		FAT("lockscreen_minicontrollers_init failed.");
-		lockscreen_events_shutdown();
-		return 1;
+		goto mini_failed;
 	}
 
 	if (lockscreen_time_format_init()) {
 		FAT("lockscreen_time_format_init failed.");
-		lockscreen_events_shutdown();
-		lockscreen_minicontrollers_shutdown();
-		return 1;
+		goto time_failed;
 	}
 
 	if (lockscreen_device_lock_init()) {
 		FAT("lockscreen_device_lock_init failed.");
-		lockscreen_events_shutdown();
-		lockscreen_minicontrollers_shutdown();
-		lockscreen_time_format_shutdown();
-		return 1;
+		goto lock_failed;
+	}
+
+	if (lockscreen_display_init()) {
+		FAT("lockscreen_display_init failed.");
+		goto display_failed;
 	}
 
 	main_view = mv;
@@ -334,6 +336,17 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 	events_handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_events_ctrl_device_unlocked, NULL);
 
 	return 0;
+
+display_failed:
+	lockscreen_device_lock_shutdown();
+lock_failed:
+	lockscreen_time_format_shutdown();
+time_failed:
+	lockscreen_minicontrollers_shutdown();
+mini_failed:
+	lockscreen_events_shutdown();
+
+	return 1;
 }
 
 void lockscreen_events_ctrl_shutdown()
