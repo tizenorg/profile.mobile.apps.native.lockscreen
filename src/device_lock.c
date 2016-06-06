@@ -24,7 +24,6 @@
 
 static int init_count;
 static lockscreen_device_lock_type_e lock_type;
-int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
 int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED;
 static int attempt, max_attempts = -1;
 
@@ -101,7 +100,6 @@ int lockscreen_device_lock_init(void)
 {
 	int type;
 	if (!init_count) {
-		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST = ecore_event_type_new();
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED = ecore_event_type_new();
 		int ret = vconf_get_int(VCONFKEY_SETAPPL_SCREEN_LOCK_TYPE_INT, &type);
 		if (ret) {
@@ -136,25 +134,6 @@ void lockscreen_device_lock_shutdown(void)
 	if (init_count) {
 		init_count--;
 	}
-}
-
-int lockscreen_device_lock_unlock_request(void)
-{
-	switch (lockscreen_device_lock_type_get()) {
-		case LOCKSCREEN_DEVICE_LOCK_NONE:
-			_lockscreen_device_unlock();
-			break;
-		// FIXME  because of VK issue (appears under lockscreen) unlock w/o
-		// validation
-		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
-			_lockscreen_device_unlock();
-			break;
-		default:
-			ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST, NULL, NULL, NULL);
-			break;
-	}
-
-	return 0;
 }
 
 lockscreen_device_lock_type_e lockscreen_device_lock_type_get(void)
