@@ -206,6 +206,7 @@ collections {
 	}
 	/* Elementary theme to overwrite */
 	group { name: "elm/genlist/item/noti/default";
+		alias: "elm/layout/noti/default";
 		styles {
 			style {
 				name: "title_style";
@@ -232,13 +233,14 @@ collections {
 		spacer { "base"; scale;
 			 desc { "default";
 				min: 0 130;
+				max: -1 130;
 			 }
 		  }
 		  rect { "bg"; scale;
 			 desc { "default";
 				color: 22 22 22 50;
-				rel1.relative: 0.0 0.0;
-				rel2.relative: 1.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "base"; }
+				rel2 { relative: 1.0 1.0; to: "base"; }
 			 }
 			 desc { "pressed";
 				inherit: "default";
@@ -251,8 +253,8 @@ collections {
 				min: 26 0;
 				max: 26 -1;
 				align: 0.0 0.5;
-				rel1.relative: 0.0 0.0;
-				rel2.relative: 0.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "base"; }
+				rel2 { relative: 1.0 1.0; to: "base"; }
 			 }
 		}
 		spacer { "padding.right"; scale;
@@ -261,8 +263,8 @@ collections {
 				min: 26 0;
 				max: 26 -1;
 				align: 1.0 0.5;
-				rel1.relative: 1.0 0.0;
-				rel2.relative: 1.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "base"; }
+				rel2 { relative: 1.0 1.0; to: "base"; }
 			 }
 		}
 		spacer { "padding.top"; scale;
@@ -271,8 +273,8 @@ collections {
 				min: 0 16;
 				max: -1 16;
 				align: 0.5 0.0;
-				rel1.relative: 0.0 0.0;
-				rel2.relative: 1.0 0.0;
+				rel1 { relative: 0.0 0.0; to: "base"; }
+				rel2 { relative: 1.0 1.0; to: "base"; }
 			 }
 		}
 		spacer { "padding.bottom"; scale;
@@ -280,9 +282,9 @@ collections {
 				fixed: 0 1;
 				min: 0 16;
 				max: -1 16;
-				align: 0.5 0.0;
-				rel1.relative: 0.0 1.0;
-				rel2.relative: 1.0 1.0;
+				align: 0.5 1.0;
+				rel1 { relative: 0.0 0.0; to: "base"; }
+				rel2 { relative: 1.0 1.0; to: "base"; }
 			 }
 		}
 		swallow { "elm.swallow.icon"; scale;

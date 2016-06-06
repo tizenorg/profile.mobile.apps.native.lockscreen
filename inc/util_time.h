@@ -21,4 +21,6 @@ bool util_time_formatted_date_get(time_t time, const char *locale, const char *t
 
 bool util_time_formatted_time_get(time_t time, const char *locale, const char *timezone, bool use24hformat, char **str_time, char **str_meridiem);
 
+char *util_time_string_get(time_t time, const char *locale, const char *timezone, bool use24hformat);
+
 #endif

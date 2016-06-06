@@ -27,7 +27,6 @@
 static Eina_List *notifications;
 static int init_count;
 int LOCKSCREEN_EVENT_EVENTS_CHANGED;
-static Ecore_Event_Handler *handler;
 static bool freeze_event;
 
 struct lockscreen_event {
@@ -234,7 +233,6 @@ void lockscreen_events_shutdown(void)
 				ERR("notification_unregister_detailed_changed_cb failed: %s", get_error_message(ret));
 			}
 			_unload_notifications(NULL, notifications);
-			ecore_event_handler_del(handler);
 		}
 	}
 }
@@ -359,4 +357,14 @@ void lockscreen_events_remove_all(void)
 	notifications = NULL;
 	freeze_event = false;
 	ecore_event_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, NULL, NULL, NULL);
+}
+
+lockscreen_event_t *lockscreen_event_copy(const lockscreen_event_t *event)
+{
+	return _lockscreen_event_notification_create(event->noti);
+}
+
+void lockscreen_event_free(lockscreen_event_t *event)
+{
+	_lockscreen_event_destroy(event);
 }
