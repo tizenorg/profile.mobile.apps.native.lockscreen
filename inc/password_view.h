@@ -53,13 +53,14 @@
 #define PART_TEXT_TITLE "text.title"
 
 /**
- * @brief View cancel button text.
+ * @brief Event swallow part
  */
-#define PART_TEXT_CANCEL "text.cancel"
+#define PART_CONTENT_EVENT "sw.event"
 
 typedef enum {
 	LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN,
 	LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD,
+	LOCKSCREEN_PASSWORD_VIEW_TYPE_SWIPE,
 } lockscreen_password_view_type;
 
 /**
