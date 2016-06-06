@@ -57,9 +57,15 @@
  */
 #define PART_TEXT_CANCEL "text.cancel"
 
+/**
+ * @brief Event swallow part
+ */
+#define PART_CONTENT_EVENT "sw.event"
+
 typedef enum {
 	LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN,
 	LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD,
+	LOCKSCREEN_PASSWORD_VIEW_TYPE_SWIPE,
 } lockscreen_password_view_type;
 
 /**
@@ -84,5 +90,10 @@ void lockscreen_password_view_pin_password_length_set(Evas_Object *view, int len
  * @brief Hides cancel button
  */
 void lockscreen_password_view_btn_cancel_hide(Evas_Object *view);
+
+/**
+ * @brief Displays event minature on view
+ */
+void lockscreen_password_view_event_set(Evas_Object *view, Evas_Object *event);
 
 #endif
