@@ -67,11 +67,6 @@ const char *lockscreen_event_content_get(const lockscreen_event_t *event);
 time_t lockscreen_event_time_get(const lockscreen_event_t *event);
 
 /**
- * @brief Launch done callback.
- */
-typedef void (*Launch_Done_Cb)(void);
-
-/**
  * @brief Launch application which posted the event
  *
  * @return true on success launch request.
@@ -79,7 +74,7 @@ typedef void (*Launch_Done_Cb)(void);
  * an error occured.
  * @note if function returns false, cb will never be called.
  */
-bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb);
+bool lockscreen_event_launch(lockscreen_event_t *event);
 
 /**
  * @brief Gets list of all displayed events.
@@ -95,13 +90,28 @@ Eina_List *lockscreen_events_get(void);
 bool lockscreen_events_exists(void);
 
 /**
- * @brief Clears event
+ * @brief Removes event from internal notification database and free event.
  */
 void lockscreen_event_remove(lockscreen_event_t *event);
 
 /**
- * @brief Clears all events
+ * @brief Removes all events
  */
 void lockscreen_events_remove_all(void);
+
+/**
+ * @brief Copies event
+ */
+lockscreen_event_t *lockscreen_event_copy(const lockscreen_event_t *event);
+
+/**
+ * @brief Free event
+ */
+void lockscreen_event_free(lockscreen_event_t *event);
+
+/**
+ * @brief gets launch candidate
+ */
+const lockscreen_event_t *lockscreen_events_launch_candidate_get(void);
 
 #endif

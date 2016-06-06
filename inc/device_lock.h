@@ -33,6 +33,12 @@ typedef enum {
 extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
 
 /**
+ * @brief Event fired when unlock has been cancelled
+ * with lockscreen_device_lock_unlock_request_cancel method.
+ */
+extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST_CANCELLED;
+
+/**
  * @brief Event fired when device has been successfully
  * unlocked with lockscreen_device_lock_unlock method.
  */
@@ -60,6 +66,8 @@ void lockscreen_device_lock_shutdown(void);
  * @return 0 on success, other value on failure.
  */
 int lockscreen_device_lock_unlock_request(void);
+
+int lockscreen_device_lock_unlock_request_cancel(void);
 
 /**
  * @brief Get current lock type.
