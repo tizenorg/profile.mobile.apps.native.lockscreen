@@ -21,9 +21,10 @@
 #include "events.h"
 #include "time_format.h"
 #include "util_time.h"
-#include "device_lock.h"
 #include "minicontrollers.h"
 #include "display.h"
+#include "device_lock.h"
+#include "device_lock_ctrl.h"
 
 #include <Ecore.h>
 #include <time.h>
@@ -31,8 +32,9 @@
 
 #define MAX_EVENTS_SHOW_COUNT 3
 
-static Ecore_Event_Handler *events_handler[3];
+static Ecore_Event_Handler *events_handler[4];
 static Evas_Object *main_view, *noti_page, *media_page;
+static lockscreen_event_t *launched_event;
 
 static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *data, Evas_Object *obj, const char *part);
 static char *_lockscreen_events_view_ctrl_genlist_noti_text_get(void *data, Evas_Object *obj, const char *part);
@@ -169,18 +171,49 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 	return time1 > time2 ? -1 : 1;
 }
 
-static void _lockscreen_events_ctrl_launch_done(void)
+static Evas_Object*
+_lockscreen_events_ctrl_item_event_miniature_create(Evas_Object *parent, const lockscreen_event_t *event)
 {
-	lockscreen_device_lock_unlock_request();
+	Evas_Object *icon, *ret = elm_layout_add(parent);
+	char *time;
+
+	if (!elm_layout_theme_set(ret, "layout", "noti", "default")) {
+		FAT("elm_layout_theme_set failed");
+		evas_object_del(ret);
+		return NULL;
+	}
+
+	if (lockscreen_event_icon_get(event)) {
+		icon = elm_icon_add(ret);
+		elm_image_fill_outside_set(icon, EINA_TRUE);
+		elm_image_file_set(icon, lockscreen_event_icon_get(event), NULL);
+		evas_object_show(icon);
+		elm_object_part_content_set(ret, NOTI_ITEM_ICON, icon);
+	}
+	if (lockscreen_event_sub_icon_get(event)) {
+		icon = elm_icon_add(ret);
+		elm_image_file_set(icon, lockscreen_event_sub_icon_get(event), NULL);
+		evas_object_show(icon);
+		elm_object_part_content_set(ret, NOTI_ITEM_ICON_SUB, icon);
+	}
+	elm_object_part_text_set(ret, NOTI_ITEM_TEXT, lockscreen_event_title_get(event));
+	elm_object_part_text_set(ret, NOTI_ITEM_TEXT_SUB, lockscreen_event_content_get(event));
+	time = _lockscreen_events_view_ctrl_genlist_noti_text_time_get(lockscreen_event_time_get(event));
+	elm_object_part_text_set(ret, NOTI_ITEM_TEXT_TIME, time);
+	free(time);
+
+	evas_object_show(ret);
+	return ret;
 }
 
 static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
-
-	if (!lockscreen_event_launch(event, _lockscreen_events_ctrl_launch_done)) {
-		lockscreen_device_lock_unlock_request();
-	}
+	Evas_Object *mini = _lockscreen_events_ctrl_item_event_miniature_create(obj, event);
+	lockscreen_device_lock_ctrl_unlock_request(mini);
+	elm_genlist_item_selected_set(info, EINA_FALSE);
+	if (launched_event) lockscreen_event_free(launched_event);
+	launched_event = lockscreen_event_copy(event);
 }
 
 static void _lockscreen_events_ctrl_item_expand_request(void *data, Evas_Object *obj, void *info)
@@ -298,7 +331,19 @@ static Eina_Bool _lockscreen_events_ctrl_minicontrollers_changed(void *data, int
 
 static Eina_Bool _lockscreen_events_ctrl_device_unlocked(void *data, int event, void *event_info)
 {
-	lockscreen_events_remove_all();
+	if (launched_event) {
+		lockscreen_event_launch(launched_event, NULL);
+		lockscreen_event_free(launched_event);
+	}
+	return EINA_TRUE;
+}
+
+static Eina_Bool _lockscreen_events_ctrl_device_ctrl_request_canceled(void *data, int event, void *event_info)
+{
+	if (launched_event) {
+		lockscreen_event_free(launched_event);
+		launched_event = NULL;
+	}
 	return EINA_TRUE;
 }
 
@@ -333,7 +378,8 @@ int lockscreen_events_ctrl_init(Evas_Object *mv)
 
 	events_handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_EVENTS_CHANGED, _lockscreen_events_ctrl_events_changed, NULL);
 	events_handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED, _lockscreen_events_ctrl_minicontrollers_changed, NULL);
-	events_handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_events_ctrl_device_unlocked, NULL);
+	events_handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_CTRL_UNLOCK_REQUEST_CANCELED, _lockscreen_events_ctrl_device_ctrl_request_canceled, NULL);
+	events_handler[3] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_events_ctrl_device_unlocked, NULL);
 
 	return 0;
 
@@ -354,8 +400,6 @@ void lockscreen_events_ctrl_shutdown()
 	ecore_event_handler_del(events_handler[0]);
 	ecore_event_handler_del(events_handler[1]);
 	ecore_event_handler_del(events_handler[2]);
-	lockscreen_events_shutdown();
-	lockscreen_minicontrollers_shutdown();
-	lockscreen_time_format_shutdown();
-	lockscreen_device_lock_shutdown();
+	ecore_event_handler_del(events_handler[3]);
+	lockscreen_events_remove_all();
 }
