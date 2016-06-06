@@ -17,7 +17,6 @@
 #include <device/display.h>
 #include <device/callback.h>
 #include <Ecore.h>
-
 #include "display.h"
 #include "log.h"
 
@@ -127,10 +126,14 @@ void lockscreen_display_timer_freeze(void)
 
 void lockscreen_display_timer_renew(void)
 {
-	if (lcd_off_timer) {
-		ecore_timer_thaw(lcd_off_timer);
-		ecore_timer_reset(lcd_off_timer);
+	if (display_off) {
+		int ret = device_display_change_state(DISPLAY_STATE_NORMAL);
+		if (ret != DEVICE_ERROR_NONE) {
+			ERR("device_display_change_state failed: %s", get_error_message(ret));
+		}
 	}
+	ecore_timer_thaw(lcd_off_timer);
+	_timer_reset();
 }
 
 bool lockscreen_display_is_off(void)
