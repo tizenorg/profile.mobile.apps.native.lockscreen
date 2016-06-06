@@ -264,16 +264,17 @@ group {
 			}
 		}
 		part {
-			name: "padding.txt.plmn";
+			name: "txt.spacer.plmn";
 			type: SPACER;
+			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: WIN_WIDTH 14;
-				max: WIN_WIDTH 14;
+				min: 0 170;
+				max: -1 170;
 				fixed: 1 1;
 				align: 0 1;
-				rel1 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.bottom"; }
-				rel2 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.bottom"; }
+				rel1 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "bg"; }
+				rel2 { relative: 0.0 0.0; to_x: "padding.right"; to_y: "padding.bottom"; }
 			}
 		}
 		part {
@@ -283,13 +284,12 @@ group {
 			clip_to: "vi_clipper";
 			description {
 				state: "default" 0.0;
-				min: 314 40;
-				max: 314 40;
+				min: 0 47;
+				max: -1 47;
 				fixed: 1 1;
-				align: 0 1;
 				visible: 1;
-				rel1 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.txt.plmn"; }
-				rel2 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "padding.txt.plmn"; }
+				rel1 { relative: 0.0 0.0; to: "txt.spacer.plmn"; }
+				rel2 { relative: 1.0 1.0; to: "txt.spacer.plmn"; }
 			}
 			description {
 				state: "hide" 0.0;
