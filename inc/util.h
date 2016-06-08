@@ -74,4 +74,10 @@ const Elm_Theme *util_lockscreen_theme_get(void);
  */
 void util_feedback_tap_play(void);
 
+/**
+ * @brief Creates "void" type of popup with title, description
+ * and "OK" button closing popup.
+ */
+void util_popup_create(Evas_Object *win, char *title, char *desc);
+
 #endif /* __HOME_SCREEN_UTIL_H__ */
