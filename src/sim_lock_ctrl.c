@@ -23,15 +23,12 @@
 #define PIN_DEFAULT_LENGTH 4
 #define PUK_DEFAULT_LENGTH 8
 
-#define TOAST_POPUP_TIMEOUT 3.0 //sec
-
 static Ecore_Event_Handler *handler_list[3];
 static Evas_Object *main_view;
 static Evas_Object *pass_view;
 
 static void _sim_lock_ctrl_view_create(Evas_Object *view, int locked_count, sim_lock_e unlock_card_num, pin_type_e type);
 static void _sim_lock_ctrl_view_label_set(pin_type_e type);
-static void _sim_lock_ctrl_popup_create(Evas_Object *win, char *title, char *desc);
 static void _sim_lock_ctrl_popup_prepare(Evas_Object *win, int attempts);
 
 static Eina_Bool _sim_lock_response(void *data, int type, void *event_info)
@@ -161,16 +158,6 @@ _sim_lock_ctrl_view_create(Evas_Object *view, int locked_count, sim_lock_e unloc
 	_sim_lock_ctrl_view_label_set(type);
 }
 
-static void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	Evas_Object *popup = data;
-
-	if (popup)
-		evas_object_del(popup);
-	else
-		evas_object_del(obj);
-}
-
 static void _sim_lock_ctrl_popup_prepare(Evas_Object *win, int attempts)
 {
 	char buf[512] = {0, };
@@ -178,44 +165,13 @@ static void _sim_lock_ctrl_popup_prepare(Evas_Object *win, int attempts)
 	if (!attempts) {
 		snprintf(buf, SIZE(buf), _("IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG") , 3 - attempts, attempts);
 
-		_sim_lock_ctrl_popup_create(win, _("IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"), buf);
+		util_popup_create(win, _("IDS_LCKSCN_HEADER_INCORRECT_PIN_ABB"), buf);
 
 	} else {
 		snprintf(buf, SIZE(buf), _("IDS_LCKSCN_POP_INCORRECT_PIN_ENTERED_P1SD_ATTEMPTS_LEFT_TRY_AGAIN") , attempts);
 
-		_sim_lock_ctrl_popup_create(win, NULL, buf);
+		util_popup_create(win, NULL, buf);
 	}
-}
-
-static void _sim_lock_ctrl_popup_create(Evas_Object *win, char *title, char *desc)
-{
-	Evas_Object *popup;
-	Evas_Object *button;
-
-	popup = elm_popup_add(win);
-
-	if (!title) {
-		elm_object_style_set(popup, "toast");
-		elm_popup_timeout_set(popup, TOAST_POPUP_TIMEOUT);
-
-		evas_object_smart_callback_add(popup, "timeout", _popup_hide_cb, NULL);
-	} else {
-		elm_object_part_text_set(popup, "title,text", title);
-		elm_popup_align_set(popup, 0.5, 0.5);
-
-		button = elm_button_add(win);
-		elm_object_style_set(button, "botton");
-		elm_object_text_set(button, "OK");
-
-		elm_object_part_content_set(popup, "button1", button);
-		evas_object_smart_callback_add(button, "clicked", _popup_hide_cb, popup);
-
-		evas_object_show(button);
-	}
-
-	elm_object_text_set(popup, desc);
-
-	evas_object_show(popup);
 }
 
 int lockscreen_sim_lock_ctrl_init(Evas_Object *view)
