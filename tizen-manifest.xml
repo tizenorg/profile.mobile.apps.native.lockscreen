@@ -21,6 +21,7 @@
         <label xml:lang="ur-pk">اسکرین مقفل</label>
         <icon>lockscreen.png</icon>
         <category name="http://tizen.org/category/lockapp"/>
+        <background-category value="system"/>
     </ui-application>
     <privileges>
         <privilege>http://tizen.org/privilege/telephony</privilege>
