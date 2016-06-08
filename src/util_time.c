@@ -128,7 +128,7 @@ static i18n_udate_format_h __util_time_time_formatter_get(bool use24hformat, con
 	i18n_ustring_copy_au(a_best_pattern, u_best_pattern);
 
 	char *a_best_pattern_fixed = strtok_r(a_best_pattern, "a", &save_ptr);
-	a_best_pattern_fixed = strtok(a_best_pattern_fixed, " ");
+	a_best_pattern_fixed = strtok_r(a_best_pattern_fixed, " ", &save_ptr);
 	if (a_best_pattern_fixed) {
 		i18n_ustring_copy_ua(u_best_pattern, a_best_pattern_fixed);
 	}
