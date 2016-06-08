@@ -73,4 +73,12 @@ typedef enum {
  */
 lockscreen_device_unlock_result_e lockscreen_device_lock_unlock(const char *pass, int *attempts_left);
 
+/**
+ * @brief Gets number of maximum unlock attempts
+ *
+ * @return -1 on error
+ * @return 0 if max attempts limit is infinite
+ */
+int lockscreen_device_lock_max_unlock_attempts_get(void);
+
 #endif

@@ -49,8 +49,12 @@
 /**
  * @brief View title text part.
  */
-
 #define PART_TEXT_TITLE "text.title"
+
+/**
+ * @brief View sub title text part.
+ */
+#define PART_TEXT_SUBTITLE "text.subtitle"
 
 /**
  * @brief Event swallow part
