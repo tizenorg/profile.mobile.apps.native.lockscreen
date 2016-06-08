@@ -270,3 +270,6 @@ msgstr "Cancel"
 
 msgid "IDS_ST_BUTTON_CLEAR_ALL"
 msgstr "Clear all"
+
+msgid "IDS_ST_AUTO_FACTORY_RESET"
+msgstr "Auto factory reset"

@@ -22,6 +22,7 @@
 #include "log.h"
 #include "password_view.h"
 #include "window.h"
+#include "util.h"
 
 static Ecore_Event_Handler *handler[2];
 static Evas_Object *main_view;
@@ -74,6 +75,9 @@ static void _lockscreen_device_lock_ctrl_pass_view_failed_show(Evas_Object *pass
 	} else if (attempts == 0) {
 		snprintf(buf, sizeof(buf), "%s<br><small>No attempts left.</>", trans);
 	} else if (attempts == 1) {
+		int max = lockscreen_device_lock_max_unlock_attempts_get();
+		snprintf(buf, sizeof(buf), _("IDS_LCKSCN_POP_YOU_HAVE_ATTEMPTED_TO_UNLOCK_THE_DEVICE_INCORRECTLY_P1SD_TIMES_YOU_HAVE_P2SD_ATTEMPTS_LEFT_BEFORE_THE_DEVICE_IS_RESET_TO_FACTORY_MSG"), max - attempts, attempts);
+		util_popup_create(elm_object_top_widget_get(pass_view), _("IDS_ST_AUTO_FACTORY_RESET"), buf);
 		snprintf(buf, sizeof(buf), "%s<br><small>%s</>", trans, _("IDS_IDLE_BODY_1_ATTEMPT_LEFT"));
 	} else if (attempts > 1) {
 		snprintf(tmp, sizeof(tmp), _("IDS_IDLE_BODY_PD_ATTEMPTS_LEFT"), attempts);
