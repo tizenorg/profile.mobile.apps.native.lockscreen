@@ -25,7 +25,6 @@
 static int init_count;
 static lockscreen_device_lock_type_e lock_type;
 int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED;
-static int attempt, max_attempts = -1;
 
 static void _lockscreen_device_unlock(void)
 {
@@ -62,40 +61,6 @@ static int _lockscreen_device_lock_dpm_status_set(int status)
 	return 0;
 }
 
-static int _lockscreen_device_lock_dpm_init(void)
-{
-	dpm_context_h handle;
-	dpm_password_policy_h password_policy_handle;
-
-	handle = dpm_context_create();
-	if (!handle) {
-		ERR("dpm_context_create failed");
-		return -1;
-	}
-
-	password_policy_handle = dpm_context_acquire_password_policy(handle);
-	if (!password_policy_handle) {
-		ERR("dpm_context_acquire_password_policy failed");
-		dpm_context_destroy(handle);
-		return -1;
-	}
-
-	int ret = dpm_password_get_maximum_failed_attempts_for_wipe(password_policy_handle, &max_attempts);
-	if (ret == DPM_ERROR_PERMISSION_DENIED)
-		ERR("Permission denied");
-	if (ret != DPM_ERROR_NONE) {
-		ERR("dpm_password_get_maximum_failed_attempts_for_wipe failed: %s", get_error_message(ret));
-		dpm_context_release_password_policy(handle, password_policy_handle);
-		dpm_context_destroy(handle);
-		return -1;
-	}
-
-	DBG("Password maximum attempts: %d", max_attempts);
-	dpm_context_release_password_policy(handle, password_policy_handle);
-	dpm_context_destroy(handle);
-	return 0;
-}
-
 int lockscreen_device_lock_init(void)
 {
 	int type;
@@ -113,11 +78,9 @@ int lockscreen_device_lock_init(void)
 					break;
 				case SETTING_SCREEN_LOCK_TYPE_PASSWORD:
 					lock_type = LOCKSCREEN_DEVICE_LOCK_PASSWORD;
-					_lockscreen_device_lock_dpm_init();
 					break;
 				case SETTING_SCREEN_LOCK_TYPE_SIMPLE_PASSWORD:
 					lock_type = LOCKSCREEN_DEVICE_LOCK_PIN;
-					_lockscreen_device_lock_dpm_init();
 					break;
 				default:
 					lock_type = LOCKSCREEN_DEVICE_LOCK_NONE;
@@ -150,25 +113,9 @@ _lockscreen_device_password_refresh(void)
 static lockscreen_device_unlock_result_e
 _lockscreen_device_unlock_with_password(const char *pass, int *attempts_left)
 {
-	unsigned int dummy1, dummy2, dummy3;
+	unsigned int current_attempt, max_attempts, expire_sec;
 
-	if (max_attempts == 0)
-		*attempts_left = -1;
-
-	int ret = auth_passwd_check_passwd_state(AUTH_PWD_NORMAL, &dummy1, &dummy2, &dummy3);
-	switch (ret) {
-		case AUTH_PASSWD_API_ERROR_NO_PASSWORD:
-		   return LOCKSCREEN_DEVICE_UNLOCK_SUCCESS;
-		case AUTH_PASSWD_API_SUCCESS:
-		   break;
-		default:
-		   ERR("auth_passwd_check_passwd_state failed: %d", ret);
-		   return LOCKSCREEN_DEVICE_UNLOCK_ERROR;
-	}
-
-	attempt++;
-
-	ret = auth_passwd_check_passwd(AUTH_PWD_NORMAL, pass, &dummy1, &dummy2, &dummy3);
+	int ret = auth_passwd_check_passwd(AUTH_PWD_NORMAL, pass, &current_attempt, &max_attempts, &expire_sec);
 	switch (ret) {
 		case AUTH_PASSWD_API_SUCCESS:
 		case AUTH_PASSWD_API_ERROR_NO_PASSWORD:
@@ -179,10 +126,15 @@ _lockscreen_device_unlock_with_password(const char *pass, int *attempts_left)
 		case AUTH_PASSWD_API_ERROR_PASSWORD_MISMATCH:
 		case AUTH_PASSWD_API_ERROR_PASSWORD_RETRY_TIMER:
 		case AUTH_PASSWD_API_ERROR_PASSWORD_MAX_ATTEMPTS_EXCEEDED:
-			DBG("auth_passwd_check_passwd : %d %d %d", dummy1, dummy2, dummy3);
-			*attempts_left = attempt > max_attempts ? 0 : max_attempts - attempt;
-			if (attempt == max_attempts && !_lockscreen_device_lock_dpm_status_set(DPM_PASSWORD_STATUS_MAX_ATTEMPTS_EXCEEDED))
-				DBG("Update dpm DPM_PASSWORD_STATUS_MAX_ATTEMPTS_EXCEEDED");
+			DBG("auth_passwd_check_passwd : %d %d %d", current_attempt, max_attempts, expire_sec);
+			if (max_attempts == 0) {
+				*attempts_left = -1; //infinite
+			} else {
+				*attempts_left = current_attempt > max_attempts ? 0 : max_attempts - current_attempt;
+				if (current_attempt == max_attempts) {
+					_lockscreen_device_lock_dpm_status_set(DPM_PASSWORD_STATUS_MAX_ATTEMPTS_EXCEEDED);
+				}
+			}
 			return LOCKSCREEN_DEVICE_UNLOCK_FAILED;
 		case AUTH_PASSWD_API_ERROR_ACCESS_DENIED:
 		case AUTH_PASSWD_API_ERROR_SOCKET:
@@ -216,4 +168,19 @@ lockscreen_device_unlock_result_e lockscreen_device_lock_unlock(const char *pass
 	if (attempts_left) *attempts_left = al;
 
 	return ret;
+}
+
+int lockscreen_device_lock_max_unlock_attempts_get(void)
+{
+	 unsigned int current_attempt, max_attempts, expire_sec;
+	 int ret = auth_passwd_check_passwd_state(AUTH_PWD_NORMAL, &current_attempt, &max_attempts, &expire_sec);
+	switch (ret) {
+		case AUTH_PASSWD_API_ERROR_NO_PASSWORD:
+			return 0;
+		case AUTH_PASSWD_API_SUCCESS:
+			 return max_attempts;
+		default:
+			 return -1;
+	}
+	return -1;
 }
