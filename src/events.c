@@ -330,9 +330,30 @@ const char *lockscreen_event_sub_icon_get(const lockscreen_event_t *event)
 
 static void _lockscreen_event_notification_delete(notification_h noti)
 {
-	int ret = notification_delete(noti);
+	int app_list;
+	int ret = notification_get_display_applist(noti, &app_list);
 	if (ret != NOTIFICATION_ERROR_NONE) {
-		ERR("notification_delete failed: %s", get_error_message(ret));
+		ERR("notification_set_display_applist failed: %s", get_error_message(ret));
+		return;
+	}
+	// if only for lockscreen remove totally
+	if (app_list == NOTIFICATION_DISPLAY_APP_LOCK) {
+		ret = notification_delete(noti);
+		if (ret != NOTIFICATION_ERROR_NONE) {
+			ERR("notification_delete failed: %s", get_error_message(ret));
+		}
+	} else {
+		// remove lockscreen from display list
+		ret = notification_set_display_applist(noti, app_list & ~NOTIFICATION_DISPLAY_APP_LOCK);
+		if (ret != NOTIFICATION_ERROR_NONE) {
+			ERR("notification_set_display_applist failed: %s", get_error_message(ret));
+			return;
+		}
+		ret = notification_update(noti);
+		if (ret != NOTIFICATION_ERROR_NONE) {
+			ERR("notification_update failed: %s", get_error_message(ret));
+			return;
+		}
 	}
 }
 
