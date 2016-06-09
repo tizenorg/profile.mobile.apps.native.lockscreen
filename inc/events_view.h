@@ -31,6 +31,11 @@
 
 #define NOTI_MORE_ITEM_STYLE "noti_more"
 
+/**
+ * @brief The expand gesture has finished
+ */
+#define SIGNAL_PAGE_EXPAND_GESTURE "expand,gesture"
+
 typedef enum {
 	LOCKSCREEN_EVENTS_VIEW_TYPE_NOTIFICATIONS,
 	LOCKSCREEN_EVENTS_VIEW_TYPE_MEDIA,
