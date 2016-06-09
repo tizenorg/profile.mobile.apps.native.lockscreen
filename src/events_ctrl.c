@@ -203,6 +203,16 @@ static void _lockscreen_events_ctrl_item_expand_selected(void *data, Evas_Object
 	elm_genlist_item_expanded_set(info, EINA_TRUE);
 }
 
+static void _lockscreen_events_ctrl_expand_gesture_finished(void *data, Evas_Object *obj, void *info)
+{
+	DBG("Expand gesture handled");
+	Elm_Object_Item *it = elm_genlist_first_item_get(data);
+	do {
+		if (elm_genlist_item_type_get(it) == ELM_GENLIST_ITEM_TREE)
+			elm_genlist_item_expanded_set(it, EINA_TRUE);
+	} while ((it = elm_genlist_item_next_get(it)));
+}
+
 static void _lockscreen_events_ctrl_events_reload()
 {
 	Eina_List *l;
@@ -215,6 +225,7 @@ static void _lockscreen_events_ctrl_events_reload()
 		noti_page = lockscreen_events_view_page_prepend(events_view);
 		genlist = lockscreen_events_view_page_genlist_get(noti_page);
 		evas_object_smart_callback_add(genlist, "expanded", _lockscreen_events_ctrl_item_expand_request, NULL);
+		evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_EXPAND_GESTURE, _lockscreen_events_ctrl_expand_gesture_finished, genlist);
 		evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_CANCEL_BUTTON_CLICKED, _lockscreen_events_view_cancel_button_clicked, NULL);
 		evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_CLEAR_BUTTON_CLICKED, _lockscreen_events_view_clear_button_clicked, NULL);
 	}
