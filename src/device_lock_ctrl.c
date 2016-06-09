@@ -151,6 +151,8 @@ static void _lockscreen_device_lock_ctrl_unlock_request(Evas_Object *ev)
 			_lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN, ev);
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
+			//FIXME unlock immidealy because of virtual keyboard do not appear
+			ui_app_exit();
 			_lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD, ev);
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
