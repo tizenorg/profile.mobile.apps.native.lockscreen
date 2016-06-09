@@ -37,6 +37,7 @@ struct Event_Page_Data {
 	Evas_Object *layout;
 	Evas_Object *genlist;
 	Evas_Object *events_view;
+	Evas_Object *gesture_layer;
 	Eina_Bool panel_shown : 1;
 };
 
@@ -214,6 +215,19 @@ _lockscreen_events_view_page_clear_button_clicked(void *data, Evas_Object *obj, 
 	evas_object_smart_callback_call(data, SIGNAL_PAGE_CLEAR_BUTTON_CLICKED, NULL);
 }
 
+static Evas_Event_Flags _swipe_state_end(void *data, void *event_info)
+{
+	struct Event_Page_Data *pd = data;
+	Elm_Gesture_Line_Info *li = event_info;
+
+	// Emit callback only if flick originated above any genlist item
+	if (elm_genlist_at_xy_item_get(pd->genlist, li->momentum.x1, li->momentum.y1, NULL) &&
+			li->angle > 130.0 && li->angle < 220.0) {
+		evas_object_smart_callback_call(pd->layout, SIGNAL_PAGE_EXPAND_GESTURE, NULL);
+	}
+	return EVAS_EVENT_FLAG_NONE;
+}
+
 static Evas_Object*
 _lockscreen_events_view_page_create(Evas_Object *events_view)
 {
@@ -241,6 +255,13 @@ _lockscreen_events_view_page_create(Evas_Object *events_view)
 	elm_object_tree_focus_allow_set(pd->genlist, EINA_TRUE);
 	elm_layout_theme_set(pd->genlist, "scroller", "base", "pass_effect");
 
+	pd->gesture_layer = elm_gesture_layer_add(pd->layout);
+	elm_gesture_layer_attach(pd->gesture_layer, pd->genlist);
+	elm_gesture_layer_flick_time_limit_ms_set(pd->gesture_layer, 500);
+	elm_gesture_layer_cb_set(pd->gesture_layer, ELM_GESTURE_N_FLICKS, ELM_GESTURE_STATE_END, _swipe_state_end, pd);
+	elm_gesture_layer_line_min_length_set(pd->gesture_layer, 140 * edje_scale_get() / edje_object_scale_get(elm_layout_edje_get(pd->layout)));
+	evas_object_show(pd->gesture_layer);
+
 	/* Load theme extension */
 	util_lockscreen_theme_get();
 
@@ -262,6 +283,7 @@ _lockscreen_events_view_page_create(Evas_Object *events_view)
 	evas_object_show(pd->layout);
 
 	elm_object_part_content_set(pd->layout, "sw.content", pd->genlist);
+	lockscreen_events_view_page_panel_visible_set(pd->layout, EINA_FALSE);
 
 	return pd->layout;
 }

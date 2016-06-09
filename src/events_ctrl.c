@@ -153,6 +153,9 @@ static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, 
 	lockscreen_event_t *event = eina_list_data_get(data);
 	lockscreen_device_lock_ctrl_unlock_and_launch_request(event);
 	elm_genlist_item_selected_set(info, EINA_FALSE);
+	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_FALSE);
+	lockscreen_main_view_contextual_view_fullscreen_set(main_view, EINA_FALSE);
+	_lockscreen_events_ctrl_events_reload();
 }
 
 static void _lockscreen_events_ctrl_item_expand_request(void *data, Evas_Object *obj, void *info)
@@ -176,6 +179,15 @@ static void _lockscreen_events_ctrl_item_expand_selected(void *data, Evas_Object
 	elm_genlist_item_expanded_set(info, EINA_TRUE);
 }
 
+static void _lockscreen_events_ctrl_expand_gesture_finished(void *data, Evas_Object *obj, void *info)
+{
+	Elm_Object_Item *it = elm_genlist_first_item_get(data);
+	do {
+		if (elm_genlist_item_type_get(it) == ELM_GENLIST_ITEM_TREE)
+			elm_genlist_item_expanded_set(it, EINA_TRUE);
+	} while ((it = elm_genlist_item_next_get(it)));
+}
+
 static void _lockscreen_events_ctrl_events_reload()
 {
 	Eina_List *l;
@@ -190,6 +202,7 @@ static void _lockscreen_events_ctrl_events_reload()
 		noti_page = lockscreen_events_view_page_prepend(events_view);
 		genlist = lockscreen_events_view_page_genlist_get(noti_page);
 		evas_object_smart_callback_add(genlist, "expanded", _lockscreen_events_ctrl_item_expand_request, NULL);
+		evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_EXPAND_GESTURE, _lockscreen_events_ctrl_expand_gesture_finished, genlist);
 		evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_CANCEL_BUTTON_CLICKED, _lockscreen_events_view_cancel_button_clicked, NULL);
 		evas_object_smart_callback_add(noti_page, SIGNAL_PAGE_CLEAR_BUTTON_CLICKED, _lockscreen_events_view_clear_button_clicked, NULL);
 	}

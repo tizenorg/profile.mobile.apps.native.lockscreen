@@ -52,7 +52,7 @@ group {
 			}
 			description {
 				state: "effect" 0.0;
-				color: 255 255 255 20;
+				color: 255 255 255 0;
 			}
 			description {
 				state: "effect_start" 0.0;
