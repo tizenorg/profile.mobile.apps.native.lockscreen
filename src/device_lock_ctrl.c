@@ -179,8 +179,12 @@ static void _lockscreen_device_lock_ctrl_swipe_finished(void *data, Evas_Object 
 
 static void _lockscreen_device_vconf_idle_key_changed(keynode_t *node, void *user_data)
 {
-	if (node->value.i == VCONFKEY_IDLE_UNLOCK)
-		lockscreen_device_lock_ctrl_unlock_request(NULL);
+	if (node->value.i == VCONFKEY_IDLE_UNLOCK) {
+		if (lockscreen_device_lock_type_get() == LOCKSCREEN_DEVICE_LOCK_NONE)
+			ui_app_exit();
+		else
+			lockscreen_device_lock_ctrl_unlock_request(NULL);
+	}
 }
 
 int lockscreen_device_lock_ctrl_init(Evas_Object *view)
