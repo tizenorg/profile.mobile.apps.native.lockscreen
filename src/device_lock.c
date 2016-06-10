@@ -33,12 +33,6 @@ static void _lockscreen_device_unlock(void)
 	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, NULL, NULL, NULL);
 }
 
-static void _lockscreen_device_vconf_idle_key_changed(keynode_t *node, void *user_data)
-{
-	if (node->value.i == VCONFKEY_IDLE_UNLOCK)
-		lockscreen_device_lock_unlock_request();
-}
-
 static int _lockscreen_device_lock_dpm_status_set(int status)
 {
 	dpm_context_h handle;
@@ -109,7 +103,6 @@ int lockscreen_device_lock_init(void)
 	if (!init_count) {
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST = ecore_event_type_new();
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED = ecore_event_type_new();
-		vconf_notify_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed, NULL);
 		int ret = vconf_get_int(VCONFKEY_SETAPPL_SCREEN_LOCK_TYPE_INT, &type);
 		if (ret) {
 			ERR("vconf_get_int failed");
@@ -142,8 +135,6 @@ void lockscreen_device_lock_shutdown(void)
 {
 	if (init_count) {
 		init_count--;
-		if (!init_count)
-			vconf_ignore_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed);
 	}
 }
 
