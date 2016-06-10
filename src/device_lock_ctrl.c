@@ -16,6 +16,7 @@
 
 #include <Ecore.h>
 #include <app.h>
+#include <vconf.h>
 
 #include "device_lock.h"
 #include "main_view.h"
@@ -155,6 +156,16 @@ static void _lockscreen_device_lock_ctrl_swipe_finished(void *data, Evas_Object 
 	lockscreen_device_lock_unlock_request();
 }
 
+static void _lockscreen_device_vconf_idle_key_changed(keynode_t *node, void *user_data)
+{
+	if (node->value.i == VCONFKEY_IDLE_UNLOCK) {
+		if (lockscreen_device_lock_type_get() == LOCKSCREEN_DEVICE_LOCK_NONE)
+			ui_app_exit();
+		else
+			lockscreen_device_lock_unlock_request();
+	}
+}
+
 int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 {
 	if (lockscreen_device_lock_init()) {
@@ -170,6 +181,11 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 			lockscreen_window_quickpanel_block_set(EINA_TRUE);
 	}
 
+	int err = vconf_notify_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed, NULL);
+	if (err) {
+		ERR("vconf_notify_key_changed failed: %s", get_error_message(err));
+	}
+
 	handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST, _lockscreen_device_lock_ctrl_unlock_request, NULL);
 	handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_device_lock_ctrl_unlocked, NULL);
 
@@ -180,6 +196,7 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 
 void lockscreen_device_lock_ctrl_shutdown()
 {
+	vconf_ignore_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed);
 	ecore_event_handler_del(handler[0]);
 	ecore_event_handler_del(handler[1]);
 	lockscreen_device_lock_shutdown();
