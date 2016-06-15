@@ -1,6 +1,6 @@
 Name:       org.tizen.lockscreen
-#VCS_FROM:   profile/mobile/apps/native/lockscreen#830ef4df8e88332e94d279481155e7268044acf5
-#RS_Ver:    20160612_1 
+#VCS_FROM:   profile/mobile/apps/native/lockscreen#b30a64a173363f7f55b5791a2e142bc23fea480e
+#RS_Ver:    20160614_3 
 Summary:    Lockscreen app
 Version:    0.1.0
 Release:    1
@@ -26,7 +26,7 @@ Requires(post):  /usr/bin/tpk-backend
 %endif
 
 %description
-profile/mobile/apps/native/lockscreen#830ef4df8e88332e94d279481155e7268044acf5
+#VCS_FROM:   profile/mobile/apps/native/lockscreen#b30a64a173363f7f55b5791a2e142bc23fea480e
 This is a container package which have preload TPK files
 
 %prep
