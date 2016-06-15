@@ -162,7 +162,7 @@ _lockscreen_device_lock_ctrl_view_del(void *data, Evas *e, Evas_Object *obj, voi
 	lockscreen_event_free(data);
 }
 
-static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_device_lock_type_e type, const lockscreen_event_t *event)
+static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_view_type type, const lockscreen_event_t *event)
 {
 	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
 	if (pass_view) return 1;

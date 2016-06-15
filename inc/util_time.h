@@ -17,6 +17,8 @@
 #ifndef __LOCK_SCREEN_UTIL_TIME_H__
 #define __LOCK_SCREEN_UTIL_TIME_H__
 
+#include <Elementary.h>
+
 bool util_time_formatted_date_get(time_t time, const char *locale, const char *timezone, const char *skeleton, char **str_date);
 
 bool util_time_formatted_time_get(time_t time, const char *locale, const char *timezone, bool use24hformat, char **str_time, char **str_meridiem);
@@ -28,5 +30,10 @@ bool util_time_formatted_time_get(time_t time, const char *locale, const char *t
  * @note returned string must be @free
  */
 char *util_time_string_get(time_t time, const char *locale, const char *timezone, bool use24hformat);
+
+/**
+ * @brief Creates "OK" popup with title and description.
+ */
+void util_popup_create(Evas_Object *win, char *title, char *desc);
 
 #endif
