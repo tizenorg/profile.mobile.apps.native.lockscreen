@@ -186,7 +186,7 @@ static int __util_time_formatted_time_get(i18n_udate_format_h formatter, time_t 
 		return -1;
 	}
 
-	i18n_ustring_copy_au_n(buf,u_formatted_str, buf_len - 1);
+	i18n_ustring_copy_au_n(buf, u_formatted_str, buf_len - 1);
 	DBG("time(%d) formatted(%s)", tt, buf);
 
 	return (int)i18n_ustring_get_length(u_formatted_str);
@@ -214,11 +214,13 @@ bool util_time_formatted_time_get(time_t time, const char *locale, const char *t
 				snprintf(buf_ampm, sizeof(buf_ampm)-1, "PM");
 			}
 		}
+		i18n_udate_destroy(ampmf);
 	}
 
 	if (str_time) *str_time = strdup(buf_time);
 	if (str_meridiem) *str_meridiem = strdup(buf_ampm);
 
+	i18n_udate_destroy(timef);
 	return true;
 }
 
@@ -232,11 +234,9 @@ bool util_time_formatted_date_get(time_t time, const char *locale, const char *t
 	datef = __util_time_date_formatter_get(locale, timezone, skeleton ? skeleton : "MMMMEd");
 
 	__util_time_formatted_time_get(datef, time, buf_date, sizeof(buf_date));
-	if (str_date != NULL) {
-		*str_date = strdup(buf_date);
-		return true;
-	}
-	return false;
+	if (str_date) *str_date = strdup(buf_date);
+	i18n_udate_destroy(datef);
+	return true;
 }
 
 char *util_time_string_get(time_t time, const char *locale, const char *timezone, bool use24hformat)
