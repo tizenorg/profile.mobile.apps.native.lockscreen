@@ -258,15 +258,10 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 
 	if (lockscreen_events_init()) {
 		ERR("lockscreen_events_init failed");
-		lockscreen_device_lock_shutdown();
-		return 1;
 	}
 
 	if (lockscreen_time_format_init()) {
 		ERR("lockscreen_time_format_init failed");
-		lockscreen_events_shutdown();
-		lockscreen_device_lock_shutdown();
-		return 1;
 	}
 
 	switch (lockscreen_device_lock_type_get()) {
