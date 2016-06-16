@@ -106,6 +106,14 @@ _lockscreen_events_view_scroller_drag_start(void *data, Evas_Object *eo, void *e
 	ed->scroller_is_animating = EINA_TRUE;
 }
 
+static void
+_lockscreen_events_view_index_changed(void *data, Evas_Object *obj, void *event_info)
+{
+	struct Event_Page_Data *pd = evas_object_data_get(
+			elm_object_item_data_get(event_info), DATA_KEY);
+	lockscreen_events_view_page_bring_in(pd->events_view, pd->layout);
+}
+
 static Evas_Object*
 _lockscreen_events_view_index_create(Evas_Object *parent)
 {
@@ -115,6 +123,7 @@ _lockscreen_events_view_index_create(Evas_Object *parent)
 
 	evas_object_size_hint_weight_set(ret, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(ret, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	evas_object_smart_callback_add(ret, "delay,changed", _lockscreen_events_view_index_changed, NULL);
 
 	/* Define in tizen-theme */
 	elm_object_style_set(ret, "pagecontrol");
@@ -380,4 +389,20 @@ Eina_Bool lockscreen_events_view_page_panel_visible_get(Evas_Object *page)
 {
 	struct Event_Page_Data *data = evas_object_data_get(page, DATA_KEY);
 	return data->panel_shown;
+}
+
+void lockscreen_events_view_page_bring_in(Evas_Object *events_view, Evas_Object *page)
+{
+	Evas_Object *child;
+	struct Events_View_Data *data = evas_object_data_get(events_view, DATA_KEY);
+	int idx = 0;
+
+	Eina_List *children = elm_box_children_get(data->box);
+	EINA_LIST_FREE(children, child) {
+		if (page == child) {
+			elm_scroller_page_bring_in(data->scroller, idx, 0);
+			break;
+		}
+		idx++;
+	}
 }
