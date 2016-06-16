@@ -93,4 +93,9 @@ Eina_Bool lockscreen_events_view_page_panel_visible_get(Evas_Object *page);
  */
 Evas_Object *lockscreen_events_view_page_genlist_get(Evas_Object *page);
 
+/**
+ * @brief Scroll to given page.
+ */
+void lockscreen_events_view_page_bring_in(Evas_Object *events_view, Evas_Object *page);
+
 #endif
