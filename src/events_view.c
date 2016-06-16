@@ -247,6 +247,9 @@ _lockscreen_events_view_page_create(Evas_Object *events_view)
 	evas_object_size_hint_align_set(pd->layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_size_hint_weight_set(pd->layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 
+	/* Load theme extension */
+	util_lockscreen_theme_get();
+
 	pd->genlist = elm_genlist_add(pd->layout);
 	evas_object_size_hint_align_set(pd->genlist, 0.5, 0);
 	evas_object_size_hint_weight_set(pd->genlist, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -261,9 +264,6 @@ _lockscreen_events_view_page_create(Evas_Object *events_view)
 	elm_gesture_layer_cb_set(pd->gesture_layer, ELM_GESTURE_N_FLICKS, ELM_GESTURE_STATE_END, _swipe_state_end, pd);
 	elm_gesture_layer_line_min_length_set(pd->gesture_layer, 140 * edje_scale_get() / edje_object_scale_get(elm_layout_edje_get(pd->layout)));
 	evas_object_show(pd->gesture_layer);
-
-	/* Load theme extension */
-	util_lockscreen_theme_get();
 
 	Evas_Object *btn = elm_button_add(pd->layout);
 	evas_object_show(btn);
