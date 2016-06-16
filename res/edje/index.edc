@@ -528,6 +528,8 @@ collections {
 			}
 			swallow { "elm.swallow.content";
 				desc { "default";
+					fixed: 1 0;
+					align: 0 0.5;
 					rel1.relative: 0.0 0.0;
 					rel2.relative: 1.0 1.0;
 				}
