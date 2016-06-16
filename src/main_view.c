@@ -399,6 +399,25 @@ void lockscreen_main_view_contextual_view_fullscreen_set(Evas_Object *view, bool
 	}
 	if (fullscreen) {
 		elm_object_signal_emit(swipe_layout, "contextual,events,fullscreen,show", "lockscreen");
-	} else
+	} else {
 		elm_object_signal_emit(swipe_layout, "contextual,events,fullscreen,hide", "lockscreen");
+	}
+}
+
+void lockscreen_main_view_unlock_state_set(Evas_Object *view, bool top, bool bottom)
+{
+	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
+	if (!swipe_layout) {
+		FAT("No sw.swipe_layout part");
+		return;
+	}
+	if (top)
+		elm_object_signal_emit(swipe_layout, "unlock,top,anim,start", "lockscreen");
+	else
+		elm_object_signal_emit(swipe_layout, "lock,top,anim,start", "lockscreen");
+
+	if (bottom)
+		elm_object_signal_emit(swipe_layout, "unlock,bottom,anim,start", "lockscreen");
+	else
+		elm_object_signal_emit(swipe_layout, "lock,bottom,anim,start", "lockscreen");
 }

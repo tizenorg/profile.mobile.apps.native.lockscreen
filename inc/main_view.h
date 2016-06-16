@@ -108,4 +108,12 @@ void lockscreen_main_view_sim_status_text_set(Evas_Object *view, const char *tex
  */
 void lockscreen_main_view_contextual_view_fullscreen_set(Evas_Object *view, bool fullscreen);
 
+/**
+ * @brief Sets top and bottom panel state
+ *
+ * @param top true if upper part should be unlocked (moved out of screen), false otherwise
+ * @param bottom true if upper part should be unlocked (moved out of screen), false otherwise
+ */
+void lockscreen_main_view_unlock_state_set(Evas_Object *view, bool top, bool bottom);
+
 #endif

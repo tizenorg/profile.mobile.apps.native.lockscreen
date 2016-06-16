@@ -107,6 +107,7 @@ static void _lockscreen_events_view_cancel_button_clicked(void *data, Evas_Objec
 {
 	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_FALSE);
 	lockscreen_main_view_contextual_view_fullscreen_set(main_view, EINA_FALSE);
+	lockscreen_main_view_unlock_state_set(main_view, false, false);
 	_lockscreen_events_ctrl_events_reload();
 }
 
@@ -114,6 +115,7 @@ static void _lockscreen_events_view_clear_button_clicked(void *data, Evas_Object
 {
 	lockscreen_events_remove_all();
 	lockscreen_main_view_contextual_view_fullscreen_set(main_view, EINA_FALSE);
+	lockscreen_main_view_unlock_state_set(main_view, false, false);
 }
 
 static void _lockscreen_events_ctrl_view_show()
@@ -151,10 +153,12 @@ static int _lockscreen_events_ctrl_sort(const void *data1, const void *data2)
 static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, void *info)
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
+	lockscreen_main_view_contextual_view_fullscreen_set(main_view, false);
 	lockscreen_device_lock_ctrl_unlock_and_launch_request(event);
+
 	elm_genlist_item_selected_set(info, EINA_FALSE);
 	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_FALSE);
-	lockscreen_main_view_contextual_view_fullscreen_set(main_view, EINA_FALSE);
+
 	_lockscreen_events_ctrl_events_reload();
 }
 
@@ -167,6 +171,7 @@ static void _lockscreen_events_ctrl_item_expand_request(void *data, Evas_Object 
 
 	lockscreen_main_view_contextual_view_fullscreen_set(main_view, true);
 	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_TRUE);
+	lockscreen_main_view_unlock_state_set(main_view, false, true);
 
 	l = elm_object_item_data_get(prev);
 	while ((l = eina_list_next(l)))
