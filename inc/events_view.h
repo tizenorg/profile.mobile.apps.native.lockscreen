@@ -26,8 +26,8 @@
 #define NOTI_ITEM_ICON "elm.swallow.icon"
 #define NOTI_ITEM_ICON_SUB "elm.swallow.sub.icon"
 
-#define WIDGET_ITEM_STYLE "one_icon"
-#define WIDGET_ITEM_CONTENT "elm.swallow.icon"
+#define WIDGET_ITEM_STYLE "minicontroller"
+#define WIDGET_ITEM_CONTENT "elm.swallow.content"
 
 #define NOTI_MORE_ITEM_STYLE "noti_more"
 
