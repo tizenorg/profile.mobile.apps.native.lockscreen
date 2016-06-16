@@ -76,7 +76,7 @@ int lockscreen_main_ctrl_init(void)
 		evas_object_smart_callback_add(win, SIGNAL_TOUCH_STARTED, _lockcscreen_main_ctrl_win_display_freeze, NULL);
 		evas_object_smart_callback_add(win, SIGNAL_TOUCH_ENDED, _lockcscreen_main_ctrl_win_display_thaw, NULL);
 		evas_object_smart_callback_add(win, "unfocused", _lockcscreen_main_ctrl_win_display_freeze, NULL);
-		evas_object_smart_callback_add(win, "focused", _lockcscreen_main_ctrl_win_display_thaw, NULL);
+		evas_object_smart_callback_add(win, "normal", _lockcscreen_main_ctrl_win_display_thaw, NULL);
 	}
 
 	lockscreen_window_content_set(view);
