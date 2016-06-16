@@ -516,4 +516,22 @@ collections {
 			action: SIGNAL_EMIT "elm,action,click" "lockscreen-theme";
 		}
 	}
+	group { "elm/genlist/item/minicontroller/default";
+		data.item: "contents" "elm.swallow.content";
+		parts {
+			rect { "bg"; scale;
+				desc { "default";
+					color_class: "ATO001P";
+					rel1.relative: 0 0;
+					rel2.relative: 1 1;
+				}
+			}
+			swallow { "elm.swallow.content";
+				desc { "default";
+					rel1.relative: 0 0;
+					rel2.relative: 1 1;
+				}
+			}
+		}
+	}
 }
