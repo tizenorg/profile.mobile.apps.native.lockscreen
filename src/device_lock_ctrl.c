@@ -213,6 +213,8 @@ static int _lockscreen_device_lock_ctrl_unlock_request(const lockscreen_event_t 
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
 			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN, ev);
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
+			// Quickfix for Virtual Keyboard issue
+			ui_app_exit();
 			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD, ev);
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
 			WRN("Unhandled lock type");
