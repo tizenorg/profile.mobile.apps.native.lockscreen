@@ -32,5 +32,7 @@
         <privilege>http://tizen.org/privilege/haptic</privilege>
         <privilege>http://tizen.org/privilege/dpm.password</privilege>
         <privilege>dpm.password</privilege>
+        <privilege>http://tizen.org/privilege/mediastorage</privilege>
+        <privilege>http://tizen.org/privilege/externalstorage</privilege>
     </privileges>
 </manifest>
