@@ -25,6 +25,7 @@ pkg_check_modules(MENU_PKGS REQUIRED
 	capi-system-device
 	capi-appfw-application
 	capi-appfw-app-manager
+	capi-ui-efl-util
 	notification
 	minicontrol-viewer
 	feedback
