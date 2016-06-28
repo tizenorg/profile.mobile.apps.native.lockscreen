@@ -340,7 +340,7 @@ group {
 			}
 		}
 		part {
-			name: "spacer.camera";
+			name: "spacer.shortcut";
 			type: SPACER;
 			scale: 1;
 			description {
@@ -354,14 +354,14 @@ group {
 			}
 		}
 		part {
-			name: "sw.camera";
+			name: "sw.shortcut";
 			type: SWALLOW;
 			description {
 				fixed: 1 1;
 				state: "default" 0.0;
 				align: 0.0 0.0;
-				rel1 { relative: 0.0 0.0; to: "spacer.camera"; }
-				rel2 { relative: 1.0 1.0; to: "spacer.camera"; }
+				rel1 { relative: 0.0 0.0; to: "spacer.shortcut"; }
+				rel2 { relative: 1.0 1.0; to: "spacer.shortcut"; }
 			}
 		}
 		part {

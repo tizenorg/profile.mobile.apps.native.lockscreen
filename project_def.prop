@@ -9,7 +9,7 @@ type = app
 profile = mobile-3.0
 
 # C Sources
-USER_SRCS = src/background.c src/battery.c src/battery_ctrl.c src/camera.c src/camera_ctrl.c src/display.c src/lockscreen.c src/main_ctrl.c src/main_view.c src/minicontrollers.c src/events.c src/sim.c src/sim_ctrl.c src/time_format.c src/time_format_ctrl.c src/util.c src/util_time.c src/window.c src/events_view.c src/events_ctrl.c src/swipe_icon.c src/background_ctrl.c src/device_lock.c src/device_lock_ctrl.c src/password_view.c src/sim_lock.c src/sim_lock_ctrl.c src/call.c src/call_ctrl.c
+USER_SRCS = src/background.c src/battery.c src/battery_ctrl.c src/shortcut.c src/shortcut_ctrl.c src/display.c src/lockscreen.c src/main_ctrl.c src/main_view.c src/minicontrollers.c src/events.c src/sim.c src/sim_ctrl.c src/time_format.c src/time_format_ctrl.c src/util.c src/util_time.c src/window.c src/events_view.c src/events_ctrl.c src/swipe_icon.c src/background_ctrl.c src/device_lock.c src/device_lock_ctrl.c src/password_view.c src/sim_lock.c src/sim_lock_ctrl.c src/call.c src/call_ctrl.c
 
 # EDC Sources
 USER_EDCS =  
