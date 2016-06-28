@@ -81,7 +81,8 @@ static Evas_Object* _lockscreen_password_view_layout_create(Evas_Object *parent,
 	util_lockscreen_theme_get();
 
 	Evas_Object *btn = elm_button_add(ly);
-	elm_layout_theme_set(btn, "button", "panel", "default");
+	if (!elm_object_style_set(btn, "panel"))
+		ERR("elm_object_style_set failed");
 	elm_object_text_set(btn, _("IDS_ST_BUTTON_CANCEL"));
 	evas_object_smart_callback_add(btn, "clicked", _lockscreen_password_view_cancel_button_clicked, ly);
 

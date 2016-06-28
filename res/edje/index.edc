@@ -393,6 +393,7 @@ collections {
 		  }
 	}
 	group { "elm/scroller/base/pass_effect";
+		alias: "elm/genlist/base/pass_effect";
 		parts {
 			spacer { "bg";
 				desc { "default";
@@ -486,7 +487,7 @@ collections {
 			target: "more";
 		}
 	}
-	group { "elm/button/panel/default";
+	group { "elm/button/base/panel";
 		images {
 			image: "event_close_bg.#.png" COMP;
 		}

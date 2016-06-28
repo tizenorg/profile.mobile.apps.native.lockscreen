@@ -185,7 +185,8 @@ Evas_Object *lockscreen_events_view_create(Evas_Object *parent)
 	elm_scroller_page_scroll_limit_set(data->scroller, 1, 1);
 	evas_object_smart_callback_add(data->scroller, "scroll,anim,stop", _lockscreen_events_view_scroller_anim_stopped, data);
 	evas_object_smart_callback_add(data->scroller, "scroll,drag,start", _lockscreen_events_view_scroller_drag_start, data);
-	elm_layout_theme_set(data->scroller, "scroller", "base", "pass_effect");
+	if (!elm_object_style_set(data->scroller, "pass_effect"))
+		ERR("elm_object_style_set failed");
 	evas_object_show(data->scroller);
 
 	data->box = elm_box_add(data->scroller);
@@ -265,7 +266,8 @@ _lockscreen_events_view_page_create(Evas_Object *events_view)
 	elm_scroller_bounce_set(pd->genlist, EINA_TRUE, EINA_FALSE);
 	elm_scroller_policy_set(pd->genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	elm_object_tree_focus_allow_set(pd->genlist, EINA_TRUE);
-	elm_layout_theme_set(pd->genlist, "scroller", "base", "pass_effect");
+	if (!elm_object_style_set(pd->genlist, "pass_effect"))
+		ERR("elm_object_style_set failed");
 
 	pd->gesture_layer = elm_gesture_layer_add(pd->layout);
 	elm_gesture_layer_attach(pd->gesture_layer, pd->genlist);
@@ -276,14 +278,16 @@ _lockscreen_events_view_page_create(Evas_Object *events_view)
 
 	Evas_Object *btn = elm_button_add(pd->layout);
 	evas_object_show(btn);
-	elm_layout_theme_set(btn, "button", "panel", "default");
+	if (!elm_object_style_set(btn, "panel"))
+		ERR("elm_object_style_set failed");
 	elm_object_text_set(btn, _("IDS_ST_BUTTON_CLEAR_ALL"));
 	evas_object_smart_callback_add(btn, "clicked", _lockscreen_events_view_page_clear_button_clicked, pd->layout);
 	elm_object_part_content_set(pd->layout, "sw.left", btn);
 
 	btn = elm_button_add(pd->layout);
 	evas_object_show(btn);
-	elm_layout_theme_set(btn, "button", "panel", "default");
+	if (!elm_object_style_set(btn, "panel"))
+		ERR("elm_object_style_set failed");
 	elm_object_text_set(btn, _("IDS_ST_BUTTON_CANCEL"));
 	evas_object_smart_callback_add(btn, "clicked", _lockscreen_events_view_page_cancel_button_clicked, pd->layout);
 	elm_object_part_content_set(pd->layout, "sw.right", btn);
