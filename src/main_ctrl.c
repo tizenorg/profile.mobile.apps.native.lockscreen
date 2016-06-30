@@ -20,7 +20,7 @@
 #include "window.h"
 #include "battery_ctrl.h"
 #include "background.h"
-#include "camera_ctrl.h"
+#include "shortcut_ctrl.h"
 #include "time_format_ctrl.h"
 #include "util.h"
 #include "sim_ctrl.h"
@@ -87,8 +87,8 @@ int lockscreen_main_ctrl_init(void)
 	if (lock_battery_ctrl_init(view))
 		FAT("lock_battery_ctrl_init failed. Battery information will not be available");
 
-	if (lockscreen_camera_ctrl_init(win, view))
-		FAT("lockscreen_camera_ctrl_init failed. Camera quickshot will not be available");
+	if (lockscreen_shortcut_ctrl_init(win, view))
+		FAT("lockscreen_shortcut_ctrl_init failed. Applications shortcuts will not be available");
 
 	if (lockscreen_time_format_ctrl_init(view))
 		FAT("lockscreen_time_format_ctrl_init failed. Time format changes will not be available");
@@ -122,5 +122,5 @@ void lockscreen_main_ctrl_shutdown(void)
 
 void lockscreen_main_ctrl_app_paused(void)
 {
-	lockscreen_camera_ctrl_app_paused();
+	lockscreen_shortcut_ctrl_app_paused();
 }

@@ -68,7 +68,6 @@ static void _lockscreen_device_lock_ctrl_pass_view_failed_show(Evas_Object *pass
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
 			trans = _("IDS_IDLE_BODY_INCORRECT_PASSWORD");
-			break;
 		default:
 			ERR("Unahandled lock type");
 			return;

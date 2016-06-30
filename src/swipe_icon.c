@@ -30,18 +30,12 @@ static void _icon_selected(void *data, Evas_Object *obj, const char *emission, c
 static Evas_Object *_image_create(Evas_Object *parent, const char *icon_path)
 {
 	Evas_Object *image = elm_image_add(parent);
-	char *image_path = calloc(strlen(IMAGE_DIR) + strlen(icon_path) + 1, sizeof(char));
 
-	strcpy(image_path, IMAGE_DIR);
-	strcat(image_path, icon_path);
-
-	if (!elm_image_file_set(image, util_get_res_file_path(image_path), NULL)) {
+	if (!elm_image_file_set(image, icon_path, NULL)) {
 		ERR("elm_image_file_set failed");
 		evas_object_del(image);
 		return NULL;
 	}
-
-	free(image_path);
 
 	evas_object_size_hint_fill_set(image, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_size_hint_weight_set(image, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
