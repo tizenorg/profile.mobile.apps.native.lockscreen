@@ -37,6 +37,7 @@ BuildRequires:  pkgconfig(capi-telephony)
 BuildRequires:  pkgconfig(vconf)
 BuildRequires:  pkgconfig(auth-fw)
 BuildRequires:  pkgconfig(dpm)
+BuildRequires:  pkgconfig(gio-2.0)
 
 %description
 Lockscreen application for Tizen.

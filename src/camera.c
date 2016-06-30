@@ -16,6 +16,7 @@
 
 #include "camera.h"
 #include "log.h"
+#include "deviced.h"
 
 #include <app_control.h>
 #include <Ecore.h>
@@ -33,6 +34,7 @@ static void _app_control_reply_cb(app_control_h request, app_control_h reply, ap
 		case APP_CONTROL_RESULT_APP_STARTED:
 		case APP_CONTROL_RESULT_SUCCEEDED:
 			DBG("Camera application launch succcessed.");
+			lockscreen_deviced_lockscreen_background_state_set(true);
 			break;
 		case APP_CONTROL_RESULT_FAILED:
 		case APP_CONTROL_RESULT_CANCELED:
@@ -77,6 +79,13 @@ int lockscreen_camera_activate()
 	err = app_control_set_app_id(app_ctr, "org.tizen.camera-app");
 	if (err != APP_CONTROL_ERROR_NONE) {
 		ERR("app_control_set_app_id failed: %s", get_error_message(err));
+		app_control_destroy(app_ctr);
+		return 1;
+	}
+
+	err = app_control_enable_app_started_result_event(app_ctr);
+	if (err != APP_CONTROL_ERROR_NONE) {
+		ERR("app_control_enable_app_started_result_event failed: %s", get_error_message(err));
 		app_control_destroy(app_ctr);
 		return 1;
 	}

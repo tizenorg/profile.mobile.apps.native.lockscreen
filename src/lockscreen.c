@@ -26,6 +26,7 @@
 #include "lockscreen.h"
 #include "log.h"
 #include "main_ctrl.h"
+#include "deviced.h"
 
 static Eina_Bool _lock_idler_cb(void *data)
 {
@@ -54,6 +55,11 @@ void _terminate_app(void *data)
 	DBG("Lockscreen terminated request.");
 }
 
+void _resume_app(void *data)
+{
+	lockscreen_deviced_lockscreen_background_state_set(false);
+}
+
 EAPI int main(int argc, char *argv[])
 {
 	int ret = 0;
@@ -62,6 +68,7 @@ EAPI int main(int argc, char *argv[])
 
 	lifecycle_callback.create = _create_app;
 	lifecycle_callback.terminate = _terminate_app;
+	lifecycle_callback.resume = _resume_app;
 
 	ret = ui_app_main(argc, argv, &lifecycle_callback, NULL);
 	if (ret != APP_ERROR_NONE) {
