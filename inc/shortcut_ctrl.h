@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-#ifndef _LOCKSCREEN_CAMERA_CTRL_H_
-#define _LOCKSCREEN_CAMERA_CTRL_H_
+#ifndef _LOCKSCREEN_SHORTCUT_CTRL_H_
+#define _LOCKSCREEN_SHORTCUT_CTRL_H_
 
 #include <Elementary.h>
 
 /**
- * @brief Initializes camera controller.
+ * @brief Initializes shortcut controller.
  *
- * Camera controller module is responsible for displaying camera icon on
- * @main_view and launching camera application when requested by user.
+ * Camera controller module is responsible for displaying shortcut icon on
+ * @main_view and launching shortcut application when requested by user.
  *
  * @return: 0 on success, other value on failure.
  */
-int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *main_view);
+int lockscreen_shortcut_ctrl_init(Evas_Object *win, Evas_Object *main_view);
 
 /**
- * @brief Deinitializes camera controller.
+ * @brief Deinitializes shortcut controller.
  */
-void lockscreen_camera_ctrl_fini(void);
+void lockscreen_shortcut_ctrl_fini(void);
 
 /*
  * @brief Application is being paused (according to Tizen app lifecycle)
  */
-void lockscreen_camera_ctrl_app_paused(void);
+void lockscreen_shortcut_ctrl_app_paused(void);
 
 #endif
 

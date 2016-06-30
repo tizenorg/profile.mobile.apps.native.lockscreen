@@ -137,9 +137,9 @@ group {
 			signal: "swipe_icon,reset";
 			source: "lockscreen";
 			action: STATE_SET "default" 0.0;
-			target: "camera.circle";
-			target: "camera.circle.fill";
-			target: "img.camera";
+			target: "icon.circle";
+			target: "icon.circle.fill";
+			target: "sw.icon";
 		}
 		program {
 			name: "circle,expand";
