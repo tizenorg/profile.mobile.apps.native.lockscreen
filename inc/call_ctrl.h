@@ -19,8 +19,6 @@
 
 #include <Elementary.h>
 
-#define ICON_PATH_CALL "quick_call_icon.png"
-
 /**
  * @brief Initializes call controller
  *
