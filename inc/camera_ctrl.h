@@ -34,5 +34,10 @@ int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *main_view);
  */
 void lockscreen_camera_ctrl_fini(void);
 
+/*
+ * @brief Application is being paused (according to Tizen app lifecycle)
+ */
+void lockscreen_camera_ctrl_app_paused(void);
+
 #endif
 

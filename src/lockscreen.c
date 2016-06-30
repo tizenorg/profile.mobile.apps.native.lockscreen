@@ -60,6 +60,11 @@ void _resume_app(void *data)
 	lockscreen_deviced_lockscreen_background_state_set(false);
 }
 
+void _pause_app(void *data)
+{
+	lockscreen_main_ctrl_app_paused();
+}
+
 EAPI int main(int argc, char *argv[])
 {
 	int ret = 0;
@@ -69,6 +74,7 @@ EAPI int main(int argc, char *argv[])
 	lifecycle_callback.create = _create_app;
 	lifecycle_callback.terminate = _terminate_app;
 	lifecycle_callback.resume = _resume_app;
+	lifecycle_callback.pause = _pause_app;
 
 	ret = ui_app_main(argc, argv, &lifecycle_callback, NULL);
 	if (ret != APP_ERROR_NONE) {

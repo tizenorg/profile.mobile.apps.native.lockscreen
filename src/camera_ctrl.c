@@ -51,14 +51,6 @@ static Eina_Bool _cam_status_changed(void *data, int event, void *event_info)
 	return EINA_TRUE;
 }
 
-static void _lockscreen_camera_ctrl_win_normal(void *data, Evas_Object *obj, void *event_info)
-{
-	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
-	if (cam_view) {
-		lockscreen_camera_view_reset(cam_view);
-	}
-}
-
 int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *view)
 {
 	if (lockscreen_camera_init()) {
@@ -71,9 +63,6 @@ int lockscreen_camera_ctrl_init(Evas_Object *win, Evas_Object *view)
 		FAT("ecore_event_handler_add failed on LOCKSCREEN_EVENT_BATTERY_CHANGED event");
 	main_view = view;
 	main_win = win;
-	/* "widthdrawn" seems to be better event, however on Tizen 3.0 is never
-	 * triggered */
-	evas_object_smart_callback_add(win, "normal", _lockscreen_camera_ctrl_win_normal, NULL);
 	_camera_view_update();
 
 	return 0;
@@ -84,6 +73,24 @@ void lockscreen_camera_ctrl_fini(void)
 	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
 	if (cam_view) evas_object_smart_callback_del(cam_view, SIGNAL_CAMERA_SELECTED, _camera_clicked);
 	ecore_event_handler_del(handler);
-	evas_object_smart_callback_del(main_win, "normal", _lockscreen_camera_ctrl_win_normal);
 	lockscreen_camera_shutdown();
+}
+
+void lockscreen_camera_ctrl_app_paused(void)
+{
+	Evas_Object *cam_view = lockscreen_main_view_part_content_get(main_view, PART_CAMERA);
+	if (cam_view) {
+		lockscreen_camera_view_reset(cam_view);
+		/* Quick fix for rendering artifacts
+		 * When camera is launched the lockscreen goes into "paused" state.
+		 * On pause callback camera view is reset.
+		 * However it occurs that edje signals sent to camera view layout
+		 * are not processed after paused callback and frame is not refreshed
+		 * properly.
+		 * This leads to visible artifact when lockscreen change state from
+		 * "pasued" => "resume"
+		 * We force to render before app goes into "pasued" state by adding 2 calls: */
+		edje_object_message_signal_process(elm_layout_edje_get(cam_view));
+		evas_render(evas_object_evas_get(cam_view));
+	}
 }

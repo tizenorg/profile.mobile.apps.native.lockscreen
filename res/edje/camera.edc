@@ -95,7 +95,10 @@ group {
 		program {
 			signal: "camera,reset";
 			source: "lockscreen";
-			after: "circle,contract";
+			action: STATE_SET "default" 0.0;
+			target: "camera.circle";
+			target: "camera.circle.fill";
+			target: "img.camera";
 		}
 		program {
 			name: "circle,expand";

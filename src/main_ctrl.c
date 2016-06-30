@@ -115,3 +115,8 @@ void lockscreen_main_ctrl_shutdown(void)
 	lockscreen_events_ctrl_shutdown();
 	evas_object_del(win);
 }
+
+void lockscreen_main_ctrl_app_paused(void)
+{
+	lockscreen_camera_ctrl_app_paused();
+}
