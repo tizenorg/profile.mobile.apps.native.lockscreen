@@ -34,6 +34,7 @@ pkg_check_modules(MENU_PKGS REQUIRED
 	vconf
 	auth-fw
 	dpm
+	gio-2.0
 )
 
 FOREACH (flag ${MENU_PKGS_CFLAGS})
@@ -74,6 +75,7 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/device_lock.c
 	${PROJECT_ROOT_DIR}/src/device_lock_ctrl.c
 	${PROJECT_ROOT_DIR}/src/password_view.c
+	${PROJECT_ROOT_DIR}/src/deviced.c
 )
 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${pkgs_LDFLAGS} -lm)
