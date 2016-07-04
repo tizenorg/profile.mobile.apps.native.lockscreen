@@ -317,7 +317,7 @@ collections {
 		}
 		spacer { "padding.icon.text"; scale;
 			  desc { state: "default";
-				fixed: 0 1;
+				fixed: 1 0;
 				min: 16 0;
 				max: 16 -1;
 				align: 0 0.5;
@@ -333,7 +333,6 @@ collections {
 				max: -1 54;
 				align: 0.0 0.0;
 				rel1 { to_x: "padding.icon.text"; to_y: "padding.top"; relative: 1.0 1.0; }
-				//rel2 { to_x: "elm.padding.A.D"; to_y: "elm.padding.bottom"; relative: 0.0 0.0; }
 				text.style: "title_style";
 				text.min: 1 1;
 				text.max: 0 1;
@@ -347,7 +346,6 @@ collections {
 				max: -1 43;
 				align: 0.0 0.0;
 				rel1 { to: "elm.text"; relative: 0.0 1.0; }
-				//rel2 { to_x: "elm.padding.A.D"; to_y: "elm.padding.bottom"; relative: 0.0 0.0; }
 				text.style: "content_style";
 				text.min: 1 1;
 				text.max: 0 1;
@@ -356,7 +354,7 @@ collections {
 		}
 		spacer { "padding.text.date"; scale;
 			  desc { state: "default";
-				fixed: 0 1;
+				fixed: 1 0;
 				min: 32 0;
 				max: 32 -1;
 				align: 1.0 0.5;
