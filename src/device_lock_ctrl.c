@@ -32,7 +32,7 @@
 #include "call.h"
 #include "util.h"
 
-static Ecore_Event_Handler *handler[2];
+static Ecore_Event_Handler *handler[3];
 static Evas_Object *main_view;
 
 static void _lockscreen_device_lock_ctrl_view_unlocked(void *data, Evas_Object *obj, void *event)
@@ -161,12 +161,6 @@ _lockscreen_device_lock_miniature_create(Evas_Object *parent, const lockscreen_e
 }
 
 static void
-_lockscreen_device_lock_ctrl_view_del(void *data, Evas *e, Evas_Object *obj, void *event_info)
-{
-	lockscreen_event_free(data);
-}
-
-static void
 _lockscreen_device_lock_pass_view_password_is_typing(void *data, Evas_Object *obj, void *event_info)
 {
 	lockscreen_display_timer_renew();
@@ -179,28 +173,21 @@ static void _lockscreen_device_lock_ctrl_pass_view_return_to_call_button_clicked
 		ERR("Could not send launch request");
 }
 
-static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_view_type type, const lockscreen_event_t *event)
+static int
+_lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_view_type type, const lockscreen_device_unlock_context_t *context)
 {
 	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
 	if (pass_view) return 1;
-	lockscreen_event_t *copy = NULL;
-
-	if (event) {
-		copy = lockscreen_event_copy(event);
-	}
 
 	pass_view = lockscreen_password_view_create(type, main_view);
 	evas_object_smart_callback_add(pass_view, SIGNAL_CANCEL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_cancel_button_clicked, NULL);
-	evas_object_smart_callback_add(pass_view, SIGNAL_ACCEPT_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked, copy);
+	evas_object_smart_callback_add(pass_view, SIGNAL_ACCEPT_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked, NULL);
 	evas_object_smart_callback_add(pass_view, SIGNAL_RETURN_TO_CALL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_return_to_call_button_clicked, NULL);
 
 	if (lockscreen_call_active_is())
 		lockscreen_password_view_btn_return_to_call_show(pass_view);
 
 	lockscreen_main_view_part_content_set(main_view, PART_PASSWORD, pass_view);
-	if (copy)
-		evas_object_event_callback_add(pass_view, EVAS_CALLBACK_DEL,
-				_lockscreen_device_lock_ctrl_view_del, copy);
 
 	switch (type) {
 		case LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN:
@@ -219,8 +206,8 @@ static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_vi
 			break;
 	}
 
-	if (event) {
-		Evas_Object *mini = _lockscreen_device_lock_miniature_create(pass_view, event);
+	if (context && context->type == LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_EVENT) {
+		Evas_Object *mini = _lockscreen_device_lock_miniature_create(pass_view, context->data.event);
 		elm_object_part_content_set(pass_view, PART_CONTENT_EVENT, mini);
 	}
 
@@ -230,22 +217,24 @@ static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_vi
 	return 0;
 }
 
-static int _lockscreen_device_lock_ctrl_unlock_request(const lockscreen_event_t *ev)
+static Eina_Bool
+_lockscreen_device_lock_ctrl_unlock_request(void *data, int event, void *ev)
 {
 	lockscreen_device_lock_type_e type = lockscreen_device_lock_type_get();
+	lockscreen_device_unlock_context_t *ctx = ev;
 
 	switch (type) {
 		case LOCKSCREEN_DEVICE_LOCK_NONE:
-			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_SWIPE, ev);
+			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_SWIPE, ctx);
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
-			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN, ev);
+			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN, ctx);
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
-			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD, ev);
+			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD, ctx);
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
 			WRN("Unhandled lock type");
 			return 1;
 	}
-	return 1;
+	return EINA_TRUE;
 }
 
 static Eina_Bool _lockscreen_device_lock_ctrl_btn_return_update(void *data, int event, void *event_info)
@@ -269,11 +258,12 @@ static void _lockscreen_device_lock_ctrl_swipe_finished(void *data, Evas_Object 
 
 	switch (type) {
 		case LOCKSCREEN_DEVICE_LOCK_NONE:
-			lockscreen_device_lock_unlock(NULL, NULL);
+			if (!lockscreen_device_lock_unlock_request(NULL))
+				lockscreen_device_lock_unlock(NULL, NULL);
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
-			lockscreen_device_lock_ctrl_unlock_request();
+			lockscreen_device_lock_unlock_request(NULL);
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
 			WRN("Unhandled lock type");
@@ -287,7 +277,7 @@ static void _lockscreen_device_vconf_idle_key_changed(keynode_t *node, void *use
 		if (lockscreen_device_lock_type_get() == LOCKSCREEN_DEVICE_LOCK_NONE)
 			ui_app_exit();
 		else
-			lockscreen_device_lock_ctrl_unlock_request();
+			lockscreen_device_lock_unlock_request(NULL);
 	}
 }
 
@@ -321,6 +311,7 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 
 	handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_device_lock_ctrl_unlocked, NULL);
 	handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_CALL_STATUS_CHANGED, _lockscreen_device_lock_ctrl_btn_return_update, NULL);
+	handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST, _lockscreen_device_lock_ctrl_unlock_request, NULL);
 
 	evas_object_smart_callback_add(view, SIGNAL_SWIPE_GESTURE_FINISHED, _lockscreen_device_lock_ctrl_swipe_finished, NULL);
 	main_view = view;
@@ -332,22 +323,7 @@ void lockscreen_device_lock_ctrl_shutdown()
 	vconf_ignore_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed);
 	ecore_event_handler_del(handler[0]);
 	ecore_event_handler_del(handler[1]);
+	ecore_event_handler_del(handler[2]);
 	lockscreen_device_lock_shutdown();
 	lockscreen_display_shutdown();
-}
-
-int lockscreen_device_lock_ctrl_unlock_request(void)
-{
-	if (!main_view) return 1;
-	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
-	if (pass_view) return 1;
-	return _lockscreen_device_lock_ctrl_unlock_request(NULL);
-}
-
-int lockscreen_device_lock_ctrl_unlock_and_launch_request(const lockscreen_event_t *event)
-{
-	if (!main_view) return 1;
-	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
-	if (pass_view) return 1;
-	return _lockscreen_device_lock_ctrl_unlock_request(event);
 }
