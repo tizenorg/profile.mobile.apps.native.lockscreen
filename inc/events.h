@@ -18,6 +18,7 @@
 
 #include <Elementary.h>
 #include <time.h>
+#include <stdbool.h>
 
 /**
  * @addtogroup Models
@@ -81,19 +82,13 @@ const char *lockscreen_event_content_get(const lockscreen_event_t *event);
 time_t lockscreen_event_time_get(const lockscreen_event_t *event);
 
 /**
- * @brief Launch done callback.
- */
-typedef void (*Launch_Done_Cb)(void);
-
-/**
  * @brief Launch application which posted the event
  *
  * @return true on success launch request.
  * @return false if event do not support launching application or
  * an error occured.
- * @note if function returns false, cb will never be called.
  */
-bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb);
+bool lockscreen_event_launch(lockscreen_event_t *event);
 
 /**
  * @brief Gets list of all displayed events.

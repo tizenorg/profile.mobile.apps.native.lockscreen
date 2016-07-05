@@ -23,7 +23,6 @@
 #include "util_time.h"
 #include "minicontrollers.h"
 #include "display.h"
-#include "device_lock_ctrl.h"
 #include "background.h"
 
 #include <Ecore.h>
@@ -155,7 +154,9 @@ static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, 
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
 	lockscreen_main_view_contextual_view_fullscreen_set(main_view, false);
-	lockscreen_device_lock_ctrl_unlock_and_launch_request(event);
+
+	if (!lockscreen_event_launch(event))
+		ERR("lockscreen_event_launch failed");
 
 	elm_genlist_item_selected_set(info, EINA_FALSE);
 	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_FALSE);

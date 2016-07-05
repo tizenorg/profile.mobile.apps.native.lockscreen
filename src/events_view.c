@@ -20,6 +20,7 @@
 #include "lockscreen.h"
 #include "util_time.h"
 #include "window.h"
+#include "time_format.h"
 
 #include <Elementary.h>
 
@@ -410,3 +411,48 @@ void lockscreen_events_view_page_bring_in(Evas_Object *events_view, Evas_Object 
 		idx++;
 	}
 }
+
+Evas_Object*
+lockscreen_events_view_event_miniature_create(Evas_Object *parent, const lockscreen_event_t *event)
+{
+	Evas_Object *icon, *ret = elm_layout_add(parent);
+	char *time;
+
+	if (lockscreen_time_format_init()) {
+		ERR("lockscreen_time_format_init failed");
+		return NULL;
+	}
+
+	if (!elm_layout_theme_set(ret, "layout", "noti", "default")) {
+		FAT("elm_layout_theme_set failed");
+		evas_object_del(ret);
+		return NULL;
+	}
+
+	if (lockscreen_event_icon_get(event)) {
+		icon = elm_icon_add(ret);
+		elm_image_fill_outside_set(icon, EINA_TRUE);
+		elm_image_file_set(icon, lockscreen_event_icon_get(event), NULL);
+		evas_object_show(icon);
+		elm_object_part_content_set(ret, NOTI_ITEM_ICON, icon);
+	}
+	if (lockscreen_event_sub_icon_get(event)) {
+		icon = elm_icon_add(ret);
+		elm_image_file_set(icon, lockscreen_event_sub_icon_get(event), NULL);
+		evas_object_show(icon);
+		elm_object_part_content_set(ret, NOTI_ITEM_ICON_SUB, icon);
+	}
+	elm_object_part_text_set(ret, NOTI_ITEM_TEXT, lockscreen_event_title_get(event));
+	elm_object_part_text_set(ret, NOTI_ITEM_TEXT_SUB, lockscreen_event_content_get(event));
+	const char *locale = lockscreen_time_format_locale_get();
+	const char *timezone = lockscreen_time_format_timezone_get();
+	bool use24hformat = lockscreen_time_format_use_24h();
+	time = util_time_string_get(lockscreen_event_time_get(event), locale, timezone, use24hformat);
+	elm_object_part_text_set(ret, NOTI_ITEM_TEXT_TIME, time);
+	free(time);
+
+	evas_object_show(ret);
+	lockscreen_time_format_shutdown();
+	return ret;
+}
+

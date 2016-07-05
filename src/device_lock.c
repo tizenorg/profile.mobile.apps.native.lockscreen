@@ -24,12 +24,13 @@
 
 static int init_count;
 static lockscreen_device_lock_type_e lock_type;
+static int unlock_mutex;
+static lockscreen_device_unlock_context_t *context;
 int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED;
+int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
+int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_CANCELLED;
 
-static void _lockscreen_device_unlock(void)
-{
-	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, NULL, NULL, NULL);
-}
+static void _lockscreen_device_unlock(void);
 
 static int _lockscreen_device_lock_dpm_status_set(int status)
 {
@@ -66,6 +67,8 @@ int lockscreen_device_lock_init(void)
 	int type;
 	if (!init_count) {
 		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED = ecore_event_type_new();
+		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST = ecore_event_type_new();
+		LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_CANCELLED  = ecore_event_type_new();
 		int ret = vconf_get_int(VCONFKEY_SETAPPL_SCREEN_LOCK_TYPE_INT, &type);
 		if (ret) {
 			ERR("vconf_get_int failed");
@@ -183,4 +186,79 @@ int lockscreen_device_lock_max_unlock_attempts_get(void)
 			return -1;
 	}
 	return -1;
+}
+
+static lockscreen_device_unlock_context_t*
+_lockscreen_device_unlock_context_copy(const lockscreen_device_unlock_context_t *context)
+{
+	if (!context) return NULL;
+
+	lockscreen_device_unlock_context_t *ret = calloc(1, sizeof(lockscreen_device_unlock_context_t));
+
+	ret->type = context->type;
+
+	switch (context->type) {
+		case LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_EVENT:
+			ret->data.event = lockscreen_event_copy(context->data.event);
+		default:
+			break;
+	}
+
+	return ret;
+}
+
+static void
+_lockscreen_context_dummy_free(void *fn, void  *data)
+{
+}
+
+int lockscreen_device_lock_unlock_request(const lockscreen_device_unlock_context_t *ctx)
+{
+	if (unlock_mutex) return 1;
+
+	if (ctx) {
+		context = _lockscreen_device_unlock_context_copy(ctx);
+		if (!context) {
+			ERR("_lockscreen_device_unlock_context_copy failed");
+			return 1;
+		}
+	} else
+		context = NULL;
+
+	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST, context, _lockscreen_context_dummy_free, NULL);
+	unlock_mutex = 1;
+	return 0;
+}
+
+static void
+_lockscreen_context_free(void *fn, void  *data)
+{
+	lockscreen_device_unlock_context_t *ctx = data;
+	if (!ctx) return;
+
+	switch (ctx->type) {
+		case LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_EVENT:
+			lockscreen_event_free(ctx->data.event);
+		default:
+			break;
+	}
+
+	free(ctx);
+}
+
+int lockscreen_device_lock_unlock_cancel(void)
+{
+	if (!unlock_mutex) return 1;
+
+	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_CANCELLED, context, _lockscreen_context_free, NULL);
+	unlock_mutex = 0;
+	return 0;
+}
+
+static void _lockscreen_device_unlock(void)
+{
+	if (!unlock_mutex) return;
+
+	ecore_event_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, context, _lockscreen_context_free, NULL);
+	unlock_mutex = 0;
 }

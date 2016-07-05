@@ -18,6 +18,7 @@
 #define _LOCKSCREEN_DEVICE_LOCK_H_
 
 #include <stdbool.h>
+#include "events.h"
 
 /**
  * @addtogroup Models
@@ -50,6 +51,16 @@ typedef enum {
 extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED;
 
 /**
+ * @brief Event fired when device has been asked to unlock.
+ */
+extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST;
+
+/**
+ * @brief Event fired when unlock attempt has been unsuccessfull.
+ */
+extern int LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_CANCELLED;
+
+/**
  * @brief Initialize device lock module
  *
  * @return 0 on success, other value on failure.
@@ -76,6 +87,30 @@ typedef enum {
 } lockscreen_device_unlock_result_e;
 
 /**
+ * @brief Type of unlock context
+ *
+ * The unlock context describes what action will be performed
+ * when unlock attempt success.
+ */
+typedef enum {
+	LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_NONE, /* None - Just unlock */
+	LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_EVENT, /* Launch event after unlock */
+} lockscreen_device_unlock_context_type_e;
+
+/**
+ * @brief Unlock context.
+ *
+ * @description Contains detailed information that
+ * are passed to LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST event.
+ */
+typedef struct {
+	lockscreen_device_unlock_context_type_e type;
+	union {
+		lockscreen_event_t *event;
+	} data;
+} lockscreen_device_unlock_context_t;
+
+/**
  * @brief Try to unlock device using given password.
  *
  * @param pass password used to unlock
@@ -99,11 +134,22 @@ lockscreen_device_unlock_result_e lockscreen_device_lock_unlock(const char *pass
 int lockscreen_device_lock_max_unlock_attempts_get(void);
 
 /**
- * @}
+ * @brief Request device to unlock.
+ *
+ * @param Unlock request context. Context will be passed to
+ * LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST,
+ * LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_CANCELLED and
+ * LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED.
+ *
+ * @return 0 on success, other value on failue.
  */
+int lockscreen_device_lock_unlock_request(const lockscreen_device_unlock_context_t *context);
 
 /**
- * @}
+ * @brief Cancel unlock request.
+ *
+ * @return 0 on success, other value on failue.
  */
+int lockscreen_device_lock_unlock_cancel(void);
 
 #endif

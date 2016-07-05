@@ -23,11 +23,13 @@
 #include "log.h"
 #include "lockscreen.h"
 #include "events.h"
+#include "device_lock.h"
 
 static Eina_List *notifications;
 static int init_count;
 int LOCKSCREEN_EVENT_EVENTS_CHANGED;
 static bool freeze_event;
+static Ecore_Event_Handler *unlock_handler[2];
 
 struct lockscreen_event {
 	char *icon_path;
@@ -208,6 +210,10 @@ static void _noti_changed_cb(void *data, notification_type_e type, notification_
 int lockscreen_events_init(void)
 {
 	if (!init_count) {
+		if (lockscreen_device_lock_init()) {
+			ERR("lockscreen_device_lock_init failed");
+			return 1;
+		}
 		LOCKSCREEN_EVENT_EVENTS_CHANGED = ecore_event_type_new();
 		int ret = notification_register_detailed_changed_cb(_noti_changed_cb, NULL);
 		if (ret != NOTIFICATION_ERROR_NONE) {
@@ -237,27 +243,17 @@ void lockscreen_events_shutdown(void)
 	}
 }
 
-static void _app_control_reply_cb(app_control_h request, app_control_h reply, app_control_result_e result, void *user_data)
+static Eina_Bool
+_lockscreen_events_device_unlock_cancelled(void *data, int event, void *event_info)
 {
-	Launch_Done_Cb cb = user_data;
-
-	switch (result) {
-		case APP_CONTROL_RESULT_APP_STARTED:
-		case APP_CONTROL_RESULT_CANCELED:
-			if (cb) cb();
-			break;
-		default:
-			return;
-	}
+	ecore_event_handler_del(unlock_handler[0]);
+	ecore_event_handler_del(unlock_handler[1]);
+	return EINA_TRUE;
 }
 
-bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb)
+static bool _lockscreen_event_launch_internal(lockscreen_event_t *event)
 {
 	app_control_h service = NULL;
-
-	if (!event->service_handle) {
-		return false;
-	}
 
 	int ret = app_control_create(&service);
 	if (ret != APP_CONTROL_ERROR_NONE) {
@@ -281,7 +277,7 @@ bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb)
 
 	INF("Launching event for package: %s", event->package);
 
-	ret = app_control_send_launch_request(service, _app_control_reply_cb, cb);
+	ret = app_control_send_launch_request(service, NULL, NULL);
 	if (ret != APP_CONTROL_ERROR_NONE) {
 		ERR("app_control_send_launch_request failed: %s", get_error_message(ret));
 		app_control_destroy(service);
@@ -290,6 +286,44 @@ bool lockscreen_event_launch(lockscreen_event_t *event, Launch_Done_Cb cb)
 
 	app_control_destroy(service);
 
+	return true;
+}
+
+static Eina_Bool
+_lockscreen_events_device_unlocked(void *data, int event, void *event_info)
+{
+	lockscreen_device_unlock_context_t *context = event_info;
+
+	if (!_lockscreen_event_launch_internal(context->data.event))
+		ERR("lockscreen_event_launch failed");
+
+	ecore_event_handler_del(unlock_handler[0]);
+	ecore_event_handler_del(unlock_handler[1]);
+	return EINA_TRUE;
+}
+
+bool lockscreen_event_launch(lockscreen_event_t *event)
+{
+	lockscreen_device_unlock_context_t context;
+
+	if (!event->service_handle) {
+		return false;
+	}
+
+	context.type = LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_EVENT;
+	context.data.event = event;
+
+	if (!lockscreen_device_lock_unlock_request(&context)) {
+		unlock_handler[0] = ecore_event_handler_add(
+				LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_CANCELLED,
+				_lockscreen_events_device_unlock_cancelled, NULL);
+		unlock_handler[1] = ecore_event_handler_add(
+				LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED,
+				_lockscreen_events_device_unlocked, NULL);
+	} else {
+		INF("lockscreen_device_lock_unlock_request failed");
+		return false;
+	}
 	return true;
 }
 
