@@ -35,20 +35,6 @@
  */
 
 /**
- * @brief Request controller to unlock device.
- *
- * @return 0 on success, other value on failure.
- */
-int lockscreen_device_lock_ctrl_unlock_request(void);
-
-/**
- * @brief Request controller to unlock device and launch event on success.
- *
- * @return 0 on success, other value on failure.
- */
-int lockscreen_device_lock_ctrl_unlock_and_launch_request(const lockscreen_event_t *event);
-
-/**
  * @brief Initialize device_lock controller.
  *
  * Device lock controller module manages displaying unlock panels (password type, PIN,

@@ -23,14 +23,15 @@
 #include "util_time.h"
 #include "minicontrollers.h"
 #include "display.h"
-#include "device_lock_ctrl.h"
 #include "background.h"
+#include "util.h"
 
 #include <Ecore.h>
 #include <time.h>
 #include <Elementary.h>
 
 #define MAX_EVENTS_SHOW_COUNT 3
+#define DEFAULT_IMAGE_PATH "lockscreen.png"
 
 static Ecore_Event_Handler *events_handler[2];
 static Evas_Object *main_view, *noti_page, *media_page;
@@ -63,7 +64,10 @@ static Evas_Object *_lockscreen_events_view_ctrl_genlist_noti_content_get(void *
 	if (!strcmp(part, NOTI_ITEM_ICON)) {
 		ret = elm_icon_add(obj);
 		elm_image_fill_outside_set(ret, EINA_TRUE);
-		elm_image_file_set(ret, lockscreen_event_icon_get(event), NULL);
+		if (!lockscreen_event_icon_get(event) ||
+			!elm_image_file_set(ret, lockscreen_event_icon_get(event), NULL)) {
+				elm_image_file_set(ret, util_get_shared_res_file_path(DEFAULT_IMAGE_PATH), NULL);
+			}
 	}
 	else if (!strcmp(part, NOTI_ITEM_ICON_SUB)) {
 		ret = elm_icon_add(obj);
@@ -155,7 +159,9 @@ static void _lockscreen_events_ctrl_item_selected(void *data, Evas_Object *obj, 
 {
 	lockscreen_event_t *event = eina_list_data_get(data);
 	lockscreen_main_view_contextual_view_fullscreen_set(main_view, false);
-	lockscreen_device_lock_ctrl_unlock_and_launch_request(event);
+
+	if (!lockscreen_event_launch(event))
+		ERR("lockscreen_event_launch failed");
 
 	elm_genlist_item_selected_set(info, EINA_FALSE);
 	lockscreen_events_view_page_panel_visible_set(noti_page, EINA_FALSE);

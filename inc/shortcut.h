@@ -64,13 +64,6 @@ bool lockscreen_shortcut_is_on(void);
 const char *lockscreen_shortcut_icon_path_get(void);
 
 /**
- * @brief Checks if shortcut requires lockscreen to unlock
- *
- * @return true if requires, false otherwise.
- */
-bool lockscreen_shortcut_require_unlock(void);
-
-/**
  * @}
  */
 
