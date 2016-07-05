@@ -21,14 +21,16 @@
 #include "shortcut.h"
 #include "swipe_icon.h"
 #include "main_view.h"
+#include "device_lock.h"
 
 static Evas_Object *main_view, *main_win;
+static Ecore_Event_Handler *unlock_request;
 
 static void _shortcut_clicked(void *data, Evas_Object *obj, void *event)
 {
+	Evas_Object *sc_view = lockscreen_main_view_part_content_get(main_view, PART_SHORTCUT);
 	if (lockscreen_shortcut_activate()) {
 		ERR("lockscreen_shortcut_activate failed");
-		Evas_Object *sc_view = lockscreen_main_view_part_content_get(main_view, PART_SHORTCUT);
 		lockscreen_swipe_icon_view_reset(sc_view);
 	}
 }
@@ -48,12 +50,32 @@ static void _shortcut_view_update()
 	}
 }
 
+static Eina_Bool
+_lockscreen_shortcut_ctrl_device_unlock_request(void *data, int event, void *event_info)
+{
+	Evas_Object *sc_view = lockscreen_main_view_part_content_get(main_view, PART_SHORTCUT);
+	if (sc_view) {
+		lockscreen_swipe_icon_view_reset(sc_view);
+	}
+	return EINA_TRUE;
+}
+
 int lockscreen_shortcut_ctrl_init(Evas_Object *win, Evas_Object *view)
 {
 	if (lockscreen_shortcut_init()) {
 		ERR("lockscreen_shortcut_init failed");
 		return 1;
 	}
+	
+	if (lockscreen_device_lock_init()) {
+		ERR("lockscreen_device_lock_init failed");
+		lockscreen_shortcut_shutdown();
+		return 1;
+	}
+		
+	unlock_request = ecore_event_handler_add(
+			LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST,
+			_lockscreen_shortcut_ctrl_device_unlock_request, NULL);
 
 	main_view = view;
 	main_win = win;
@@ -64,6 +86,7 @@ int lockscreen_shortcut_ctrl_init(Evas_Object *win, Evas_Object *view)
 
 void lockscreen_shortcut_ctrl_fini(void)
 {
+	ecore_event_handler_del(unlock_request);
 	Evas_Object *sc_view = lockscreen_main_view_part_content_get(main_view, PART_SHORTCUT);
 	if (sc_view) evas_object_smart_callback_del(sc_view, SIGNAL_ICON_SELECTED, _shortcut_clicked);
 	lockscreen_shortcut_shutdown();

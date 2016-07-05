@@ -19,6 +19,7 @@
 #include "deviced.h"
 #include "util.h"
 #include "lockscreen.h"
+#include "device_lock.h"
 
 #include <app_control.h>
 #include <Ecore.h>
@@ -32,8 +33,9 @@ bool shortcut_secure_mode;
 static int init_count;
 static const char *package;
 static const char *image;
+static Ecore_Event_Handler *unlock_handlers[2];
 
-/* Following table contains NULL terminated list of packages that
+/* Following array contains packages that
  * can be run in "secure-mode" (without unlocking lockscreen, displaying
  * over lockscreen). Since there is currently no way to obtain such
  * list on runtime (eg. from app_control API), we whitelist some
@@ -41,7 +43,6 @@ static const char *image;
  * */
 static const char *secured_mode_apps[] = {
 	CAMERA_PACKAGE,
-	NULL,
 };
 
 static void _app_control_reply_cb(app_control_h request, app_control_h reply, app_control_result_e result, void *user_data)
@@ -59,13 +60,10 @@ static void _app_control_reply_cb(app_control_h request, app_control_h reply, ap
 	}
 }
 
-int lockscreen_shortcut_activate()
+static int
+_lockscreen_shortcut_activate_internal(void)
 {
 	app_control_h app_ctr;
-
-	/* Currently do not support launching apps requireing unlock */
-	if (lockscreen_shortcut_require_unlock())
-		return 1;
 
 	int err = app_control_create(&app_ctr);
 	if (err != APP_CONTROL_ERROR_NONE) {
@@ -73,27 +71,29 @@ int lockscreen_shortcut_activate()
 		return 1;
 	}
 
-	err = app_control_set_launch_mode(app_ctr, APP_CONTROL_LAUNCH_MODE_GROUP);
-	if (err != APP_CONTROL_ERROR_NONE) {
-		ERR("app_control_set_launch_mode failed: %s", get_error_message(err));
-		app_control_destroy(app_ctr);
-		return 1;
-	}
+	if (shortcut_secure_mode) {
+		err = app_control_set_launch_mode(app_ctr, APP_CONTROL_LAUNCH_MODE_GROUP);
+		if (err != APP_CONTROL_ERROR_NONE) {
+			ERR("app_control_set_launch_mode failed: %s", get_error_message(err));
+			app_control_destroy(app_ctr);
+			return 1;
+		}
 
-	/* Send a hint to shortcut app to display itself over lockscreen */
-	err = app_control_add_extra_data(app_ctr, KEY_DISPLAY_OVER_LOCKSCREEN, "on");
-	if (err != APP_CONTROL_ERROR_NONE) {
-		ERR("app_control_add_extra_data failed: %s", get_error_message(err));
-		app_control_destroy(app_ctr);
-		return 1;
-	}
+		/* Send a hint to shortcut app to display itself over lockscreen */
+		err = app_control_add_extra_data(app_ctr, KEY_DISPLAY_OVER_LOCKSCREEN, "on");
+		if (err != APP_CONTROL_ERROR_NONE) {
+			ERR("app_control_add_extra_data failed: %s", get_error_message(err));
+			app_control_destroy(app_ctr);
+			return 1;
+		}
 
-	/* Send a hint to shortcut app to display itself in secure mode */
-	err = app_control_add_extra_data(app_ctr, "secure_mode", "true");
-	if (err != APP_CONTROL_ERROR_NONE) {
-		ERR("app_control_add_extra_data failed: %s", get_error_message(err));
-		app_control_destroy(app_ctr);
-		return 1;
+		/* Send a hint to shortcut app to display itself in secure mode */
+		err = app_control_add_extra_data(app_ctr, "secure_mode", "true");
+		if (err != APP_CONTROL_ERROR_NONE) {
+			ERR("app_control_add_extra_data failed: %s", get_error_message(err));
+			app_control_destroy(app_ctr);
+			return 1;
+		}
 	}
 
 	err = app_control_set_app_id(app_ctr, package);
@@ -117,17 +117,56 @@ int lockscreen_shortcut_activate()
 		return 1;
 	}
 
+	INF("%s package launched", package);
 	app_control_destroy(app_ctr);
 
 	return 0;
 }
 
+static Eina_Bool
+_lockscreen_shortcut_device_unlock_cancelled(void *data, int event, void *event_info)
+{
+	ecore_event_handler_del(unlock_handlers[0]);
+	ecore_event_handler_del(unlock_handlers[1]);
+	return EINA_TRUE;
+}
+
+static Eina_Bool
+_lockscreen_shortcut_device_unlocked(void *data, int event, void *event_info)
+{
+	_lockscreen_shortcut_activate_internal();
+	ecore_event_handler_del(unlock_handlers[0]);
+	ecore_event_handler_del(unlock_handlers[1]);
+	return EINA_TRUE;
+}
+
+int lockscreen_shortcut_activate()
+{
+	/* Currently do not support launching apps requireing unlock */
+	if (!shortcut_secure_mode) {
+		if (!lockscreen_device_lock_unlock_request(NULL)) {
+			unlock_handlers[0] = ecore_event_handler_add(
+					LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_CANCELLED,
+					_lockscreen_shortcut_device_unlock_cancelled, NULL);
+			unlock_handlers[1] = ecore_event_handler_add(
+					LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED,
+					_lockscreen_shortcut_device_unlocked, NULL);
+		} else {
+			INF("lockscreen_device_lock_unlock_request failed");
+			return 1;
+		}
+		return 0;
+	}
+
+	return _lockscreen_shortcut_activate_internal();
+}
+
 static bool _lockscreen_shortcut_secured_mode_have(const char *package)
 {
-	const char **tmp;
+	int i;
 	if (!package) return false;
-	for (tmp = secured_mode_apps; tmp; tmp++) {
-		if (!strcmp(*tmp, package))
+	for (i = 0; i < SIZE(secured_mode_apps); i++) {
+		if (secured_mode_apps[i] && !strcmp(secured_mode_apps[i], package))
 			return true;
 	}
 	return false;
@@ -136,6 +175,12 @@ static bool _lockscreen_shortcut_secured_mode_have(const char *package)
 int lockscreen_shortcut_init(void)
 {
 	if (!init_count) {
+
+		if (lockscreen_device_lock_init()) {
+			ERR("lockscreen_device_lock_init failed");
+			return 1;
+		}
+
 		// FIXME
 		// change following code when loading shortcut application from settings will
 		// be available
@@ -174,9 +219,4 @@ bool lockscreen_shortcut_is_on(void)
 const char *lockscreen_shortcut_icon_path_get(void)
 {
 	return image;
-}
-
-bool lockscreen_shortcut_require_unlock(void)
-{
-	return !shortcut_secure_mode;
 }

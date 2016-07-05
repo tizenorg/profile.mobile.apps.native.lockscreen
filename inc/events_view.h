@@ -19,6 +19,8 @@
 
 #include <Elementary.h>
 
+#include "events.h"
+
 /**
  * @addtogroup Views
  * @{
@@ -121,6 +123,11 @@ Evas_Object *lockscreen_events_view_page_genlist_get(Evas_Object *page);
  * @brief Scroll to given page.
  */
 void lockscreen_events_view_page_bring_in(Evas_Object *events_view, Evas_Object *page);
+
+/**
+ * @brief Creates event miniature
+ */
+Evas_Object* lockscreen_events_view_event_miniature_create(Evas_Object *parent, const lockscreen_event_t *event);
 
 /**
  * @}
