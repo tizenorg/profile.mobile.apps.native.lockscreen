@@ -265,7 +265,7 @@ static void _lockscreen_device_lock_ctrl_swipe_finished(void *data, Evas_Object 
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
 		case LOCKSCREEN_DEVICE_LOCK_PASSWORD:
-			lockscreen_device_lock_ctrl_unlock_request();
+			//lockscreen_device_lock_ctrl_unlock_request();
 			break;
 		case LOCKSCREEN_DEVICE_LOCK_PATTERN:
 			WRN("Unhandled lock type");
@@ -278,8 +278,8 @@ static void _lockscreen_device_vconf_idle_key_changed(keynode_t *node, void *use
 	if (node->value.i == VCONFKEY_IDLE_UNLOCK) {
 		if (lockscreen_device_lock_type_get() == LOCKSCREEN_DEVICE_LOCK_NONE)
 			ui_app_exit();
-		else
-			lockscreen_device_lock_ctrl_unlock_request();
+		//else
+			//lockscreen_device_lock_ctrl_unlock_request();
 	}
 }
 
@@ -309,6 +309,7 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 
 	handler[0] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCKED, _lockscreen_device_lock_ctrl_unlocked, NULL);
 	handler[1] = ecore_event_handler_add(LOCKSCREEN_EVENT_CALL_STATUS_CHANGED, _lockscreen_device_lock_ctrl_btn_return_update, NULL);
+	handler[2] = ecore_event_handler_add(LOCKSCREEN_EVENT_DEVICE_LOCK_UNLOCK_REQUEST, _lockscreen_device_lock_ctrl_unlock_request, NULL);
 
 	evas_object_smart_callback_add(view, SIGNAL_SWIPE_GESTURE_FINISHED, _lockscreen_device_lock_ctrl_swipe_finished, NULL);
 	main_view = view;
@@ -321,20 +322,4 @@ void lockscreen_device_lock_ctrl_shutdown()
 	ecore_event_handler_del(handler[0]);
 	ecore_event_handler_del(handler[1]);
 	lockscreen_device_lock_shutdown();
-}
-
-int lockscreen_device_lock_ctrl_unlock_request(void)
-{
-	if (!main_view) return 1;
-	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
-	if (pass_view) return 1;
-	return _lockscreen_device_lock_ctrl_unlock_request(NULL);
-}
-
-int lockscreen_device_lock_ctrl_unlock_and_launch_request(const lockscreen_event_t *event)
-{
-	if (!main_view) return 1;
-	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
-	if (pass_view) return 1;
-	return _lockscreen_device_lock_ctrl_unlock_request(event);
 }
