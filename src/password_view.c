@@ -143,6 +143,12 @@ static Evas_Object* _lockscreen_password_view_pin_create(Evas_Object *parent)
 	return ly;
 }
 
+static void
+_lockscreen_password_view_entry_unfocused(void *data, Evas_Object *obj, void *event_info)
+{
+	elm_object_focus_set(obj, EINA_TRUE);
+}
+
 static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *parent)
 {
 	Evas_Object *ly = _lockscreen_password_view_layout_create(parent, "lock-password");
@@ -154,6 +160,8 @@ static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *paren
 	elm_entry_input_panel_enabled_set(entry, EINA_FALSE);
 	evas_object_show(entry);
 
+	/* Ensue that input panel will always be visible */
+	evas_object_smart_callback_add(entry, "focus,out", _lockscreen_password_view_entry_unfocused, NULL);
 	evas_object_event_callback_add(entry, EVAS_CALLBACK_KEY_DOWN, _lockscreen_password_view_entry_activated, ly);
 	elm_entry_text_style_user_push(entry, "DEFAULT='font=Sans style=Regular color=#FFFFFF font_size=90 wrap=none align=center'");
 	elm_entry_input_panel_enabled_set(entry, EINA_TRUE);
@@ -161,6 +169,7 @@ static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *paren
 	elm_entry_input_panel_return_key_type_set(entry, ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE);
 	elm_entry_input_panel_show(entry);
 	elm_object_focus_set(entry, EINA_TRUE);
+	evas_object_focus_set(entry, EINA_TRUE);
 	lockscreen_password_view_pin_password_length_set(ly, 4);
 
 	return ly;
