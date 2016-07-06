@@ -96,6 +96,8 @@ Evas_Object *lockscreen_window_create(void)
 	view.win = win;
 	view.conformant = conformant;
 
+	elm_win_conformant_set(win, EINA_TRUE);
+
 	return win;
 }
 
