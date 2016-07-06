@@ -96,6 +96,7 @@ static void _lockscreen_main_view_part_content_set(Evas_Object *view, const char
 {
 	if (!strcmp(part, PART_PASSWORD)) {
 		elm_object_signal_emit(elm_object_part_content_get(view, "sw.swipe_layout"), "unlock,anim,start", "lockscreen");
+		elm_object_tree_focus_allow_set(elm_object_part_content_get(view, "sw.swipe_layout"), EINA_FALSE);
 		elm_object_signal_emit(view, "password,show", "lockscreen");
 	} else if (!strcmp(part, PART_SIMLOCK))
 		elm_object_signal_emit(view, "simlock,show", "lockscreen");
@@ -110,6 +111,7 @@ void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, 
 		_lockscreen_main_view_swipe_part_content_set(view, part, content);
 	if (!strcmp(part, PART_PASSWORD) || !strcmp(part, PART_SIMLOCK)) {
 		_lockscreen_main_view_part_content_set(view, part, content);
+		elm_object_tree_focus_allow_set(elm_object_part_content_get(view, "sw.swipe_layout"), EINA_TRUE);
 	}
 }
 
