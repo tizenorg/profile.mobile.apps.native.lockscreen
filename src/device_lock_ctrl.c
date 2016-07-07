@@ -37,18 +37,19 @@ static void _lockscreen_device_lock_ctrl_view_unlocked(void *data, Evas_Object *
 	ui_app_exit();
 }
 
-static Eina_Bool _lockscreen_device_lock_ctrl_unlocked(void *data, int event, void *event_info)
-{
-	/* When swipe finished play unlock animation and exit */
-	evas_object_smart_callback_add(main_view, SIGNAL_UNLOCK_ANIMATION_FINISHED, _lockscreen_device_lock_ctrl_view_unlocked, NULL);
-	lockscreen_main_view_unlock(main_view);
-	return EINA_TRUE;
-}
-
 static void _lockscreen_device_lock_ctrl_pin_unlock_hide(void)
 {
 	Evas_Object *pin_view = lockscreen_main_view_part_content_unset(main_view, PART_PASSWORD);
 	if (pin_view) evas_object_del(pin_view);
+}
+
+static Eina_Bool _lockscreen_device_lock_ctrl_unlocked(void *data, int event, void *event_info)
+{
+	/* When swipe finished play unlock animation and exit */
+	_lockscreen_device_lock_ctrl_pin_unlock_hide();
+	evas_object_smart_callback_add(main_view, SIGNAL_UNLOCK_ANIMATION_FINISHED, _lockscreen_device_lock_ctrl_view_unlocked, NULL);
+	lockscreen_main_view_unlock(main_view);
+	return EINA_TRUE;
 }
 
 static void _lockscreen_device_lock_ctrl_pass_view_cancel_button_clicked(void *data, Evas_Object  *obj, void *event_info)
@@ -200,6 +201,10 @@ static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_vi
 		Evas_Object *mini = _lockscreen_device_lock_miniature_create(pass_view, event);
 		elm_object_part_content_set(pass_view, PART_CONTENT_EVENT, mini);
 	}
+
+	if (type == LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD)
+		lockscreen_password_view_keyboard_show(pass_view);
+
 	return 0;
 }
 
