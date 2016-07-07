@@ -143,13 +143,6 @@ static Evas_Object* _lockscreen_password_view_pin_create(Evas_Object *parent)
 	return ly;
 }
 
-static Eina_Bool
-_focus_timer(void *data)
-{
-	elm_object_focus_set(data, EINA_TRUE);
-	return EINA_FALSE;
-}
-
 static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *parent)
 {
 	Evas_Object *ly = _lockscreen_password_view_layout_create(parent, "lock-password");
@@ -159,19 +152,23 @@ static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *paren
 	elm_entry_password_set(entry, EINA_TRUE);
 	elm_object_part_content_set(ly, "sw.entry", entry);
 	evas_object_show(entry);
+	elm_entry_editable_set(entry, EINA_TRUE);
 
 	evas_object_event_callback_add(entry, EVAS_CALLBACK_KEY_DOWN, _lockscreen_password_view_entry_activated, ly);
 	elm_entry_text_style_user_push(entry, "DEFAULT='font=Sans style=Regular color=#FFFFFF font_size=90 wrap=none align=center'");
 	elm_entry_input_panel_enabled_set(entry, EINA_TRUE);
 	elm_entry_input_panel_layout_set(entry, ELM_INPUT_PANEL_LAYOUT_PASSWORD);
 	elm_entry_input_panel_return_key_type_set(entry, ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE);
-	elm_object_focus_set(entry, EINA_TRUE);
 	lockscreen_password_view_pin_password_length_set(ly, 4);
-	elm_entry_input_panel_show(entry);
 
-	// Quickfix - some edje is stealing focus */
-	ecore_timer_add(0.5, _focus_timer, entry);
 	return ly;
+}
+
+void lockscreen_password_view_keyboard_show(Evas_Object *view)
+{
+	Evas_Object *entry = elm_object_part_content_get(view, "sw.entry");
+	if (!entry) return;
+	elm_object_focus_set(entry, EINA_TRUE);
 }
 
 static Evas_Event_Flags _lockscreen_password_view_swipe_state_end(void *data, void *event_info)

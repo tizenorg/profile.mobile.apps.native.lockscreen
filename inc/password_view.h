@@ -89,5 +89,9 @@ void lockscreen_password_view_pin_password_length_set(Evas_Object *view, int len
  * @brief Hides cancel button
  */
 void lockscreen_password_view_btn_cancel_hide(Evas_Object *view);
+/**
+ * @brief Shows virual keybard
+ */
+void lockscreen_password_view_keyboard_show(Evas_Object *view);
 
 #endif

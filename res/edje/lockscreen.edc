@@ -124,12 +124,6 @@ collections {
 				description {
 					state: "default" 0.0;
 					fixed: 1 1;
-					visible: 0;
-				}
-				description {
-					state: "shown" 0.0;
-					inherit: "default";
-					visible: 1;
 				}
 			}
 			part {
@@ -177,22 +171,6 @@ collections {
 				source: "lockscreen";
 				action: STATE_SET "default" 0.0;
 				target: "music_dim";
-			}
-			program {
-				name: "password,show";
-				signal: "password,show";
-				source: "lockscreen";
-				action: STATE_SET "shown" 0.0;
-				target: "sw.password_layout";
-				transition: DECEL 1.0;
-			}
-			program {
-				name: "password,hide";
-				signal: "password,hide";
-				source: "lockscreen";
-				action: STATE_SET "default" 0.0;
-				target: "sw.password_layout";
-				transition: DECEL 0.2;
 			}
 			program {
 				name: "simlock,show";

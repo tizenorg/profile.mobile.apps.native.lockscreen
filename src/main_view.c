@@ -96,8 +96,6 @@ static void _lockscreen_main_view_part_content_set(Evas_Object *view, const char
 {
 	if (!strcmp(part, PART_PASSWORD)) {
 		elm_object_signal_emit(elm_object_part_content_get(view, "sw.swipe_layout"), "unlock,anim,start", "lockscreen");
-		elm_object_tree_focus_allow_set(elm_object_part_content_get(view, "sw.swipe_layout"), EINA_FALSE);
-		elm_object_signal_emit(view, "password,show", "lockscreen");
 	} else if (!strcmp(part, PART_SIMLOCK))
 		elm_object_signal_emit(view, "simlock,show", "lockscreen");
 
@@ -111,7 +109,6 @@ void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, 
 		_lockscreen_main_view_swipe_part_content_set(view, part, content);
 	if (!strcmp(part, PART_PASSWORD) || !strcmp(part, PART_SIMLOCK)) {
 		_lockscreen_main_view_part_content_set(view, part, content);
-		elm_object_tree_focus_allow_set(elm_object_part_content_get(view, "sw.swipe_layout"), EINA_TRUE);
 	}
 }
 
@@ -132,7 +129,6 @@ static Evas_Object *_lockscreen_main_view_part_password_unset(Evas_Object *view)
 {
 	Evas_Object *swipe_layout = elm_object_part_content_get(view, "sw.swipe_layout");
 
-	elm_object_signal_emit(view, "password,hide", "lockscreen");
 	elm_object_signal_emit(swipe_layout, "lock,anim,start", "lockscreen");
 
 	return elm_object_part_content_unset(view, PART_PASSWORD);
@@ -328,7 +324,6 @@ void lockscreen_main_view_unlock(Evas_Object *view)
 	elm_object_signal_callback_add(swipe_layout, "unlock,anim,end", "swipe-layout", _layout_unlocked, view);
 	elm_object_signal_emit(swipe_layout, "unlock,anim,start", "lockscreen");
 	elm_object_signal_emit(view, "bg,hide", "lockscreen");
-	elm_object_signal_emit(view, "password,hide", "lockscreen");
 }
 
 static int _is_korea_locale(const char *locale)
