@@ -36,6 +36,7 @@ pkg_check_modules(MENU_PKGS REQUIRED
 	auth-fw
 	dpm
 	gio-2.0
+	capi-ui-efl-util
 )
 
 FOREACH (flag ${MENU_PKGS_CFLAGS})

@@ -59,53 +59,6 @@ collections {
 		name: "lockscreen";
 		parts {
 			part {
-				name: "bg";
-				type: SPACER;
-				description {
-					state: "default" 0.0;
-					rel1 { relative: 0.0 0.0; }
-					rel2 { relative: 1.0 1.0; }
-				}
-			}
-			part {
-				name: "bg_clipper";
-				type: RECT;
-				description {
-					state: "default" 0.0;
-					color: 255 255 255 255;
-				}
-				description {
-					state: "effect" 0.0;
-					color: 0 0 0 0;
-				}
-			}
-			part {
-				name: "sw.bg";
-				type: SWALLOW;
-				clip_to: "bg_clipper";
-				description {
-					state: "default" 0.0;
-					fixed: 1 1;
-				}
-			}
-			part {
-				name: "music_dim";
-				type: RECT;
-				description {
-					state: "default" 0.0;
-					rel1 { relative: 0.0 0.0; to : "sw.bg";}
-					rel2 { relative: 1.0 1.0; to : "sw.bg";}
-					color: 0 0 0 0;
-					visible: 0;
-				}
-				description {
-					state: "music_on" 0.0;
-					inherit: "default" 0.0;
-					color: 20 20 20 100;
-					visible: 1;
-				}
-			}
-			part {
 				name: "sw.swipe_layout";
 				type: SWALLOW;
 				description {
@@ -143,36 +96,6 @@ collections {
 		}
 		programs {
 			program {
-				name: "bg,hide";
-				signal: "bg,hide";
-				source: "lockscreen";
-				action: STATE_SET "effect" 0.0;
-				target: "bg_clipper";
-				transition: SIN_FAC 0.5 1.7;
-			}
-			program {
-				name: "bg,show";
-				signal: "bg,show";
-				source: "lockscreen";
-				action: STATE_SET "default" 0.0;
-				target: "bg_clipper";
-				transition: SIN_FAC 0.5 1.7;
-			}
-			program {
-				name: "music_on";
-				signal: "music_on";
-				source: "lockscreen";
-				action: STATE_SET "music_on" 0.0;
-				target: "music_dim";
-			}
-			program {
-				name: "music_off";
-				signal: "music_off";
-				source: "lockscreen";
-				action: STATE_SET "default" 0.0;
-				target: "music_dim";
-			}
-			program {
 				name: "simlock,show";
 				signal: "simlock,show";
 				source: "lockscreen";
@@ -204,4 +127,47 @@ collections {
 			}
 		}
 	}
+	group {
+		name: "lockscreen-bg";
+		parts {
+			part {
+				name: "bg_clipper";
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					color: 255 255 255 255;
+				}
+				description {
+					state: "effect" 0.0;
+					color: 0 0 0 0;
+				}
+			}
+			part {
+				name: "sw.bg";
+				type: SWALLOW;
+				clip_to: "bg_clipper";
+				description {
+					state: "default" 0.0;
+					fixed: 1 1;
+				}
+			}
+		}
+		programs {
+			program {
+				name: "bg,hide";
+				signal: "bg,hide";
+				source: "lockscreen";
+				action: STATE_SET "effect" 0.0;
+				target: "bg_clipper";
+				transition: SIN_FAC 0.5 1.7;
+			}
+			program {
+				name: "bg,show";
+				signal: "bg,show";
+				source: "lockscreen";
+				action: STATE_SET "default" 0.0;
+				target: "bg_clipper";
+				transition: SIN_FAC 0.5 1.7;
+			}
+		}
 }

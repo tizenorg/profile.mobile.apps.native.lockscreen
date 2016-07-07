@@ -20,11 +20,6 @@
 #include <Elementary.h>
 #include <stdbool.h>
 
-typedef enum {
-	LOCKSCREEN_BACKGROUND_TYPE_DEFAULT,
-	LOCKSCREEN_BACKGROUND_TYPE_ALBUM_ART,
-} lockscreen_main_view_background_type;
-
 /**
  * @brief Smart signal emitted when swipe gesture gesture has been performed.
  */
@@ -73,11 +68,6 @@ Evas_Object *lockscreen_main_view_part_content_get(Evas_Object *view, const char
  * @brief Unsets sub view of main view object
  */
 Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const char *part);
-
-/**
- * @brief Set main view background image
- */
-bool lockscreen_main_view_background_set(Evas_Object *view, lockscreen_main_view_background_type type, const char *file);
 
 /**
  * @brief Sets battery status displayed text

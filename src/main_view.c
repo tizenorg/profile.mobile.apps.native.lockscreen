@@ -87,7 +87,11 @@ static void _lockscreen_main_view_swipe_part_content_set(Evas_Object *view, cons
 		return;
 	}
 	if (!strcmp(PART_EVENTS, part)) {
+		evas_object_propagate_events_set(content, EINA_FALSE);
 		elm_object_signal_emit(swipe_layout, "contextual,events,show", "lockscreen");
+	}
+	else if (!strcmp(PART_CAMERA, part)) {
+		evas_object_propagate_events_set(content, EINA_FALSE);
 	}
 	elm_object_part_content_set(swipe_layout, part, content);
 }
@@ -191,16 +195,9 @@ Evas_Object *lockscreen_main_view_create(Evas_Object *win)
 	}
 	elm_object_part_content_set(layout, "sw.swipe_layout", swipe_layout);
 
-	Evas_Object *bg = elm_bg_add(layout);
-	elm_bg_option_set(bg, ELM_BG_OPTION_SCALE);
-	evas_object_size_hint_weight_set(bg, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(bg, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_part_content_set(layout, "sw.bg", bg);
-
 	Evas_Object *gesture_layer = elm_gesture_layer_add(layout);
 	elm_gesture_layer_hold_events_set(gesture_layer, EINA_TRUE);
 	elm_gesture_layer_attach(gesture_layer, swipe_layout);
-	elm_gesture_layer_attach(gesture_layer, bg);
 	elm_gesture_layer_cb_set(gesture_layer, ELM_GESTURE_N_FLICKS, ELM_GESTURE_STATE_END, _swipe_state_end, layout);
 	elm_gesture_layer_flick_time_limit_ms_set(gesture_layer, 500);
 	// set minimum swipe length scaled by edje scale factor
@@ -208,31 +205,6 @@ Evas_Object *lockscreen_main_view_create(Evas_Object *win)
 	evas_object_show(gesture_layer);
 
 	return layout;
-}
-
-bool lockscreen_main_view_background_set(Evas_Object *view, lockscreen_main_view_background_type type, const char *file)
-{
-	Evas_Object *bg = elm_object_part_content_get(view, "sw.bg");
-	if (!bg) {
-		FAT("No sw.bg part");
-		return false;
-	}
-
-	if (!elm_bg_file_set(bg, file, NULL)) {
-		ERR("elm_bg_file_set failed: %s", file);
-		return false;
-	}
-
-	switch (type) {
-		case LOCKSCREEN_BACKGROUND_TYPE_DEFAULT:
-			elm_object_signal_emit(view, "music_off", "lockscreen");
-			break;
-		case LOCKSCREEN_BACKGROUND_TYPE_ALBUM_ART:
-			elm_object_signal_emit(view, "music_on", "lockscreen");
-			break;
-	}
-
-	return true;
 }
 
 void lockscreen_main_view_battery_status_text_set(Evas_Object *view, const char *battery)
@@ -323,7 +295,6 @@ void lockscreen_main_view_unlock(Evas_Object *view)
 	}
 	elm_object_signal_callback_add(swipe_layout, "unlock,anim,end", "swipe-layout", _layout_unlocked, view);
 	elm_object_signal_emit(swipe_layout, "unlock,anim,start", "lockscreen");
-	elm_object_signal_emit(view, "bg,hide", "lockscreen");
 }
 
 static int _is_korea_locale(const char *locale)

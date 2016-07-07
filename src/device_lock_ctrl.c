@@ -47,6 +47,7 @@ static Eina_Bool _lockscreen_device_lock_ctrl_unlocked(void *data, int event, vo
 {
 	/* When swipe finished play unlock animation and exit */
 	_lockscreen_device_lock_ctrl_pin_unlock_hide();
+	lockscreen_window_background_fade();
 	evas_object_smart_callback_add(main_view, SIGNAL_UNLOCK_ANIMATION_FINISHED, _lockscreen_device_lock_ctrl_view_unlocked, NULL);
 	lockscreen_main_view_unlock(main_view);
 	return EINA_TRUE;
@@ -267,14 +268,6 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 
 	if (lockscreen_time_format_init()) {
 		ERR("lockscreen_time_format_init failed");
-	}
-
-	switch (lockscreen_device_lock_type_get()) {
-		case LOCKSCREEN_DEVICE_LOCK_NONE:
-			lockscreen_window_quickpanel_block_set(EINA_FALSE);
-			break;
-		default:
-			lockscreen_window_quickpanel_block_set(EINA_TRUE);
 	}
 
 	int err = vconf_notify_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed, NULL);
