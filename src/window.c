@@ -16,6 +16,7 @@
 
 #include <Elementary.h>
 #include <tzsh_lockscreen_service.h>
+#include <efl_util.h>
 
 #include "window.h"
 #include "log.h"
@@ -57,6 +58,7 @@ Evas_Object *lockscreen_window_create(void)
 	elm_win_role_set(win, "notification-normal");
 	elm_win_fullscreen_set(win, EINA_TRUE);
 	elm_win_indicator_mode_set(win, ELM_WIN_INDICATOR_SHOW);
+	efl_util_set_window_opaque_state(win, 1);
 
 	tzsh = tzsh_create(TZSH_TOOLKIT_TYPE_EFL);
 	if (!tzsh) {
