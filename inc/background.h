@@ -25,6 +25,14 @@
 extern int LOCKSCREEN_EVENT_BACKGROUND_CHANGED;
 
 /**
+ * @brief Sets lockscreen background using system settings value of
+ * #SYSTEM_SETTINGS_KEY_WALLPAPER_LOCK_SCREEN.
+ *
+ * @return: 0 on success, other value on failure.
+ */
+void lockscreen_background_load_from_system_settings(void);
+
+/**
  * @brief Initializes background notification changes.
  *
  * @return: 0 on success, other value on failure.
@@ -32,13 +40,12 @@ extern int LOCKSCREEN_EVENT_BACKGROUND_CHANGED;
 int lockscreen_background_init(void);
 
 /**
- * @brief Sets background file that will be display be lockscreen.
- * If @path parameter is NULL the default background will be used.
+ * @brief Registers message_port for changing background on demand by preloaded apps.
  *
- * @note can fire LOCKSCREEN_EVENT_BACKGROUND_CHANGED event
  * @return: 0 on success, other value on failure.
  */
-int lockscreen_background_file_set(const char *path);
+
+int lockscreen_background_message_port_init(void);
 
 /**
  * @brief Deinitialize background notification changes.
