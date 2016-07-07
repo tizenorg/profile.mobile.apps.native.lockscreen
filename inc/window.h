@@ -50,8 +50,13 @@ Evas_Object *lockscreen_window_create(void);
 void lockscreen_window_content_set(Evas_Object *content);
 
 /**
- * @brief Block/Unblock indicator access on main window
+ * @brief Set window background image
  */
-void lockscreen_window_quickpanel_block_set(Eina_Bool block);
+bool lockscreen_window_background_set(const char *file);
+
+/**
+ * @brief Start "fade" animation of window background
+ */
+void lockscreen_window_background_fade(void);
 
 #endif

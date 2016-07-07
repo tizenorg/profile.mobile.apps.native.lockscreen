@@ -19,6 +19,7 @@
 #include "background_ctrl.h"
 #include "background.h"
 #include "main_view.h"
+#include "window.h"
 
 #include <Ecore.h>
 
@@ -27,8 +28,8 @@ static Evas_Object *main_view;
 
 static void _lockscreen_background_ctrl_background_update(void)
 {
-	if (!lockscreen_main_view_background_set(main_view, LOCKSCREEN_BACKGROUND_TYPE_DEFAULT, lockscreen_background_file_get()))
-		FAT("lockscreen_main_view_background_image_set failed");
+	if (!lockscreen_window_background_set(lockscreen_background_file_get()))
+		FAT("lockscreen_window_background_set failed");
 }
 
 static Eina_Bool

@@ -19,11 +19,16 @@
 
 #include "window.h"
 #include "log.h"
+#include "util.h"
+#include "lockscreen.h"
+#include "efl_util.h"
 
 
 static struct {
 	Evas_Object *win;
 	Evas_Object *conformant;
+	Evas_Object *bg;
+	Evas_Object *ly;
 } view;
 
 static void _lockscreen_window_event_rect_mouse_down_cb(void *data, Evas *e, Evas_Object *src, void *event_info)
@@ -57,6 +62,7 @@ Evas_Object *lockscreen_window_create(void)
 	elm_win_role_set(win, "notification-normal");
 	elm_win_fullscreen_set(win, EINA_TRUE);
 	elm_win_indicator_mode_set(win, ELM_WIN_INDICATOR_SHOW);
+	efl_util_set_window_opaque_state(win, 1);
 
 	tzsh = tzsh_create(TZSH_TOOLKIT_TYPE_EFL);
 	if (!tzsh) {
@@ -72,6 +78,20 @@ Evas_Object *lockscreen_window_create(void)
 		evas_object_del(win);
 		return NULL;
 	}
+
+	Evas_Object *ly = elm_layout_add(win);
+	if (!elm_layout_file_set(ly, util_get_res_file_path(LOCK_EDJE_FILE), "lockscreen-bg"))
+		ERR("elm_layout_file_set failed");
+	evas_object_show(ly);
+	elm_win_resize_object_add(win, ly);
+
+	Evas_Object *bg = elm_bg_add(win);
+	elm_bg_option_set(bg, ELM_BG_OPTION_SCALE);
+	evas_object_size_hint_weight_set(bg, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(bg, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	evas_object_show(bg);
+
+	elm_object_part_content_set(ly, "sw.bg", bg);
 
 	Evas_Object *conformant = elm_conformant_add(win);
 	evas_object_size_hint_weight_set(conformant, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -95,8 +115,11 @@ Evas_Object *lockscreen_window_create(void)
 
 	view.win = win;
 	view.conformant = conformant;
+	view.bg = bg;
+	view.ly = ly;
 
 	elm_win_conformant_set(win, EINA_TRUE);
+
 	return win;
 }
 
@@ -105,8 +128,18 @@ void lockscreen_window_content_set(Evas_Object *content)
 	elm_object_part_content_set(view.conformant, NULL, content);
 }
 
-void lockscreen_window_quickpanel_block_set(Eina_Bool block)
+bool lockscreen_window_background_set(const char *path)
 {
+	if (!elm_bg_file_set(view.bg, path, NULL)) {
+		ERR("elm_bg_file_set failed: %s", path);
+		return false;
+	}
+	return true;
+}
+
+void lockscreen_window_background_fade(void)
+{
+	elm_object_signal_emit(view.ly, "bg,hide", "lockscreen");
 }
 
 int lock_window_width_get(void)
