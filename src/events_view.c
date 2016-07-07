@@ -181,6 +181,7 @@ Evas_Object *lockscreen_events_view_create(Evas_Object *parent)
 	evas_object_size_hint_align_set(data->scroller, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	elm_scroller_movement_block_set(data->scroller, ELM_SCROLLER_MOVEMENT_BLOCK_VERTICAL | ELM_SCROLLER_MOVEMENT_BLOCK_HORIZONTAL);
 	elm_scroller_content_min_limit(data->scroller, EINA_FALSE, EINA_TRUE);
+	elm_scroller_page_relative_set(data->scroller, 1.0, 0.0);
 	elm_scroller_page_size_set(data->scroller, lock_window_width_get(), 0);
 	elm_scroller_page_scroll_limit_set(data->scroller, 1, 1);
 	evas_object_smart_callback_add(data->scroller, "scroll,anim,stop", _lockscreen_events_view_scroller_anim_stopped, data);
