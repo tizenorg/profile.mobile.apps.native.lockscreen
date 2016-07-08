@@ -24,6 +24,7 @@
 #include "minicontrollers.h"
 #include "display.h"
 #include "device_lock_ctrl.h"
+#include "background.h"
 
 #include <Ecore.h>
 #include <time.h>
@@ -276,11 +277,14 @@ static Eina_Bool _lockscreen_events_ctrl_minicontrollers_changed(void *data, int
 		_lockscreen_events_ctrl_view_show();
 		_lockscreen_events_ctrl_minicontrollers_reload(minicontrollers);
 		eina_list_free(minicontrollers);
+		lockscreen_background_runtime_background_enabled_set(EINA_TRUE);
+
 	} else {
 		Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);
 		if (media_page) lockscreen_events_view_page_del(events_view, media_page);
 		media_page = NULL;
 		_lockscreen_events_ctrl_view_hide();
+		lockscreen_background_runtime_background_enabled_set(EINA_FALSE);
 	}
 
 	return EINA_TRUE;
