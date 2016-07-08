@@ -47,7 +47,7 @@
 /**
  * @brief Accessible via lockscreen_main_view_part_content_get/set/unset
  */
-#define PART_CAMERA "sw.camera"
+#define PART_SHORTCUT "sw.shortcut"
 
 /**
  * @brief Accessible via lockscreen_main_view_part_content_get/set/unset
