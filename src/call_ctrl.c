@@ -23,6 +23,9 @@
 #include "password_view.h"
 #include "main_view.h"
 #include "swipe_icon.h"
+#include "lockscreen.h"
+
+#define ICON_PATH_CALL IMAGE_DIR"quick_call_icon.png"
 
 static Ecore_Event_Handler *handler;
 static Evas_Object *main_view, *main_win;
@@ -46,7 +49,7 @@ static void _call_icon_view_update(void)
 
 	call_icon_view = lockscreen_main_view_part_content_get(main_view, PART_CALL);
 	if (!call_icon_view) {
-		call_icon_view = lockscreen_swipe_icon_view_create(main_view, ICON_PATH_CALL);
+		call_icon_view = lockscreen_swipe_icon_view_create(main_view, util_get_res_file_path(ICON_PATH_CALL));
 		evas_object_smart_callback_add(call_icon_view, SIGNAL_ICON_SELECTED, _call_icon_selected, NULL);
 	}
 
