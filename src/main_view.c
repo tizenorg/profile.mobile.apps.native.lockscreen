@@ -114,7 +114,7 @@ static void _lockscreen_main_view_swipe_part_content_set(Evas_Object *swipe_layo
 	if (!strcmp(PART_EVENTS, part)) {
 		evas_object_propagate_events_set(content, EINA_FALSE);
 		elm_object_signal_emit(swipe_layout, "contextual,events,show", "lockscreen");
-	} else if (!strcmp(PART_CAMERA, part)) {
+	} else if (!strcmp(PART_SHORTCUT, part)) {
 		evas_object_propagate_events_set(content, EINA_FALSE);
 	} else if (!strcmp(PART_CALL, part)) {
 		evas_object_propagate_events_set(content, EINA_FALSE);
@@ -129,7 +129,7 @@ void lockscreen_main_view_part_content_set(Evas_Object *view, const char *part, 
 	if (!part) return;
 	Evas_Object *sl = elm_object_part_content_get(view, "sw.swipe_layout");
 
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) ||
+	if (!strcmp(part, PART_SHORTCUT) || !strcmp(part, PART_EVENTS) ||
 			!strcmp(part, PART_CALL)) {
 		_lockscreen_main_view_swipe_part_content_set(sl, part, content);
 	} else if (!strcmp(part, PART_PASSWORD)) {
@@ -160,7 +160,7 @@ Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const ch
 {
 	if (!part) return NULL;
 	Evas_Object *sl = elm_object_part_content_get(view, "sw.swipe_layout");
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS)
+	if (!strcmp(part, PART_SHORTCUT) || !strcmp(part, PART_EVENTS)
 			|| !strcmp(part, PART_CALL))
 		return _lockscreen_main_view_swipe_part_content_unset(sl, part);
 	if (!strcmp(part, PART_PASSWORD)) {
@@ -178,7 +178,7 @@ Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const ch
 Evas_Object *lockscreen_main_view_part_content_get(Evas_Object *view, const char *part)
 {
 	if (!part) return NULL;
-	if (!strcmp(part, PART_CAMERA) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
+	if (!strcmp(part, PART_SHORTCUT) || !strcmp(part, PART_EVENTS) || !strcmp(part, PART_CALL))
 		return elm_object_part_content_get(elm_object_part_content_get(view, "sw.swipe_layout"), part);
 	if (!strcmp(part, PART_PASSWORD)) {
 		return elm_object_part_content_get(view, part);

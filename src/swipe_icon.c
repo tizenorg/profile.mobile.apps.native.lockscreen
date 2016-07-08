@@ -30,18 +30,12 @@ static void _icon_selected(void *data, Evas_Object *obj, const char *emission, c
 static Evas_Object *_image_create(Evas_Object *parent, const char *icon_path)
 {
 	Evas_Object *image = elm_image_add(parent);
-	char *image_path = calloc(strlen(IMAGE_DIR) + strlen(icon_path) + 1, sizeof(char));
 
-	strcpy(image_path, IMAGE_DIR);
-	strcat(image_path, icon_path);
-
-	if (!elm_image_file_set(image, util_get_res_file_path(image_path), NULL)) {
+	if (!elm_image_file_set(image, icon_path, NULL)) {
 		ERR("elm_image_file_set failed");
 		evas_object_del(image);
 		return NULL;
 	}
-
-	free(image_path);
 
 	evas_object_size_hint_fill_set(image, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_size_hint_weight_set(image, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -59,6 +53,13 @@ Evas_Object *lockscreen_swipe_icon_view_create(Evas_Object *parent, const char *
 	Evas_Object *image = NULL;
 	Evas_Object *cam_ly = elm_layout_add(parent);
 
+	image = _image_create(cam_ly, icon_path);
+	if (!image) {
+		ERR("_image_create failed");
+		evas_object_del(cam_ly);
+		return NULL;
+	}
+
 	if (!elm_layout_file_set(cam_ly, util_get_res_file_path(LOCK_EDJE_FILE), "swipe-icon-layout")) {
 		FAT("elm_layout_file_set failed");
 		return false;
@@ -67,12 +68,6 @@ Evas_Object *lockscreen_swipe_icon_view_create(Evas_Object *parent, const char *
 	elm_object_signal_callback_add(cam_ly, "swipe_icon,icon,clicked", "swipe-icon-layout",
 			_icon_selected, cam_ly);
 
-	image = _image_create(parent, icon_path);
-	if (!image) {
-		ERR("_image_create failed");
-		evas_object_del(cam_ly);
-		return NULL;
-	}
 
 	elm_object_part_content_set(cam_ly, "sw.icon", image);
 	evas_object_show(image);
