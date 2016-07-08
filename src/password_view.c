@@ -34,8 +34,12 @@ _lockscreen_password_view_cancel_button_clicked(void *data, Evas_Object *obj, vo
 static void
 _lockscreen_password_util_emit_key_event(Evas *e, const char *key)
 {
-	evas_event_feed_key_down(e, key, key, key, NULL, ecore_time_get() * 1000, NULL);
-	evas_event_feed_key_up(e, key, key, key, NULL, ecore_time_get() * 1000 + 10, NULL);
+	/** Quickfix for some unknow to me reason when I emit down/up events
+	 * EFL entry sometimes emit two "changed,user" events instead of one
+	 * Adding "up" before "down" seems to solve the isse */
+	evas_event_feed_key_up(e, key, key, key, NULL, ecore_time_get() * 1000, NULL);
+	evas_event_feed_key_down(e, key, key, key, NULL, ecore_time_get() * 1000 + 10, NULL);
+	evas_event_feed_key_up(e, key, key, key, NULL, ecore_time_get() * 1000 + 20, NULL);
 }
 
 static void
