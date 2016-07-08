@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef _LOCKSCREEN_CAMERA_H_
-#define _LOCKSCREEN_CAMERA_H_
+#ifndef _LOCKSCREEN_SHORTCUT_H_
+#define _LOCKSCREEN_SHORTCUT_H_
 
 #include <stdbool.h>
-
-#define ICON_PATH_CAMERA "quick_shot_icon.png"
 
 /**
  * @addtogroup Models
@@ -27,45 +25,50 @@
  */
 
 /**
- * @defgroup Camera Camera
+ * @defgroup Shortcut Shortcut
  */
 
 /**
- * @addtogroup Camera
+ * @addtogroup Shortcut
  * @{
  */
-/**
- * @brief Event fired when lockscreen camera shortcut required status
- * changes. 
- *
- * @see lockscreen_camera_is_on
- */
-extern int LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED;
 
 /**
- * @brief Initializes camera module
+ * @brief Initializes shortcut module
  *
  * @return: 0 on success, other value on failure.
  */
-int lockscreen_camera_init(void);
+int lockscreen_shortcut_init(void);
 
 /**
- * @brief Activates system-default camera application.
+ * @brief Activates system-default shortcut application.
  *
  * @return: 0 on success, other value on failure.
  */
-int lockscreen_camera_activate();
+int lockscreen_shortcut_activate();
 
 /**
- * @brief Shutdowns camera module
+ * @brief Shutdowns shortcut module
  */
-void lockscreen_camera_shutdown(void);
+void lockscreen_shortcut_shutdown(void);
 
 /**
- * @brief Returns true if camera shortcut icon should be displayed
+ * @brief Returns true if shortcut shortcut icon should be displayed
  * on lockscreen, false otherwise.
  */
-bool lockscreen_camera_is_on(void);
+bool lockscreen_shortcut_is_on(void);
+
+/**
+ * @brief Returns icon path of application shortcut
+ */
+const char *lockscreen_shortcut_icon_path_get(void);
+
+/**
+ * @brief Checks if shortcut requires lockscreen to unlock
+ *
+ * @return true if requires, false otherwise.
+ */
+bool lockscreen_shortcut_require_unlock(void);
 
 /**
  * @}
