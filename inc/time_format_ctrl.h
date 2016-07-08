@@ -20,9 +20,23 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Controllers
+ * @{
+ */
+
+/**
+ * @defgroup Time Time Format
+ */
+
+/**
+ * @addtogroup Time
+ * @{
+ */
+
+/**
  * @brief Initializes time format controller
  *
- * time format controller manages time updates na @main_view object
+ * time format controller manages time updates na main_view object
  * and apply proper time formating when system default settings changes.
  *
  * @return: 0 on success, other value on failure.
@@ -39,6 +53,12 @@ void lockscreen_time_format_ctrl_shutdown(void);
  */
 void lockscreen_time_format_ctrl_time_update(void);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
+
 #endif
-
-

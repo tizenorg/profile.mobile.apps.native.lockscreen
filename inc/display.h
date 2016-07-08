@@ -20,6 +20,20 @@
 #include <stdbool.h>
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Display Display
+ */
+
+/**
+ * @addtogroup Display
+ * @{
+ */
+
+/**
  * @brief Event fired when device display truns off or on.
  */
 extern int LOCKSCREEN_EVENT_DISPLAY_STATUS_CHANGED;
@@ -60,5 +74,13 @@ void lockscreen_display_timer_renew(void);
  * Returns true if display is turned on, false otherwise.
  */
 bool lockscreen_display_is_off(void);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

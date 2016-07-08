@@ -18,6 +18,18 @@
 
 #include <Elementary.h>
 
+/**
+ * @defgroup Utils Utilities
+ *
+ * Contains set of time related utility functions that are used by various lockscreen
+ * modules.
+ */
+
+/**
+ * @addtogroup Utils
+ * @{
+ */
+
 /*
  * @brief Application sub-directories type.
  */
@@ -36,16 +48,15 @@ enum app_subdir {
 /**
  * @brief Returns absolute path to resource file located in applications directory.
  *
- * @param subdir type of subdirectory
- * @param relative path of resource from starting from "data" dir.
- *        eg. for DATA_DIR subdir and relative "database.db" => "/home/owner/apps/org.tizen.lockscreen/data/database.db"
+ * @param dir type of subdirectory
+ * @param relative path of resource from starting from given sub dir.
+ *        eg. for APP_DATA_DIR subdir and relative "database.db" => "/home/owner/apps/org.tizen.lockscreen/data/database.db"
  * @return absolute path string.
+ *
+ * @note returns statically allocated string
  */
 const char *util_get_file_path(enum app_subdir dir, const char *relative);
 
-/**
- * @brief Convinience macros
- */
 /**
  * @brief Convinience macros
  */
@@ -66,6 +77,8 @@ const char *util_get_file_path(enum app_subdir dir, const char *relative);
 
 /**
  * @brief Get default lockscreen elementary theme extension.
+ * 
+ * @return Lockscreen elementary theme extension.
  */
 const Elm_Theme *util_lockscreen_theme_get(void);
 
@@ -75,9 +88,20 @@ const Elm_Theme *util_lockscreen_theme_get(void);
 void util_feedback_tap_play(void);
 
 /**
- * @brief Creates "void" type of popup with title, description
- * and "OK" button closing popup.
+ * @brief Creates notification popup with title, description and "OK" button.
+ *
+ * Function creates popup with title string in popup header
+ * and desc information in content area.
+ * Popup is automatically closed after clicking "OK" button.
+ *
+ * @param obj parent elementary object
+ * @param title Popup title
+ * @param desc Popup description
  */
-void util_popup_create(Evas_Object *win, char *title, char *desc);
+void util_popup_create(Evas_Object *obj, const char *title, const char *desc);
+
+/**
+ * @}
+ */
 
 #endif /* __HOME_SCREEN_UTIL_H__ */

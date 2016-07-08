@@ -20,10 +20,24 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Controllers
+ * @{
+ */
+
+/**
+ * @defgroup Battery Battery
+ */
+
+/**
+ * @addtogroup Battery
+ * @{
+ */
+
+/**
  * @brief Initializes battery controller.
  *
  * Battery controller manages battery information
- * presentation on @main_view object.
+ * presentation on main_view object.
  *
  * @return: 0 on success, other value on failure.
  */
@@ -33,5 +47,13 @@ int lock_battery_ctrl_init(Evas_Object *main_view);
  * @brief Deinitializes battery controller.
  */
 void lock_battery_ctrl_fini(void);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

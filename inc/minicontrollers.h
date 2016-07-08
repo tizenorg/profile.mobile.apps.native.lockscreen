@@ -20,6 +20,20 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Minicontrollers Minicontrollers
+ */
+
+/**
+ * @addtogroup Minicontrollers
+ * @{
+ */
+
+/**
  * @brief Event fired when minicontroller changes.
  */
 extern int LOCKSCREEN_EVENT_MINICONTROLLERS_CHANGED;
@@ -54,6 +68,14 @@ Eina_List *lockscreen_minicontrollers_list_get(void);
  * @brief Stops minicontroller of given name.
  */
 bool lockscreen_minicontrollers_minicontroller_stop(const char *name);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif
 

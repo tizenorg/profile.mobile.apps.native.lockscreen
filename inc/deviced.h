@@ -20,6 +20,20 @@
 #include <stdbool.h>
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Deviced Deviced
+ */
+
+/**
+ * @addtogroup Deviced
+ * @{
+ */
+
+/**
  * @brief Inform deviced deamon that lockscreen goes into background.
  *
  * @note This is temporary solution until some sane method to
@@ -28,5 +42,12 @@
  * @return 0 when state was successfully changed, other value on failure.
  */
 int lockscreen_deviced_lockscreen_background_state_set(bool val);
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

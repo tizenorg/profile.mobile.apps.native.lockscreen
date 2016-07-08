@@ -20,6 +20,20 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Views
+ * @{
+ */
+
+/**
+ * @defgroup Camera Camera
+ */
+
+/**
+ * @addtogroup Camera
+ * @{
+ */
+
+/**
  * @brief Smart signal emitted when camera icon is being selected.
  */
 #define SIGNAL_CAMERA_SELECTED "camera,icon,selected"
@@ -37,5 +51,13 @@ Evas_Object *lockscreen_camera_view_create(Evas_Object *parent);
  * Show unclicked camera button.
  */
 void lockscreen_camera_view_reset(Evas_Object *parent);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

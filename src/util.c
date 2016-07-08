@@ -105,7 +105,7 @@ static void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info)
 		evas_object_del(obj);
 }
 
-void util_popup_create(Evas_Object *win, char *title, char *desc)
+void util_popup_create(Evas_Object *win, const char *title, const char *desc)
 {
 	Evas_Object *popup;
 	Evas_Object *button;

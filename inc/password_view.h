@@ -20,6 +20,20 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Views
+ * @{
+ */
+
+/**
+ * @defgroup Password Password
+ */
+
+/**
+ * @addtogroup Password
+ * @{
+ */
+
+/**
  * @brief Smart signal emitted when user has finished typing password.
  */
 #define SIGNAL_ACCEPT_BUTTON_CLICKED "password,typed"
@@ -61,6 +75,9 @@
  */
 #define PART_CONTENT_EVENT "sw.event"
 
+/**
+ * @brief Type of password view.
+ */
 typedef enum {
 	LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN,
 	LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD,
@@ -94,4 +111,11 @@ void lockscreen_password_view_btn_cancel_hide(Evas_Object *view);
  */
 void lockscreen_password_view_keyboard_show(Evas_Object *view);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 #endif

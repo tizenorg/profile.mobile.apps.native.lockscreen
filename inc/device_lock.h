@@ -19,6 +19,23 @@
 
 #include <stdbool.h>
 
+/**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Device Device Lock
+ */
+
+/**
+ * @addtogroup Device
+ * @{
+ */
+
+/**
+ * @brief Lockscreen lock type
+ */
 typedef enum {
 	LOCKSCREEN_DEVICE_LOCK_NONE, /* No password is set */
 	LOCKSCREEN_DEVICE_LOCK_PIN,  /* PIN password type [0-9]* */
@@ -80,5 +97,13 @@ lockscreen_device_unlock_result_e lockscreen_device_lock_unlock(const char *pass
  * @return 0 if max attempts limit is infinite
  */
 int lockscreen_device_lock_max_unlock_attempts_get(void);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

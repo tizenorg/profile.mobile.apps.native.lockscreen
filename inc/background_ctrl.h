@@ -20,6 +20,20 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Controllers
+ * @{
+ */
+
+/**
+ * @defgroup Background Background
+ */
+
+/**
+ * @addtogroup Background
+ * @{
+ */
+
+/**
  * @brief Initializes background controller.
  *
  * Battery controller manages background changes.
@@ -32,5 +46,13 @@ int lockscreen_background_ctrl_init(Evas_Object *main_view);
  * @brief Deinitializes background controller.
  */
 void lockscreen_background_ctrl_fini(void);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

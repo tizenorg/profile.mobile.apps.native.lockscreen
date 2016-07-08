@@ -20,6 +20,19 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Controllers
+ * @{
+ */
+
+/**
+ * @defgroup SimLock Sim Unlock
+ */
+
+/**
+ * @addtogroup SimLock
+ * @{
+ */
+/**
  * @brief Intializes sim lock controller
  *
  * Sim lock controller is resposible for creating and updating main_view
@@ -33,5 +46,13 @@ int lockscreen_sim_lock_ctrl_init(Evas_Object *main_view);
  * @brief Shutdonws sim lock controller
  */
 void lockscreen_sim_lock_ctrl_shutdown(void);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

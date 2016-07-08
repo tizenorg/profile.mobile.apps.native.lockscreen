@@ -18,6 +18,20 @@
 #define _LOCKSCREEN_MAIN_CTRL_H_
 
 /**
+ * @addtogroup Controllers
+ * @{
+ */
+
+/**
+ * @defgroup Main Main
+ */
+
+/**
+ * @addtogroup Main
+ * @{
+ */
+
+/**
  * @brief Initializes main controller.
  *
  * Application's root controller. Manages all other controllers.
@@ -32,9 +46,16 @@ int lockscreen_main_ctrl_init();
  */
 void lockscreen_main_ctrl_shutdown();
 
-/*
+/**
  * @brief Application is being paused (according to Tizen app lifecycle)
  */
 void lockscreen_main_ctrl_app_paused(void);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 #endif

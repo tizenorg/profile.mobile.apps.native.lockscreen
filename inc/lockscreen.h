@@ -20,6 +20,18 @@
 #define EDJE_DIR "edje/"
 #define IMAGE_DIR "images/"
 
+/**
+ * @defgroup Models Models
+ */
+
+/**
+ * @defgroup Views Views
+ */
+
+/**
+ * @defgroup Controllers Controllers
+ */
+
 #define LOCK_EDJE_FILE EDJE_DIR"lockscreen.edj"
 
 #endif

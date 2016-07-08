@@ -20,10 +20,24 @@
 #include <Elementary.h>
 
 /**
+ * @addtogroup Controllers
+ * @{
+ */
+
+/**
+ * @defgroup Events Events
+ */
+
+/**
+ * @addtogroup Events
+ * @{
+ */
+
+/**
  * @brief Initialize events controller.
  *
  * Events controller module is responsible for displaying notification and
- * minicontrollers on @main_view
+ * minicontrollers on main_view
  *
  * @return: 0 on success, other value on failure.
  */
@@ -33,5 +47,13 @@ int lockscreen_events_ctrl_init(Evas_Object *main_view);
  * @brief Deinitialize events controller.
  */
 void lockscreen_events_ctrl_shutdown();
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

@@ -21,6 +21,20 @@
 #include <stdbool.h>
 
 /**
+ * @addtogroup Views
+ * @{
+ */
+
+/**
+ * @defgroup Main Main
+ */
+
+/**
+ * @addtogroup Main
+ * @{
+ */
+
+/**
  * @brief Smart signal emitted when swipe gesture gesture has been performed.
  */
 #define SIGNAL_SWIPE_GESTURE_FINISHED "swipe,gesture,finished"
@@ -75,8 +89,7 @@ Evas_Object *lockscreen_main_view_part_content_unset(Evas_Object *view, const ch
 void lockscreen_main_view_battery_status_text_set(Evas_Object *view, const char *battery);
 
 /**
- * @brief Plays unlock animation and runs @animation_end_cb on end.
- * @note animation_end_cb will be called only once.
+ * @brief Plays unlock animation
  */
 void lockscreen_main_view_unlock(Evas_Object *obj);
 
@@ -101,9 +114,18 @@ void lockscreen_main_view_contextual_view_fullscreen_set(Evas_Object *view, bool
 /**
  * @brief Sets top and bottom panel state
  *
+ * @param view main view object.
  * @param top true if upper part should be unlocked (moved out of screen), false otherwise
  * @param bottom true if upper part should be unlocked (moved out of screen), false otherwise
  */
 void lockscreen_main_view_unlock_state_set(Evas_Object *view, bool top, bool bottom);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

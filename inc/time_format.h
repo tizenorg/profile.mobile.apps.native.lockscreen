@@ -20,6 +20,20 @@
 #include <stdbool.h>
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Time Time Format
+ */
+
+/**
+ * @addtogroup Time
+ * @{
+ */
+
+/**
  * @brief Event fired when locale/timezone/24h fromat information changes
  */
 extern int LOCKSCREEN_EVENT_TIME_FORMAT_CHANGED;
@@ -49,5 +63,13 @@ const char *lockscreen_time_format_timezone_get(void);
  * @note return true is system is using 24-h time date format, false otherwise.
  */
 bool lockscreen_time_format_use_24h(void);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

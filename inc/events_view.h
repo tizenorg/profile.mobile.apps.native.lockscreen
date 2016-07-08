@@ -19,27 +19,51 @@
 
 #include <Elementary.h>
 
+/**
+ * @addtogroup Views
+ * @{
+ */
+
+/**
+ * @defgroup Events Events
+ */
+
+/**
+ * @addtogroup Events
+ * @{
+ */
+
+/** Item style */
 #define NOTI_ITEM_STYLE "noti"
+
+/** Text part of "noti" style */
 #define NOTI_ITEM_TEXT "elm.text"
+
+/** Text part of "noti" style */
 #define NOTI_ITEM_TEXT_SUB "elm.text.sub"
+
+/** Text part of "noti" style */
 #define NOTI_ITEM_TEXT_TIME "elm.text.time"
+
+/** Content part of "noti" style */
 #define NOTI_ITEM_ICON "elm.swallow.icon"
+
+/** Content part of "noti" style */
 #define NOTI_ITEM_ICON_SUB "elm.swallow.sub.icon"
 
+/** Minicontroller style */
 #define WIDGET_ITEM_STYLE "minicontroller"
+
+/** Content part of "minicontroller" style */
 #define WIDGET_ITEM_CONTENT "elm.swallow.content"
 
+/** "More button" style */
 #define NOTI_MORE_ITEM_STYLE "noti_more"
 
 /**
  * @brief The expand gesture has finished
  */
 #define SIGNAL_PAGE_EXPAND_GESTURE "expand,gesture"
-
-typedef enum {
-	LOCKSCREEN_EVENTS_VIEW_TYPE_NOTIFICATIONS,
-	LOCKSCREEN_EVENTS_VIEW_TYPE_MEDIA,
-} lockscreen_events_view_type_e;
 
 /**
  * @brief Smart signal emitted when close button is clicked.
@@ -97,5 +121,13 @@ Evas_Object *lockscreen_events_view_page_genlist_get(Evas_Object *page);
  * @brief Scroll to given page.
  */
 void lockscreen_events_view_page_bring_in(Evas_Object *events_view, Evas_Object *page);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

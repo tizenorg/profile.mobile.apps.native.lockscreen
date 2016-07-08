@@ -20,6 +20,19 @@
 #include <stdbool.h>
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Camera Camera
+ */
+
+/**
+ * @addtogroup Camera
+ * @{
+ */
+/**
  * @brief Event fired when lockscreen camera shortcut required status
  * changes. 
  *
@@ -52,5 +65,12 @@ void lockscreen_camera_shutdown(void);
  */
 bool lockscreen_camera_is_on(void);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 #endif
 

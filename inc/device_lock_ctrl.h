@@ -21,6 +21,20 @@
 #include <events.h>
 
 /**
+ * @addtogroup Controllers
+ * @{
+ */
+
+/**
+ * @defgroup Device Device Lock
+ */
+
+/**
+ * @addtogroup Device
+ * @{
+ */
+
+/**
  * @brief Request controller to unlock device.
  *
  * @return 0 on success, other value on failure.
@@ -48,5 +62,13 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *main_view);
  * @brief Deinitialize device_lock controller.
  */
 void lockscreen_device_lock_ctrl_shutdown();
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

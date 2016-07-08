@@ -24,6 +24,7 @@
 #include "log.h"
 #include "password_view.h"
 #include "window.h"
+#include "util.h"
 #include "util_time.h"
 #include "events_view.h"
 #include "time_format.h"

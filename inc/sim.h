@@ -18,6 +18,20 @@
 #define _LOCKSCREEN_SIM_H_
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Sim Sim PLMN
+ */
+
+/**
+ * @addtogroup Sim
+ * @{
+ */
+
+/**
  * @brief Event fired when sim information changes
  */
 extern int LOCKSCREEN_EVENT_SIM_STATUS_CHANGED;
@@ -29,6 +43,9 @@ extern int LOCKSCREEN_EVENT_SIM_STATUS_CHANGED;
  */
 int lockscreen_sim_init();
 
+/**
+ * @brief Sim number
+ */
 typedef enum {
 	LOCKSCREEN_PRIMARY_SIM = 0,
 	LOCKSCREEN_SECONDARY_SIM,
@@ -45,4 +62,11 @@ void lockscreen_sim_shutdown(void);
  */
 const char *lockscreen_sim_get_plmn(lockscreen_sim_num_e num);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 #endif

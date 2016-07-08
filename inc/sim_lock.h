@@ -18,6 +18,20 @@
 #define _LOCKSCREEN_SIM_LOCK_H_
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup SimLock Sim Lock
+ */
+
+/**
+ * @addtogroup SimLock
+ * @{
+ */
+
+/**
  * @brief Event fired when sim verification succeeds
  */
 extern int LOCKSCREEN_EVENT_SIM_LOCK_UNLOCKED;
@@ -32,6 +46,9 @@ extern int LOCKSCREEN_EVENT_SIM_LOCK_INCORRECT;
  */
 extern int LOCKSCREEN_EVENT_SIM_LOCK_BLOCKED;
 
+/**
+ * @brief Type of Sim Lock
+ */
 typedef enum {
 	SIM_LOCK_PIN_TYPE_NONE,
 	SIM_LOCK_PIN_TYPE_PIN,
@@ -39,6 +56,9 @@ typedef enum {
 	SIM_LOCK_PIN_TYPE_CARD_BLOCKED,
 } pin_type_e;
 
+/**
+ * @brief Sim number
+ */
 typedef enum {
 	SIM_LOCK_NONE = -1,
 	SIM_LOCK_SIM1,
@@ -50,7 +70,6 @@ typedef enum {
  *
  * @return: 0 on success, other value on failure
  */
-
 int lockscreen_sim_lock_init(void);
 
 /**
@@ -72,7 +91,7 @@ void lockscreen_sim_lock_unlock(sim_lock_e card_no, const char *pass);
 /**
  * @brief Gets last requested sim card pin verification attempts left
  *
- * #return: Number of attempts or negative value on failure.
+ * @return: Number of attempts or negative value on failure.
  */
 int lockscreen_sim_lock_get_attempts_left(void);
 
@@ -92,5 +111,13 @@ int lockscreen_sim_lock_pin_required(sim_lock_e *sim, pin_type_e *type);
  * @return: Number of available sim cards
  */
 int lockscreen_sim_lock_available_sim_card_count(void);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif

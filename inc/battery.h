@@ -20,6 +20,20 @@
 #include <stdbool.h>
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Battery Battery
+ */
+
+/**
+ * @addtogroup Battery
+ * @{
+ */
+
+/**
  * @brief Event fired when battery status changes.
  * @note register via ecore_event_handler_add
  * @note can be triggered after lockscreen_battery_init
@@ -52,4 +66,11 @@ bool lockscreen_battery_is_connected(void);
  */
 int lockscreen_battery_level_get(void);
 
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 #endif

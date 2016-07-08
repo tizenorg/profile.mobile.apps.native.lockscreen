@@ -19,21 +19,56 @@
 
 #include <Elementary.h>
 
+/**
+ * @addtogroup Utils
+ * @{
+ */
+
+/**
+ * @brief Gets formatted date string according to locale, timezone and given
+ * skeleton
+ *
+ * @param time time to be formatted as string
+ * @param locale valid ISO15897 locale string
+ * @param timezone valid ISO15897 timezone string
+ * @param skeleton valid ICU skeleton string
+ * @param[out] str_date formatted date string
+ *
+ * @return true on success, false otherwise
+ * 
+ * @note str_date should be free()
+ */
 bool util_time_formatted_date_get(time_t time, const char *locale, const char *timezone, const char *skeleton, char **str_date);
 
+/**
+ * @brief Gets formatted time string.
+ *
+ * @param time time to be formatted as string
+ * @param locale valid ISO15897 locale string
+ * @param timezone valid ISO15897 timezone string
+ * @param use24hformat use 24h format
+ * @param[out] str_time formatted date string
+ * @param[out] str_meridiem formatted date string
+ *
+ * @note str_time and str_meridiem should be free()
+ */
 bool util_time_formatted_time_get(time_t time, const char *locale, const char *timezone, bool use24hformat, char **str_time, char **str_meridiem);
 
 /**
  * @brief Get time string with concatenated meridiem
  *
+ * @param time time to be formatted as string
+ * @param locale valid ISO15897 locale string
+ * @param timezone valid ISO15897 timezone string
+ * @param use24hformat use 24h format
+ *
  * @return string on success, NULL otherwise
- * @note returned string must be @free
+ * @note returned string must be free()
  */
 char *util_time_string_get(time_t time, const char *locale, const char *timezone, bool use24hformat);
 
 /**
- * @brief Creates "OK" popup with title and description.
+ * @}
  */
-void util_popup_create(Evas_Object *win, char *title, char *desc);
 
 #endif

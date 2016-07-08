@@ -20,6 +20,11 @@
 #include <dlog.h>
 #include <app_i18n.h>
 
+/**
+ * @addtogroup Utils
+ * @{
+ */
+
 #ifdef LOG_TAG
 	#undef LOG_TAG
 #endif
@@ -50,5 +55,9 @@
 
 #undef _
 #define _(str) i18n_get_text(str)
+
+/**
+ * @}
+ */
 
 #endif

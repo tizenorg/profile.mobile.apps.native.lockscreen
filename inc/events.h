@@ -20,6 +20,20 @@
 #include <time.h>
 
 /**
+ * @addtogroup Models
+ * @{
+ */
+
+/**
+ * @defgroup Events Events
+ */
+
+/**
+ * @addtogroup Events
+ * @{
+ */
+
+/**
  * @brief Event fired when lockscreen's events change.
  */
 extern int LOCKSCREEN_EVENT_EVENTS_CHANGED;
@@ -113,5 +127,13 @@ lockscreen_event_t *lockscreen_event_copy(const lockscreen_event_t *event);
  * @brief Free event
  */
 void lockscreen_event_free(lockscreen_event_t *event);
+
+/**
+ * @}
+ */
+
+/**
+ * @}
+ */
 
 #endif
