@@ -14,22 +14,38 @@
  * limitations under the License.
  */
 
-#include "camera.h"
+#include "shortcut.h"
 #include "log.h"
 #include "deviced.h"
 #include "device_lock.h"
 #include "device_lock_ctrl.h"
+#include "util.h"
+#include "lockscreen.h"
 
 #include <app_control.h>
 #include <Ecore.h>
 #include <vconf.h>
 #define KEY_DISPLAY_OVER_LOCKSCREEN "http://tizen.org/lock/window/above"
+#define CAMERA_ICON_PATH_SHORTCUT IMAGE_DIR"quick_shot_icon.png"
+#define CAMERA_PACKAGE "org.tizen.camera-app"
 
-static int camera_enabled;
+static int shortcut_enabled;
+bool shortcut_secure_mode;
 static int init_count;
-
-int LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED;
 static Ecore_Timer *delay_timer;
+static const char *package;
+static const char *image;
+
+/* Following table contains NULL terminated list of packages that
+ * can be run in "secure-mode" (without unlocking lockscreen, displaying
+ * over lockscreen). Since there is currently no way to obtain such
+ * list on runtime (eg. from app_control API), we whitelist some
+ * applications that supports such mode when writing this code.
+ * */
+static const char *secured_mode_apps[] = {
+	CAMERA_PACKAGE,
+	NULL,
+};
 
 static Eina_Bool
 _lockscreen_delayed_unlock(void *data)
@@ -61,14 +77,18 @@ static void _app_control_reply_cb(app_control_h request, app_control_h reply, ap
 			break;
 		case APP_CONTROL_RESULT_FAILED:
 		case APP_CONTROL_RESULT_CANCELED:
-			DBG("Camera application launch failed.");
+			DBG("%s launch failed.", package);
 			break;
 	}
 }
 
-int lockscreen_camera_activate()
+int lockscreen_shortcut_activate()
 {
 	app_control_h app_ctr;
+
+	/* Currently do not support launching apps requireing unlock */
+	if (lockscreen_shortcut_require_unlock())
+		return 1;
 
 	int err = app_control_create(&app_ctr);
 	if (err != APP_CONTROL_ERROR_NONE) {
@@ -101,7 +121,7 @@ int lockscreen_camera_activate()
 		}
 	}
 
-	err = app_control_set_app_id(app_ctr, "org.tizen.camera-app");
+	err = app_control_set_app_id(app_ctr, package);
 	if (err != APP_CONTROL_ERROR_NONE) {
 		ERR("app_control_set_app_id failed: %s", get_error_message(err));
 		app_control_destroy(app_ctr);
@@ -122,40 +142,68 @@ int lockscreen_camera_activate()
 		return 1;
 	}
 
-	DBG("Launch request send for %s", APP_CONTROL_OPERATION_CREATE_CONTENT);
 	app_control_destroy(app_ctr);
 
 	return 0;
 }
 
-int lockscreen_camera_init(void)
+static bool _lockscreen_shortcut_secured_mode_have(const char *package)
+{
+	const char **tmp;
+	if (!package) return false;
+	for (tmp = secured_mode_apps; tmp; tmp++) {
+		if (!strcmp(*tmp, package))
+			return true;
+	}
+	return false;
+}
+
+int lockscreen_shortcut_init(void)
 {
 	if (!init_count) {
 		if (lockscreen_device_lock_init()) {
 			ERR("lockscreen_device_lock_init failed");
 			return 1;
 		}
-		int ret = vconf_get_bool(VCONFKEY_LOCKSCREEN_CAMERA_QUICK_ACCESS, &camera_enabled);
+		int ret = vconf_get_bool(VCONFKEY_LOCKSCREEN_CAMERA_QUICK_ACCESS, &shortcut_enabled);
 		if (ret) {
 			ERR("vconf_get_bool failed");
-			camera_enabled = 0;
+			shortcut_enabled = 0;
 		}
-		LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED = ecore_event_type_new();
+		if (shortcut_enabled) {
+			image = eina_stringshare_add(util_get_res_file_path(CAMERA_ICON_PATH_SHORTCUT));
+			package = eina_stringshare_add(CAMERA_PACKAGE);
+			shortcut_secure_mode = _lockscreen_shortcut_secured_mode_have(package);
+		}
 	}
 
 	init_count++;
 	return 0;
 }
 
-void lockscreen_camera_shutdown(void)
+void lockscreen_shortcut_shutdown(void)
 {
 	if (init_count) {
 		lockscreen_device_lock_shutdown();
 		init_count--;
+		if (!init_count) {
+			eina_stringshare_del(image);
+			eina_stringshare_del(package);
+		}
 	}
 }
 
-bool lockscreen_camera_is_on(void)
+bool lockscreen_shortcut_is_on(void)
 {
-	return camera_enabled;
+	return shortcut_enabled;
+}
+
+const char *lockscreen_shortcut_icon_path_get(void)
+{
+	return image;
+}
+
+bool lockscreen_shortcut_require_unlock(void)
+{
+	return !shortcut_secure_mode;
 }

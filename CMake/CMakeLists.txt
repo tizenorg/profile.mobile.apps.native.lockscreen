@@ -52,7 +52,7 @@ INCLUDE_DIRECTORIES(${PROJECT_ROOT_DIR}/inc)
 
 ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/battery_ctrl.c
-	${PROJECT_ROOT_DIR}/src/camera_ctrl.c
+	${PROJECT_ROOT_DIR}/src/shortcut_ctrl.c
 	${PROJECT_ROOT_DIR}/src/swipe_icon.c
 	${PROJECT_ROOT_DIR}/src/lockscreen.c
 	${PROJECT_ROOT_DIR}/src/util.c
@@ -67,7 +67,7 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	${PROJECT_ROOT_DIR}/src/sim.c
 	${PROJECT_ROOT_DIR}/src/sim_lock.c
 	${PROJECT_ROOT_DIR}/src/sim_lock_ctrl.c
-	${PROJECT_ROOT_DIR}/src/camera.c
+	${PROJECT_ROOT_DIR}/src/shortcut.c
 	${PROJECT_ROOT_DIR}/src/main_view.c
 	${PROJECT_ROOT_DIR}/src/main_ctrl.c
 	${PROJECT_ROOT_DIR}/src/display.c
