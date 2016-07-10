@@ -17,6 +17,8 @@
 #ifndef _LOCKSCREEN_BACKGROUND_H_
 #define _LOCKSCREEN_BACKGROUND_H_
 
+#include <stdbool.h>
+
 /**
  * @addtogroup Models
  * @{
@@ -46,13 +48,9 @@ extern int LOCKSCREEN_EVENT_BACKGROUND_CHANGED;
 int lockscreen_background_init(void);
 
 /**
- * @brief Sets background file that will be display be lockscreen.
- * If path parameter is NULL the default background will be used.
- *
- * @note can fire LOCKSCREEN_EVENT_BACKGROUND_CHANGED event
- * @return: 0 on success, other value on failure.
+ *@brief Enables or disables changing lockscreen background by other apps using message-port.
  */
-int lockscreen_background_file_set(const char *path);
+void lockscreen_background_runtime_background_enabled_set(bool val);
 
 /**
  * @brief Deinitialize background notification changes.
