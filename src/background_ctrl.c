@@ -50,6 +50,7 @@ int lockscreen_background_ctrl_init(Evas_Object *view)
 	if (!handler)
 		FAT("ecore_event_handler_add failed on LOCKSCREEN_EVENT_BACKGROUND_CHANGED event");
 	main_view = view;
+
 	_lockscreen_background_ctrl_background_update();
 
 	return 0;

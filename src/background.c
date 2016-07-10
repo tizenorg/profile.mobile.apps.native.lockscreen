@@ -19,28 +19,97 @@
 #include "background.h"
 #include "util.h"
 
+#include <message_port.h>
 #include <system_settings.h>
-#include <Ecore.h>
 #include <Ecore_File.h>
 
 #define DEFAULT_BG IMAGE_DIR"Default.jpg"
 
-static char *background_file;
+
+#define RUNTIME_BACKGROUND_LOCAL_PORT "lockscreen/port/background/ondemand"
+#define RUNTIME_BACKGROUND_KEY "lockscreen/background/file_path"
+
+static char *background_file = NULL;
+
+static Eina_Bool enable_runtime_background_change = EINA_FALSE;
+static int port_id;
 static int init_count;
 int LOCKSCREEN_EVENT_BACKGROUND_CHANGED;
+
+static int _lockscreen_background_file_set(const char *path);
 
 static void _lockscreen_background_load_from_system_settings(void)
 {
 	char *bg;
 	int ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_WALLPAPER_LOCK_SCREEN, &bg);
+
+
 	if (ret != SYSTEM_SETTINGS_ERROR_NONE) {
 		ERR("system_settings_set_value_string failed: %s", get_error_message(ret));
-		lockscreen_background_file_set(NULL);
+		_lockscreen_background_file_set(NULL);
 		return;
 	}
-	if (lockscreen_background_file_set(bg))
-		lockscreen_background_file_set(NULL);
+	if (_lockscreen_background_file_set(bg))
+		_lockscreen_background_file_set(NULL);
 	free(bg);
+}
+
+static void _lockscreen_background_remote_file_set(const char *file)
+{
+	if (file && !strcmp(file, background_file))
+		return;
+
+	free(background_file);
+
+	if (file && ecore_file_can_read(file)) {
+		background_file = strdup(file);
+	} else {
+		INF("Cannot access/read background file: %s Setting background file from system settings", file);
+
+		int ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_WALLPAPER_LOCK_SCREEN, &background_file);
+
+		if (ret != SYSTEM_SETTINGS_ERROR_NONE)
+			ERR("system_settings_set_value_string failed: %s", get_error_message(ret));
+	}
+
+	INF("Runtime background: %s", file);
+
+	if (enable_runtime_background_change)
+		ecore_event_add(LOCKSCREEN_EVENT_BACKGROUND_CHANGED, NULL, NULL, NULL);
+}
+
+static void _background_message_port_cb(int trusted_local_port_id, const char *remote_app_id,
+		const char *remote_port, bool trusted_remote_port, bundle *message, void *data)
+{
+	char *background_runtime_file = NULL;
+	if (!trusted_remote_port) {
+		ERR("The remote port is untrusted");
+		return;
+	}
+
+	int ret;
+
+	ret = bundle_get_str(message, RUNTIME_BACKGROUND_KEY, &background_runtime_file);
+	if (ret != BUNDLE_ERROR_NONE) {
+		ERR("bundle_get_type failed[%d]:%s", ret, get_error_message(ret));
+		return;
+	}
+	if (background_runtime_file && !strcmp(background_runtime_file, "bg/unset")) {
+		background_runtime_file = NULL;
+	}
+
+	_lockscreen_background_remote_file_set(background_runtime_file);
+}
+
+static int _lockscreen_background_message_port_init(void)
+{
+	port_id = message_port_register_trusted_local_port(RUNTIME_BACKGROUND_LOCAL_PORT, _background_message_port_cb, NULL);
+	if (port_id < MESSAGE_PORT_ERROR_NONE) {
+		ERR("message_port_register_trusted_local_port failed[%d]:%s", port_id, get_error_message(port_id));
+		return port_id;
+	}
+
+	return 0;
 }
 
 static void _lockscreen_background_system_settings_key_changed(system_settings_key_e key, void *user_data)
@@ -59,16 +128,29 @@ int lockscreen_background_init(void)
 			ERR("system_settings_set_changed_cb: %s", get_error_message(ret));
 			return -1;
 		}
-		_lockscreen_background_load_from_system_settings();
+		_lockscreen_background_message_port_init();
+
+		if (!enable_runtime_background_change)
+			_lockscreen_background_load_from_system_settings();
 	}
 	init_count++;
 	return 0;
 }
 
-int lockscreen_background_file_set(const char *path)
+void lockscreen_background_runtime_background_enabled_set(bool val)
+{
+	enable_runtime_background_change = val;
+	if (val)
+		ecore_event_add(LOCKSCREEN_EVENT_BACKGROUND_CHANGED, NULL, NULL, NULL);
+	else
+		_lockscreen_background_load_from_system_settings();
+}
+
+
+static int _lockscreen_background_file_set(const char *path)
 {
 	if (!path) {
-		return lockscreen_background_file_set(util_get_res_file_path(DEFAULT_BG));
+		return _lockscreen_background_file_set(util_get_res_file_path(DEFAULT_BG));
 	}
 
 	if (background_file && !strcmp(background_file, path)) {
@@ -84,8 +166,19 @@ int lockscreen_background_file_set(const char *path)
 	background_file = strdup(path);
 
 	INF("Background file: %s", path);
+
 	ecore_event_add(LOCKSCREEN_EVENT_BACKGROUND_CHANGED, NULL, NULL, NULL);
+
 	return 0;
+}
+
+static void lockscreen_background_message_port_deinit(void)
+{
+	int ret;
+
+	ret = message_port_unregister_trusted_local_port(port_id);
+	if (ret < MESSAGE_PORT_ERROR_NONE)
+		ERR("message_port_register_trusted_local_port failed[%d]:%s", ret, get_error_message(ret));
 }
 
 void lockscreen_background_shutdown(void)
@@ -94,6 +187,9 @@ void lockscreen_background_shutdown(void)
 		init_count--;
 		free(background_file);
 		background_file = NULL;
+
+		lockscreen_background_message_port_deinit();
+
 	}
 }
 
