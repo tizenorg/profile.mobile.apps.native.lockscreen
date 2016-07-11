@@ -20,7 +20,7 @@
 #include "display.h"
 #include "log.h"
 
-#define LOCK_LCD_OFF_TIMEOUT_TIME 10
+#define LOCK_LCD_OFF_TIMEOUT_TIME 10.0
 
 static Ecore_Timer *lcd_off_timer;
 int LOCKSCREEN_EVENT_DISPLAY_STATUS_CHANGED;
@@ -29,6 +29,7 @@ static int display_off;
 
 static Eina_Bool _time_elapsed(void *data)
 {
+	INF("Turning off display");
 	int ret = device_display_change_state(DISPLAY_STATE_SCREEN_OFF);
 	if (ret != DEVICE_ERROR_NONE) {
 		ERR("device_display_change_state failed: %s", get_error_message(ret));

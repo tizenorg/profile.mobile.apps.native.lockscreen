@@ -28,6 +28,7 @@
 #include "util_time.h"
 #include "events_view.h"
 #include "time_format.h"
+#include "display.h"
 
 
 static Ecore_Event_Handler *handler[1];
@@ -165,6 +166,12 @@ _lockscreen_device_lock_ctrl_view_del(void *data, Evas *e, Evas_Object *obj, voi
 	lockscreen_event_free(data);
 }
 
+static void
+_lockscreen_device_lock_pass_view_password_is_typing(void *data, Evas_Object *obj, void *event_info)
+{
+	lockscreen_display_timer_renew();
+}
+
 static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_view_type type, const lockscreen_event_t *event)
 {
 	Evas_Object *pass_view = lockscreen_main_view_part_content_get(main_view, PART_PASSWORD);
@@ -190,6 +197,7 @@ static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_vi
 			break;
 		case LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD:
 			elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_COM_BODY_ENTER_PASSWORD"));
+			evas_object_smart_callback_add(pass_view, SIGNAL_PASSWORD_TYPING, _lockscreen_device_lock_pass_view_password_is_typing, NULL);
 			break;
 		case LOCKSCREEN_PASSWORD_VIEW_TYPE_SWIPE:
 			elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"));
@@ -271,6 +279,10 @@ int lockscreen_device_lock_ctrl_init(Evas_Object *view)
 		ERR("lockscreen_time_format_init failed");
 	}
 
+	if (lockscreen_display_init()) {
+		ERR("lockscreen_display_init failed");
+	}
+
 	int err = vconf_notify_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed, NULL);
 	if (err) {
 		ERR("vconf_notify_key_changed failed: %s", get_error_message(err));
@@ -288,6 +300,7 @@ void lockscreen_device_lock_ctrl_shutdown()
 	vconf_ignore_key_changed(VCONFKEY_IDLE_LOCK_STATE, _lockscreen_device_vconf_idle_key_changed);
 	ecore_event_handler_del(handler[0]);
 	lockscreen_device_lock_shutdown();
+	lockscreen_display_shutdown();
 }
 
 int lockscreen_device_lock_ctrl_unlock_request(void)

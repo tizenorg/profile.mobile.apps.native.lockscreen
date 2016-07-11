@@ -39,6 +39,11 @@
 #define SIGNAL_ACCEPT_BUTTON_CLICKED "password,typed"
 
 /**
+ * @brief Smart signal emitted when user is typing password.
+ */
+#define SIGNAL_PASSWORD_TYPING "password,typing"
+
+/**
  * @brief Smart signal emitted when user has clicked cancel button.
  */
 #define SIGNAL_CANCEL_BUTTON_CLICKED "cancel,button,clicked"
@@ -51,13 +56,11 @@
 /**
  * @brief Smart signal sent to show sim1 card icon.
  */
-
 #define SIGNAL_SIM_ICON_SHOW_SIM1 "layout,pin_icon,show,1"
 
 /**
  * @brief Smart signal sent to show sim2 card icon.
  */
-
 #define SIGNAL_SIM_ICON_SHOW_SIM2 "layout,pin_icon,show,2"
 
 /**
