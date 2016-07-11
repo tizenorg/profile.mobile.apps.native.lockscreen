@@ -86,8 +86,10 @@ Evas_Object *lockscreen_window_create(void)
 	evas_object_show(ly);
 	elm_win_resize_object_add(win, ly);
 
-	Evas_Object *bg = elm_bg_add(win);
-	elm_bg_option_set(bg, ELM_BG_OPTION_SCALE);
+	Evas_Object *bg = elm_image_add(win);
+	elm_image_aspect_fixed_set(bg, EINA_TRUE);
+	elm_image_fill_outside_set(bg, EINA_TRUE);
+	elm_image_preload_disabled_set(bg, EINA_TRUE);
 	evas_object_size_hint_weight_set(bg, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(bg, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_show(bg);
@@ -131,8 +133,8 @@ void lockscreen_window_content_set(Evas_Object *content)
 
 bool lockscreen_window_background_set(const char *path)
 {
-	if (!elm_bg_file_set(view.bg, path, NULL)) {
-		ERR("elm_bg_file_set failed: %s", path);
+	if (!elm_image_file_set(view.bg, path, "bg")) {
+		ERR("elm_image_file_set failed: %s", path);
 		return false;
 	}
 	return true;
