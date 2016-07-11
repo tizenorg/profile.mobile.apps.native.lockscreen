@@ -1,5 +1,5 @@
 Name:       org.tizen.lockscreen
-#VCS_FROM:   profile/mobile/apps/native/lockscreen#826d8a27611e2a69f2c32b5e205bd5f0e9c464bd
+#VCS_FROM:   profile/mobile/apps/native/lockscreen#33578adaf4c91b3bb335ab06d3f11808e780c7b5
 #RS_Ver:    20160711_2 
 Summary:    Lockscreen app
 Version:    0.1.0
@@ -15,6 +15,8 @@ Requires(post):  /usr/bin/tpk-backend
 %define internal_name org.tizen.lockscreen
 %define preload_tpk_path %{TZ_SYS_RO_APP}/.preload-tpk 
 
+%define build_mode %{nil}
+
 %ifarch i386 i486 i586 i686 x86_64
 %define target i386
 %else
@@ -26,7 +28,7 @@ Requires(post):  /usr/bin/tpk-backend
 %endif
 
 %description
-profile/mobile/apps/native/lockscreen#826d8a27611e2a69f2c32b5e205bd5f0e9c464bd
+profile/mobile/apps/native/lockscreen#33578adaf4c91b3bb335ab06d3f11808e780c7b5
 This is a container package which have preload TPK files
 
 %prep
@@ -37,7 +39,7 @@ This is a container package which have preload TPK files
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/%{preload_tpk_path}
-install %{internal_name}-%{version}-%{target}.tpk %{buildroot}/%{preload_tpk_path}/
+install %{internal_name}-%{version}-%{target}%{build_mode}.tpk %{buildroot}/%{preload_tpk_path}/
 
 %post
 
