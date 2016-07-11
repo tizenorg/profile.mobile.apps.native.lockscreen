@@ -131,6 +131,7 @@ static Evas_Object* _lockscreen_password_view_pin_create(Evas_Object *parent)
 	elm_entry_password_set(entry, EINA_TRUE);
 	elm_object_part_content_set(ly, "sw.entry", entry);
 	elm_entry_input_panel_enabled_set(entry, EINA_FALSE);
+	evas_object_pass_events_set(entry, EINA_TRUE);
 	evas_object_show(entry);
 
 	// Setup PIN pad
@@ -163,7 +164,7 @@ static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *paren
 	elm_entry_password_set(entry, EINA_TRUE);
 	elm_object_part_content_set(ly, "sw.entry", entry);
 	evas_object_show(entry);
-	elm_entry_editable_set(entry, EINA_TRUE);
+	elm_entry_context_menu_disabled_set(entry, EINA_TRUE);
 
 	evas_object_event_callback_add(entry, EVAS_CALLBACK_KEY_DOWN, _lockscreen_password_view_entry_activated, ly);
 	elm_entry_text_style_user_push(entry, "DEFAULT='font=Sans style=Regular color=#FFFFFF font_size=90 wrap=none align=center'");
