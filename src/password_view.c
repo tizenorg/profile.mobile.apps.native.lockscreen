@@ -32,34 +32,21 @@ _lockscreen_password_view_cancel_button_clicked(void *data, Evas_Object *obj, vo
 }
 
 static void
-_lockscreen_password_util_emit_key_event(Evas *e, const char *key)
-{
-	/** Quickfix for some unknow to me reason when I emit down/up events
-	 * EFL entry sometimes emit two "changed,user" events instead of one
-	 * Adding "up" before "down" seems to solve the isse */
-	evas_event_feed_key_up(e, key, key, key, NULL, ecore_time_get() * 1000, NULL);
-	evas_event_feed_key_down(e, key, key, key, NULL, ecore_time_get() * 1000 + 10, NULL);
-	evas_event_feed_key_up(e, key, key, key, NULL, ecore_time_get() * 1000 + 20, NULL);
-}
-
-static void
 _lockscreen_password_view_pin_button_clicked(void *data, Evas_Object *obj, const char *emission, const char *source)
 {
 	const char *txt = edje_object_part_text_get(obj, "text.number");
 	Evas_Object *entry = elm_object_part_content_get(data, "sw.entry");
-	elm_object_focus_set(entry, EINA_TRUE);
-
-	/* Emit fake keyboard event
-	 * This is a quickfix for elm_entry_entry_append(entry, txt); */
-	_lockscreen_password_util_emit_key_event(evas_object_evas_get(entry), txt);
+	elm_entry_entry_insert(entry, txt);
 }
 
 static void
 _lockscreen_password_view_clear_button_clicked(void *data, Evas_Object *obj, const char *emission, const char *source)
 {
 	Evas_Object *entry = elm_object_part_content_get(data, "sw.entry");
-	elm_object_focus_set(entry, EINA_TRUE);
-	_lockscreen_password_util_emit_key_event(evas_object_evas_get(entry), "BackSpace");
+	Evas_Object *tbl = elm_entry_textblock_get(entry);
+	Evas_Textblock_Cursor *cursor = evas_object_textblock_cursor_get(tbl);
+	evas_textblock_cursor_char_prev(cursor);
+	evas_textblock_cursor_char_delete(cursor);
 }
 
 static void
@@ -150,7 +137,7 @@ static Evas_Object* _lockscreen_password_view_pin_create(Evas_Object *parent)
 
 	elm_object_signal_emit(ly, "layout,pinpad,show", "lockscreen");
 	elm_entry_text_style_user_push(entry, "DEFAULT='font=Sans style=Regular color=#FFFFFF font_size=110 wrap=none align=center'");
-	evas_object_smart_callback_add(entry, "changed,user", _lockscreen_password_view_pin_entry_activated, ly);
+	evas_object_smart_callback_add(entry, "changed", _lockscreen_password_view_pin_entry_activated, ly);
 
 	return ly;
 }
