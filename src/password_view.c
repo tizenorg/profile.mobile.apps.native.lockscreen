@@ -97,10 +97,17 @@ static void
 _lockscreen_password_view_pin_entry_activated(void *data, Evas_Object *obj, void *event_info)
 {
 	const char *content = elm_entry_entry_get(obj);
+	static bool activated;
+
 	Elm_Entry_Filter_Limit_Size *filter = evas_object_data_get(data, PIN_PASS_LEN_FILTER);
 	evas_object_smart_callback_call(data, SIGNAL_PASSWORD_TYPING, NULL);
-	if (content && strlen(content) == filter->max_char_count)
-		evas_object_smart_callback_call(data, SIGNAL_ACCEPT_BUTTON_CLICKED, (void*)elm_entry_entry_get(obj));
+	if (content && strlen(content) == filter->max_char_count) {
+		if (!activated) {
+			evas_object_smart_callback_call(data, SIGNAL_ACCEPT_BUTTON_CLICKED, (void*)elm_entry_entry_get(obj));
+			activated = true;
+		}
+	} else
+		activated = false;
 }
 
 static void
@@ -158,7 +165,6 @@ static Evas_Object* _lockscreen_password_view_password_create(Evas_Object *paren
 	elm_entry_input_panel_enabled_set(entry, EINA_TRUE);
 	elm_entry_input_panel_layout_set(entry, ELM_INPUT_PANEL_LAYOUT_PASSWORD);
 	elm_entry_input_panel_return_key_type_set(entry, ELM_INPUT_PANEL_RETURN_KEY_TYPE_DONE);
-	lockscreen_password_view_pin_password_length_set(ly, 4);
 	evas_object_smart_callback_add(entry, "changed,user", _lockscreen_password_view_password_entry_changed, ly);
 
 	return ly;
@@ -243,9 +249,9 @@ void lockscreen_password_view_pin_password_length_set(Evas_Object *view, int len
 	if (!filter) {
 		filter = malloc(sizeof(Elm_Entry_Filter_Limit_Size));
 		evas_object_data_set(view, PIN_PASS_LEN_FILTER, filter);
-		elm_entry_markup_filter_append(elm_object_part_content_get(view, "sw.entry"), elm_entry_filter_limit_size, filter);
 		evas_object_event_callback_add(view, EVAS_CALLBACK_DEL, _lockscreen_password_view_del, filter);
 	}
 	filter->max_byte_count = 0;
 	filter->max_char_count = length;
+	elm_entry_markup_filter_append(elm_object_part_content_get(view, "sw.entry"), elm_entry_filter_limit_size, filter);
 }
