@@ -38,6 +38,7 @@ pkg_check_modules(MENU_PKGS REQUIRED
 	gio-2.0
 	capi-ui-efl-util
 	capi-message-port
+	capi-appfw-package-manager
 )
 
 FOREACH (flag ${MENU_PKGS_CFLAGS})
