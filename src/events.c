@@ -19,6 +19,7 @@
 #include <notification_internal.h>
 #include <app_control_internal.h>
 #include <Ecore.h>
+#include <package_manager.h>
 
 #include "log.h"
 #include "lockscreen.h"
@@ -31,14 +32,21 @@ int LOCKSCREEN_EVENT_EVENTS_CHANGED;
 static bool freeze_event;
 static Ecore_Event_Handler *unlock_handler[2];
 
+typedef enum {
+	LOCKSCREEN_EVENTS_PRIVACY_MODE_SHOW_ALL, /* Shows all notification content */
+	LOCKSCREEN_EVENTS_PRIVACY_MODE_HIDE_SENSITIVE_CONTENT, /* Hide content of notification */
+	LOCKSCREEN_EVENTS_PRIVACY_MODE_DONT_SHOW, /* Disable events */
+} lockscreen_privacy_mode_e;
+
+static lockscreen_privacy_mode_e privacy_mode = LOCKSCREEN_EVENTS_PRIVACY_MODE_SHOW_ALL;
+
 struct lockscreen_event {
-	char *icon_path;
-	char *icon_sub_path;
-	char *title;
-	char *content;
+	Eina_Stringshare *icon_path;
+	Eina_Stringshare *icon_sub_path;
+	Eina_Stringshare *title;
+	Eina_Stringshare *content;
 	bundle *service_handle;
 	time_t time;
-	char *package;
 	notification_h noti;
 };
 
@@ -55,47 +63,92 @@ static bool _notification_accept(notification_h noti)
 
 static void _lockscreen_event_destroy(lockscreen_event_t *event)
 {
-	if (event->title) free(event->title);
-	if (event->content) free(event->content);
-	if (event->icon_path) free(event->icon_path);
-	if (event->icon_sub_path) free(event->icon_sub_path);
-	if (event->package) free(event->package);
+	eina_stringshare_del(event->title);
+	eina_stringshare_del(event->content);
+	eina_stringshare_del(event->icon_path);
+	eina_stringshare_del(event->icon_sub_path);
 	if (event->service_handle) bundle_free(event->service_handle);
 	if (event->noti) notification_free(event->noti);
-
 	free(event);
+}
+
+static bool
+_lockscreen_event_notification_load_texts(lockscreen_event_t *event, notification_h noti)
+{
+	char *val;
+
+	int ret = notification_get_text(noti, NOTIFICATION_TEXT_TYPE_TITLE, &val);
+	if (ret != NOTIFICATION_ERROR_NONE) {
+		ERR("notification_get_text failed: %s", get_error_message(ret));
+		return false;
+	}
+	if (val) event->title = eina_stringshare_add(val);
+
+	ret = notification_get_text(noti, NOTIFICATION_TEXT_TYPE_CONTENT, &val);
+	if (ret != NOTIFICATION_ERROR_NONE) {
+		ERR("notification_get_text failed: %s", get_error_message(ret));
+		return false;
+	}
+	if (val) event->content = eina_stringshare_add(val);
+	return true;
+}
+
+static bool
+_lockscreen_event_notification_load_texts_hidden(lockscreen_event_t *event, notification_h noti)
+{
+	char *val = NULL, *package;
+	package_info_h handle;
+
+	int ret = notification_get_pkgname(noti, &package);
+	if (ret != NOTIFICATION_ERROR_NONE) {
+		ERR("notification_get_pkgname failed: %s", get_error_message(ret));
+		return false;
+	}
+
+	ret = package_info_create(package, &handle);
+	if (ret != PACKAGE_MANAGER_ERROR_NONE) {
+		ERR("package_info_create failed: %s", get_error_message(ret));
+		return false;
+	}
+
+	ret = package_info_get_label(handle, &val);
+	if (ret != PACKAGE_MANAGER_ERROR_NONE) {
+		ERR("package_info_get_label failed: %s", get_error_message(ret));
+		package_info_destroy(handle);
+		return false;
+	}
+	if (val) {
+		event->title = eina_stringshare_add(val);
+		free(val);
+	}
+
+	package_info_destroy(handle);
+
+	event->content = eina_stringshare_add(_("IDS_ST_CONTENT_HIDDEN"));
+	return true;
 }
 
 static lockscreen_event_t *_lockscreen_event_notification_create(notification_h noti)
 {
 	int ret;
 	char *val;
+
 	lockscreen_event_t *event = calloc(1, sizeof(lockscreen_event_t));
 	if (!event) return NULL;
 
-	ret = notification_get_text(noti, NOTIFICATION_TEXT_TYPE_TITLE, &val);
-	if (ret != NOTIFICATION_ERROR_NONE) {
-		ERR("notification_get_text failed: %s", get_error_message(ret));
-		_lockscreen_event_destroy(event);
-		return NULL;
+	if (privacy_mode == LOCKSCREEN_EVENTS_PRIVACY_MODE_SHOW_ALL) {
+		if (!_lockscreen_event_notification_load_texts(event, noti)) {
+			ERR("_lockscreen_event_notification_load_texts failed");
+			_lockscreen_event_destroy(event);
+			return NULL;
+		}
+	} else if (privacy_mode == LOCKSCREEN_EVENTS_PRIVACY_MODE_HIDE_SENSITIVE_CONTENT) {
+		if (!_lockscreen_event_notification_load_texts_hidden(event, noti)) {
+			ERR("_lockscreen_event_notification_load_texts_hidden failed");
+			_lockscreen_event_destroy(event);
+			return NULL;
+		}
 	}
-	if (val) event->title = strdup(val);
-
-	ret = notification_get_text(noti, NOTIFICATION_TEXT_TYPE_CONTENT, &val);
-	if (ret != NOTIFICATION_ERROR_NONE) {
-		ERR("notification_get_text failed: %s", get_error_message(ret));
-		_lockscreen_event_destroy(event);
-		return NULL;
-	}
-	if (val) event->content = strdup(val);
-
-	ret = notification_get_pkgname(noti, &val);
-	if (ret != NOTIFICATION_ERROR_NONE) {
-		ERR("notification_get_pkgname failed: %s", get_error_message(ret));
-		_lockscreen_event_destroy(event);
-		return NULL;
-	}
-	if (val) event->package = strdup(val);
 
 	ret = notification_get_image(noti, NOTIFICATION_IMAGE_TYPE_ICON, &val);
 	if (ret != NOTIFICATION_ERROR_NONE) {
@@ -103,7 +156,7 @@ static lockscreen_event_t *_lockscreen_event_notification_create(notification_h 
 		_lockscreen_event_destroy(event);
 		return NULL;
 	}
-	if (val) event->icon_path = strdup(val);
+	if (val) event->icon_path = eina_stringshare_add(val);
 
 	ret = notification_get_image(noti, NOTIFICATION_IMAGE_TYPE_ICON_SUB, &val);
 	if (ret != NOTIFICATION_ERROR_NONE) {
@@ -111,7 +164,7 @@ static lockscreen_event_t *_lockscreen_event_notification_create(notification_h 
 		_lockscreen_event_destroy(event);
 		return NULL;
 	}
-	if (val) event->icon_sub_path = strdup(val);
+	if (val) event->icon_sub_path = eina_stringshare_add(val);
 
 	ret = notification_get_time(noti, &event->time);
 	if (ret != NOTIFICATION_ERROR_NONE) {
@@ -140,7 +193,6 @@ static lockscreen_event_t *_lockscreen_event_notification_create(notification_h 
 
 	DBG("Title: %s", event->title);
 	DBG("Content: %s", event->content);
-	DBG("Package: %s", event->package);
 	DBG("Icon: %s", event->icon_path);
 	DBG("SubIcon: %s", event->icon_sub_path);
 
@@ -210,11 +262,16 @@ static void _noti_changed_cb(void *data, notification_type_e type, notification_
 int lockscreen_events_init(void)
 {
 	if (!init_count) {
+		// Fixme load privacy mode from settings, when it will be implemented
+		if (privacy_mode == LOCKSCREEN_EVENTS_PRIVACY_MODE_DONT_SHOW)
+			return 0;
+
 		if (lockscreen_device_lock_init()) {
 			ERR("lockscreen_device_lock_init failed");
 			return 1;
 		}
 		LOCKSCREEN_EVENT_EVENTS_CHANGED = ecore_event_type_new();
+
 		int ret = notification_register_detailed_changed_cb(_noti_changed_cb, NULL);
 		if (ret != NOTIFICATION_ERROR_NONE) {
 			ERR("notification_register_detailed_changed_cb failed: %s", get_error_message(ret));
@@ -274,8 +331,6 @@ static bool _lockscreen_event_launch_internal(lockscreen_event_t *event)
 		app_control_destroy(service);
 		return false;
 	}
-
-	INF("Launching event for package: %s", event->package);
 
 	ret = app_control_send_launch_request(service, NULL, NULL);
 	if (ret != APP_CONTROL_ERROR_NONE) {

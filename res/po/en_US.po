@@ -276,3 +276,6 @@ msgstr "Auto factory reset"
 
 msgid "IDS_ST_NO_ATTEMPTS"
 msgstr "No attempts left"
+
+msgid "IDS_ST_CONTENT_HIDDEN"
+msgstr "Contents hidden"
