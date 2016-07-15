@@ -35,9 +35,19 @@
  */
 
 /**
- * @brief Event fired when lockscreen's events change.
+ * @brief Event fired when lockscreen's event has been added.
  */
-extern int LOCKSCREEN_EVENT_EVENTS_CHANGED;
+extern int LOCKSCREEN_EVENT_EVENT_ADDED;
+
+/**
+ * @brief Event fired when lockscreen's event has been removed.
+ */
+extern int LOCKSCREEN_EVENT_EVENT_REMOVED;
+
+/**
+ * @brief Event fired when lockscreen's event has been updated.
+ */
+extern int LOCKSCREEN_EVENT_EVENT_UPDATED;
 
 /**
  * @brief lockscreen event handle
@@ -93,8 +103,9 @@ bool lockscreen_event_launch(lockscreen_event_t *event);
 /**
  * @brief Gets list of all displayed events.
  *
- * @note list elements are valid until next LOCKSCREEN_EVENT_NOTIFICATIONS_CHANGED event is fired.
+ * @note list elements are valid until next LOCKSCREEN_EVENT_EVENT_REMOVED event is fired.
  * @note should be free with eina_list_free
+ * @note if event 
  */
 Eina_List *lockscreen_events_get(void);
 
@@ -104,24 +115,54 @@ Eina_List *lockscreen_events_get(void);
 bool lockscreen_events_exists(void);
 
 /**
- * @brief Removes event from internal notification database and free event.
+ * @brief Removes event from system's notification database.
+ *
+ * @note fires LOCKSCREEN_EVENT_EVENT_REMOVED event.
+ *
+ * @return true on success, false otherwise
  */
-void lockscreen_event_remove(lockscreen_event_t *event);
+bool lockscreen_event_remove(lockscreen_event_t *event);
 
 /**
- * @brief Removes all events
+ * @brief Removes all events from system's notification database.
+ *
  */
 void lockscreen_events_remove_all(void);
 
 /**
- * @brief Copies event
+ * @brief Ref event
  */
-lockscreen_event_t *lockscreen_event_copy(const lockscreen_event_t *event);
+void lockscreen_event_ref(lockscreen_event_t *event);
 
 /**
- * @brief Free event
+ * @brief Unref event
  */
-void lockscreen_event_free(lockscreen_event_t *event);
+void lockscreen_event_unref(lockscreen_event_t *event);
+
+/**
+ * @brief set user data.
+ */
+void lockscreen_event_user_data_set(lockscreen_event_t *event, void *user_data);
+
+/**
+ * @brief get user data.
+ */
+void *lockscreen_event_user_data_get(lockscreen_event_t *event);
+
+/**
+ * @brief Gets previous (more recent) event.
+ */
+lockscreen_event_t *lockscreen_event_prev(lockscreen_event_t *event);
+
+/**
+ * @brief Gets next (older) event.
+ */
+lockscreen_event_t *lockscreen_event_next(lockscreen_event_t *event);
+
+/**
+ * @brief Returs current event count
+ */
+int lockscreen_events_count(void);
 
 /**
  * @}

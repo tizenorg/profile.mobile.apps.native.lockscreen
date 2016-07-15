@@ -216,7 +216,8 @@ _lockscreen_device_unlock_context_copy(const lockscreen_device_unlock_context_t 
 
 	switch (context->type) {
 		case LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_LAUNCH_EVENT:
-			ret->data.event = lockscreen_event_copy(context->data.event);
+			ret->data.event = context->data.event;
+			lockscreen_event_ref(ret->data.event);
 		default:
 			break;
 	}
@@ -256,7 +257,7 @@ _lockscreen_context_free(void *fn, void  *data)
 
 	switch (ctx->type) {
 		case LOCKSCREEN_DEVICE_UNLOCK_CONTEXT_LAUNCH_EVENT:
-			lockscreen_event_free(ctx->data.event);
+			lockscreen_event_unref(ctx->data.event);
 		default:
 			break;
 	}
