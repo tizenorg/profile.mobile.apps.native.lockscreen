@@ -15,6 +15,7 @@
  */
 
 #include "time_format.h"
+#include "util_time.h"
 #include "log.h"
 #include <system_settings.h>
 #include <stdlib.h>
@@ -35,7 +36,12 @@ static void _time_changed(system_settings_key_e key, void *user_data)
 			break;
 		case SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE:
 			free(tz_timezone);
-			ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE, &tz_timezone);
+
+			tz_timezone = util_timezone_get();
+			if (!tz_timezone)
+				ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE, &tz_timezone);
+			else
+				ret = SYSTEM_SETTINGS_ERROR_NONE;
 			break;
 		case SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE:
 			free(locale);
@@ -88,11 +94,14 @@ int lockscreen_time_format_init(void)
 			return 1;
 		}
 
-		ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE, &tz_timezone);
-		if (ret != SYSTEM_SETTINGS_ERROR_NONE) {
-			free(locale);
-			ERR("system_settings_get_value_string failed: %s", get_error_message(ret));
-			return 1;
+		tz_timezone = util_timezone_get();
+		if (!tz_timezone) {
+			ret = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE, &tz_timezone);
+			if (ret != SYSTEM_SETTINGS_ERROR_NONE) {
+				free(locale);
+				ERR("system_settings_get_value_string failed: %s", get_error_message(ret));
+				return 1;
+			}
 		}
 	}
 

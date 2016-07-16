@@ -260,3 +260,25 @@ char *util_time_string_get(time_t time, const char *locale, const char *timezone
 	return strdup(time_buf);
 }
 
+char *util_timezone_get(void)
+{
+	/* TODO
+	 * This is temporary solution that workarounds invalid time zone set to
+	 * system settings key(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE) which is
+	 * Seoul after device flash.
+	 */
+	char buf[1024] = {0,};
+	ssize_t len = readlink("/opt/etc/localtime", buf, sizeof(buf)-1);
+
+	INF("LOCKSCREEN TIMEZONE -  %s",  buf);
+
+	if (len != -1) {
+		buf[len] = '\0';
+	} else {
+		ERR("Failed to get a timezone information");
+		return NULL;
+	}
+
+	return strdup(buf + 20);
+}
+

@@ -35,7 +35,7 @@
  * @param[out] str_date formatted date string
  *
  * @return true on success, false otherwise
- * 
+ *
  * @note str_date should be free()
  */
 bool util_time_formatted_date_get(time_t time, const char *locale, const char *timezone, const char *skeleton, char **str_date);
@@ -66,6 +66,14 @@ bool util_time_formatted_time_get(time_t time, const char *locale, const char *t
  * @note returned string must be free()
  */
 char *util_time_string_get(time_t time, const char *locale, const char *timezone, bool use24hformat);
+
+/**
+ * @brief Gets time zone from /opt/etc/localtime symbolic link
+ *
+ * @return time zone on success, NULL otherwise
+ * @note returned string must be freed using free()
+ */
+char *util_timezone_get(void);
 
 /**
  * @}
