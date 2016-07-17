@@ -37,6 +37,7 @@ pkg_check_modules(MENU_PKGS REQUIRED
 	dpm
 	gio-2.0
 	capi-ui-efl-util
+	capi-message-port
 )
 
 FOREACH (flag ${MENU_PKGS_CFLAGS})
