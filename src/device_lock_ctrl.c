@@ -224,6 +224,10 @@ static int _lockscreen_device_lock_ctrl_unlock_request(const lockscreen_event_t 
 
 	switch (type) {
 		case LOCKSCREEN_DEVICE_LOCK_NONE:
+			if (!ev) {
+				ui_app_exit();
+				return 0;
+			}
 			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_SWIPE, ev);
 		case LOCKSCREEN_DEVICE_LOCK_PIN:
 			return _lockscreen_device_lock_ctrl_unlock_panel_show(LOCKSCREEN_PASSWORD_VIEW_TYPE_PIN, ev);
