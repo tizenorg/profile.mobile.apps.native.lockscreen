@@ -63,13 +63,13 @@ int lockscreen_time_format_init(void)
 			ERR("system_settings_set_changed_cb failed: %s", get_error_message(ret));
 			return 1;
 		}
-#if 0
+
 		ret = system_settings_set_changed_cb(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE, _time_changed, NULL);
 		if (ret != SYSTEM_SETTINGS_ERROR_NONE) {
 			ERR("system_settings_set_changed_cb failed: %s", get_error_message(ret));
 			return 1;
 		}
-#endif
+
 		ret = system_settings_set_changed_cb(SYSTEM_SETTINGS_KEY_TIME_CHANGED, _time_changed, NULL);
 		if (ret != SYSTEM_SETTINGS_ERROR_NONE) {
 			ERR("system_settings_set_changed_cb failed: %s", get_error_message(ret));
