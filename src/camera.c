@@ -17,6 +17,8 @@
 #include "camera.h"
 #include "log.h"
 #include "deviced.h"
+#include "device_lock.h"
+#include "device_lock_ctrl.h"
 
 #include <app_control.h>
 #include <Ecore.h>
@@ -27,14 +29,35 @@ static int camera_enabled;
 static int init_count;
 
 int LOCKSCREEN_EVENT_CAMERA_STATUS_CHANGED;
+static Ecore_Timer *delay_timer;
+
+static Eina_Bool
+_lockscreen_delayed_unlock(void *data)
+{
+	lockscreen_device_lock_ctrl_unlock_request();
+	delay_timer = NULL;
+	return EINA_FALSE;
+}
 
 static void _app_control_reply_cb(app_control_h request, app_control_h reply, app_control_result_e result, void *user_data)
 {
 	switch (result) {
 		case APP_CONTROL_RESULT_APP_STARTED:
-		case APP_CONTROL_RESULT_SUCCEEDED:
 			DBG("Camera application launch succcessed.");
+			if (lockscreen_device_lock_type_get() == LOCKSCREEN_DEVICE_LOCK_NONE) {
+				//Quickfix. Add small delay until some sync mechanism for
+				//app_control will be added to validate if callee window has
+				//appeared.
+				delay_timer = ecore_timer_add(1.5, _lockscreen_delayed_unlock, NULL);
+			}
+			break;
+		case APP_CONTROL_RESULT_SUCCEEDED:
+			DBG("App result callback");
 			lockscreen_deviced_lockscreen_background_state_set(true);
+			if (lockscreen_device_lock_type_get() == LOCKSCREEN_DEVICE_LOCK_NONE) {
+				if (delay_timer) ecore_timer_del(delay_timer);
+				lockscreen_device_lock_ctrl_unlock_request();
+			}
 			break;
 		case APP_CONTROL_RESULT_FAILED:
 		case APP_CONTROL_RESULT_CANCELED:
@@ -53,27 +76,29 @@ int lockscreen_camera_activate()
 		return 1;
 	}
 
-	err = app_control_set_launch_mode(app_ctr, APP_CONTROL_LAUNCH_MODE_GROUP);
-	if (err != APP_CONTROL_ERROR_NONE) {
-		ERR("app_control_set_launch_mode failed: %s", get_error_message(err));
-		app_control_destroy(app_ctr);
-		return 1;
-	}
+	if (lockscreen_device_lock_type_get() != LOCKSCREEN_DEVICE_LOCK_NONE) {
+		err = app_control_set_launch_mode(app_ctr, APP_CONTROL_LAUNCH_MODE_GROUP);
+		if (err != APP_CONTROL_ERROR_NONE) {
+			ERR("app_control_set_launch_mode failed: %s", get_error_message(err));
+			app_control_destroy(app_ctr);
+			return 1;
+		}
 
-	/* Send a hint to camera-app to display itself over lockscreen */
-	err = app_control_add_extra_data(app_ctr, KEY_DISPLAY_OVER_LOCKSCREEN, "on");
-	if (err != APP_CONTROL_ERROR_NONE) {
-		ERR("app_control_add_extra_data failed: %s", get_error_message(err));
-		app_control_destroy(app_ctr);
-		return 1;
-	}
+		/* Send a hint to camera-app to display itself over lockscreen */
+		err = app_control_add_extra_data(app_ctr, KEY_DISPLAY_OVER_LOCKSCREEN, "on");
+		if (err != APP_CONTROL_ERROR_NONE) {
+			ERR("app_control_add_extra_data failed: %s", get_error_message(err));
+			app_control_destroy(app_ctr);
+			return 1;
+		}
 
-	/* Send a hint to camera-app to display itself in secure mode*/
-	err = app_control_add_extra_data(app_ctr, "secure_mode", "true");
-	if (err != APP_CONTROL_ERROR_NONE) {
-		ERR("app_control_add_extra_data failed: %s", get_error_message(err));
-		app_control_destroy(app_ctr);
-		return 1;
+		/* Send a hint to camera-app to display itself in secure mode*/
+		err = app_control_add_extra_data(app_ctr, "secure_mode", "true");
+		if (err != APP_CONTROL_ERROR_NONE) {
+			ERR("app_control_add_extra_data failed: %s", get_error_message(err));
+			app_control_destroy(app_ctr);
+			return 1;
+		}
 	}
 
 	err = app_control_set_app_id(app_ctr, "org.tizen.camera-app");
@@ -106,6 +131,10 @@ int lockscreen_camera_activate()
 int lockscreen_camera_init(void)
 {
 	if (!init_count) {
+		if (lockscreen_device_lock_init()) {
+			ERR("lockscreen_device_lock_init failed");
+			return 1;
+		}
 		int ret = vconf_get_bool(VCONFKEY_LOCKSCREEN_CAMERA_QUICK_ACCESS, &camera_enabled);
 		if (ret) {
 			ERR("vconf_get_bool failed");
@@ -121,6 +150,7 @@ int lockscreen_camera_init(void)
 void lockscreen_camera_shutdown(void)
 {
 	if (init_count) {
+		lockscreen_device_lock_shutdown();
 		init_count--;
 	}
 }
