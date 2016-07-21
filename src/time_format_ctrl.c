@@ -47,7 +47,8 @@ static void _time_spawn_align(void)
 	tt = time(NULL);
 	localtime_r(&tt, &st);
 
-	ecore_timer_interval_set(update_timer, 60 - st.tm_sec);
+	ecore_timer_interval_set(update_timer, (double)(60 - st.tm_sec));
+	ecore_timer_reset(update_timer);
 }
 
 static Eina_Bool _time_changed(void *data, int event, void *event_info)
@@ -60,9 +61,10 @@ static Eina_Bool _time_changed(void *data, int event, void *event_info)
 static Eina_Bool _display_status_changed(void *data, int event, void *event_info)
 {
 	if (lockscreen_display_is_off()) {
-		if (update_timer) ecore_timer_freeze(update_timer);
+		ecore_timer_freeze(update_timer);
 	}
 	else {
+		ecore_timer_thaw(update_timer);
 		_time_update();
 		_time_spawn_align();
 	}
