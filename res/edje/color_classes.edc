@@ -20,7 +20,7 @@ color_classes {
 		color: 255 255 255 255;
 	}
 	color_class {
-		name: "ATO001P";
+		name: "AO001P";
 		color: 25 25 25 64;
 	}
 }

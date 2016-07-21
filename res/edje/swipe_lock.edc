@@ -21,17 +21,18 @@ group {
 	styles {
 		style {
 			name: "time_style_default";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=136 wrap=none";
-			tag: "small_font" "+ font_size=45 font=SamsungNeoNum-3T:style=Light";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=Tizen:style=Regular color=#FFFFFF font_size=136 wrap=none";
+			tag: "small_font" "+ font_size=45 font=Tizen:style=Light";
 		}
 		style {
 			name: "date_style_default";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=Tizen:style=Regular font_size=44 color=#FFFFFF wrap=none align=left text_class=ATO003";
-			tag: "small_font" "+ font_size=35";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=Tizen:style=Regular font_size=35 color=#FFFFFF wrap=none align=left";
 		}
 		style {
-			name: "time_style_contextual";
-			base: "style=far_shadow,bottom shadow_color=#00000033 font=SamsungNeoNum-3T:style=Regular color=#FFFFFF font_size=35 align=center wrap=none";
+			name: "datetime_style";
+			base: "style=far_shadow,bottom shadow_color=#00000033 font=Tizen:style=Regular color=#FFFFFF font_size=44 align=center wrap=none";
+			tag: "meridiem" "+ font_size=35";
+			tag: "date" "+ font_size=35";
 		}
 	}
 	name: "swipe-lock";
@@ -66,8 +67,9 @@ group {
 			description {
 				state: "default" 0.0;
 				align: 0 0;
-				min: 0 (10 + INDICATOR_HEIGHT);
-				max: -1 (10 + INDICATOR_HEIGHT);
+				min: 0 INDICATOR_HEIGHT;
+				max: -1 INDICATOR_HEIGHT;
+				fixed: 0 1;
 				rel1 { relative: 0.0 0.0; to: "bg"; }
 				rel2 { relative: 1.0 1.0; to: "bg"; }
 			}
@@ -93,6 +95,7 @@ group {
 				align: 0 1.0;
 				min: 0 30;
 				max: -1 30;
+				fixed: 0 1;
 				rel2 { relative: 0.0 0.0; to: "bg"; }
 				rel2 { relative: 1.0 1.0; to: "bg"; }
 			}
@@ -123,8 +126,9 @@ group {
 			scale;
 			description {
 				state: "default" 0.0;
-				min: 38 WIN_HEIGHT;
-				max: 38 WIN_HEIGHT;
+				min: 38 0;
+				max: 38 -1;
+				fixed: 1 0;
 				align: 0.0 0.0;
 				rel1 { relative: 0.0 0.0; to: "bg"; }
 				rel2 { relative: 1.0 1.0; to: "bg"; }
@@ -135,26 +139,33 @@ group {
 			type: SPACER;
 			description {
 				state: "default" 0.0;
-				align: 0 0;
-				rel1 { relative: (WIN_WIDTH-SWIPE_LOCK_PADDING_RIGHT)/WIN_WIDTH 0.0; to: "bg"; }
+				align: 1.0 0.0;
+				min: 38 0;
+				max: 38 -1;
+				fixed: 1 0;
+				rel1 { relative: 0.0 0.0; to: "bg"; }
 				rel2 { relative: 1.0 1.0; to: "bg"; }
 			}
 		}
 		part {
 			name: "txt.timedate";
 			type: TEXTBLOCK;
+			clip_to: "vi_clipper";
+			scale: 1;
 			description {
 				state: "default" 0.0;
-				align: 0.5 0.5;
+				align: 0.5 0.0;
 				visible: 0;
-				fixed: 1 1;
-				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "padding.top"; offset: 0 45; }
-				rel2 { relative: 0.0 1.0; to_x: "padding.right"; to_y: "padding.top"; }
+				min: 0 82;
+				max: -1 82;
+				fixed: 0 1;
+				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "padding.top"; offset: 0 16;}
+				rel2 { relative: 0.0 0.0; to_x: "padding.right"; to_y: "padding.bottom"; }
 				text {
-					style: "time_style_contextual";
-					align: 0.5 0.5;
-					min: 1 1;
+					style: "datetime_style";
+					min: 1 0;
 					ellipsis: -1;
+					align: 0.5 0.0;
 				}
 			}
 			description {
@@ -177,15 +188,16 @@ group {
 			description {
 				state: "default" 0.0;
 				align: 0 0;
-				fixed: 1 1;
-				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "padding.top"; }
-				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "padding.top"; }
+				fixed: 0 1;
+				min: 0 (167 + 14);
+				max: -1 (167 + 14);
+				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "padding.top"; offset: 0 12; }
+				rel2 { relative: 0.0 0.0; to_x: "padding.right"; to_y: "padding.bottom"; }
 				text {
 					style: "time_style_default";
 					align: 0.5 0.5;
-					min: 1 1;
+					min: 1 0;
 					ellipsis: -1;
-					text: "12:45 <small_font>PM</samll_font>";
 				}
 			}
 			description {
@@ -201,16 +213,17 @@ group {
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				align: 0 0;
-				fixed: 1 1;
-				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.time"; offset: 0 -13; }
-				rel2 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.time"; offset: 0 -13; }
+				align: 0.0 0.0;
+				fixed: 0 1;
+				min: 0 (33 + 14);
+				max: -1 (33 + 14);
+				rel1 { relative: 1.0 1.0; to_x: "padding.left"; to_y: "txt.time"; offset: 0 -14; }
+				rel2 { relative: 0.0 0.0; to_x: "padding.right"; to_y: "padding.bottom"; }
 				text {
 					style: "date_style_default";
 					align: 0.5 0.5;
-					min: 1 1;
+					min: 1 0;
 					ellipsis: -1;
-					text: "Wed 1 December";
 				}
 			}
 			description {
@@ -225,11 +238,12 @@ group {
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: WIN_WIDTH 200;
-				max: WIN_WIDTH 200;
-				fixed: 1 1;
-				align: 0.0 1.0;
-				rel2 { relative: 0.0 0.0; to_x: "padding.left"; to_y: "padding.bottom"; }
+				min: 0 200;
+				max: -1 200;
+				fixed: 0 1;
+				align: 0.5 1.0;
+				rel1 { relative: 0.0 0.0; to: "bg"; }
+				rel2 { relative: 1.0 0.0; to_x: "bg"; to_y: "padding.bottom"; }
 			}
 		}
 		part {
@@ -271,8 +285,8 @@ group {
 				state: "default" 0.0;
 				min: 0 170;
 				max: -1 170;
-				fixed: 1 1;
-				align: 0 1;
+				fixed: 0 1;
+				align: 0 1.0;
 				rel1 { relative: 1.0 0.0; to_x: "padding.left"; to_y: "bg"; }
 				rel2 { relative: 0.0 0.0; to_x: "padding.right"; to_y: "padding.bottom"; }
 			}
@@ -305,8 +319,8 @@ group {
 			description {
 				state: "default" 0.0;
 				color: 0 0 0 0;
-				rel1 { relative: 0.0 0.0; to_y: "sw.contextual_event"; }
-				rel2.relative: 1.0 1.0;
+				rel1 { relative: 0.0 0.0; to: "bg"; }
+				rel2 { relative: 1.0 1.0; to: "bg"; }
 			}
 			description {
 				state: "blocked" 1.0;

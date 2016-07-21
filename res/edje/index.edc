@@ -492,7 +492,7 @@ collections {
 		parts {
 			image { "bg";
 				desc { "default";
-					color_class: "ATO001P";
+					color_class: "AO001P";
 					image.normal: "event_close_bg.#.png";
 					rel1.offset: -3 -3;
 					rel2.offset: 3 3;

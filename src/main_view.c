@@ -49,13 +49,13 @@ static const char *time_templates[] = {
 };
 
 static const char *date_templates[] = {
-	[TEXT_TEMPLATE_DATE] = "<small_font>%1$s</>",
+	[TEXT_TEMPLATE_DATE] = "%1$s",
 };
 
 static const char *datetime_templates[] = {
-	[TEXT_TEMPLATE_DATETIME_24H] = "%1$s %2$s",
-	[TEXT_TEMPLATE_DATETIME_AMPM] = "%1$s %3$s %2$s",
-	[TEXT_TEMPLATE_DATETIME_AMPM_KOREAN] = "%3$s %1$s %2$s",
+	[TEXT_TEMPLATE_DATETIME_24H] = "%1$s <date>%2$s</date>",
+	[TEXT_TEMPLATE_DATETIME_AMPM] = "%1$s <meridiem>%3$s</meridiem> <date>%2$s</date>",
+	[TEXT_TEMPLATE_DATETIME_AMPM_KOREAN] = "<meridiem>%3$s</meridiem> %1$s <date>%2$s</date>",
 };
 
 static Evas_Object *_swipe_layout_create(Evas_Object *parent)
