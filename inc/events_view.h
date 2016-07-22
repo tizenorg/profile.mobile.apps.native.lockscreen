@@ -47,6 +47,9 @@
 /** Text part of "noti" style */
 #define NOTI_ITEM_TEXT_TIME "elm.text.time"
 
+/** Text part of "noti" style */
+#define NOTI_ITEM_TEXT_COUNT "elm.text.count"
+
 /** Content part of "noti" style */
 #define NOTI_ITEM_ICON "elm.swallow.icon"
 

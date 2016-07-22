@@ -38,7 +38,7 @@ typedef enum {
 	LOCKSCREEN_EVENTS_PRIVACY_MODE_DONT_SHOW, /* Disable events */
 } lockscreen_privacy_mode_e;
 
-static lockscreen_privacy_mode_e privacy_mode = LOCKSCREEN_EVENTS_PRIVACY_MODE_HIDE_SENSITIVE_CONTENT;
+static lockscreen_privacy_mode_e privacy_mode = LOCKSCREEN_EVENTS_PRIVACY_MODE_SHOW_ALL;
 
 struct lockscreen_event {
 	Eina_Stringshare *icon_path;
@@ -48,6 +48,7 @@ struct lockscreen_event {
 	bundle *service_handle;
 	time_t time;
 	notification_h noti;
+	int count;
 };
 
 static bool _notification_accept(notification_h noti)
@@ -90,6 +91,18 @@ _lockscreen_event_notification_load_texts(lockscreen_event_t *event, notificatio
 		return false;
 	}
 	if (val) event->content = eina_stringshare_add(val);
+
+	ret = notification_get_text(noti, NOTIFICATION_TEXT_TYPE_EVENT_COUNT, &val);
+	if (ret != NOTIFICATION_ERROR_NONE) {
+		ERR("notification_get_text failed: %s", get_error_message(ret));
+		return false;
+	}
+	if (val) {
+		if (sscanf(val, "%d", &event->count) != 1)
+			ERR("Unable to parse NOTIFICATION_TEXT_TYPE_EVENT_COUNT notification text");
+	}
+	DBG("Events count: %d", event->count);
+
 	return true;
 }
 
@@ -416,6 +429,11 @@ const char *lockscreen_event_icon_get(const lockscreen_event_t *event)
 const char *lockscreen_event_sub_icon_get(const lockscreen_event_t *event)
 {
 	return event->icon_sub_path;
+}
+
+int lockscreen_event_count_get(const lockscreen_event_t *event)
+{
+	return event->count;
 }
 
 static void _lockscreen_event_notification_delete(notification_h noti)

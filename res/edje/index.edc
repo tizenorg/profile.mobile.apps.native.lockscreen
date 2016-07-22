@@ -221,7 +221,7 @@ collections {
 				base: "font=Tizen:style=Regular color=#FFFFFFFF color_class=ATO010 font_size=24 text_class=ATO010 align=right";
 			}
 		}
-	   data.item: "texts" "elm.text elm.text.sub elm.text.time";
+	   data.item: "texts" "elm.text elm.text.sub elm.text.time elm.text.count";
 	   data.item: "contents" "elm.swallow.icon elm.swallow.sub.icon";
 
 		images {
@@ -369,6 +369,20 @@ collections {
 				max: -1 54;
 				align: 0.0 0.0;
 				rel1 { to_x: "padding.text.date"; to_y: "padding.top"; relative: 1.0 1.0; }
+				rel2 { to_x: "padding.right"; to_y: "padding.top"; relative: 0.0 1.0; }
+				text.style: "time_style";
+				text.min: 1 1;
+				text.max: 0 1;
+				text.ellipsis: -1;
+			}
+		}
+		textblock { "elm.text.count"; scale;
+			desc { "default";
+				fixed: 0 1;
+				min: 0 41;
+				max: -1 41;
+				align: 1.0 0.0;
+				rel1 { to_x: "padding.text.date"; to_y: "elm.text.time"; relative: 1.0 1.0; }
 				rel2 { to_x: "padding.right"; to_y: "padding.top"; relative: 0.0 1.0; }
 				text.style: "time_style";
 				text.min: 1 1;

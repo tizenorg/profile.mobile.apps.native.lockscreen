@@ -457,6 +457,13 @@ lockscreen_events_view_event_miniature_create(Evas_Object *parent, const lockscr
 	elm_object_part_text_set(ret, NOTI_ITEM_TEXT_TIME, time);
 	free(time);
 
+	int c = lockscreen_event_count_get(event);
+	if (c > 1) {
+		char buf[32];
+		snprintf(buf, sizeof(buf), "%d", c);
+		elm_object_part_text_set(ret, NOTI_ITEM_TEXT_COUNT, buf);
+	}
+
 	evas_object_show(ret);
 	lockscreen_time_format_shutdown();
 	return ret;

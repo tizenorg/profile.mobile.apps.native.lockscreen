@@ -94,6 +94,14 @@ static char *_lockscreen_events_view_ctrl_genlist_noti_text_get(void *data, Evas
 		val = util_time_string_get(lockscreen_event_time_get(event), locale, timezone, use24hformat);
 		return (char*)val;
 	}
+	else if (!strcmp(part, NOTI_ITEM_TEXT_COUNT)) {
+		char buf[32];
+		int c = lockscreen_event_count_get(event);
+		if (c > 1) {
+			snprintf(buf, sizeof(buf), "%d", c);
+			val = buf;
+		}
+	}
 	return val ? strdup(val) : NULL;
 }
 

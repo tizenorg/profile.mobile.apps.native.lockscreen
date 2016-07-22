@@ -124,6 +124,11 @@ lockscreen_event_t *lockscreen_event_copy(const lockscreen_event_t *event);
 void lockscreen_event_free(lockscreen_event_t *event);
 
 /**
+ * @brief Get event count string
+ */
+int lockscreen_event_count_get(const lockscreen_event_t *event);
+
+/**
  * @}
  */
 
