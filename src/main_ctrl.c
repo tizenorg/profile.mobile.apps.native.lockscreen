@@ -57,7 +57,7 @@ static void _lockcscreen_main_ctrl_win_display_freeze(void *data, Evas_Object *o
 
 static void _lockcscreen_main_ctrl_win_display_thaw(void *data, Evas_Object *obj, void *event_info)
 {
-	lockscreen_display_timer_renew();
+	lockscreen_display_timer_renew(false);
 }
 
 int lockscreen_main_ctrl_init(void)

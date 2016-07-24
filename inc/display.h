@@ -62,12 +62,14 @@ void lockscreen_display_timer_freeze(void);
  * @brief
  * Resumes auto disabling device screen after predefined number of seconds.
  *
+ * @param increase Set when time to next display off event should be prelonged.
+ *
  * @note if device display in already in "off" state this function will
  * turn on display and renew timer.
  * @note if lockscreen_data_model_display_timer_freeze function was not called
  * beforehead, this function resets time estimated to turn off display.
  */
-void lockscreen_display_timer_renew(void);
+void lockscreen_display_timer_renew(bool increase);
 
 /**
  * @brief Gets current display status.
