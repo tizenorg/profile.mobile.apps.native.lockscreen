@@ -169,7 +169,7 @@ _lockscreen_device_lock_ctrl_view_del(void *data, Evas *e, Evas_Object *obj, voi
 static void
 _lockscreen_device_lock_pass_view_password_is_typing(void *data, Evas_Object *obj, void *event_info)
 {
-	lockscreen_display_timer_renew();
+	lockscreen_display_timer_renew(true);
 }
 
 static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_view_type type, const lockscreen_event_t *event)
@@ -185,6 +185,7 @@ static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_vi
 	pass_view = lockscreen_password_view_create(type, main_view);
 	evas_object_smart_callback_add(pass_view, SIGNAL_CANCEL_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_cancel_button_clicked, NULL);
 	evas_object_smart_callback_add(pass_view, SIGNAL_ACCEPT_BUTTON_CLICKED, _lockscreen_device_lock_ctrl_pass_view_accept_button_clicked, copy);
+	evas_object_smart_callback_add(pass_view, SIGNAL_PASSWORD_TYPING, _lockscreen_device_lock_pass_view_password_is_typing, NULL);
 	lockscreen_main_view_part_content_set(main_view, PART_PASSWORD, pass_view);
 	if (copy)
 		evas_object_event_callback_add(pass_view, EVAS_CALLBACK_DEL,
@@ -197,7 +198,6 @@ static int _lockscreen_device_lock_ctrl_unlock_panel_show(lockscreen_password_vi
 			break;
 		case LOCKSCREEN_PASSWORD_VIEW_TYPE_PASSWORD:
 			elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_COM_BODY_ENTER_PASSWORD"));
-			evas_object_smart_callback_add(pass_view, SIGNAL_PASSWORD_TYPING, _lockscreen_device_lock_pass_view_password_is_typing, NULL);
 			break;
 		case LOCKSCREEN_PASSWORD_VIEW_TYPE_SWIPE:
 			elm_object_part_text_set(pass_view, PART_TEXT_TITLE, _("IDS_LCKSCN_POP_SWIPE_SCREEN_TO_UNLOCK"));

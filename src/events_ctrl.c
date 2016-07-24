@@ -201,7 +201,7 @@ static void _lockscreen_events_ctrl_events_reload()
 	static Eina_List *events;
 	int i, max;
 
-	lockscreen_display_timer_renew();
+	lockscreen_display_timer_renew(true);
 
 	if (!noti_page) {
 		Evas_Object *events_view = lockscreen_main_view_part_content_get(main_view, PART_EVENTS);

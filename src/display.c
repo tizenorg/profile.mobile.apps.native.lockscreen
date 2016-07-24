@@ -20,7 +20,11 @@
 #include "display.h"
 #include "log.h"
 
-#define LOCK_LCD_OFF_TIMEOUT_TIME 10.0
+#define LOCK_LCD_OFF_TIMEOUT_DEFAULT 10.0
+#define LOCK_LCD_OFF_TIMEOUT_DELTA 10.0
+#define LOCK_LCD_OFF_TIMEOUT_MAX 30.0
+
+#define MIN(x, y) (x) < (y) ? (x) : (y)
 
 static Ecore_Timer *lcd_off_timer;
 int LOCKSCREEN_EVENT_DISPLAY_STATUS_CHANGED;
@@ -39,12 +43,19 @@ static Eina_Bool _time_elapsed(void *data)
 	return ECORE_CALLBACK_CANCEL;
 }
 
-static void _timer_reset(void)
+static void _timer_reset(bool increase)
 {
 	if (lcd_off_timer) {
+		double cur = ecore_timer_interval_get(lcd_off_timer);
+		if (display_off) {
+			cur = LOCK_LCD_OFF_TIMEOUT_DEFAULT;
+		} else {
+			cur = increase ? (MIN((cur + LOCK_LCD_OFF_TIMEOUT_DELTA), LOCK_LCD_OFF_TIMEOUT_MAX)) : cur;
+		}
+		ecore_timer_interval_set(lcd_off_timer, cur);
 		ecore_timer_reset(lcd_off_timer);
 	} else {
-		lcd_off_timer = ecore_timer_add(LOCK_LCD_OFF_TIMEOUT_TIME, _time_elapsed, NULL);
+		lcd_off_timer = ecore_timer_add(LOCK_LCD_OFF_TIMEOUT_DEFAULT, _time_elapsed, NULL);
 	}
 }
 
@@ -59,7 +70,7 @@ static void _display_status_changed(device_callback_e type, void *value, void *u
 		case DISPLAY_STATE_NORMAL:
 		case DISPLAY_STATE_SCREEN_DIM:
 			INF("Display on");
-			_timer_reset();
+			_timer_reset(false);
 			display_off = false;
 		break;
 		case DISPLAY_STATE_SCREEN_OFF:
@@ -99,7 +110,7 @@ int lockscreen_display_init(void)
 				break;
 		}
 
-		_timer_reset();
+		_timer_reset(false);
 	}
 
 	init_count++;
@@ -125,7 +136,7 @@ void lockscreen_display_timer_freeze(void)
 	}
 }
 
-void lockscreen_display_timer_renew(void)
+void lockscreen_display_timer_renew(bool increase)
 {
 	if (display_off) {
 		int ret = device_display_change_state(DISPLAY_STATE_NORMAL);
@@ -134,7 +145,7 @@ void lockscreen_display_timer_renew(void)
 		}
 	}
 	ecore_timer_thaw(lcd_off_timer);
-	_timer_reset();
+	_timer_reset(increase);
 }
 
 bool lockscreen_display_is_off(void)
