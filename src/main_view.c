@@ -284,6 +284,7 @@ static void _layout_unlocked(void *data, Evas_Object *obj, const char *emission,
 	}
 	evas_object_smart_callback_call(data, SIGNAL_UNLOCK_ANIMATION_FINISHED, NULL);
 	elm_object_signal_callback_del(swipe_layout, "unlock,anim,end", "swipe-layout", _layout_unlocked);
+	evas_object_freeze_events_set(swipe_layout, EINA_FALSE);
 }
 
 void lockscreen_main_view_unlock(Evas_Object *view)
@@ -295,6 +296,7 @@ void lockscreen_main_view_unlock(Evas_Object *view)
 	}
 	elm_object_signal_callback_add(swipe_layout, "unlock,anim,end", "swipe-layout", _layout_unlocked, view);
 	elm_object_signal_emit(swipe_layout, "unlock,anim,start", "lockscreen");
+	evas_object_freeze_events_set(swipe_layout, EINA_TRUE);
 }
 
 static int _is_korea_locale(const char *locale)
