@@ -233,6 +233,7 @@ void lockscreen_events_shutdown(void)
 				ERR("notification_unregister_detailed_changed_cb failed: %s", get_error_message(ret));
 			}
 			_unload_notifications(NULL, notifications);
+			notifications = NULL;
 		}
 	}
 }
