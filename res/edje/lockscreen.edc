@@ -101,7 +101,6 @@ collections {
 				source: "lockscreen";
 				action: STATE_SET "shown" 0.0;
 				target: "sw.simlock_layout";
-				transition: DECEL 1.0;
 			}
 			program {
 				name: "simlock,hide";
@@ -116,7 +115,6 @@ collections {
 				source: "lockscreen";
 				action: STATE_SET "hidden" 0.0;
 				target: "sw.swipe_layout";
-				transition: DECEL 1.0;
 			}
 			program {
 				signal: "simlock,hide";

@@ -276,3 +276,6 @@ msgstr "Auto factory reset"
 
 msgid "IDS_ST_NO_ATTEMPTS"
 msgstr "No attempts left"
+
+msgid "IDS_LCKSCN_POP_INCORRECT_PIN_ENTERED_P1SD_ATTEMPTS_LEFT_TRY_AGAIN"
+msgstr "Incorrect PIN entered. %d attempts left. Try again."
